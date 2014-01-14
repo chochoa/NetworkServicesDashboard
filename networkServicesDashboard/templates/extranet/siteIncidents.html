@@ -1,0 +1,17 @@
+{% extends "extranetTemplate.html" %}
+{% block title %}Extranet - Site Connection{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navSiteConnect').attr('class', 'active')
+		})
+	</script>
+{% endblock %}
+{% block level2 %}Site Connection{% endblock %}
+{% block content %}
+	<ul class="nav nav-pills">
+  		<li><a href="../siteConnection">Something</a></li>
+ 		<li class="active"><a href="siteConnection/incidentClassification">Incident Classification</a></li>
+	</ul>
+{% endblock %}

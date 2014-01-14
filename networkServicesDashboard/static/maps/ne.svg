@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 2752.766 1537.631"
+   version="1.0"
+   height="476.7276"
+   width="939.74725"
+   id="svg1926"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docname="BlankMap-World6.svg"
+   sodipodi:docbase="/home/bennett/Desktop"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <sodipodi:namedview
+     inkscape:window-height="590"
+     inkscape:window-width="822"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.77893284"
+     inkscape:cx="469.87363"
+     inkscape:cy="238.3638"
+     inkscape:window-x="178"
+     inkscape:window-y="46"
+     inkscape:current-layer="svg1926" />
+  <metadata
+     id="metadata24111">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:title>Blank World Map</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1930" />
+  <style
+     type="text/css"
+     id="style_css_sheet">
+/*
+ * Below are Cascading Style Sheet (CSS) definitions in use in this file,
+ * which allow easily changing how countries are displayed.
+ *
+ */
+
+/*
+ * Circles around small countries
+ *
+ * Change opacity to 1 to display all circles.
+ *
+ */
+.circle
+{
+   opacity:0;
+   fill:#b9b9b9;
+   fill-opacity:1;
+   stroke:black;
+   stroke-width:0.99986893;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+   stroke-opacity:1;
+}
+
+/*
+ * Land
+ */
+.land
+{
+   fill: #b9b9b9;
+   fill-opacity: 1;
+   stroke: #ffffff;
+   stroke-opacity: 1;
+   stroke-width: 0.99986997;
+   stroke-miterlimit: 3.97446823;
+   stroke-dasharray: none;
+}
+
+/*
+ * Additional style rules
+ *
+ * The following are examples of colouring countries.  You can substitute these with your own styles to colour the countries on the map.
+ *
+ * Color a few countries:
+ *
+ * .gb, .au, .nc
+ * {
+ *    fill:       #ff0000;
+ * }
+ *
+ * Color a few small country circles (and the countries):
+ *
+ * .ms, .ky
+ * {
+ *    opacity:    1;
+ *    fill:       #ff0000;
+ * }
+ *
+ */
+
+/*
+ * Antarctica
+ */
+
+.aq
+{
+   fill:#e6e6e6;
+}
+
+/*
+ * Sea
+ */
+
+.ocean
+{
+   opacity: 1;
+   color: #000000;
+   fill:white;
+   fill-opacity:1;
+   fill-rule:nonzero;
+   stroke:#000000;
+   stroke-width:0.5;
+   stroke-linecap:butt;
+   stroke-linejoin:miter;
+   marker:none;
+   marker-start:none;
+   marker-mid:none;
+   marker-end:none;
+   stroke-miterlimit:1;
+   stroke-dasharray:none;
+   stroke-dashoffset:0;
+   stroke-opacity:1;
+   visibility:visible;
+   display:inline;
+   overflow:visible;
+}
+
+.lake
+{
+   fill:#ffffff;
+   fill-opacity:1;
+   stroke:#ffffff;
+   stroke-opacity:1;
+   stroke-width:0.99986997;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+}
+</style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <path
+     class="land ne"
+     d="M 1272.2199,634.7495 C 1271.1385,633.4976 1272.3658,631.2156 1272.2413,629.7816 C 1273.5352,630.2286 1275.1217,630.1015 1276.4736,630.1165 C 1278.0670,630.1345 1278.4614,629.3265 1279.3933,628.2436 C 1280.5151,626.9396 1281.8419,627.2645 1283.4648,627.1395 C 1285.5331,626.9796 1287.5953,626.7926 1289.6731,626.7515 C 1290.6535,626.7325 1291.6138,626.7325 1292.5893,626.8456 C 1294.5109,627.0675 1292.6950,626.2636 1293.5946,626.0366 C 1295.0309,625.6716 1296.9333,627.5925 1297.5469,625.9656 C 1298.0856,624.5376 1299.7768,624.3396 1300.3356,623.0476 C 1300.9076,621.7225 1300.8769,620.3025 1301.6074,619.0105 C 1303.1335,616.3156 1302.7651,613.3315 1302.8964,610.2515 C 1303.0851,605.8615 1302.9746,601.4646 1302.9107,597.0706 C 1302.8709,594.3396 1303.1076,593.6286 1305.8616,592.9976 C 1308.3005,592.4385 1310.8266,592.3066 1313.2591,591.7175 C 1316.1301,591.0226 1318.0074,588.2446 1320.0361,586.2976 C 1322.9864,583.4686 1325.8124,580.3876 1329.0737,577.8916 C 1335.7308,572.8045 1343.1322,568.1975 1350.2716,563.7446 C 1353.6397,561.6466 1356.8772,559.3496 1360.2505,557.2505 C 1363.4113,555.2855 1367.6345,557.3025 1370.9873,558.1966 C 1373.9165,558.9796 1376.2674,560.8436 1378.2539,563.0226 C 1379.1109,563.9615 1379.3766,564.0055 1380.4376,563.2966 C 1381.9423,562.2926 1383.5577,561.4865 1385.1293,560.5886 C 1385.8390,564.4066 1386.4163,568.1436 1386.6871,572.0095 C 1386.7951,573.5466 1387.7065,574.6055 1388.5056,575.8586 C 1388.9614,576.5735 1389.3760,577.3225 1389.6819,578.1136 C 1389.9699,578.8546 1389.1344,579.4546 1389.7792,580.1875 C 1390.6094,581.1305 1392.0102,581.9335 1392.3525,583.2085 C 1392.7712,584.7686 1390.9482,586.3795 1390.7860,587.9406 C 1390.3030,592.5965 1389.5092,597.2365 1389.4742,601.9235 C 1389.4600,603.9435 1389.2368,605.9546 1389.1628,607.9725 C 1389.1038,609.5956 1389.3148,611.5796 1388.7548,613.1355 C 1388.2715,614.4765 1386.9088,615.6196 1386.0258,616.7146 C 1384.5943,618.4905 1383.0378,620.1626 1381.5880,621.9226 C 1379.2084,624.8166 1377.1857,628.1315 1375.8562,631.6065 C 1375.5363,632.4446 1375.1540,633.2605 1374.5724,633.9585 C 1374.2943,634.2916 1373.7183,634.1985 1373.5076,634.6046 C 1372.8473,635.8745 1374.4132,639.4736 1374.6129,640.8715 C 1373.9180,640.8715 1373.0253,640.6975 1372.3994,641.1015 C 1371.7352,641.5305 1371.8443,641.9915 1371.0888,642.3216 C 1369.4065,643.0556 1368.1885,643.7336 1366.9102,645.0646 C 1364.9443,647.1146 1363.7794,646.2225 1361.4002,645.2626 C 1358.6148,644.1395 1356.1103,643.9896 1353.1339,643.9116 C 1350.5888,643.8456 1348.3933,644.3066 1346.4569,646.0426 C 1345.7977,646.6336 1345.3140,647.3116 1344.8122,648.0276 C 1343.9459,649.2666 1343.4225,648.4796 1342.1698,648.5936 C 1339.2372,648.8605 1337.9767,647.3895 1335.5258,646.4185 C 1333.7331,645.7075 1331.6794,643.2035 1329.5217,644.3365 C 1328.7059,644.7645 1328.0905,645.4746 1327.2952,645.9335 C 1326.6831,646.2866 1325.7148,645.7536 1325.4412,646.3425 C 1324.3152,648.7636 1322.3363,645.7636 1321.8723,644.7555 C 1320.7773,642.3786 1319.1037,641.4686 1316.6688,641.0335 C 1315.2827,640.7866 1314.2316,639.6255 1312.8164,639.4976 C 1311.5626,639.3836 1311.0711,640.6726 1309.7373,640.6455 C 1307.3298,640.5986 1305.1294,640.3986 1303.3820,642.3815 C 1302.8077,643.0326 1302.2034,643.3505 1302.1289,644.2446 C 1302.0054,645.7265 1301.9672,646.9725 1301.0805,648.2206 C 1299.8852,649.9055 1298.4200,651.0186 1298.5166,653.2576 C 1298.5376,653.7286 1298.3076,658.5095 1298.0127,658.3456 C 1296.5782,657.5445 1293.4626,652.1445 1291.9649,652.3256 C 1291.4938,652.3826 1291.3025,652.9525 1290.8866,653.1105 C 1290.3341,653.3206 1289.0961,653.1666 1288.7286,653.7296 C 1288.5395,654.0186 1289.3910,656.4116 1288.8220,656.3936 C 1288.3125,656.3776 1287.1262,654.2486 1286.8824,653.8565 C 1286.0878,652.5775 1286.6932,652.3146 1287.7648,651.8876 C 1287.4158,651.1756 1287.3407,650.1856 1286.6616,649.6716 C 1285.4339,648.7446 1284.6966,650.6745 1283.4292,650.4525 C 1281.0699,650.0385 1277.1925,646.3456 1278.2647,643.8955 C 1278.9284,644.3705 1279.5759,644.3886 1280.2929,644.0406 C 1279.9385,643.7465 1275.3337,640.5616 1275.1852,640.8696 C 1275.5129,640.1925 1273.8069,638.9226 1273.5778,638.1656 C 1273.1860,636.8636 1273.4794,635.6526 1272.2199,634.7495"
+     id="ne" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</svg>

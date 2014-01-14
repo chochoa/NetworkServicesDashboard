@@ -1,0 +1,27 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Sites - {{printRouter}}{% endblock %}
+{% block head %}
+	{{super()}}
+{% endblock %}
+{% block level2 %}{{printRouter}}{% endblock %}
+{% block content %}
+
+<h1>World - {{printRegion}} - {{printCountryName}} - {{printSite}} - {{printRouter}}</h1>
+
+<ol class="breadcrumb">
+  <li><a href="world">World</a></li>
+  <li><a href="region?r={{printRegion}}">{{printRegion}}</a></li>
+  <li><a href="country?c={{printCountry}}">{{printCountryName}}</a></li>
+  <li><a href="site?s={{printSite}}">{{printSite}}</a></li>
+  <li class="active">{{printRouter}}</li>
+  <li><a href="listing">All Sites</a></li>
+</ol>
+
+{{printArea | safe}}
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#navCorpRemote').attr('class', 'active');
+	});
+</script>
+{% endblock %}

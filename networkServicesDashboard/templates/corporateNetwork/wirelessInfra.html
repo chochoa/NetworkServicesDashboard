@@ -1,0 +1,40 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - Wireless{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navWireless').attr('class', 'active')
+		})
+	</script>
+{% endblock %}
+{% block level2 %}Wireless{% endblock %}
+{% block content %}
+	<br />
+
+	<ul class="nav nav-pills">
+  		<li><a href="../wireless">Incidents</a></li>
+  		<li class="active"><a href="infra">Infrastructure</a></li>
+ 		<li><a href="status">Service Status</a></li>
+ 		<li><a href="incidentClassification">Incident Classification</a></li>
+	</ul>
+
+	<h3>Infrastructure</h3>
+
+	<table class="table-hover table-bordered" id="infraTable">
+		<thead>
+			<th>Item</th>
+			<th>Value</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Currently Connected APs</td>
+				<td>{{apCount}}</td>
+			</tr>
+			<tr>
+				<td>Currently Connected Controllers</td>
+				<td>{{controllerCount}}</td>
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}

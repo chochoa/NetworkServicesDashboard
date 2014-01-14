@@ -1,0 +1,63 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Remote - Incident Classification{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navCorpRemote').attr('class', 'active');
+		})
+	</script>
+{% endblock %}
+{% block level2 %}Corporate Remote Office{% endblock %}
+{% block content %}
+	<br />
+
+	<ul class="nav nav-pills">
+  		<li><a href="../remoteOffice">Incidents</a></li>
+  		<li><a href="sites/listing">Site Info</a></li>
+  		<li class="active"><a href="remoteIncidents">Incident Classification</a></li>
+	</ul>
+
+	<br />
+
+	<div id="incidents">
+		<img src="/static/remoteIncidents.jpg">
+	</div>
+
+{% endblock %}
+
+<!--
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+			<li class="dropdown-submenu">
+				<a tabindex="-1" href-"#">Date Selection</a>
+				<ul class="dropdown-menu">
+					<li class="dropdown-submenu">
+						<a tabindex="-1" href="#">FY14</a>
+						<ul class="dropdown-menu">
+							<li><a tabindex="-1" href="#">Q1</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown-submenu">
+						<a tabindex="-1" href="#">FY13</a>
+						<ul class="dropdown-menu">
+							<li><a tabindex="-1" href="#">Q4</a></li>
+							<li><a href="#">Q3</a></li>
+							<li><a href="#">Q2</a></li>
+							<li><a href="#">Q1</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown-submenu">
+						<a tabindex="-1" href="#">FY12</a>
+						<ul class="dropdown-menu">
+							<li><a tabindex="-1" href="#">Q4</a></li>
+							<li><a href="#">Q3</a></li>
+							<li><a href="#">Q2</a></li>
+							<li><a href="#">Q1</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+-->

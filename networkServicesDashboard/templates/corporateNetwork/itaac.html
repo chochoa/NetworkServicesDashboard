@@ -1,0 +1,27 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - ITaaC{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navITAAC').attr('class', 'active')
+		})
+	</script>
+{% endblock %}
+{% block level2 %}ITaaC{% endblock %}
+{% block content %}
+	<div id="outages">
+		<h3>Current Incidents</h3>
+		<table class="table-bordered table-striped" id="outages">
+			<thead>
+				<th>Incident Number</th>
+				<th>Priority</th>
+				<th>Description</th>
+				<th>Start Date/Time</th>
+			</thead>
+			<tbody>
+				{{itaacIncidents|safe}}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

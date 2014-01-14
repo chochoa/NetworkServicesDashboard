@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block title %}DC Networking{% endblock %}
+{% block head %}
+	{{super()}}
+  	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+	<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../static/js/Chart.js"></script>
+	<script type="text/javascript" src="../static/js/chartSetup.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+{% endblock %}
+{% block content %}
+	<h2>DC Networking</h2>
+
+	<ul class="nav nav-tabs">
+		<li><a href="">Data Centre Listing</a></li>
+	</ul>
+{% endblock %} 

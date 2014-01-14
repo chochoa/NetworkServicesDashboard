@@ -1,0 +1,17 @@
+{% extends "extranetTemplate.html" %}
+{% block title %}Extranet - VPN{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navVPN').attr('class', 'active')
+		})
+	</script>
+{% endblock %}
+{% block level2 %}SW VPN Client{% endblock %}
+{% block content %}
+	<ul class="nav nav-pills">
+  		<li><a href="../vpn">Something</a></li>
+ 		<li class="active"><a href="incidentClassification">Incident Classification</a></li>
+	</ul>
+{% endblock %} 

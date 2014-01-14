@@ -1,0 +1,30 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Sites - All{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
+{% endblock %}
+{% block level2 %}Full Site Listing{% endblock %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li><a href="world">World</a></li>
+  <li class="active">All Sites</li>
+</ol>
+
+{{printArea | safe}}
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#navCorpRemote').attr('class', 'active');
+		$('#dataTable').dataTable({
+			"bPaginate":false
+		});
+		var x = $('#dataTable_filter');
+		x.addClass('input-group');
+		var z = x.children(":first").children("input")
+		z.addClass('form-control').attr('placeholder','Search').unwrap();
+		x.contents().filter(function(){ return this.nodeType != 1; }).remove();
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,234 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navDMZ').attr('class', 'active');
+			$("#targetDate").datepicker();
+			$("#goLiveDate").datepicker();
+		});
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS - Add Client{% endblock %}
+{% block content %}
+
+<h3>Add New DMZaaS Client</h3>
+
+<form method="POST" action="/corporateNetwork/dmz/addingClient">
+	<div class="form-group">
+		<label for="clientId" class="col-sm-2 control-label">Client ID</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" id="clientId" name="clientid" disabled value="{{clientId}}">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="labId" class="col-sm-2 control-label">Lab ID</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" name="labid" id="labId" placeholder="Lab ID">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="labName" class="col-sm-2 control-label">Lab Name</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="labName" name="labname" placeholder="Lab Name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="subscriber" class="col-sm-2 control-label">Subscriber</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="subscriber" name="subscriber" placeholder="Subscriber">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="teamName" class="col-sm-2 control-label">Team Name</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="teamName" name="teamname" placeholder="Team Name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="primaryContact" class="col-sm-2 control-label">Primary Contact/Business</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="primaryContact" name="primarycontact" placeholder="Full Name + (CEC ID)">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="otherContact" class="col-sm-2 control-label">Other Contact/Technical</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="otherContact" name="othercontact" placeholder="Full Name + (CEC ID)">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="activity" class="col-sm-2 control-label">Type of Business/Service/Activity Conducted</label>
+		<div class="col-sm-10">
+			<textarea id="activity" class="form-control" name="activity" rows="3"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="targetDate" class="col-sm-2 control-label">Target Date</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="targetDate" name="targetdate" placeholder="YYYY-MM-DD">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="goLiveDate" class="col-sm-2 control-label">Go-live Date</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="goLiveDate" name="golivedate" placeholder="YYYY-MM-DD">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="location" class="col-sm-2 control-label">Location</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="location" name="location" placeholder="e.g SJC12">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="labStatus" class="col-sm-2 control-label">Lab Status (InfoSec)</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="labStatus" name="labstatus">
+				<option>Compliant</option>
+				<option>Non-compliant</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="servicegateways1" class="col-sm-2 control-label" >Service Gateways</label>
+			<div class="col-sm-10">
+				<select class="form-control" id="servicegateway1" name="servicegateway1">
+					<option>rtp5-dmzaas-gw1</option>
+					<option>rtp10-dmzaas-gw1</option>
+				</select>
+				<br />
+				<select class="form-control" id="servicegateway2" name="servicegateway2">
+					<option>alln01-mda1-dmzaas-gw1</option>
+					<option>alln01-mda1-dmzaas-gw2</option>
+				</select>
+			</div>
+	</div>
+
+	<div class="form-group">
+		<label for="connectionOwner" class="col-sm-2 control-label">Client Connection Owner</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="connectionOwner" name="connectionowner" placeholder="Full Name (CEC ID)">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Estimated Maximum Bandwidth</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="maxBandwidth" name="maxbandwidth" >
+				<option>10MB</option>
+				<option>50MB</option>
+				<option>100MB</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="crossCharge" class="col-sm-2 control-label">Monthly Service Cross Charge</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="crossCharge" name="crosscharge">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="vapApproval" class="col-sm-2 control-label">VAP Tool Approval</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="vapApproval" name="vapapproval" placeholder="">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="departmentId" class="col-sm-2 control-label">Bill To Department</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="departmentId" name="departmentid" placeholder="Department ID">
+			<br />
+			<input type="text" class="form-control" id="departmentName" name="departmentname" placeholder="Department Name">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="gisServices" class="col-sm-2 control-label">Other GIS Services</label>
+		<div class="col-sm-10">
+			<textarea id="gisServices" class="form-control" name="otherservices" rows="3"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="plans" class="col-sm-2 control-label">Plans</label>
+		<div class="col-sm-10">
+			<textarea id="plans" class="form-control" name="plans" rows="3"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="comments" class="col-sm-2 control-label">Comments</label>
+		<div class="col-sm-10">
+			<textarea id="comments" class="form-control" name="comments" rows="3"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="case" class="col-sm-2 control-label">Remedy Case</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="case" name="case" placeholder="INC############">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="securityInfo" class="col-sm-2 control-label">Security Info Provided?</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="securityinfo" id="securityinfo">
+				<option>No</option>
+				<option>Yes</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Security Review</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="securityreview" id="securityreview">
+				<option>Not Started </option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Implementation</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="implementation" name="implementation">
+				<option>Not Started</option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group" id="last">
+		<label for="inService" class="col-sm-2 control-label">In Service?</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="inservice" name="inservice">
+				<option>No</option>
+				<option>Yes</option>
+			</select>
+		</div>
+	</div>
+
+	<input class="form-control" type="submit" value="Add Client">
+</form>
+{% endblock %}

@@ -1,0 +1,364 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//NavBar
+			$('#navDMZ').attr('class', 'active');
+
+			//Mark select boxes with correct values
+			if ({{clientArray.securityinfo}} == "Yes") {
+				$("#securityInfoYes").attr("selected","True");
+			}
+			else {
+				$("securityInfoNo").attr("selected", "True");
+			}
+
+			if ({{clientArray.securityreview}} == "Not Started") {
+				$("#securityReviewNotStarted").attr("selected", "True");
+			}
+		 	else if ({{clientArray.securityreview}} == "In Progress") {
+				$("#securityReviewInProgress").attr("selected", "True");
+		 	}
+			else {
+				$("#securityReviewCompleted").attr("selected", "True");
+			}
+
+			if ({{clientArray.implementation}} == "Not Started") {
+				$("#securityReviewNotStarted").attr("selected", "True");
+			}
+		 	else if ({{clientArray.implementation}} == "In Progress") {
+				$("#implementationInProgress").attr("selected", "True");
+		 	}
+			else {
+				$("#implementationCompleted").attr("selected", "True");
+			}
+
+			if ({{clientArray.inservice}} == 1) {
+				$("#inServiceYes").attr("selected", "True");
+			}
+			else {
+				$("#inServiceNo").attr("selected", "True");
+			}
+
+			//Links in form
+			var regExp = /\(([^)]+)\)/;
+			var primaryContact = $('#primaryContact').val()
+			var otherContact = $('#otherContact').val()
+			var clientConnectionOwner = $('#connectionOwner').val()
+			primaryContact = regExp.exec(primaryContact);
+			otherContact = regExp.exec(otherContact);
+			clientConnectionOwner = regExp.exec(clientConnectionOwner);
+			$("#clickLabId").click(function() {
+				window.open('http://eman-core.cisco.com/infosec/labreg/view.pcgi?lab_id={{clientArray.labid}}');
+			});
+			$("#clickCase").click(function() {
+				window.open('http://case/{{clientArray.case}}');
+			});
+			$("#clickPrimaryContact").click(function() {
+				window.open('http://dir/' + primaryContact[1]);
+			});
+			$("#clickOtherContact").click(function() {
+				window.open('http://dir/' + otherContact[1]);
+			});
+			$("#clickConnectionOwner").click(function() {
+				window.open('http://dir/' + clientConnectionOwner[1]);
+			});
+
+			//Enable edit functionality
+			$("#editClient").click(function() {
+				$("#detailsForm :input").prop("disabled", false);
+				$("#clientId").prop("disabled", true);
+				$("#clickLabId").remove();
+				$("#clickCase").remove();
+				$("#clickPrimaryContact").remove();
+				$("#clickOtherContact").remove();
+				$("#clickConnectionOwner").remove();
+				$("#last").append("<input type='submit' class='btn btn-success form-control'><br /><br />");
+				$("#last").append("<form method='POST' action='/corporateNetwork/dmz/deleteClient' id='deleteForm' onsubmit='return confirm(&quot;Do you really want to delete this client?&quot;);'><input type='hidden' name='clientId' value='{{clientArray.engagementid}}'><input type='submit' class='btn btn-danger pull-right' value='Delete'></form>");
+				$("#last").append("<form method='POST' action='/corporateNetwork/dmz/withdrawClient' id='withdrawForm' onsubmit='return confirm(&quot;Do you really want to withdraw this client?&quot;);'><input type='hidden' name='clientId' value='{{clientArray.engagementid}}'><input type='submit' class='btn btn-warning pull-left' value='Withdraw'></form>");
+			});
+		});
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+	<h2>{{clientArray.subscriber}}</h2>
+
+	<ul class="nav nav-pills">
+  		<li><a href="../dmz">In Progress</a></li>
+  		<li><a href="inService">In Service</a></li>
+ 		<li><a href="withdrawn">Withdrawn</a></li>
+ 		<li class="active"><a>{{clientArray.subscriber}}</a></li>
+ 		<li class="pull-right"><a href="addClient">Add New Client</a></li>
+ 		<li class = "pull-right"><button type="button" class="btn btn-warning" id="editClient">Edit Client</button></li>
+	</ul>
+
+	<div>
+		<h3>Status: {{currentStatus}}</h3>
+
+		{{progress | safe}}
+		<span id='engagementLabel'>Inital Engagement</span>
+		<span id='reviewLabel'>Security Review</span>
+		<span id='securityLabel'>Implementation</span>
+		<span id='serviceLabel'>In Service</span>
+
+		<h4>Latest Note:<a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#newNote">New Note</a></h4>
+
+		<br />
+
+		<div class="collapse well" id="newNote">
+			<h4>New Note</h4>
+			<form name="newNote" action="/corporateNetwork/dmz/newNote" method="POST">
+				<input type="hidden" name="clientId" value="{{clientArray.engagementid}}"/>
+				<textarea name="noteContent" class="form-control" rows="4"></textarea><br />
+				<input type="submit" class="btn btn-default pull-right"></input>
+			</form>
+			<br /><br />
+		</div>
+
+		<div class="well">
+			<h4>{{lastDate}}</h4>
+			<p>{{lastContent}}</p>
+		</div>
+
+		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+  			<li id="detailsTab" class="active"><a href="#details" data-toggle="tab">Details</a></li>
+  			<li id="notesTab"><a href="#notes" data-toggle="tab">Notes</a></li>
+		</ul>
+
+		<br />
+
+		<div class="tab-content">
+  			<div class="tab-pane fade in active" id="details">
+  				<form id="detailsForm" class="form-horizontal" role="form" action="/corporateNetwork/dmz/editClient" method="post" onsubmit='return confirm(&quot;Do you really want to save these changes?&quot;);'>
+					<div class="form-group">
+						<label for="clientId" class="col-sm-2 control-label">Client ID</label>
+						<div class="col-sm-10">
+							<input type="hidden" class="form-control" id="clientIdHidden" name="clientidhidden" value="{{clientArray.engagementid}}">
+							<input type="number" class="form-control" id="clientId" name="clientid" disabled value="{{clientArray.engagementid}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="labId" class="col-sm-2 control-label">Lab ID</label>
+						<div class="col-sm-10">
+							<input type="number" class="form-control" name="labid" id="labId" placeholder="Lab ID" disabled value="{{clientArray.labid}}">
+							<div id="clickLabId" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="labName" class="col-sm-2 control-label">Lab Name</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="labName" name="labname" placeholder="Lab Name" disabled value="{{clientArray.labname}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="subscriber" class="col-sm-2 control-label">Subscriber</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriber" name="subscriber" placeholder="Subscriber" disabled value="{{clientArray.subscriber}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="teamName" class="col-sm-2 control-label">Team Name</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="teamName" name="teamname" placeholder="Team Name" disabled value="{{clientArray.teamname}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="primaryContact" class="col-sm-2 control-label">Primary Contact/Business</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="primaryContact" name="primarycontact" placeholder="Full Name + (CEC ID)" disabled value="{{clientArray.primarycontact}}">
+							<div id="clickPrimaryContact" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="otherContact" class="col-sm-2 control-label">Other Contact/Technical</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="otherContact" name="othercontact" placeholder="Full Name + (CEC ID)" disabled value="{{clientArray.othercontact}}">
+							<div id="clickOtherContact" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="activity" class="col-sm-2 control-label">Type of Business/Service/Activity Conducted</label>
+						<div class="col-sm-10">
+							<textarea id="activity" class="form-control" name="activity" rows="3" disabled>{{clientArray.activityconducted}}"</textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="targetDate" class="col-sm-2 control-label">Target Date</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="targetDate" name="targetdate" disabled placeholder="YYYY-MM-DD" value="{{clientArray.targetdate}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="goLiveDate" class="col-sm-2 control-label">Go-live Date</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="goLiveDate" name="golivedate" disabled placeholder="YYYY-MM-DD" value="{{clientArray.golivedate}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="location" class="col-sm-2 control-label">Location</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="location" name="location" disabled placeholder="e.g SJC12" value="{{clientArray.location}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="labStatus" class="col-sm-2 control-label">Lab Status (InfoSec)</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="labStatus" name="labstatus" disabled>
+								<option>Compliant</option>
+								<option>Non-compliant</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="servicegateways1" class="col-sm-2 control-label" >Service Gateways</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="servicegateway1" name="servicegateway1" disabled>
+								<option>rtp5-dmzaas-gw1</option>
+								<option>rtp10-dmzaas-gw1</option>
+							</select>
+							<br />
+							<select class="form-control" id="servicegateway2" name="servicegateway2" disabled>
+								<option>alln01-mda1-dmzaas-gw1</option>
+								<option>alln01-mda1-dmzaas-gw2</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="connectionOwner" class="col-sm-2 control-label">Client Connection Owner</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="connectionOwner" name="connectionowner" disabled placeholder="Full Name (CEC ID)" value="{{clientArray.connectionowner}}">
+							<div id="clickConnectionOwner" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="maxBandwidth" class="col-sm-2 control-label">Estimated Maximum Bandwidth</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="maxBandwidth" name="maxbandwidth" disabled>
+								<option>10MB</option>
+								<option>50MB</option>
+								<option>100MB</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="crossCharge" class="col-sm-2 control-label">Monthly Service Cross Charge</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="crossCharge" name="crosscharge" disabled value="{{clientArray.crosscharge}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="vapApproval" class="col-sm-2 control-label">VAP Tool Approval</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="vapApproval" name="vapapproval" disabled placeholder="">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="departmentId" class="col-sm-2 control-label">Bill To Department</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="departmentId" name="departmentid" disabled placeholder="Department ID" value="{{clientArray.billtoid}}">
+							<br />
+							<input type="text" class="form-control" id="departmentName" name="departmentname" disabled placeholder="Department Name" value="{{clientArray.billtoname}}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="gisServices" class="col-sm-2 control-label">Other GIS Services</label>
+						<div class="col-sm-10">
+							<textarea id="gisServices" class="form-control" name="otherservices" rows="3" disabled>{{clientArray.otherservices}}</textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="plans" class="col-sm-2 control-label">Plans</label>
+						<div class="col-sm-10">
+							<textarea id="plans" class="form-control" name="plans" rows="3" disabled>{{clientArray.plans}}</textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="comments" class="col-sm-2 control-label">Comments</label>
+						<div class="col-sm-10">
+							<textarea id="comments" class="form-control" name="comments" rows="3" disabled>{{clientArray.comments}}</textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="case" class="col-sm-2 control-label">Remedy Case</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="case" name="case" disabled placeholder="INC############" value="{{clientArray.case}}">
+							<div id="clickCase" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="securityInfo" class="col-sm-2 control-label">Security Info Provided?</label>
+						<div class="col-sm-10">
+							<select class="form-control" name="securityinfo" id="securityinfo" disabled>
+								<option id="securityInfoNo">No</option>
+								<option id="securityInfoYes">Yes</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="maxBandwidth" class="col-sm-2 control-label">Security Review</label>
+						<div class="col-sm-10">
+							<select class="form-control" name="securityreview" id="securityreview" disabled>
+								<option id="securityReviewNotStarted">Not Started </option>
+								<option id="securityReviewInProgress">In Progress</option>
+								<option id="securityReviewCompleted">Completed</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="maxBandwidth" class="col-sm-2 control-label">Implementation</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="implementation" name="implementation" disabled>
+								<option id="implementationNotStarted">Not Started</option>
+								<option id="implemenationInProgress">In Progress</option>
+								<option id="implementationCompleted">Completed</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group" id="last">
+						<label for="inService" class="col-sm-2 control-label">In Service?</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="inservice" name="inservice" disabled>
+								<option id="inServiceNo">No</option>
+								<option id="inServiceYes">Yes</option>
+							</select>
+						</div>
+					</div>
+
+					<input type="hidden" name="status" value="{{currentStatus}}">
+				</form>
+  			</div>
+
+  			<div class="tab-pane fade" id="notes">
+  				{{printNotes | safe}}
+  			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 2752.766 1537.631"
+   version="1.0"
+   height="476.7276"
+   width="939.74725"
+   id="svg1926"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docname="BlankMap-World6.svg"
+   sodipodi:docbase="/home/bennett/Desktop"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <sodipodi:namedview
+     inkscape:window-height="590"
+     inkscape:window-width="822"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.77893284"
+     inkscape:cx="469.87363"
+     inkscape:cy="238.3638"
+     inkscape:window-x="178"
+     inkscape:window-y="46"
+     inkscape:current-layer="svg1926" />
+  <metadata
+     id="metadata24111">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:title>Blank World Map</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1930" />
+  <style
+     type="text/css"
+     id="style_css_sheet">
+/*
+ * Below are Cascading Style Sheet (CSS) definitions in use in this file,
+ * which allow easily changing how countries are displayed.
+ *
+ */
+
+/*
+ * Circles around small countries
+ *
+ * Change opacity to 1 to display all circles.
+ *
+ */
+.circle
+{
+   opacity:0;
+   fill:#b9b9b9;
+   fill-opacity:1;
+   stroke:black;
+   stroke-width:0.99986893;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+   stroke-opacity:1;
+}
+
+/*
+ * Land
+ */
+.land
+{
+   fill: #b9b9b9;
+   fill-opacity: 1;
+   stroke: #ffffff;
+   stroke-opacity: 1;
+   stroke-width: 0.99986997;
+   stroke-miterlimit: 3.97446823;
+   stroke-dasharray: none;
+}
+
+/*
+ * Additional style rules
+ *
+ * The following are examples of colouring countries.  You can substitute these with your own styles to colour the countries on the map.
+ *
+ * Color a few countries:
+ *
+ * .gb, .au, .nc
+ * {
+ *    fill:       #ff0000;
+ * }
+ *
+ * Color a few small country circles (and the countries):
+ *
+ * .ms, .ky
+ * {
+ *    opacity:    1;
+ *    fill:       #ff0000;
+ * }
+ *
+ */
+
+/*
+ * Antarctica
+ */
+
+.aq
+{
+   fill:#e6e6e6;
+}
+
+/*
+ * Sea
+ */
+
+.ocean
+{
+   opacity: 1;
+   color: #000000;
+   fill:white;
+   fill-opacity:1;
+   fill-rule:nonzero;
+   stroke:#000000;
+   stroke-width:0.5;
+   stroke-linecap:butt;
+   stroke-linejoin:miter;
+   marker:none;
+   marker-start:none;
+   marker-mid:none;
+   marker-end:none;
+   stroke-miterlimit:1;
+   stroke-dasharray:none;
+   stroke-dashoffset:0;
+   stroke-opacity:1;
+   visibility:visible;
+   display:inline;
+   overflow:visible;
+}
+
+.lake
+{
+   fill:#ffffff;
+   fill-opacity:1;
+   stroke:#ffffff;
+   stroke-opacity:1;
+   stroke-width:0.99986997;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+}
+</style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <path
+     class="land ro"
+     d="M 1425.3378,361.3655 C 1426.2462,360.8295 1426.9170,360.8745 1427.7908,361.0786 C 1428.6412,361.2765 1428.7527,360.2856 1429.4606,360.0695 C 1430.2386,359.8326 1431.0561,360.0045 1431.8353,359.7905 C 1432.9649,359.4805 1432.8242,358.2856 1433.3941,357.5455 C 1433.9363,356.8415 1434.6468,356.2505 1435.2496,355.5876 C 1436.0266,354.7346 1435.9841,353.9715 1436.6801,353.2006 C 1437.2940,352.5206 1438.0120,351.7218 1438.3770,350.9085 C 1438.8018,349.9627 1438.4059,349.5226 1439.1935,349.1646 C 1439.9698,348.8116 1440.2081,348.5725 1440.7693,347.9855 C 1441.6497,347.0675 1443.0965,347.7215 1444.1262,346.9986 C 1444.9777,346.4015 1445.6062,345.5636 1446.5383,345.0496 C 1447.8284,344.3376 1449.1498,345.2375 1450.4010,345.3825 C 1451.5923,345.5206 1452.7626,345.7425 1453.9592,345.8505 C 1455.3845,345.9796 1457.2531,345.4205 1458.4857,346.1565 C 1460.8221,347.5505 1460.9791,348.3915 1463.4212,346.4735 C 1464.9635,345.2726 1467.8810,345.8836 1469.7164,345.6166 C 1470.9251,345.4405 1470.9048,344.7856 1471.6533,344.1225 C 1472.4601,343.4085 1473.8837,343.3275 1474.8823,343.4285 C 1477.1192,343.6535 1478.0644,345.6685 1478.8497,347.2455 C 1479.7308,348.9936 1481.0589,350.5176 1482.5238,351.8705 C 1484.6571,353.8485 1485.5891,355.3066 1486.2509,358.0256 C 1486.4929,359.0206 1485.7229,360.0295 1485.3778,360.9696 C 1484.9818,362.0505 1485.4033,363.1986 1485.3845,364.2896 C 1485.3551,366.1026 1485.7808,366.8406 1487.2810,367.8496 C 1487.8564,368.2366 1490.3688,369.9285 1490.4827,368.2065 C 1492.3985,368.9076 1496.4194,365.2575 1497.1974,368.3136 C 1498.0542,371.6916 1495.5474,373.0555 1491.9975,373.0295 C 1492.4646,372.7156 1493.0359,370.8206 1492.1077,370.8485 C 1491.0004,370.8825 1491.3570,373.1676 1490.4852,373.7495 C 1491.0246,373.6386 1491.5666,373.5666 1492.1103,373.5335 C 1491.2691,373.8496 1489.8169,373.9466 1490.6903,374.9006 C 1491.0002,374.6785 1491.2920,374.4386 1491.5658,374.1805 C 1491.1046,375.3195 1489.6859,375.9445 1489.3394,377.1325 C 1488.9708,378.3995 1489.9073,380.1726 1488.8691,381.3555 C 1488.2666,382.0435 1486.1130,381.2776 1485.5564,381.0476 C 1484.7728,380.7235 1484.3354,380.2355 1483.9479,379.5516 C 1483.7047,379.1225 1483.3616,379.7505 1483.0163,379.6526 C 1480.3278,378.8845 1478.1885,377.8986 1475.2431,378.4235 C 1473.4953,378.7355 1471.5440,378.8625 1469.9965,379.8265 C 1468.4838,380.7706 1467.4064,382.1085 1465.4994,382.3485 C 1463.6400,382.5826 1461.8893,381.9475 1460.0831,381.8136 C 1459.3334,381.7575 1458.6142,381.4456 1457.8426,381.5226 C 1456.7954,381.6275 1456.1978,382.1456 1455.0866,381.9115 C 1453.1499,381.5036 1451.3027,380.6975 1449.2643,380.6255 C 1448.2284,380.5885 1445.8116,381.6146 1445.1747,380.5906 C 1444.2213,379.0625 1447.8121,379.1066 1444.6633,377.7846 C 1443.6886,377.3755 1442.6782,376.6685 1442.3670,375.6875 C 1442.0808,374.7896 1443.9176,374.8496 1444.4692,374.6146 C 1443.9117,373.9506 1442.5709,373.2955 1441.5774,373.6055 C 1440.8948,373.8186 1440.3417,375.3016 1439.5542,375.1465 C 1438.7643,374.9916 1437.9743,373.8046 1436.9687,373.5405 C 1435.8774,373.2536 1434.5883,373.0926 1433.7919,372.3096 C 1434.7381,372.0666 1435.0214,370.9966 1433.8808,370.8705 C 1435.0063,369.9696 1434.7495,369.3415 1433.5068,368.9445 C 1431.8313,368.4096 1430.3100,367.5125 1428.8871,366.6225 C 1430.3460,364.2846 1426.7634,362.8675 1425.3378,361.3655"
+     id="ro" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</svg>

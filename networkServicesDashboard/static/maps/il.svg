@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 2752.766 1537.631"
+   version="1.0"
+   height="476.7276"
+   width="939.74725"
+   id="svg1926"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docname="BlankMap-World6.svg"
+   sodipodi:docbase="/home/bennett/Desktop"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <sodipodi:namedview
+     inkscape:window-height="590"
+     inkscape:window-width="822"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.77893284"
+     inkscape:cx="469.87363"
+     inkscape:cy="238.3638"
+     inkscape:window-x="178"
+     inkscape:window-y="46"
+     inkscape:current-layer="svg1926" />
+  <metadata
+     id="metadata24111">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:title>Blank World Map</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1930" />
+  <style
+     type="text/css"
+     id="style_css_sheet">
+/*
+ * Below are Cascading Style Sheet (CSS) definitions in use in this file,
+ * which allow easily changing how countries are displayed.
+ *
+ */
+
+/*
+ * Circles around small countries
+ *
+ * Change opacity to 1 to display all circles.
+ *
+ */
+.circle
+{
+   opacity:0;
+   fill:#b9b9b9;
+   fill-opacity:1;
+   stroke:black;
+   stroke-width:0.99986893;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+   stroke-opacity:1;
+}
+
+/*
+ * Land
+ */
+.land
+{
+   fill: #b9b9b9;
+   fill-opacity: 1;
+   stroke: #ffffff;
+   stroke-opacity: 1;
+   stroke-width: 0.99986997;
+   stroke-miterlimit: 3.97446823;
+   stroke-dasharray: none;
+}
+
+/*
+ * Additional style rules
+ *
+ * The following are examples of colouring countries.  You can substitute these with your own styles to colour the countries on the map.
+ *
+ * Color a few countries:
+ *
+ * .gb, .au, .nc
+ * {
+ *    fill:       #ff0000;
+ * }
+ *
+ * Color a few small country circles (and the countries):
+ *
+ * .ms, .ky
+ * {
+ *    opacity:    1;
+ *    fill:       #ff0000;
+ * }
+ *
+ */
+
+/*
+ * Antarctica
+ */
+
+.aq
+{
+   fill:#e6e6e6;
+}
+
+/*
+ * Sea
+ */
+
+.ocean
+{
+   opacity: 1;
+   color: #000000;
+   fill:white;
+   fill-opacity:1;
+   fill-rule:nonzero;
+   stroke:#000000;
+   stroke-width:0.5;
+   stroke-linecap:butt;
+   stroke-linejoin:miter;
+   marker:none;
+   marker-start:none;
+   marker-mid:none;
+   marker-end:none;
+   stroke-miterlimit:1;
+   stroke-dasharray:none;
+   stroke-dashoffset:0;
+   stroke-opacity:1;
+   visibility:visible;
+   display:inline;
+   overflow:visible;
+}
+
+.lake
+{
+   fill:#ffffff;
+   fill-opacity:1;
+   stroke:#ffffff;
+   stroke-opacity:1;
+   stroke-width:0.99986997;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+}
+</style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <path
+     class="land il"
+     d="M 1532.4401,489.5256 C 1532.8392,489.0485 1534.9910,486.7636 1534.1186,486.2135 C 1535.8613,483.7366 1536.4506,480.8596 1537.2289,478.0775 C 1537.4685,477.2265 1537.6008,475.8275 1538.3715,475.2145 C 1538.9497,474.7556 1538.1999,473.7615 1538.7348,473.2536 C 1539.2266,472.7876 1540.2968,473.2586 1540.8195,473.3206 C 1542.0556,473.4665 1541.9860,472.2425 1542.4298,471.5256 C 1543.8362,472.0876 1542.5879,477.8256 1542.1978,479.3016 C 1541.4420,479.2436 1540.8479,478.4296 1540.1281,478.1465 C 1539.0499,477.7246 1538.3586,479.2115 1538.1483,479.9925 C 1537.8920,480.9515 1536.9141,484.3195 1538.4712,484.2436 C 1541.3015,484.1055 1537.0740,486.1766 1537.2799,487.9185 C 1537.4207,489.1035 1541.0172,487.0125 1541.6711,487.0056 C 1541.7198,488.2455 1541.0207,489.0485 1541.2965,490.3286 C 1541.6045,491.7695 1540.0807,493.5276 1539.5636,494.8526 C 1538.5169,497.5335 1539.6274,502.2025 1537.1876,504.4285 C 1536.1603,502.0976 1536.4666,499.2926 1535.0521,497.1146 C 1534.4580,496.2006 1534.4202,495.0411 1534.0547,494.0335 C 1533.5099,492.5333 1532.8761,491.2005 1532.4401,489.5256"
+     id="il" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</svg>

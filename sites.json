@@ -1,0 +1,6804 @@
+{
+  "theater": "EMEA",
+  "siteCode": "abj01",
+  "siteName": "Arhus, Denmark",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "dk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "abq",
+  "siteName": "Albuquerque, New Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "adl",
+  "siteName": "Adelaide, South Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "aer01/ams3",
+  "siteName": "Amsterdam, Netherlands (EU Colo)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ahu01",
+  "siteName": "Abu Dhabi, Abu Dhabi, UAE -BBB",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ae"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ahu01",
+  "siteName": "Abu Dhabi, Abu Dhabi, UAE -BBB",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ae"
+}
+{
+  "theater": "APAC",
+  "siteCode": "akl02",
+  "siteName": "Auckland, New Zealand",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "nz"
+}
+{
+  "theater": "APAC",
+  "siteCode": "akl02",
+  "siteName": "Auckland, New Zealand -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "nz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ala01 ",
+  "siteName": "Almaty, Kazakstan -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "kz"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alb",
+  "siteName": "Albany, New York",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alb",
+  "siteName": "Albany, New York",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "alg02",
+  "siteName": "Algiers, Algeria",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "dz"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alln01",
+  "siteName": "Allen, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alln01",
+  "siteName": "Allen, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alln01",
+  "siteName": "Allen, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alln01",
+  "siteName": "Allen, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "alln02",
+  "siteName": "Allen, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "amh",
+  "siteName": "Amherst, New York",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amm02",
+  "siteName": "Amman, Jordan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "jo"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amm02",
+  "siteName": "Amman, Jordan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "jo"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams3",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams3",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams3",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams3",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams5",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams5",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams5",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ams8",
+  "siteName": "Netherlands, Amsterdam - NGVSO - BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amsidc",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amsidc",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "MPLS Hub",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amsidc",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "amsidc",
+  "siteName": "Netherlands, Amsterdam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "MPLS Hub",
+  "isoCountryCode": "nl"
+}
+{
+  "theater": "AMER",
+  "siteCode": "anc1",
+  "siteName": "Anchorage, Alaska - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ank02",
+  "siteName": "Ankara, Turkey",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "tr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ank02",
+  "siteName": "Ankara, Turkey -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "tr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ast",
+  "siteName": "Austin, Texas ",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ast",
+  "siteName": "Austin, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "astn01",
+  "siteName": "Astana, Kazakhstan - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "kz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ath01",
+  "siteName": "Athens, Greece",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "gr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ath01",
+  "siteName": "Athens, Greece",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "gr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "atl",
+  "siteName": "Atlanta, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "atl",
+  "siteName": "Atlanta, Georgia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "atl6",
+  "siteName": "Atlanta, Georgia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "atl6",
+  "siteName": "Atlanta, Georgia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "awn01",
+  "siteName": "Allentown, PA (lightwire aqusition)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "awn01",
+  "siteName": "Allentown, PA (lightwire aqusition)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "Bak02",
+  "siteName": "Baku, Azerbaijan - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "az"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bcr2",
+  "siteName": "Bucharest, Romania",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ro"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bcr2",
+  "siteName": "Bucharest, Romania",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ro"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bdlk09",
+  "siteName": "Bedfont Lakes United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bdlk11",
+  "siteName": "Bedfont Lakes United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "beg02",
+  "siteName": "Belgrade, Serbia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "sr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "beg02",
+  "siteName": "Belgrade, Serbia -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "sr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bey01",
+  "siteName": "Beirut, Lebanon -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "lb"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bey01",
+  "siteName": "Beirut, Lebanon -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "lb"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl04",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl04",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl04",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl06",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl06",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl09",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl09",
+  "siteName": "Bangalore, India -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl10",
+  "siteName": "Hallmark, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl10",
+  "siteName": "Hallmark, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl11",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl11",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl11",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl11",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl12",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl12",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl12",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl12",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl21",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl21",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl25/26",
+  "siteName": "Bangalore, Karnataka, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl25/26",
+  "siteName": "Bangalore, Karnataka, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl41",
+  "siteName": "Bangalore, Karnataka, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl41",
+  "siteName": "Bangalore, Karnataka, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl43",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bgl43",
+  "siteName": "Bangalore, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bgt1",
+  "siteName": "Bogota, Colombia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "co"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bgt1",
+  "siteName": "Bogota, Colombia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "co"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bhm01",
+  "siteName": "Birmingham, Alabama",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bio01",
+  "siteName": "Bilbao, Spain - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn13",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn13",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn18",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn18",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn6",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bjn6",
+  "siteName": "Beijing, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bla",
+  "siteName": "Brasilia, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bla",
+  "siteName": "Brasilia, Brazil",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bldr02",
+  "siteName": "Boulder, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bldr02",
+  "siteName": "Boulder, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blmi",
+  "siteName": "Bloomington, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blmi",
+  "siteName": "Bloomington, Illinois",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blmm1",
+  "siteName": "Bloomington, Minnesota",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blmm1",
+  "siteName": "Bloomington, Minnesota",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bln2",
+  "siteName": "Berlin, Berlin, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bln2",
+  "siteName": "Berlin, Berlin, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blv",
+  "siteName": "Bellevue, Washington",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "blv",
+  "siteName": "Bellevue, Washington",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bng02",
+  "siteName": "Bangkok, Thailand",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "th"
+}
+{
+  "theater": "APAC",
+  "siteCode": "bng02",
+  "siteName": "Bangkok, Thailand -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "th"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bnt01",
+  "siteName": "Bentonville, Arkansas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bnt01",
+  "siteName": "Bentonville, Arkansas",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bonn01",
+  "siteName": "Bonn, North Rhine-Westphalia, Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bos02",
+  "siteName": "Boston, Massachusetts",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bos02",
+  "siteName": "Boston, Massachusetts",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bos1",
+  "siteName": "Boise, Idaho",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "brb03",
+  "siteName": "Brisbane, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "brb03",
+  "siteName": "Brisbane, Australia -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brc1",
+  "siteName": "Barcelona, Barcelona, Spain",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brc1",
+  "siteName": "Barcelona, Barcelona, Spain",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brn",
+  "siteName": "Bern, Switzerland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brnt1",
+  "siteName": "Johannesburg, South Africa",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brnt1",
+  "siteName": "Johannesburg, South Africa",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "brnt1",
+  "siteName": "Johannesburg, South Africa",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "AMER",
+  "siteCode": "btr1",
+  "siteName": "Baton Rouge, Louisiana",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bts02",
+  "siteName": "Bratislava, Slovak Republic",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "sk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bts02",
+  "siteName": "Bratislava, Slovak Republic -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "sk"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bua2",
+  "siteName": "Buenos Aires, Argentina",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ar"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "bua2",
+  "siteName": "Buenos Aires, Argentina",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ar"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bud01",
+  "siteName": "Budapest, Hungary",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "hu"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "bud01",
+  "siteName": "Budapest, Hungary",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "hu"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bvw01",
+  "siteName": "Beaverton, Oregon",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bxb22",
+  "siteName": "Boxborough, Mass",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bxb22",
+  "siteName": "Boxborough, Mass",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bxb23",
+  "siteName": "Boxborough, Mass",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "bxb23",
+  "siteName": "Boxborough, Mass",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cai02",
+  "siteName": "Cairo, Egypt",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "eg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cai02",
+  "siteName": "Cairo, Egypt -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "eg"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cam02",
+  "siteName": "Cambridge, Massachusetts -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cas02",
+  "siteName": "Casablanca, Morocco",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ma"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cas02",
+  "siteName": "Casablanca, Morocco",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ma"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cbr01",
+  "siteName": "Canberra, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cbr01",
+  "siteName": "Canberra, Australia -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cdrr",
+  "siteName": "Cedar Rapids, IA",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cgq03",
+  "siteName": "Chongqing, China - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "chan01 / nds",
+  "siteName": "Chandler Ford, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "chan01-ic",
+  "siteName": "Chandler Ford, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "chan02 / nds",
+  "siteName": "Chandler Ford, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "chan02-ic",
+  "siteName": "Chandler Ford, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chb02",
+  "siteName": "Chonburi, Thailand",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "th"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chb02",
+  "siteName": "Chonburi, Thailand -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "th"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chg5",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chg5",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chg6",
+  "siteName": "Chicago, Illinois - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chiidc",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chiidc",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chiidc",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "chiidc",
+  "siteName": "Chicago, Illinois",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn02",
+  "siteName": "Chennai, India (02)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn02",
+  "siteName": "Chennai, India (02)",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn03",
+  "siteName": "Chennai, India (03)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn03",
+  "siteName": "Chennai, India (03)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn05",
+  "siteName": "Chennai, India (05)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn05",
+  "siteName": "Chennai, India (05)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn08",
+  "siteName": "Chennai, India (08)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chn08",
+  "siteName": "Chennai, India (08)",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "chnidc",
+  "siteName": "Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cjs04",
+  "siteName": "Ciudad Juarez, Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cjs04",
+  "siteName": "Ciudad Juarez, Mexico",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER",
+  "siteCode": "clg2",
+  "siteName": "Calgary, Alberta",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "clg2",
+  "siteName": "Calgary, Alberta",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "clmm",
+  "siteName": "Columbia, Maryland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "clmm",
+  "siteName": "Columbia, Maryland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "clms1",
+  "siteName": "Columbia, South Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cls",
+  "siteName": "Colorado Springs, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cmb02",
+  "siteName": "Colombo, Sri Lanka",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "lk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cmb02",
+  "siteName": "Colombo, Sri Lanka",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "lk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cmh",
+  "siteName": "Camp Hill, Pennsylvania",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cnc",
+  "siteName": "Cincinnati, Ohio",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cnc",
+  "siteName": "Cincinnati, Ohio",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cng3",
+  "siteName": "Chengdu, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cng3",
+  "siteName": "Chengdu, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cosm",
+  "siteName": "Costa Mesa, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cosm",
+  "siteName": "Costa Mesa, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cph06",
+  "siteName": "Copenhagen, Denmark",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "dk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cph06",
+  "siteName": "Copenhagen, Denmark",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "dk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cpt02",
+  "siteName": "Cape Town, South Africa",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cpt02",
+  "siteName": "Cape Town, South Africa",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "crc",
+  "siteName": "Caracas, Venezuela",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ve"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "crc",
+  "siteName": "Caracas, Venezuela",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ve"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crdv02",
+  "siteName": "Cordova, Tennessee",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crl3",
+  "siteName": "Charlotte, North Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crl3",
+  "siteName": "Charlotte, North Carolina",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crl4",
+  "siteName": "Charlotte, North Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crl4",
+  "siteName": "Charlotte, North Carolina",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crm",
+  "siteName": "Carmel, Indiana",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "crm",
+  "siteName": "Carmel, Indiana",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cst2",
+  "siteName": "Chesterfield, Missouri",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "cst2",
+  "siteName": "Chesterfield, Missouri",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "csv",
+  "siteName": "Cesson Sevigne, Bretagne France - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "cta03",
+  "siteName": "Calcutta, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ctd",
+  "siteName": "Chatswood, Australia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ctd",
+  "siteName": "Chatswood, Australia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ctd",
+  "siteName": "Chatswood, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "cyp01",
+  "siteName": "Nicosia, Cyprus - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cy"
+}
+{
+  "theater": "APAC",
+  "siteCode": "dac02",
+  "siteName": "Dhaka, Bangladesh",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bd"
+}
+{
+  "theater": "APAC",
+  "siteCode": "dac02",
+  "siteName": "Dhaka, Bangladesh",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bd"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dbi03",
+  "siteName": "Dubai, United Arab Emirates",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ae"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dbi03",
+  "siteName": "Dubai, United Arab Emirates",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ae"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dblir3",
+  "siteName": "Dublin, Ireland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ie"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dblir3",
+  "siteName": "Dublin, Ireland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ie"
+}
+{
+  "theater": "AMER",
+  "siteCode": "den02",
+  "siteName": "Denver, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "den02",
+  "siteName": "Denver, Colorado",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "denidc",
+  "siteName": "Denver, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "denidc",
+  "siteName": "Denver, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "denidc",
+  "siteName": "Denver, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dgm",
+  "siteName": "Diegem, Belgium",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dgm2",
+  "siteName": "Diegem, Belgium",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dha01",
+  "siteName": "Dharan, Saudi Arabia - NGVSO",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "sa"
+}
+{
+  "theater": "APAC",
+  "siteCode": "djn2",
+  "siteName": "Daejon, South Korea - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dkr01",
+  "siteName": "Dakar, Senegal -BBB",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dkr01",
+  "siteName": "Dakar, Senegal -BBB",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dlf1",
+  "siteName": "DŸsseldorf, North Rhine-Westphalia, Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "dlf1",
+  "siteName": "DŸsseldorf, North Rhine-Westphalia, Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "doh03",
+  "siteName": "Doha, Qatar",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "qa"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "doh03",
+  "siteName": "Doha, Qatar -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "qa"
+}
+{
+  "theater": "AMER",
+  "siteCode": "dst2",
+  "siteName": "Destin, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "duo01",
+  "siteName": "Dublin, Ohio",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "duo01",
+  "siteName": "Dublin, Ohio",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "edm02",
+  "siteName": "Edmonton, Alberta",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "edm02",
+  "siteName": "Edmonton, Alberta",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "edn",
+  "siteName": "Edinburgh, Scotland, United Kingdom ",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "edn",
+  "siteName": "Edinburgh, Scotland, United Kingdom ",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "elp03",
+  "siteName": "El Paso, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "els01",
+  "siteName": "Lausanne, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "els01",
+  "siteName": "Lausanne, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "AMER",
+  "siteCode": "eng",
+  "siteName": "Englewood, Colorado",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "eng",
+  "siteName": "Englewood, Colorado",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "esp02",
+  "siteName": "Espoo, Finland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "fi"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "esp02",
+  "siteName": "Espoo, Finland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "fi"
+}
+{
+  "theater": "AMER",
+  "siteCode": "fgo01",
+  "siteName": "Fargo, North Dakota",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "fgt",
+  "siteName": "Farmington, Connecticut",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "fgt",
+  "siteName": "Farmington, Connecticut",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "fka1",
+  "siteName": "Fukuoka, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "fka1",
+  "siteName": "Fukuoka, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "fkf3",
+  "siteName": "Eschborn, Hessen Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "fkf3",
+  "siteName": "Eschborn, Hessen Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "APAC",
+  "siteCode": "foc03",
+  "siteName": "Fouzhou, China - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "AMER",
+  "siteCode": "frkl01",
+  "siteName": "Franklin, Tennessee",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "frkl01",
+  "siteName": "Franklin, Tennessee",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "frs2",
+  "siteName": "Fresno, CA - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ftl2",
+  "siteName": "FT Lauderdale, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ftl2",
+  "siteName": "FT Lauderdale, Florida",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "gdr",
+  "siteName": "Gold River, CA",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "gdr",
+  "siteName": "Gold River, CA",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ggn01",
+  "siteName": "Gurgaon, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ggn01",
+  "siteName": "Gurgaon, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ggn01",
+  "siteName": "Gurgaon, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ggn01",
+  "siteName": "Gurgaon, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "glg01",
+  "siteName": "Gerlingen, Baden-WŸrttemberg, Germany -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "glj2",
+  "siteName": "Guadalajara, Jalisco, Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "glj2",
+  "siteName": "Guadalajara, Jalisco, Mexico",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "glvl01",
+  "siteName": "Gellainville, Centre France -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "gng01",
+  "siteName": "Guangzhou, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "gng01",
+  "siteName": "Guangzhou, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "got",
+  "siteName": "Gothenburg, Sweden",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "se"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gpk03",
+  "siteName": "Reading, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gpk03",
+  "siteName": "Reading, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "grn2",
+  "siteName": "Greensboro, North Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "grp02",
+  "siteName": "Grand Rapids, Michigan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "grp02",
+  "siteName": "Grand Rapids, Michigan",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gsg03",
+  "siteName": "Holytown, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gsg03",
+  "siteName": "Holytown, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "gsp01",
+  "siteName": "Greenville, South Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gwy03",
+  "siteName": "Galway, Ireland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ie"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "gwy03",
+  "siteName": "Galway, Ireland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ie"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hal01",
+  "siteName": "Halifax, Nova Scotia, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hal01",
+  "siteName": "Halifax, Nova Scotia, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hbg",
+  "siteName": "Hamburg, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hbg",
+  "siteName": "Hamburg, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc1",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc2",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc2",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc3",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc3",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc4",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hclodc4",
+  "siteName": "HCL Chennai, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hfa02",
+  "siteName": "Haifa, Israel (NDS)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hfa02",
+  "siteName": "Haifa, Israel (NDS)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hfe01",
+  "siteName": "Hefei, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hfe01",
+  "siteName": "Hefei, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hgh01",
+  "siteName": "Hangzhou Zhejiang, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hgh01",
+  "siteName": "Hangzhou Zhejiang, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hgh02",
+  "siteName": "Hangzhou Zhejiang, China -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hij01",
+  "siteName": "Hiroshima, Japan - NGVSO",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg1",
+  "siteName": "Great Eagle, Hong Kong",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg1",
+  "siteName": "Great Eagle, Hong Kong",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg3",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg3",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg4",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkg4",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc15",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc15",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc20",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc20",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc20",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc20",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hkidc20",
+  "siteName": "Hong Kong, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "hk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hlb2",
+  "siteName": "Hallbergmoos, Bayern Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "hlb2",
+  "siteName": "Hallbergmoos, Bayern Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hni05",
+  "siteName": "Hanoi, Vietnam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "vn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hni05",
+  "siteName": "Hanoi, Vietnam",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "vn"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hnl",
+  "siteName": "Honolulu, Hawaii",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hrn6",
+  "siteName": "Herndon, Virginia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hrn6",
+  "siteName": "Herndon, Virginia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hst2",
+  "siteName": "Houston, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hst2",
+  "siteName": "Houston, Texas",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "hst4",
+  "siteName": "Houston, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hyd04",
+  "siteName": "Hyderabad, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "hyd04",
+  "siteName": "Hyderabad, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ich03",
+  "siteName": "Incheon, South Korea",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ich03",
+  "siteName": "Incheon, South Korea -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "iev02",
+  "siteName": "Kiev, Ukraine",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ua"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "iev02",
+  "siteName": "Kiev, Ukraine -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ua"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ilm",
+  "siteName": "Issy Les Moulineaux, France",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ilm",
+  "siteName": "Issy Les Moulineaux, France",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "inj01",
+  "siteName": "Iselin, New Jersey",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "inj01",
+  "siteName": "Iselin, New Jersey",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ips01",
+  "siteName": "Ipswitch, UK - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "irv",
+  "siteName": "Irvine, CA",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "irv",
+  "siteName": "Irvine, CA",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "irvg2",
+  "siteName": "Irving, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "irvg2",
+  "siteName": "Irving, Texas",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "isb03",
+  "siteName": "Islamabad, Pakistan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "pk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ist2",
+  "siteName": "Istanbul, Turkey",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "tr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ist2",
+  "siteName": "Istanbul, Turkey",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "tr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "jed02",
+  "siteName": "Jeddah, Saudi Arabia - NGVSO",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "sa"
+}
+{
+  "theater": "AMER",
+  "siteCode": "jef01",
+  "siteName": "Jefferson City, Missouri",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "jina01",
+  "siteName": "Jinan, China -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "jkt02",
+  "siteName": "Jakarta, Indonesia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "id"
+}
+{
+  "theater": "APAC",
+  "siteCode": "jkt02",
+  "siteName": "Jakarta, Indonesia -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "id"
+}
+{
+  "theater": "AMER",
+  "siteCode": "jkv5",
+  "siteName": "Jacksonville, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "jkv5",
+  "siteName": "Jacksonville, Florida",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "khi01 ",
+  "siteName": "Karachi, Pakistan -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "pk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "kjk01",
+  "siteName": "Kortrijk, Belgium",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "kjk02",
+  "siteName": "Kortnjk, Belgium",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "AMER",
+  "siteCode": "knv",
+  "siteName": "Knoxville, Tennessee",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "knv3",
+  "siteName": "Knoxville, Tennessee",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "krk01",
+  "siteName": "krakow, Poland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "krk01",
+  "siteName": "krakow, Poland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "krk02",
+  "siteName": "krakow, Poland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "krk02",
+  "siteName": "krakow, Poland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "APAC",
+  "siteCode": "kul02",
+  "siteName": "Kualalumpur, Malaysia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "my"
+}
+{
+  "theater": "APAC",
+  "siteCode": "kul02",
+  "siteName": "Kualalumpur, Malaysia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "my"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "kwi01",
+  "siteName": "Kuwait City, Kuwait",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "kw"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "kzn01",
+  "siteName": "Kazan, Russia - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "AMER",
+  "siteCode": "la",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "la",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "laidc",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "laidc",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "laidc",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "laidc",
+  "siteName": "Los Angeles, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lal01",
+  "siteName": "Langley England, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lal02",
+  "siteName": "Langley England, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "las01",
+  "siteName": "Las Vegas, Nevada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lbb02",
+  "siteName": "Lubbock, Texas - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "led02",
+  "siteName": "Saint-Petersburg, Russia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lio2",
+  "siteName": "Lyon, France",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lju02",
+  "siteName": "Ljubljana, Slovenia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "si"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lko2",
+  "siteName": "Lake Oswego, Oregon",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lko2",
+  "siteName": "Lake Oswego, Oregon",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lle01",
+  "siteName": "Lille, France - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "lma1",
+  "siteName": "Lima, Peru",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pe"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "lma1",
+  "siteName": "Lima, Peru",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pe"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lndidc",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lndidc",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lndidc",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lndidc",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lon06",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lon06",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lon07",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lon07",
+  "siteName": "London, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "los03",
+  "siteName": "Lagos, Nigeria",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ng"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "los03",
+  "siteName": "Lagos, Nigeria -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ng"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lsv1",
+  "siteName": "Louisville, Kentucky",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lsv1",
+  "siteName": "Louisville, Kentucky",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ltl",
+  "siteName": "Little Rock, Arkansas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lux1",
+  "siteName": "Luxembourg, Luxembourg",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "lu"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lwr02",
+  "siteName": "Lawrenceville, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "Capnet",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lwr02",
+  "siteName": "Lawrenceville, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "Capnet",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lwr02",
+  "siteName": "Lawrenceville, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lwr05",
+  "siteName": "Lawrenceville, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "Capnet",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "lwr05",
+  "siteName": "Lawrenceville, Georgia",
+  "primaryBackupDual": "P",
+  "linkType": "Capnet",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lys01",
+  "siteName": "Lysaker, Norway",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "no"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "lys02",
+  "siteName": "Lysaker, Norway",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "no"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mah02",
+  "siteName": "Maidenhead - NDS, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mah02",
+  "siteName": "Maidenhead - NDS, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mal2",
+  "siteName": "Malvern, Pennsylvania",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mal2",
+  "siteName": "Malvern, Pennsylvania",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "man2",
+  "siteName": "Manchester, England, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "man2",
+  "siteName": "Manchester, England, United Kingdom",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mde01",
+  "siteName": "Medellin, Columbia - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "co"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mdr1",
+  "siteName": "Madrid, Spain",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mdr1",
+  "siteName": "Madrid, Spain",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mds3",
+  "siteName": "Madison, Wisconsin",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mds3",
+  "siteName": "Madison, Wisconsin",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mel03",
+  "siteName": "Melbourne, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mel03",
+  "siteName": "Melbourne, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "AMER",
+  "siteCode": "met02",
+  "siteName": "Metairie, Louisiana",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mgi01",
+  "siteName": "Mougins, France - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mhm03",
+  "siteName": "Mannheim, Baden-WŸrttemberg, Germany",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mhm03",
+  "siteName": "Mannheim, Baden-WŸrttemberg, Germany -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mim1",
+  "siteName": "Miami, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mim1",
+  "siteName": "Miami, Florida",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mlv03",
+  "siteName": "Melville, New York",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mlv03",
+  "siteName": "Melville, New York",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mmb02",
+  "siteName": "Mumbai, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mmb02",
+  "siteName": "Mumbai, India",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mnl",
+  "siteName": "Makati, Philippines",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ph"
+}
+{
+  "theater": "APAC",
+  "siteCode": "mnl",
+  "siteName": "Makati, Philippines -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ph"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mnt",
+  "siteName": "Montvale, New Jersey",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mnt",
+  "siteName": "Montvale, New Jersey",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mnza1",
+  "siteName": "Monza, Italy",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mnza1",
+  "siteName": "Monza, Italy",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mow01",
+  "siteName": "Moscow, Russia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mow01",
+  "siteName": "Moscow, Russia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mow04",
+  "siteName": "Skolkovo, Russia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "mow04",
+  "siteName": "Skolkovo, Russia -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mrstn",
+  "siteName": "Moorestown, New Jersey",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mrstn",
+  "siteName": "Moorestown, New Jersey",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "msc",
+  "siteName": "Moscow, Russia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "msc",
+  "siteName": "Moscow, Russia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "msq01",
+  "siteName": "Minsk, Belarus -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "by"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "msq01",
+  "siteName": "Minsk, Belarus -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "by"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtg2",
+  "siteName": "Montgomery, Alabama",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtl02",
+  "siteName": "Montreal, Quebec, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtl02",
+  "siteName": "Montreal, Quebec, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtl02",
+  "siteName": "Montreal, Quebec, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtv5",
+  "siteName": "Mountain View, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "mtv5",
+  "siteName": "Mountain View, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "muc04",
+  "siteName": "Munich, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "muc04",
+  "siteName": "Munich, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "muc05",
+  "siteName": "Munich, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "muc05",
+  "siteName": "Munich, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "musc01",
+  "siteName": "Sultanate of Oman, Muscat -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "om"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "musc01",
+  "siteName": "Sultanate of Oman, Muscat -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "om"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "mxc",
+  "siteName": "Mexico City, Federal District, Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "mxc04",
+  "siteName": "Mexico City, Federal District, Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "mxc04",
+  "siteName": "Mexico City, Federal District, Mexico",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "nbo03 ",
+  "siteName": "Nairobi, Kenya",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ke"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "nbo03 ",
+  "siteName": "Nairobi, Kenya -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ke"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ndl3",
+  "siteName": "New Delhi, India",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ndl3",
+  "siteName": "New Delhi, India",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ngo1",
+  "siteName": "Nagoya, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "ngo1",
+  "siteName": "Nagoya, Japan -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "nkg01",
+  "siteName": "Nanjing, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "nkg01",
+  "siteName": "Nanjing, China",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "nmi01",
+  "siteName": "Nomi, Japan - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "nsd2",
+  "siteName": "North Sydney, Australia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "nsd2",
+  "siteName": "North Sydney, Australia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ntn01",
+  "siteName": "South Netanya, Israel",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ntn01",
+  "siteName": "South Netanya, Israel",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ntn01",
+  "siteName": "Netanya, Israel",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ntn01",
+  "siteName": "Netanya, Israel",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "il"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nts01",
+  "siteName": "North Charleston, South Carolina",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "nue01",
+  "siteName": "Nuremberg, Bavaria, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "nue01",
+  "siteName": "Nuremberg, Bavaria, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nwk1",
+  "siteName": "Norwalk, Connecticut",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nwk1",
+  "siteName": "Norwalk, Connecticut",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nyc1",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nyc1",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nyc7",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nyc7",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nycidc",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nycidc",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nycidc",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nycidc",
+  "siteName": "New York, New York",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "nyclfm",
+  "siteName": "New York, LFM - NGVSO",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "okc",
+  "siteName": "Oklahoma City, Oklahoma",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "oly2",
+  "siteName": "Olympia, Washington - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "omh02",
+  "siteName": "Omaha, Nebraska",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "omh02",
+  "siteName": "Omaha, Nebraska",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "opk2",
+  "siteName": "Overland Park, Kansas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "opk2",
+  "siteName": "Overland Park, Kansas",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "orl03",
+  "siteName": "Orlando, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "orl03",
+  "siteName": "Orlando, Florida",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "orlidc",
+  "siteName": "Orlando, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "orlidc",
+  "siteName": "Orlando, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "orlidc",
+  "siteName": "Orlando, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ors03",
+  "siteName": "Oeiras Municipality, Portugal",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pt"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ors03",
+  "siteName": "Oeiras Municipality, Portugal",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "pt"
+}
+{
+  "theater": "APAC",
+  "siteCode": "osk04",
+  "siteName": "Osaka, Japan",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "osk04",
+  "siteName": "Osaka, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ott01",
+  "siteName": "Ottawa, Ontario, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ott02",
+  "siteName": "Ottawa, Ontario, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ott04",
+  "siteName": "Ottawa, Ontario, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ott04",
+  "siteName": "Ottawa, Ontario, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ovb02",
+  "siteName": "Novosibirsk, Russia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ovb02",
+  "siteName": "Novosibirsk, Russia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ru"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "pda02",
+  "siteName": "Padova, Italy - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pen2",
+  "siteName": "Penang, Malaysia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "my"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pen2",
+  "siteName": "Penang, Malaysia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "my"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pew01",
+  "siteName": "Pewaukee, Wisconsin",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pew01",
+  "siteName": "Pewaukee, Wisconsin",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "phx2",
+  "siteName": "Phoenix, Arizona",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "phx2",
+  "siteName": "Phoenix, Arizona",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pit02",
+  "siteName": "Pittsburgh, Pennsylvania",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pit02",
+  "siteName": "Pittsburgh, Pennsylvania",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pls01",
+  "siteName": "Pleasanton, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "pls01",
+  "siteName": "Pleasanton, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq03",
+  "siteName": "Pune, India (03)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq03",
+  "siteName": "Pune, India (03) -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq05",
+  "siteName": "Pune, India (05)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq05",
+  "siteName": "Pune, India (05)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq07",
+  "siteName": "Pune, India (07)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "APAC",
+  "siteCode": "pnq07",
+  "siteName": "Pune, India (07)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "in"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg2",
+  "siteName": "Prague, Czech Republic",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg2",
+  "siteName": "Prague, Czech Republic",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg3",
+  "siteName": "Prague, Czech Republic",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg3",
+  "siteName": "Prague, Czech Republic",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg5",
+  "siteName": "Prague, Czech Republic - Cognitive Security",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "prg5",
+  "siteName": "Prague, Czech Republic - Cognitive Security",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cz"
+}
+{
+  "theater": "APAC",
+  "siteCode": "prt3",
+  "siteName": "Perth, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "prt3",
+  "siteName": "Perth, Australia -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "pry01",
+  "siteName": "Pretoria, South Africa",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "za"
+}
+{
+  "theater": "APAC",
+  "siteCode": "psn3",
+  "siteName": "Pusan, South Korea - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ptf",
+  "siteName": "Pittsford, New York",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "ptf",
+  "siteName": "Pittsford, New York",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "pty01",
+  "siteName": "Panama, Panama - NGVSO - BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "pa"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "qtrb01",
+  "siteName": "Port Louis, Mauritius (Quatre-bornes) -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "mu"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rat01",
+  "siteName": "Ratingen, Germany (Tandburg)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rat01",
+  "siteName": "Ratingen, Germany (Tandburg)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rcdn9",
+  "siteName": "Richardson, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rch02",
+  "siteName": "Richmond, Virginia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rch02",
+  "siteName": "Richmond, Virginia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rcsl01",
+  "siteName": "Ricasoli, Malta - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "mt"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rde01",
+  "siteName": "Ridgeland, Mississippi",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "rdj1",
+  "siteName": "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "rdj1",
+  "siteName": "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "rdj3",
+  "siteName": "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "rdj3",
+  "siteName": "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rei02",
+  "siteName": "Regina, Saskatchewan, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rei02",
+  "siteName": "Regina, Saskatchewan, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "req01",
+  "siteName": "Richfield, Ohio",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "req01",
+  "siteName": "Richfield, Ohio",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "req02",
+  "siteName": "Richfield, Ohio",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "req02",
+  "siteName": "Richfield, Ohio",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rey01",
+  "siteName": "Reykjavik, Iceland - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "is"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rga01",
+  "siteName": "Riga, Latvia - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "lv"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rno4",
+  "siteName": "Reno (4), Nevada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rno4",
+  "siteName": "Reno (4), Nevada",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rol01",
+  "siteName": "Rolle, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rol01",
+  "siteName": "Rolle, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rom2",
+  "siteName": "Rome, Italy",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "rom2",
+  "siteName": "Rome, Italy",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp10",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp10",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp10",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp5",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp5",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rtp5",
+  "siteName": "Research Triangle Park",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rwcidc",
+  "siteName": "Redwood City, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ryd2",
+  "siteName": "Riyadh, Saudi Arabia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sa"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "ryd2",
+  "siteName": "Riyadh, Saudi Arabia",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sa"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rzc01",
+  "siteName": "Rancho Cordova, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "rzc01",
+  "siteName": "Rancho Cordova, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sal01",
+  "siteName": "San Salvador, El Savador -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "sv"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sapr02",
+  "siteName": "Sapporo, Japan - NGVSO",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sas01",
+  "siteName": "Sandnes, Norway - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "no"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sbrn01",
+  "siteName": "San Bruno, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sbrn01",
+  "siteName": "San Bruno, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sbvt1",
+  "siteName": "South Burlington, Vermont",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sclfc2",
+  "siteName": "SC Freedom Circle Santa Clara, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sclfc2",
+  "siteName": "SC Freedom Circle Santa Clara, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sdj01",
+  "siteName": "Sendai, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sdj01",
+  "siteName": "Sendai, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sdq01",
+  "siteName": "Santo Domingo, Dominican Republic -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "do"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sea1",
+  "siteName": "Seattle, Washington",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sea1",
+  "siteName": "Seattle, Washington",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfl",
+  "siteName": "Southfield, Michigan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfl",
+  "siteName": "Southfield, Michigan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo",
+  "siteName": "San Francisco, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo",
+  "siteName": "San Francisco, California",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo12",
+  "siteName": "San Francisco, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo12",
+  "siteName": "San Francisco, California -BBB",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo8",
+  "siteName": "San Francisco, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sfo8",
+  "siteName": "San Francisco, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sgd01",
+  "siteName": "Soeborg, Denmark (Sonderborg) - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "dk"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sgn03",
+  "siteName": "Ho Chi Minh City, Vietnam",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "vn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "she01",
+  "siteName": "Shenyang, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "she01",
+  "siteName": "Shenyang, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn15",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn17",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn17",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn20",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn20",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn4",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "Campus",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn9",
+  "siteName": "SA-MFG Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shn9",
+  "siteName": "SA-MFG Shanghai, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shnidc",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shnidc",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shnidc",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "shnidc",
+  "siteName": "Shanghai, China",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjc12",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjck",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjcmr1",
+  "siteName": "San Jose McCarthy Ranch, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjcmr1",
+  "siteName": "San Jose McCarthy Ranch, California",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjcnt01",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sjcnt01",
+  "siteName": "San Jose, California",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sjj01",
+  "siteName": "Sarajevo, Bosnia-Herzegovina - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ba"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sjn2",
+  "siteName": "San Juan, Puerto Rico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pr"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sjn2",
+  "siteName": "San Juan, Puerto Rico",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pr"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sjocr02",
+  "siteName": "San Jose, Costa Rica",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cr"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "sjocr02",
+  "siteName": "San Jose, Costa Rica -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "skp03",
+  "siteName": "Skopje, Republic of Macedonia - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "mk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "slc3",
+  "siteName": "Salt Lake City, Utah",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "slc3",
+  "siteName": "Salt Lake City, Utah",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "slmva1",
+  "siteName": "Salem, Virginia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sna03",
+  "siteName": "San Antonio, Texas",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "sna03",
+  "siteName": "San Antonio, Texas",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "snd04",
+  "siteName": "San Diego, California",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "snd04",
+  "siteName": "San Diego, California",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sng11",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sng11",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sngidc",
+  "siteName": "Singapore, Singapore",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "sg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "snn01",
+  "siteName": "Swindon, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "snn01",
+  "siteName": "Swindon, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "snt03",
+  "siteName": "Santiago, Chile",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cl"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "snt03",
+  "siteName": "Santiago, Chile -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sof2",
+  "siteName": "Sofia, Bulgaria",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sof2",
+  "siteName": "Sofia, Bulgaria -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sof6",
+  "siteName": "Sofia, Bulgaria",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sof6",
+  "siteName": "Sofia, Bulgaria",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "bg"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sol11",
+  "siteName": "Seoul, South Korea",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sol11",
+  "siteName": "Seoul, South Korea",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sol2",
+  "siteName": "Seoul, South Korea",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "APAC",
+  "siteCode": "sol2",
+  "siteName": "Seoul, South Korea",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "kr"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "spgg02",
+  "siteName": "San Pedro Garza Garcia, Mexico",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "spgg02",
+  "siteName": "San Pedro Garza Garcia, Mexico",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "mx"
+}
+{
+  "theater": "AMER",
+  "siteCode": "spk02",
+  "siteName": "Spokane, Washington",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "spl1",
+  "siteName": "Sao Paulo, Sao Paulo, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "spl1",
+  "siteName": "Sao Paulo, Sao Paulo, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "splidc",
+  "siteName": "Sao Paulo, Sao Paulo, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "splidc",
+  "siteName": "Sao Paulo, Sao Paulo, Brazil",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "br"
+}
+{
+  "theater": "AMER",
+  "siteCode": "spt1",
+  "siteName": "Saint Petersburg, Florida",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "spt1",
+  "siteName": "Saint Petersburg, Florida",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "stg02",
+  "siteName": "Stuttgart, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "stg02",
+  "siteName": "Stuttgart, Germany",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "de"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "stk03",
+  "siteName": "Stockholm, Sweden",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "se"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "stk03",
+  "siteName": "Stockholm, Sweden",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "se"
+}
+{
+  "theater": "APAC",
+  "siteCode": "stld1",
+  "siteName": "St Leonards, New South Whales, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "stld1",
+  "siteName": "St Leonards, New South Whales, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "stld1",
+  "siteName": "St Leonards, New South Whales, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "APAC",
+  "siteCode": "stld1",
+  "siteName": "St Leonards, New South Whales, Australia",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "au"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sts02",
+  "siteName": "NSD, Staines, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sts02",
+  "siteName": "NSD, Staines, UK",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "uk"
+}
+{
+  "theater": "AMER",
+  "siteCode": "suf1",
+  "siteName": "Sioux Falls, South Dakota",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "svq01",
+  "siteName": "Sevilla, Spain - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "AMER",
+  "siteCode": "svta01",
+  "siteName": "Sierra Vista, Arizona",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "sxb01",
+  "siteName": "Strasbourg, France -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "syc02",
+  "siteName": "San Jose Sycamore",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "syc02",
+  "siteName": "San Jose Sycamore",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "szg02",
+  "siteName": "Salzburg, Austria -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "at"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "szg02",
+  "siteName": "Salzburg, Austria",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "at"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szh02",
+  "siteName": "Suzhou, China (Webex)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szh02",
+  "siteName": "Suzhou, China (Webex)",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szn04",
+  "siteName": "Shenzhen, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szn04",
+  "siteName": "Shenzhen, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szn07",
+  "siteName": "Shenzhen, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "szn07",
+  "siteName": "Shenzhen, China",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "tas01 ",
+  "siteName": "Tashkent, Uzbekistan - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "uz"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tew01",
+  "siteName": "Tewksbury, MA",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tew01",
+  "siteName": "Tewksbury, MA",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tew02",
+  "siteName": "Tewksbury, MA",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tew02",
+  "siteName": "Tewksbury, MA",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "tip01",
+  "siteName": "Tripoli, Libyan Arab Jamahiriya - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ly"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tky7",
+  "siteName": "Roppongi, Japan",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tky7",
+  "siteName": "Roppongi, Japan",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tlh04",
+  "siteName": "Tallahassee, Florida - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "tll03",
+  "siteName": "Talinn, Estonia -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ee"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "tls01",
+  "siteName": "Toulouse, France - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "fr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tor01",
+  "siteName": "Toronto, Ontario (Scarborough)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tor02",
+  "siteName": "Toronto, Ontario (Scarborough)",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tpe02",
+  "siteName": "Taipei, Taiwan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "tw"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tpe02",
+  "siteName": "Taipei, Taiwan",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "tw"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "trd01",
+  "siteName": "Trondheim, Norway - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "no"
+}
+{
+  "theater": "AMER",
+  "siteCode": "trn2",
+  "siteName": "Toronto, Ontario",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "trn2",
+  "siteName": "Toronto, Ontario",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "trn5",
+  "siteName": "Toronto, Ontario",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "trn5",
+  "siteName": "Toronto, Ontario",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tuc03",
+  "siteName": "Tucson, Arizona",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tul",
+  "siteName": "Tulsa, Oklahoma",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "tul",
+  "siteName": "Tulsa, Oklahoma",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "tun03",
+  "siteName": "Tunis, Tunisia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "tn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "CAPNET",
+  "siteClassification": "Capnet",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc5",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "APAC",
+  "siteCode": "tyoidc5",
+  "siteName": "Tokyo, Japan",
+  "primaryBackupDual": "P",
+  "linkType": "ISP",
+  "siteClassification": "ISP",
+  "isoCountryCode": "jp"
+}
+{
+  "theater": "AMER-LATAM",
+  "siteCode": "uio01",
+  "siteName": "Quito, Ecuador - NGVSO - BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ec"
+}
+{
+  "theater": "APAC",
+  "siteCode": "urc01",
+  "siteName": "Urumqi, China - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "AMER",
+  "siteCode": "vic02",
+  "siteName": "Victoria, Canada - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vlc01",
+  "siteName": "Valencia, Spain - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "es"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vmct04",
+  "siteName": "Vimercate, Italy",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vmct04",
+  "siteName": "Vimercate, Italy",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "it"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vnaa",
+  "siteName": "Vienna, Austria",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "at"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vnaa",
+  "siteName": "Vienna, Austria",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "at"
+}
+{
+  "theater": "AMER",
+  "siteCode": "vnc2",
+  "siteName": "Vancouver, British Columbia, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "vnc2",
+  "siteName": "Vancouver, British Columbia, Canada",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "vno03",
+  "siteName": "Vilnius, Lithuania - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "lt"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "waw02",
+  "siteName": "Warsaw, Poland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "waw02",
+  "siteName": "Warsaw, Poland",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "pl"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wem02",
+  "siteName": "Des Moines, Iowa",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "APAC",
+  "siteCode": "whn02",
+  "siteName": "Wuhan, China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "whn02",
+  "siteName": "Wuhan, China -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "wln2",
+  "siteName": "Wellington, New Zealand",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "nz"
+}
+{
+  "theater": "APAC",
+  "siteCode": "wln2",
+  "siteName": "Wellington, New Zealand",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "nz"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "wlsn01",
+  "siteName": "Wallisellen, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "wlsn01",
+  "siteName": "Wallisellen, Switzerland",
+  "primaryBackupDual": "D",
+  "linkType": "WAN",
+  "siteClassification": "2a",
+  "isoCountryCode": "ch"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wnp02",
+  "siteName": "Winnipeg, Manitoba, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wnp02",
+  "siteName": "Winnipeg, Manitoba, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wshdc02",
+  "siteName": "Washington DC, District of Columbia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wshdc02",
+  "siteName": "Washington DC, District of Columbia",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "us"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wtl03",
+  "siteName": "Waterloo, Ontario, Canada",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "AMER",
+  "siteCode": "wtl03",
+  "siteName": "Waterloo, Ontario, Canada",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "ca"
+}
+{
+  "theater": "APAC",
+  "siteCode": "xia2",
+  "siteName": "Xi'an China",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "xia2",
+  "siteName": "Xi'an China",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "APAC",
+  "siteCode": "xmn01",
+  "siteName": "Xiamen, China - NGVSO -BBB",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "cn"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "zgr02",
+  "siteName": "Zagreb, Croatia",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hr"
+}
+{
+  "theater": "EMEA",
+  "siteCode": "zgr02",
+  "siteName": "Zagreb, Croatia -BBB",
+  "primaryBackupDual": "B",
+  "linkType": "WAN",
+  "siteClassification": "2b",
+  "isoCountryCode": "hr"
+}
+{
+  "theater": "AMER",
+  "siteCode": "zln02",
+  "siteName": "Lindon, Utah",
+  "primaryBackupDual": "P",
+  "linkType": "WAN",
+  "siteClassification": "2c",
+  "isoCountryCode": "us"
+}

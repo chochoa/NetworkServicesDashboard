@@ -1,0 +1,154 @@
+@font-face {
+	font-family: CiscoNormal;
+	src: url('../fonts/');
+}
+
+body {
+	width: 70%;
+	/*width: 960px; */
+	margin: 0px auto;
+	padding: 10px;
+	color: #525252;
+}
+
+h1,h2,h3 {
+	color: #444444;
+}
+
+a {
+	color: #2970A6;
+}
+
+#outages, #outages table {
+	text-align: left;
+	margin: 0px auto;
+}
+
+td {
+	padding: 7.5px;
+}
+
+#submitCenter {
+	width: 50%;
+}
+
+#incidentChartDiv{
+	width: 500px%;
+	margin: 0 auto;
+}
+
+#incidentChart {
+	width: 250px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#incidentBreakdown {
+	width: 250px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#regionalBreakdown {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#map {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#search {
+	float: right;
+}
+
+#logo {
+	width: 9%;
+	height: 9%;
+	float: right;
+}
+
+#footerRight {
+	text-align: right;
+}
+
+#columnContainer {
+	padding: 10px;
+	text-align: left;
+}
+
+#leftColumn {
+	padding: 10px;
+	float: left;
+	text-align: right;
+	width: 50%;
+}
+
+#rightColumn {
+	padding: 10px;
+	float: right;
+	text-align: left;
+	width: 50%
+}
+
+#ionTable {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#infraTable {
+	width: 70%;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+#banner {
+	padding: 10px;
+	background-color: #0096D6;
+	border-bottom-width: 0px;
+	/*background: url("../images/mb-hotspot.jpg") no-repeat scroll 50% 0 transparent;
+    height: 75px;
+    padding: 0 10px;
+    position: relative;*/
+}
+
+#bannerInternal {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#bannerTitle {
+	margin-top: 50%;
+	margin: 0 auto;
+	color: #FFFFFF;
+}
+
+#countryMap {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#inProgressClients, #inServiceClients, #withdrawnClients {
+	cursor: pointer;
+	margin: 0 auto;
+	width: 90%;
+}
+
+#labId[disabled], #case[disabled], #primaryContact, #otherContact, #connectionOwner {
+	color: #0000FF;
+	text-decoration: underline;
+}
+
+#clickLabId, #clickCase, #clickPrimaryContact, #clickOtherContact, #clickConnectionOwner {
+	cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:hover>.dropdown-menu{display:block;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}	

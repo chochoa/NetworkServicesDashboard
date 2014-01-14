@@ -1,0 +1,69 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Remote - Outages{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navCorpRemote').attr('class', 'active')
+		})
+
+		$(function() {
+			$('#fromDate').datepicker();
+			$('#toDate').datepicker();
+		});
+	</script>
+{% endblock %}
+{% block level2 %}Corporate Remote Office{% endblock %}
+{% block content %}
+	<br />
+
+	<ul class="nav nav-pills">
+  		<li class="active"><a href="../remoteOffice">Incidents</a></li>
+  		<li><a href="sites/listing">Site Info</a></li>
+  		<li><a href="remoteIncidents">Incident Classification</a></li>
+	</ul>
+
+	<div id="incidentChartDiv">
+		<h3>Current Outages</h3>
+		<div id="incidentChart">
+			<canvas id="incidentBreakdown1" width="150" height="150"></canvas>
+		</div>
+
+		<div id="incidentBreakdown">
+			<table class-"table-bordered" id="incidentBreakdown">
+				<thead>
+					<th>Critical Incidents</th>
+					<th>High Incidents</th>
+					<th>Medium Incidents</th>
+				</thead>
+				<tbody>
+					<td>{{criticalNo}}</td>
+					<td>{{highNo}}</td>
+					<td>{{mediumNo}}</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<br />
+
+	<div id="outages">
+		<table class="table-bordered table-striped" id="outageTable">
+			<thead>
+				<th>Incident</th>
+				<th>Start Time</th>
+			</thead>
+			<tbody>
+				{{remoteOfficeOutages|safe}}
+			</tbody>
+		</table>
+	</div>
+
+	<h3>Historical Outages</h3>
+	<form name="search">
+		<label>Search:  </label><input type="text" required="required" id="fromDate"></input>
+		<label>From: </label><input type="date" id="toDate"></input>
+	</form>
+
+	<script type="text/javascript">incidentCatBreakdown({{criticalNo}},{{highNo}},{{mediumNo}});</script>
+{% endblock %} 

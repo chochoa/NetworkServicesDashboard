@@ -1,0 +1,52 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navDMZ').attr('class', 'active')
+			$(".clickable").click(function() {
+  				window.location.href = $(this).find("a").attr("href");
+			});
+
+			$('#dataTable').dataTable({
+				"bPaginate":false
+			});
+			var x = $('#dataTable_filter');
+			x.addClass('input-group');
+			var z = x.children(":first").children("input")
+			z.addClass('form-control').attr('placeholder','Search').unwrap();
+			x.contents().filter(function(){ return this.nodeType != 1; }).remove();
+		})
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+	<h2>DMZaaS Clients</h2>
+
+	<ul class="nav nav-pills">
+  		<li><a href="../dmz">In Progress</a></li>
+  		<li><a href="inService">In Service</a></li>
+ 		<li class="active"><a href="withdrawn">Withdrawn</a></li>
+ 		<li class="pull-right"><a href="addClient">Add New Client</a></li>
+	</ul>
+
+	<br />
+
+	<div>
+		<table class="table table-condensed table-hover" id='dataTable'>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Subscriber</th>
+					<th>Status</th>
+					<th>Date Updated</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{withdrawnClients | safe}}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

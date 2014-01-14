@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 2752.766 1537.631"
+   version="1.0"
+   height="476.7276"
+   width="939.74725"
+   id="svg1926"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docname="BlankMap-World6.svg"
+   sodipodi:docbase="/home/bennett/Desktop"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <sodipodi:namedview
+     inkscape:window-height="590"
+     inkscape:window-width="822"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.77893284"
+     inkscape:cx="469.87363"
+     inkscape:cy="238.3638"
+     inkscape:window-x="178"
+     inkscape:window-y="46"
+     inkscape:current-layer="svg1926" />
+  <metadata
+     id="metadata24111">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:title>Blank World Map</dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs1930" />
+  <style
+     type="text/css"
+     id="style_css_sheet">
+/*
+ * Below are Cascading Style Sheet (CSS) definitions in use in this file,
+ * which allow easily changing how countries are displayed.
+ *
+ */
+
+/*
+ * Circles around small countries
+ *
+ * Change opacity to 1 to display all circles.
+ *
+ */
+.circle
+{
+   opacity:0;
+   fill:#b9b9b9;
+   fill-opacity:1;
+   stroke:black;
+   stroke-width:0.99986893;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+   stroke-opacity:1;
+}
+
+/*
+ * Land
+ */
+.land
+{
+   fill: #b9b9b9;
+   fill-opacity: 1;
+   stroke: #ffffff;
+   stroke-opacity: 1;
+   stroke-width: 0.99986997;
+   stroke-miterlimit: 3.97446823;
+   stroke-dasharray: none;
+}
+
+/*
+ * Additional style rules
+ *
+ * The following are examples of colouring countries.  You can substitute these with your own styles to colour the countries on the map.
+ *
+ * Color a few countries:
+ *
+ * .gb, .au, .nc
+ * {
+ *    fill:       #ff0000;
+ * }
+ *
+ * Color a few small country circles (and the countries):
+ *
+ * .ms, .ky
+ * {
+ *    opacity:    1;
+ *    fill:       #ff0000;
+ * }
+ *
+ */
+
+/*
+ * Antarctica
+ */
+
+.aq
+{
+   fill:#e6e6e6;
+}
+
+/*
+ * Sea
+ */
+
+.ocean
+{
+   opacity: 1;
+   color: #000000;
+   fill:white;
+   fill-opacity:1;
+   fill-rule:nonzero;
+   stroke:#000000;
+   stroke-width:0.5;
+   stroke-linecap:butt;
+   stroke-linejoin:miter;
+   marker:none;
+   marker-start:none;
+   marker-mid:none;
+   marker-end:none;
+   stroke-miterlimit:1;
+   stroke-dasharray:none;
+   stroke-dashoffset:0;
+   stroke-opacity:1;
+   visibility:visible;
+   display:inline;
+   overflow:visible;
+}
+
+.lake
+{
+   fill:#ffffff;
+   fill-opacity:1;
+   stroke:#ffffff;
+   stroke-opacity:1;
+   stroke-width:0.99986997;
+   stroke-miterlimit:3.97446823;
+   stroke-dasharray:none;
+}
+</style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <g
+     class="land pt"
+     id="pt">
+    <path
+       d="M 1199.0739,419.6855 C 1198.9743,419.4455 1198.8747,419.2065 1198.7739,418.9655 C 1201.2700,418.7895 1201.8157,415.0235 1202.3964,413.3115 C 1202.9069,411.8095 1203.1235,410.1465 1203.4648,408.5865 C 1203.5570,408.1645 1203.9868,408.0925 1204.2380,407.7995 C 1204.4480,407.5545 1204.3200,405.9595 1203.8351,407.6615 C 1203.9459,405.8185 1204.3432,404.7185 1203.7360,402.8575 C 1203.5366,402.2485 1202.2134,399.0485 1203.5678,399.0205 C 1201.6485,399.5685 1202.9769,396.9105 1203.9937,396.5005 C 1205.1443,396.0365 1206.8200,395.9765 1207.7156,395.1325 C 1207.6550,395.7335 1207.9808,396.0815 1208.6612,395.9965 C 1208.2546,396.2805 1206.9217,398.1025 1208.3269,398.0685 C 1209.4784,398.0405 1210.5900,397.2205 1211.7490,397.3935 C 1213.2743,397.6205 1213.8863,398.1645 1215.3370,397.4365 C 1215.7028,395.9625 1218.0720,397.0915 1219.4095,396.9685 C 1220.9715,396.8245 1220.1712,397.8605 1220.3405,398.6325 C 1220.4499,399.1325 1222.3353,399.4345 1222.7807,399.7815 C 1223.7517,400.5395 1218.3862,404.6715 1217.6593,404.8375 C 1218.2845,404.6945 1218.3276,408.5435 1218.3585,408.8265 C 1218.4177,409.3575 1218.7482,410.3355 1218.5077,410.8285 C 1218.1891,411.4825 1217.1001,411.2205 1216.9333,412.0625 C 1216.8342,412.5625 1218.9256,414.5895 1217.2219,415.1115 C 1216.5766,415.3095 1217.0220,416.0965 1216.4973,416.3935 C 1215.7328,416.8255 1213.6976,416.6615 1212.8367,416.4435 C 1213.1702,417.0255 1213.7925,417.3685 1214.3111,417.7865 C 1214.9770,418.3235 1214.4456,418.9125 1214.9195,419.6015 C 1215.4078,420.3125 1217.1868,421.4345 1216.9599,422.2745 C 1216.5720,423.7165 1214.9189,424.4415 1214.5941,425.9005 C 1214.3100,427.1825 1215.7777,429.5685 1217.4526,429.0445 C 1216.8148,430.6985 1215.5806,430.2895 1214.7930,431.9535 C 1214.4044,432.7755 1213.5960,433.3245 1213.2397,434.1675 C 1212.7592,435.3055 1214.0586,436.4275 1213.5002,437.5675 C 1212.6610,439.2805 1209.9260,439.4845 1208.2739,438.8715 C 1206.2846,438.1345 1203.6981,438.0555 1202.0718,439.4125 C 1201.7755,438.6735 1202.2827,437.6815 1202.5580,437.0415 C 1203.0006,436.0165 1202.8337,434.7055 1203.2729,433.8055 C 1203.7946,432.7425 1202.9474,431.9895 1202.9388,430.9285 C 1202.9264,429.3655 1203.8799,428.3045 1202.7084,426.7395 C 1203.4036,428.3875 1203.9283,426.5805 1203.7299,425.9485 C 1203.4547,426.7125 1200.9014,426.9565 1200.0378,427.2445 C 1200.4217,426.5485 1200.0787,425.7535 1200.2339,425.0125 C 1200.5562,425.1255 1200.8748,425.2455 1201.1918,425.3725 C 1201.2092,424.8185 1201.6617,424.7125 1202.0621,424.4615 C 1202.6406,424.0965 1201.8627,423.1275 1201.8114,422.6365 C 1201.3161,423.3115 1199.6801,425.7555 1198.4639,424.9535 C 1196.9078,423.9285 1199.1803,420.9815 1199.0739,419.6855"
+       id="path3446" />
+    <path
+       d="M 1051.5973,426.4535 C 1050.9602,426.5755 1049.4290,425.7045 1050.6070,425.4255 C 1051.3422,425.2515 1052.0334,425.7965 1051.5973,426.4535"
+       id="path3614" />
+    <path
+       d="M 1054.5844,427.6055 C 1053.8552,427.2455 1053.0511,427.2965 1052.3595,426.8135 C 1052.7181,425.2225 1055.2832,426.7865 1056.1839,427.3895 C 1055.6141,427.3505 1055.0817,427.4225 1054.5844,427.6055"
+       id="path3616" />
+    <path
+       d="M 1057.9138,426.1655 C 1056.7983,425.9155 1055.1396,425.6605 1054.4648,424.5815 C 1055.6830,424.8705 1056.9370,425.3225 1057.9138,426.1655"
+       id="path3620" />
+    <path
+       d="M 1063.0638,425.4455 C 1062.2495,425.3195 1060.3098,424.4665 1061.8851,423.9335 C 1062.9752,423.5655 1064.5268,424.9255 1063.0638,425.4455"
+       id="path3622" />
+    <path
+       d="M 1075.9032,433.3655 C 1075.1154,433.2605 1072.1324,432.8515 1073.3444,431.6365 C 1074.7857,432.9995 1076.6694,431.8495 1078.2969,432.2125 C 1078.4998,433.3075 1076.6687,433.3255 1075.9032,433.3655"
+       id="path3624" />
+    <path
+       d="M 1079.1693,440.0615 C 1078.7546,439.8925 1078.3882,439.6525 1078.0704,439.3415 C 1078.6846,439.1845 1079.1096,439.4315 1079.1693,440.0615"
+       id="path3626" />
+    <path
+       d="M 1140.8863,477.1415 C 1140.1091,476.9955 1139.4684,476.6215 1138.8780,476.1045 C 1138.4093,475.6945 1139.1613,475.0725 1139.6514,475.5235 C 1140.2902,476.1125 1141.0521,475.1655 1141.7927,475.8885 C 1142.6056,476.6845 1141.7646,477.3385 1140.8863,477.1415"
+       id="path3628" />
+  </g>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</svg>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+      <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+      <script type="text/javascript" src="/static/js/Chart.js"></script>
+      <script type="text/javascript" src="/static/js/chartSetup.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+      <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/static/js/jquery.tablesorter.min.js"></script> 
+      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+      <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+      <title>{% block title %}{% endblock %} - Network Services</title>
+    {% endblock %}
+  </head>
+  <body>
+    <!--<header>
+      <a href="http://wwin"><img src="/static/logo.png" class="pull-right" id="logo"></a>
+      <h1><a href="/">Network Services Dashboard</a></h1>
+    </header>-->
+
+    <header>
+      <div class="navbar navbar-inverse navbar-fixed-top" id='banner'>
+        <div id='bannerInternal'>
+          <a class="pull-right" href="http://wwin/"><img src="/static/logocopy.png" width="90px" height="50px"></a>
+          <h1><a href="/" id='bannerTitle'>Network Services Dashboard</a></h1>
+        </div>
+      </div>
+    </header>
+
+    <br /><br /><br /><br />
+
+    <h2>{% block level1 %}{% endblock %} <small>{% block level2 %}{% endblock %}</small></h2>
+    
+    {% block navItems %}{% endblock %}
+    
+    <div id="content">{% block content %}{% endblock %}</div>
+
+    <footer>
+      <hr />
+      <div id="footerRight" class="pull-right">
+        <small>Maintained by: <a href="http://wwwin-tools.cisco.com/dir/details/rilogan">Rich Logan</a></small>
+        <br />
+        <small>Need help?<a href="mailto:rilogan@cisco.com">Email me</a></small>
+        <br />
+        <a href="http://flask.pocoo.org/">
+          <img src="http://flask.pocoo.org/static/badges/powered-by-flask-s.png" border="0" alt="powered by Flask" title="powered by Flask">
+        </a>
+        <br /><br />
+      </div>
+    </footer>
+  </body>
+</html>

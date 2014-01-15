@@ -7,5 +7,6 @@ import siteSetup
 import subprocess
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 
 import networkServicesDashboard.views

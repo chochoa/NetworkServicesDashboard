@@ -5,7 +5,9 @@ import urllib
 import urllib2
 import siteSetup
 import subprocess
+import newrelic.agent
 
+newrelic.agent.initialize('../newrelic.ini')
 app = Flask(__name__)
 app.config['DEBUG'] = True
 

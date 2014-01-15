@@ -1,6 +1,6 @@
 from peewee import *
 
-database = MySQLDatabase('DMZaaSClients', **{'passwd': 'Li0ns3393.', 'user': 'root'})
+database = MySQLDatabase("heroku_e6cb710b4bcf991", host="us-cdbr-east-04.cleardb.com", user="b58285c8b943a1", passwd="b6721a32")
 
 class UnknownFieldType(object):
     pass

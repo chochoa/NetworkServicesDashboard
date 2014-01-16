@@ -1,6 +1,6 @@
 from peewee import *
 
-database = PostgresqlDatabase("dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", passwd="KfbMwHkzDWzzU0FmDSNsroRS0l")
+database = PostgresqlDatabase(database = "dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", password="KfbMwHkzDWzzU0FmDSNsroRS0l", port="5432")
 database.get_conn().set_client_encoding('UTF8')
 
 class UnknownFieldType(object):

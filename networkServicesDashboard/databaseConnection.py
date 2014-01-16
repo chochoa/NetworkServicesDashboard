@@ -43,13 +43,13 @@ class clients(BaseModel):
     vapapproval = CharField(max_length=10, null=True, db_column='vapApproval')
 
     class Meta:
-        db_table = 'Clients'
+        db_table = 'clients'
 
 class notes(BaseModel):
     noteid = PrimaryKeyField(db_column='noteId', primary_key=True)
-    engagementid = ForeignKeyField(db_column='engagementId', rel_model=Clients)
+    engagementid = ForeignKeyField(db_column='engagementId', rel_model=clients)
     content = TextField()
     posted = DateTimeField()
 
     class Meta:
-        db_table = 'Notes'
+        db_table = 'notes'

@@ -1,7 +1,7 @@
 from peewee import *
 
 database = PostgresqlDatabase("dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", passwd="KfbMwHkzDWzzU0FmDSNsroRS0l")
-psql_db.get_conn().set_client_encoding('UTF8')
+database.get_conn().set_client_encoding('UTF8')
 
 class UnknownFieldType(object):
     pass

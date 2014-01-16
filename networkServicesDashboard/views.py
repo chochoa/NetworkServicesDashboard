@@ -318,13 +318,13 @@ def client():
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
-	for result in database.execute_sql('SELECT MAX("engagementId") FROM "Clients"'):
+	for result in database.execute_sql('SELECT MAX(engagementId) FROM "Clients"'):
 		currentId = result[0] + 1
 	return render_template('corporateNetwork/dmzAddClient.html', clientId = currentId)
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-	for result in database.execute_sql('SELECT MAX("engagementId") FROM "Clients"'):
+	for result in database.execute_sql('SELECT MAX(engagementId) FROM "Clients"'):
 		currentId = result[0] + 1
 
 	isInService = request.form['inservice']
@@ -395,7 +395,7 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 
-	for result in database.execute_sql('SELECT MAX("noteId") FROM "Notes"'):
+	for result in database.execute_sql('SELECT MAX(noteId) FROM "Notes"'):
 		currentId = result[0]
 
 	newNote = Notes.insert(noteid = int(currentId) + 1, engagementid = client, content = noteContent)

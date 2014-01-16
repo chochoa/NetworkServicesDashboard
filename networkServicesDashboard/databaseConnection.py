@@ -10,7 +10,7 @@ class BaseModel(Model):
     class Meta:
         database = database
 
-class Clients(BaseModel):
+class clients(BaseModel):
     activityconducted = CharField(max_length=500, null=True, db_column='activityConducted')
     billtoid = IntegerField(null=True, db_column='billToId')
     billtoname = CharField(max_length=100, null=True, db_column='billToName')
@@ -45,7 +45,7 @@ class Clients(BaseModel):
     class Meta:
         db_table = 'Clients'
 
-class Notes(BaseModel):
+class notes(BaseModel):
     noteid = PrimaryKeyField(db_column='noteId', primary_key=True)
     engagementid = ForeignKeyField(db_column='engagementId', rel_model=Clients)
     content = TextField()

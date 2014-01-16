@@ -250,7 +250,7 @@ def cdn():
 @app.route('/corporateNetwork/dmz')
 def dmzInProgress():
 	html = ''
-	for client in Clients.select():
+	for client in clients.select():
 		if client.status == 2:
 			result = getProgress(client)
 			html += '''
@@ -266,7 +266,7 @@ def dmzInProgress():
 @app.route('/corporateNetwork/dmz/inService')
 def dmzInService():
 	html = ''
-	for client in Clients.select():
+	for client in clients.select():
 		if client.status == 1:
 			result = getProgress(client)
 			html += '''
@@ -282,7 +282,7 @@ def dmzInService():
 @app.route('/corporateNetwork/dmz/withdrawn')
 def dmzWithdrawn():
 	html = ''
-	for client in Clients.select():
+	for client in clients.select():
 		if client.status == 3:
 			result = getProgress(client)
 			html += '''
@@ -298,7 +298,7 @@ def dmzWithdrawn():
 @app.route('/corporateNetwork/dmz/client')
 def client():
 	clientId = request.args.get('id', '')
-	client = Clients.get(Clients.engagementid == clientId)
+	client = clients.get(clients.engagementid == clientId)
 
 	result = getProgress(client)
 	status = result['status']
@@ -318,13 +318,13 @@ def client():
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
-	for result in database.execute_sql('SELECT MAX("engagementId") FROM "Clients"'):
+	for result in database.execute_sql('SELECT MAX("engagementId") FROM clients'):
 		currentId = result[0] + 1
 	return render_template('corporateNetwork/dmzAddClient.html', clientId = currentId)
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-	for result in database.execute_sql('SELECT MAX("engagementId") FROM "Clients"'):
+	for result in database.execute_sql('SELECT MAX("engagementId") FROM clients'):
 		currentId = result[0] + 1
 
 	isInService = request.form['inservice']
@@ -343,7 +343,7 @@ def addingClient():
 	if newTargetDate == None:
 		newTargetDate = "0000-01-01"
 
-	newClient = Clients.insert(
+	newClient = clients.insert(
 						engagementid = int(currentId),
 					    activityconducted = request.form['activity'],
     					billtoid = request.form['departmentid'],
@@ -379,13 +379,13 @@ def addingClient():
 
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():
-	withdrawnClient = Clients.update(status = 3).where(Clients.engagementid == request.form['clientId'])
+	withdrawnClient = clients.update(status = 3).where(clients.engagementid == request.form['clientId'])
 	withdrawnClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientId'])
 
 @app.route('/corporateNetwork/dmz/deleteClient', methods=['POST'])
 def dmzDeleteClient():
-	deleteClient = Clients.delete().where(Clients.engagementid == request.form['clientId'])
+	deleteClient = clients.delete().where(clients.engagementid == request.form['clientId'])
 	deleteClient.execute()
 	return redirect('/corporateNetwork/dmz')
 
@@ -395,10 +395,10 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 
-	for result in database.execute_sql('SELECT MAX("noteId") FROM "Notes"'):
+	for result in database.execute_sql('SELECT MAX("noteId") FROM notes'):
 		currentId = result[0]
 
-	newNote = Notes.insert(noteid = int(currentId) + 1, engagementid = client, content = noteContent)
+	newNote = notes.insert(noteid = int(currentId) + 1, engagementid = client, content = noteContent)
 	newNote.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
@@ -424,7 +424,7 @@ def editClient():
 	if newTargetDate == None or newTargetDate == 'None':
 		newTargetDate = "0000-01-01"
 
-	updatedClient = Clients.update(
+	updatedClient = clients.update(
 					    activityconducted = request.form['activity'],
     					billtoid = request.form['departmentid'],
     					billtoname = request.form['departmentname'],
@@ -452,7 +452,7 @@ def editClient():
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
-    					vapapproval = request.form['vapapproval']).where(Clients.engagementid == client)
+    					vapapproval = request.form['vapapproval']).where(clients.engagementid == client)
 	updatedClient.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
@@ -569,7 +569,7 @@ def getProgress(client):
 
 def getNotes(client):
 	html = ''
-	for note in Notes.select().join(Clients).where(Clients.engagementid == client.engagementid).order_by(Notes.posted.desc()):
+	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
 		html += '''
 			<div class="well">
 				<h4>''' + str(note.posted) + '''</h4>
@@ -578,5 +578,5 @@ def getNotes(client):
 	return html
 
 def getLatestNote(client):
-	for note in Notes.select().join(Clients).where(Clients.engagementid == client.engagementid).order_by(Notes.posted.desc()):
+	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
 		return note

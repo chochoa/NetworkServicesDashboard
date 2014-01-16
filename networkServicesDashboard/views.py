@@ -395,7 +395,7 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 
-	#for result in database.execute_sql('SELECT MAX(noteId) FROM notes'):
+	#for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
 	#	currentId = result[0]
 
 	newNote = notes.insert(engagementid = client, content = noteContent)

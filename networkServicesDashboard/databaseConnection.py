@@ -1,6 +1,7 @@
 from peewee import *
 
-database = MySQLDatabase("heroku_e6cb710b4bcf991", host="us-cdbr-east-04.cleardb.com", user="b58285c8b943a1", passwd="b6721a32")
+database = PostgresqlDatabase("dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", passwd="KfbMwHkzDWzzU0FmDSNsroRS0l")
+psql_db.get_conn().set_client_encoding('UTF8')
 
 class UnknownFieldType(object):
     pass

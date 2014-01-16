@@ -1,0 +1,99 @@
+-- MySQL dump 10.13  Distrib 5.6.15, for osx10.7 (x86_64)
+--
+-- Host: localhost    Database: dmzaasclients
+-- ------------------------------------------------------
+-- Server version	5.6.15
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO,POSTGRESQL' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table "Clients"
+--
+
+DROP TABLE IF EXISTS "Clients";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "Clients" (
+  "engagementId" int(11) unsigned NOT NULL,
+  "labId" int(11) DEFAULT NULL,
+  "labName" varchar(100) DEFAULT NULL,
+  "subscriber" varchar(100) DEFAULT NULL,
+  "teamName" varchar(100) DEFAULT NULL,
+  "primaryContact" varchar(100) DEFAULT NULL,
+  "otherContact" varchar(100) DEFAULT NULL,
+  "activityConducted" varchar(500) DEFAULT NULL,
+  "targetDate" date DEFAULT NULL,
+  "goLiveDate" date DEFAULT NULL,
+  "location" varchar(100) DEFAULT NULL,
+  "labStatus" varchar(20) DEFAULT NULL,
+  "serviceGateway1" varchar(100) DEFAULT NULL,
+  "serviceGateway2" varchar(100) DEFAULT NULL,
+  "connectionOwner" varchar(100) DEFAULT NULL,
+  "estimatedMaximumBandwidth" varchar(10) DEFAULT NULL,
+  "crossCharge" varchar(10) DEFAULT NULL,
+  "vapApproval" varchar(10) DEFAULT NULL,
+  "billToId" int(20) DEFAULT NULL,
+  "billToName" varchar(100) DEFAULT NULL,
+  "otherServices" varchar(500) DEFAULT NULL,
+  "plans" varchar(500) DEFAULT NULL,
+  "comments" varchar(500) DEFAULT NULL,
+  "case" varchar(50) DEFAULT NULL,
+  "securityInfo" varchar(10) DEFAULT NULL,
+  "securityReview" varchar(50) DEFAULT NULL,
+  "implementation" varchar(50) DEFAULT '',
+  "inService" tinyint(1) DEFAULT NULL,
+  "status" int(11) DEFAULT NULL,
+  "updated" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("engagementId")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "Clients"
+--
+
+LOCK TABLES "Clients" WRITE;
+/*!40000 ALTER TABLE "Clients" DISABLE KEYS */;
+INSERT INTO "Clients" VALUES (0,NULL,NULL,'Test Client',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,'2014-01-14 18:26:17'),(1,4258,'MITG-TME','MITG','Mobile (MI BU)','Haridev Cheviry (hcheviry)','Kiran Bommareddy (kbommare)','Mobile related product demos, video optimazation, interoperability testing',NULL,NULL,'SJC14-2 264','Compliant','TBD','TBD','TBD','100MB','1400','',NULL,'TBD',NULL,NULL,NULL,NULL,NULL,NULL,'',0,3,'2014-01-07 23:14:38'),(2,28768,'DC South External POD','UCS Demo','UCS Demo','Brandon Beck (robbeck)','Tighe Kuykendall (tkuykend)','Proof of concept for wireless related services and products, UCS Training and Demos (full day customer workshops and sales demos)','2013-10-01',NULL,'AST03','Compliant','TBD','TBD',NULL,'100MB','1400',NULL,20038919,'Data Center-US Commercial-Engineering-South',NULL,NULL,NULL,NULL,'Yes','Completed','Not Started',0,2,'2014-01-14 19:43:32'),(4,2323,'','CCIE - Brussels',NULL,'Rob Altman (raltman)','Jan Vandenberghe (vandenbe)','Provides CCIE exams to training vendors hosting classes',NULL,NULL,'DIEGEM - PEGASUS 2','Complint','TBD','TBD','TBD','',NULL,NULL,20056900,'CCIE Programs',NULL,NULL,NULL,'INC000027104363',NULL,NULL,'',0,2,'2014-01-07 23:21:29'),(5,NULL,NULL,'CCIE - SJC',NULL,NULL,NULL,'Provides CCIE exams to training vendors hosting classes',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,'2014-01-07 23:27:47'),(6,31588,'ETE-AER01','Strategic Information - AER01','ETE/Alpha Test Group','Jeff Creese (jcreese)','ete-engineering@cisco.com','Host ACE UC services (VCSE) and Alpha VPN (anyconnect)','2014-01-01',NULL,'AER01','Non-compliant',NULL,NULL,NULL,NULL,NULL,NULL,20070375,'GIS-ETE-US',NULL,NULL,'New Lab',NULL,'No',NULL,'',0,2,'2014-01-14 19:43:34'),(7,31888,'ETE-SNG','Strategic Information - SNG','ETE/Alpha Test Group','Jeff Creese (jcreese)','ete-engineering@cisco.com','Host ACE UC services (VCSE) and Alpha VPN (anyconnect)',NULL,'2014-10-01','SNDGDC01','Non-compliant',NULL,NULL,NULL,NULL,NULL,NULL,20070375,'GIS-ETE-US',NULL,NULL,'Live, but not as proper service. Will be copied from AER01 when completed',NULL,NULL,NULL,'',NULL,2,'2014-01-07 23:33:55'),(8,31788,'None','CTG Alpha','None','Denis Savostiyanov (desavost)','Erik Fosshaug (erikfoss)','Validate non-released alpha software and solutions\"\"','2014-02-01','2010-01-01','AER01','Compliant','rtp5-dmzaas-gw1','alln01-mda1-dmzaas-gw1','None','10MB','None','',20020805,'Collaboration Systems - Systems Test - US','None','None','None','None','Yes','Not Started','Not Started',0,0,'2014-01-16 00:06:14'),(9,NULL,NULL,'MFG Autotest',NULL,'Hiu-Man Cheung (hcheung)',NULL,'Supply chain management. Manage licensing and communication with partner sites. ','2014-01-01',NULL,'AER01',NULL,NULL,NULL,NULL,'100MB',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',0,2,'2014-01-07 23:42:07'),(10,9347,'BFL-9-GDD-DCLOUD-HA','dCloud-BFL-09','dCloud','James Doran (jamdoran)','dcloud-netops@cisco.com','Partner sales support/demos','2014-01-01',NULL,'BDLK09','Compliant',NULL,NULL,'dcloud-netops@cisco.com','100MB','1400',NULL,570037560,'WW Field Demos - Switzerland',NULL,'Development Lab','Patching issues resolved. Expect to be live January. ','INC000027632324','Yes','Completed','',0,2,'2014-01-14 19:43:37'),(11,31528,'SJC10 Martens','GGSG',NULL,'Christopher Nolan (chnolan)','Dan Martens (damarten)',NULL,NULL,NULL,'SJC10-5','Non-compliant',NULL,NULL,NULL,NULL,NULL,NULL,20071291,'Government Security',NULL,NULL,NULL,'INC000028828905',NULL,NULL,'',0,2,'2014-01-07 23:42:10'),(12,32188,'aer01-servicegrid','ServiceGrid - AER01',NULL,'Harald Haas (hahaas)','Joachim Niederreiter (joaniede)','Acquisition - Cloud computing','2014-05-01',NULL,'AER01','Non-compliant',NULL,NULL,NULL,NULL,NULL,NULL,530024998,'IBTG ServiceGrid BU R&D Austria (SolveDirect)','DCaaS',NULL,NULL,'INC000029318339','No','Not Started','Not Started',0,2,'2014-01-14 19:43:40'),(13,32168,'alln01-servicegrid','ServiceGrid - ALLN01',NULL,'Harald Haas (hahaas)','Joachim Niederreiter (joaniede)','Acquisition - Cloud computing','2014-05-01',NULL,'ALLN01','Non-compliant',NULL,NULL,NULL,NULL,NULL,NULL,530024998,'IBTG ServiceGrid BU R&D Austria (SolveDirect)','DCaaS',NULL,NULL,'INC000029318167','No','Not Started','Not Started',0,2,'2014-01-14 19:43:42'),(14,5150,'Triad-IT xDMZ','Triad & GSO','Triad IT','Kelly Alexander (alexanke)','Brian Postma (bpostma)','Former Iron Port',NULL,'2012-06-01','RTP7','Non-compliant','rtp5-dmzaas-gw1','rtp10-dmzaas-gw1','Triad-IT xDMZ','10MB','500',NULL,20020927,'Triad IT',NULL,'Maintain service levels - high priority','http://iwe.cisco.com/ws#/web/ggsg-it-and-gso','','Yes','Completed','Completed',1,1,'2014-01-14 19:43:45'),(15,17447,'RTP10 SDU Lab','SDU Lab','SDU/Cloud Systems Development','Patrick Wilson (patwilso)','Jesse Schulman (jeschulm)','Cloud Systems Dev',NULL,'2012-07-01','RTP10-3 380','Compliant','rtp5-dmzaas-gw1','rtp10-dmzaas-gw1','RTP10 SDU Lab DMZ','100MB','1400','',20022838,'Cloud Systems Development',NULL,NULL,NULL,'INC000026600228','Yes','Completed','Completed',1,1,'2014-01-14 19:43:46'),(16,22847,'RTP-4-GDD-DCLOUD-HA','dCloud - RTP','dCloud','James Doran (jamdoran)','dcloud-netops@cisco.com','Partner sales support/demos',NULL,'2013-04-01','RTP4-1 D126','Compliant','rtp5-dmzaas-gw1','rtp10-dmzaas-gw1','dcloud-netops@cisco.com','100MB','1400',NULL,570037560,'WW Field Demos - Switzerland',NULL,'Significant Growth',NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:47'),(17,23988,'SNG-11-GDD-DCLOUD-HA','dCloud - SNG','dCloud','James Doran (jamdoran)','dcloud-netops@cisco.com','Partner sales support/demos',NULL,'2013-05-01','SNG11-3 CBC Rack Room','Compliant','sngidc-dmzvaas-gw1','sngidc-dmzvaas-gw2','dcloud-netops@cisco.com','100MB','1400',NULL,570037560,'WW Field Demos - Switzerland',NULL,'Significant Growth',NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:48'),(18,23987,'BFL-9-GDD-DCLOUD-HA','dCloud - BFL-11','dCloud','James Doran (jamdoran)','dcloud-netops@cisco.com','Partner sales support/demos',NULL,'2013-03-01','BDLK11','Compliant','aer01-mda1-dmzvaas-gw1','aer01-mda1-dmzvaas-gw2','dcloud-netops@cisco.com','100MB','1400',NULL,570037560,'WW Field Demos- Switzerland',NULL,'Significant Growth',NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:48'),(19,30668,'Sao Paulo DMZaaS Field Lab','Brazil Demo Center','Sao Paulo DMZaaS Field Lab','Sandra Fiorentini (sfiorent)','Paulo Quinta (pquinta)','Sales/Demos','2013-03-01','2013-10-01','SPL1-26 Lab','Complaint','rtp1-dmzvaas-gw1','rtp1-dmzvaas-gw2',NULL,'100MB','1400',NULL,107030825,'BZ HQ',NULL,NULL,NULL,'INC000028367829','Yes','Completed','Completed',1,1,'2014-01-14 19:43:49'),(20,14627,'VCE Primary DC - ALLN01 Data Hall #2 - DCaaS','VCE (Virtual Cloud Environment) - Allen','VCE','Ted Hannock (thannock)','Greg Zukowski (gzukowsk)','Cisco spin-off - cloud market',NULL,'2012-08-01','ALLN01-1 DCaaS','Non-compliant','alln01-mda1-dmzvaas-gw1','alln01-mda1-dmzvaas-gw2',NULL,'100MB','1400',NULL,20022787,'Acadia Costs','DCaaS, ITaaC',NULL,'2 connections to each gateway',NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:50'),(21,14569,'VCE Secondary DC - RTP7 Rm 251 - DCaaS','VCE (Virtual Cloud Environment) - RTP','VCE','Ten Hannock (thannock)','Greg Zukowski (gzukowsk)','Cisco spin-off - cloud market',NULL,'2012-08-01','RTP4-1 110','Non-compliant','rtp5-dmzaas-gw1','rtp10-dmzvaas-gw1',NULL,'100MB','1400',NULL,20022787,'Acadia Costs','DCaaS, ITaaC',NULL,NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:50'),(22,20208,'Cisco UC Sandbox','UC Sandbox',NULL,'Dennis Durick (dedurick)','Bill Willcutt (bwillcut)','Cisco internal demonstration',NULL,'2013-02-01','ALLN01-1 EDA2','Compliant','alln01-mda-dmzaas-gw1','alln01-mda1-dmzaas-gw2','Cisco','100MB','1400',NULL,20236649,'Collaboration-US-Enterprise-Engineering-Op',NULL,'Keep running, reallocations but no additions',NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:51'),(23,22727,'Allen TX PDC','US SP Managed Service','Smart Ops','Amarjeet Singh (amarjesi)','Aneesh Nair (aneenair)','Remote provisioning of CPE routers for customers',NULL,'2012-02-15','Allen TX PDC','Non-compliant','alln01-mda1-dmzaas-gw1','alln01-mda1-dmzaas-gw2',NULL,'100MB','1400',NULL,20550174,'US SP Managed Services','DCaaS',NULL,NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:51'),(24,26167,'Managed Threat Defense (MTD)','Managed Threat Defense (MTD)','MTD','Annie Ballew (ballew)','Larry Edie (laedie)','Security Services','2013-05-01','2013-05-01','ALLN01-1 DCaaS Data Center','Compliant','allen01-mda-dmzaas-gw1','alln01-mda-dmzaas-gw2','Annie Ballew (ballew)','50MB','800','Yes',20554994,'BN.MTD.Practise.COGS-United States','DCaaS',NULL,NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:52'),(25,26567,'PNOC Allen','PNOC - Allen','PNOC','Alan Sheets (alsheets)','Jeff Lester (jlester)','Service Provider Advanced Services',NULL,'2013-05-15','ALLN01-1 DH2 C1','Non-compliant','alln01-mda1-dmzaas-gw1','alln01-mda1-dmzaas-gw2','Jeff Lester (jlester)','50MB','800','Yes',20550661,'WWSP Architechture Practise','DCaaS, DMZaaS, CIBB','Complete migration, continue to grow customer base',NULL,NULL,'Yes','Completed','Completed',1,1,'2014-01-14 19:43:53'),(26,30328,'Allen - RMS - DCaaS','RMS - Allen','RMS','Tom Biddle (tbiddle)','DCN-Team@cisco.com','Remote Monitoring',NULL,'2013-09-23','ALLN01-1 DH2','Compliant','alln01-mda1-dmzaas-gw1','alln01-mda1-dmzaas-gw2',NULL,'50MB','800',NULL,20053052,'CSTG RMS Release and Support',NULL,NULL,NULL,'INC000028171450','Yes','Completed','Completed',1,1,'2014-01-14 19:43:54'),(27,20007,'Managed Wi-Fi Core','(MS.Mobility.COE.COGS-US)','Mobility','Mark Cannon (marcanno)','Barry Van Cleve (bvanclev)',NULL,NULL,'2013-09-23','RTP12 - FALLS',NULL,'alln01-mda1-dmzaas-gw1','alln01-mda1-dmzaas-gw2',NULL,'100MB','1400',NULL,NULL,'(MS.Mobility.COE.COGS-US)',NULL,NULL,NULL,'INC000028632251',NULL,NULL,'',NULL,NULL,'2014-01-08 19:30:02');
+/*!40000 ALTER TABLE "Clients" ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table "Notes"
+--
+
+DROP TABLE IF EXISTS "Notes";
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE "Notes" (
+  "noteId" int(11) NOT NULL,
+  "engagementId" int(11) unsigned NOT NULL,
+  "content" longtext NOT NULL,
+  "posted" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("noteId"),
+  KEY "engagementId" ("engagementId"),
+  CONSTRAINT "notes_ibfk_1" FOREIGN KEY ("engagementId") REFERENCES "Clients" ("engagementId")
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table "Notes"
+--
+
+LOCK TABLES "Notes" WRITE;
+/*!40000 ALTER TABLE "Notes" DISABLE KEYS */;
+INSERT INTO "Notes" VALUES (0,0,'Test Note','2014-01-14 18:26:32'),(1,8,'Collected security information and received VP\'s approval','2014-01-14 18:27:01'),(2,10,'Client has just finished security review','2014-01-14 21:07:37'),(3,10,'another note','2014-01-14 21:07:47');
+/*!40000 ALTER TABLE "Notes" ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-01-15 16:07:23

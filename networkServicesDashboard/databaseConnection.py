@@ -1,7 +1,7 @@
 from peewee import *
 
 database = PostgresqlDatabase(database = "dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", password="KfbMwHkzDWzzU0FmDSNsroRS0l", port="5432")
-database.get_conn().set_client_encoding('UTF8')
+#database.get_conn().set_client_encoding('UTF8')
 
 class UnknownFieldType(object):
     pass
@@ -46,7 +46,7 @@ class clients(BaseModel):
         db_table = 'clients'
 
 class notes(BaseModel):
-    noteid = PrimaryKeyField(db_column='noteId', primary_key=True)
+    noteid = PrimaryKeyField(db_column='noteid', primary_key=True)
     engagementid = ForeignKeyField(db_column='engagementId', rel_model=clients)
     content = TextField()
     posted = DateTimeField()

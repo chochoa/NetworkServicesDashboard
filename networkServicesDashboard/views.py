@@ -397,7 +397,7 @@ def newNote():
 	for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
 		currentId = result[0]
 
-	newNote = notes.insert(noteid = currentId, engagementid = client, content = noteContent)
+	newNote = notes.insert(noteid = (currentId + 1), engagementid = client, content = noteContent)
 	newNote.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + client)

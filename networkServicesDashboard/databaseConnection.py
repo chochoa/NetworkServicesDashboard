@@ -18,7 +18,7 @@ class clients(BaseModel):
     comments = CharField(max_length=500, null=True)
     connectionowner = CharField(max_length=100, null=True, db_column='connectionOwner')
     crosscharge = CharField(max_length=10, null=True, db_column='crossCharge')
-    engagementid = PrimaryKeyField(db_column='engagementId')
+    engagementid = PrimaryKeyField(db_column='engagementid')
     estimatedmaximumbandwidth = CharField(max_length=10, null=True, db_column='estimatedMaximumBandwidth')
     golivedate = DateField(null=True, db_column='goLiveDate')
     implementation = CharField(max_length=50, null=True)
@@ -47,7 +47,7 @@ class clients(BaseModel):
 
 class notes(BaseModel):
     noteid = PrimaryKeyField(db_column='noteid', primary_key=True)
-    engagementid = ForeignKeyField(db_column='engagementId', rel_model=clients)
+    engagementid = ForeignKeyField(db_column='engagementid', rel_model=clients)
     content = TextField()
     posted = DateTimeField()
 

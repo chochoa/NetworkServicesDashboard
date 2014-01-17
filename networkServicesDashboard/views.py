@@ -394,10 +394,10 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 
-	#for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
-	#	currentId = result[0]
+	for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
+		currentId = result[0]
 
-	newNote = notes.insert(engagementid = client, content = noteContent)
+	newNote = notes.insert(noteid = currentId, engagementid = client, content = noteContent)
 	newNote.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + client)

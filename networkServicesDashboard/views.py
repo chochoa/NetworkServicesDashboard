@@ -255,7 +255,7 @@ def dmzInProgress():
 			result = getProgress(client)
 			html += '''
 						<tr class="clickable">
-							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.engagementid) + '''</a></td>
+							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>
@@ -271,7 +271,7 @@ def dmzInService():
 			result = getProgress(client)
 			html += '''
 						<tr class="clickable">
-							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.engagementid) + '''</a></td>
+							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>
@@ -287,7 +287,7 @@ def dmzWithdrawn():
 			result = getProgress(client)
 			html += '''
 						<tr class="clickable">
-							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.engagementid) + '''</a></td>
+							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>

@@ -317,7 +317,17 @@ def client():
 		lastNoteDate = str(lastNote.posted)
 		lastNoteContent = str(lastNote.content)
 
-	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent)
+	cases = client.remedycase.split(';')
+	remedycases = ''
+	for case in cases:
+		if case[:3] == "INC":
+			remedycases += "<a href='http://case/" + case + "'>" + case + "</a><br />"
+		elif case[:3] == "CRQ" or case[0:2] == "RFC":
+			remedycases += "<a href='http://rfc/" + case + "'>" + case + "</a><br />"
+		else:
+			remedycases += case + "<br />"
+
+	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases=remedycases)
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():

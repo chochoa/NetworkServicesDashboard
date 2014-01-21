@@ -56,9 +56,6 @@
 			$("#clickLabId").click(function() {
 				window.open('http://eman-core.cisco.com/infosec/labreg/view.pcgi?lab_id={{clientArray.labid}}');
 			});
-			$("#clickCase").click(function() {
-				window.open('http://case/{{clientArray.remedycase}}');
-			});
 			$("#clickPrimaryContact").click(function() {
 				window.open('http://dir/' + primaryContact[1]);
 			});
@@ -74,13 +71,15 @@
 				$("#detailsForm :input").prop("disabled", false);
 				$("#clientId").prop("disabled", true);
 				$("#clickLabId").remove();
-				$("#clickCase").remove();
 				$("#clickPrimaryContact").remove();
 				$("#clickOtherContact").remove();
 				$("#clickConnectionOwner").remove();
 				$("#last").append("<input type='submit' class='btn btn-success form-control'><br /><br />");
 				$("#last").append("<form method='POST' action='/corporateNetwork/dmz/deleteClient' id='deleteForm' onsubmit='return confirm(&quot;Do you really want to delete this client?&quot;);'><input type='hidden' name='clientId' value='{{clientArray.engagementid}}'><input type='submit' class='btn btn-danger pull-right' value='Delete'></form>");
 				$("#last").append("<form method='POST' action='/corporateNetwork/dmz/withdrawClient' id='withdrawForm' onsubmit='return confirm(&quot;Do you really want to withdraw this client?&quot;);'><input type='hidden' name='clientId' value='{{clientArray.engagementid}}'><input type='submit' class='btn btn-warning pull-left' value='Withdraw'></form>");
+				$("#printRemedyCases").addClass("hidden");
+				$("#remedycase").removeClass("hidden");
+				$("#remedycase").removeAttr("disabled");
 			});
 		});
 	</script>
@@ -310,8 +309,10 @@
 					<div class="form-group">
 						<label for="remedycase" class="col-sm-2 control-label">Remedy Case</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="remedycase" name="remedycase" disabled placeholder="INC############" value="{{clientArray.remedycase}}">
-							<div id="clickCase" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
+							<p id="printRemedyCases">
+								{{splitcases | safe}}
+							</p>
+							<textarea id="remedycase" class="form-control hidden" name="remedycase" rows="3" disabled placeholder="INC#;RFC#;">{{clientArray.remedycase}}</textarea>
 						</div>
 					</div>
 

@@ -10,9 +10,8 @@
   				window.location.href = $(this).find("a").attr("href");
 			});
 
-			$('#dataTable').dataTable({
-				"bPaginate":false
-			});
+			var sortedTable =$('#dataTable').dataTable({"bPaginate":false});
+			sortedTable.fnSort([[1,'dsc']]);
 			var x = $('#dataTable_filter');
 			x.addClass('input-group');
 			var z = x.children(":first").children("input")

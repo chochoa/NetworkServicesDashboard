@@ -258,6 +258,7 @@ def dmzInProgress():
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
+							<td>''' + str(client.crosscharge) + '''</td>
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
@@ -274,6 +275,7 @@ def dmzInService():
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
+							<td>''' + str(client.crosscharge) + '''</td>
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
@@ -290,6 +292,7 @@ def dmzWithdrawn():
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
+							<td>''' + str(client.crosscharge) + '''</td>
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
@@ -343,7 +346,7 @@ def addingClient():
 		newStatus = 2
 
 	newClient = clients.insert(
-						engagementid = int(request.form['engagementid']),
+						#engagementid = int(request.form['engagementid']),
 					    activityconducted = request.form['activityconducted'],
     					billtoid = request.form['billtoid'],
     					billtoname = request.form['billtoname'],

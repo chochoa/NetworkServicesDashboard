@@ -57,7 +57,7 @@
 				window.open('http://eman-core.cisco.com/infosec/labreg/view.pcgi?lab_id={{clientArray.labid}}');
 			});
 			$("#clickCase").click(function() {
-				window.open('http://case/{{clientArray.case}}');
+				window.open('http://case/{{clientArray.remedycase}}');
 			});
 			$("#clickPrimaryContact").click(function() {
 				window.open('http://dir/' + primaryContact[1]);
@@ -308,9 +308,9 @@
 					</div>
 
 					<div class="form-group">
-						<label for="case" class="col-sm-2 control-label">Remedy Case</label>
+						<label for="remedycase" class="col-sm-2 control-label">Remedy Case</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="case" name="case" disabled placeholder="INC############" value="{{clientArray.case}}">
+							<input type="text" class="form-control" id="remedycase" name="remedycase" disabled placeholder="INC############" value="{{clientArray.remedycase}}">
 							<div id="clickCase" style="position:absolute; left:0; right:0; top:0; bottom:0;"></div>
 						</div>
 					</div>
@@ -319,8 +319,8 @@
 						<label for="securityInfo" class="col-sm-2 control-label">Security Info Provided?</label>
 						<div class="col-sm-10">
 							<select class="form-control" name="securityinfo" id="securityinfo" disabled>
-								<option id="securityInfoNo">No</option>
-								<option id="securityInfoYes">Yes</option>
+								<option id="securityInfoNo" value="no">No</option>
+								<option id="securityInfoYes" value="yes">Yes</option>
 							</select>
 						</div>
 					</div>

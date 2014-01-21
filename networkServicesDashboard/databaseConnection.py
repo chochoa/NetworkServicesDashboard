@@ -41,7 +41,7 @@ class clients(BaseModel):
     targetdate = DateField(null=True)
     teamname = CharField(max_length=100, null=True)
     updated = DateTimeField(null=True)
-    vapapproval = CharField(max_length=100, null=True)
+    vapapproval = BooleanField(null=True)
 
     class Meta:
         db_table = 'clients'

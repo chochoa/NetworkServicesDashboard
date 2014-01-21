@@ -65,6 +65,7 @@
 			$("#clickConnectionOwner").click(function() {
 				window.open('http://dir/' + clientConnectionOwner[1]);
 			});
+			$("#remedycase").popover({'trigger':'focus', 'title':'Adding multiple cases', 'content':'You can seperate multiple cases using a semicolon (;). Note: Do not add spaces', 'placement':'top'});
 
 			//Enable edit functionality
 			$("#editClient").click(function() {
@@ -316,7 +317,7 @@
 							<p id="printRemedyCases">
 								{{splitcases | safe}}
 							</p>
-							<textarea id="remedycase" class="form-control hidden" name="remedycase" rows="3" disabled placeholder="INC#;RFC#;">{{clientArray.remedycase}}</textarea>
+							<textarea data-toggle="tooltip" id="remedycase" class="form-control hidden" name="remedycase" rows="3" disabled placeholder="INC#;RFC#;">{{clientArray.remedycase}}</textarea>
 						</div>
 					</div>
 

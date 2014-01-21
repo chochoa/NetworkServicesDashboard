@@ -19,7 +19,7 @@
 	<div class="form-group">
 		<label for="clientId" class="col-sm-2 control-label">Client ID</label>
 		<div class="col-sm-10">
-			<input type="number" class="form-control" id="clientId" name="clientid" disabled value="{{clientId}}">
+			<input type="number" class="form-control" id="clientId" name="engagementid" disabled value="{{nextid}}">
 		</div>
 	</div>
 
@@ -68,7 +68,7 @@
 	<div class="form-group">
 		<label for="activity" class="col-sm-2 control-label">Type of Business/Service/Activity Conducted</label>
 		<div class="col-sm-10">
-			<textarea id="activity" class="form-control" name="activity" rows="3"></textarea>
+			<textarea id="activity" class="form-control" name="activityconducted" rows="3"></textarea>
 		</div>
 	</div>
 
@@ -104,7 +104,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="servicegateways1" class="col-sm-2 control-label" >Service Gateways</label>
+		<label for="servicegateways1" class="col-sm-2 control-label">Service Gateways</label>
 			<div class="col-sm-10">
 				<select class="form-control" id="servicegateway1" name="servicegateway1">
 					<option>rtp5-dmzaas-gw1</option>
@@ -128,7 +128,7 @@
 	<div class="form-group">
 		<label for="maxBandwidth" class="col-sm-2 control-label">Estimated Maximum Bandwidth</label>
 		<div class="col-sm-10">
-			<select class="form-control" id="maxBandwidth" name="maxbandwidth" >
+			<select class="form-control" id="maxBandwidth" name="estimatedmaximumbandwidth" >
 				<option>10MB</option>
 				<option>50MB</option>
 				<option>100MB</option>
@@ -153,9 +153,9 @@
 	<div class="form-group">
 		<label for="departmentId" class="col-sm-2 control-label">Bill To Department</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="departmentId" name="departmentid" placeholder="Department ID">
+			<input type="text" class="form-control" id="departmentId" name="billtoid" placeholder="Department ID">
 			<br />
-			<input type="text" class="form-control" id="departmentName" name="departmentname" placeholder="Department Name">
+			<input type="text" class="form-control" id="departmentName" name="billtoname" placeholder="Department Name">
 		</div>
 	</div>
 
@@ -183,7 +183,7 @@
 	<div class="form-group">
 		<label for="case" class="col-sm-2 control-label">Remedy Case</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="case" name="case" placeholder="INC############">
+			<input type="text" class="form-control" id="case" name="remedycase" placeholder="INC############">
 		</div>
 	</div>
 
@@ -198,9 +198,20 @@
 	</div>
 
 	<div class="form-group">
-		<label for="maxBandwidth" class="col-sm-2 control-label">Security Review</label>
+		<label for="maxBandwidth" class="col-sm-2 control-label">Architecture Review</label>
 		<div class="col-sm-10">
-			<select class="form-control" name="securityreview" id="securityreview">
+			<select class="form-control" name="architecturereview" id="architecturereview">
+				<option>Not Started </option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">ACL Review</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="aclreview" id="aclreview">
 				<option>Not Started </option>
 				<option>In Progress</option>
 				<option>Completed</option>

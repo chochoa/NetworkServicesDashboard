@@ -1,7 +1,6 @@
 from peewee import *
 
-database = PostgresqlDatabase(database = "dbff40je858639", host="ec2-23-23-81-171.compute-1.amazonaws.com", user="innjnankcerubt", password="KfbMwHkzDWzzU0FmDSNsroRS0l", port="5432")
-#database.get_conn().set_client_encoding('UTF8')
+database = PostgresqlDatabase('dbff40je858639', **{'host': 'ec2-23-23-81-171.compute-1.amazonaws.com', 'password': 'KfbMwHkzDWzzU0FmDSNsroRS0l', 'port': 5432, 'user': 'innjnankcerubt'})
 
 class UnknownFieldType(object):
     pass
@@ -11,45 +10,47 @@ class BaseModel(Model):
         database = database
 
 class clients(BaseModel):
-    activityconducted = CharField(max_length=500, null=True, db_column='activityConducted')
-    billtoid = IntegerField(null=True, db_column='billToId')
-    billtoname = CharField(max_length=100, null=True, db_column='billToName')
-    case = CharField(max_length=50, null=True)
-    comments = CharField(max_length=500, null=True)
-    connectionowner = CharField(max_length=100, null=True, db_column='connectionOwner')
-    crosscharge = CharField(max_length=10, null=True, db_column='crossCharge')
-    engagementid = PrimaryKeyField(db_column='engagementid')
-    estimatedmaximumbandwidth = CharField(max_length=10, null=True, db_column='estimatedMaximumBandwidth')
-    golivedate = DateField(null=True, db_column='goLiveDate')
-    implementation = CharField(max_length=50, null=True)
-    inservice = IntegerField(null=True, db_column='inService')
-    labid = IntegerField(null=True, db_column='labId')
-    labname = CharField(max_length=100, null=True, db_column='labName')
-    labstatus = CharField(max_length=20, null=True, db_column='labStatus')
+    aclreview = CharField(max_length=100, null=True)
+    activityconducted = TextField(null=True)
+    architecturereview = CharField(max_length=100, null=True)
+    billtoid = IntegerField(null=True)
+    billtoname = CharField(max_length=100, null=True)
+    comments = TextField(null=True)
+    connectionowner = CharField(max_length=100, null=True)
+    crosscharge = CharField(max_length=100, null=True)
+    engagementid = PrimaryKeyField()
+    estimatedmaximumbandwidth = CharField(max_length=100, null=True)
+    golivedate = DateField(null=True)
+    implementation = CharField(max_length=100, null=True)
+    inservice = BooleanField(null=True)
+    inservicedatetime = DateTimeField(null=True)
+    labid = IntegerField(null=True)
+    labname = CharField(max_length=100, null=True)
+    labstatus = CharField(max_length=100, null=True)
     location = CharField(max_length=100, null=True)
-    othercontact = CharField(max_length=100, null=True, db_column='otherContact')
-    otherservices = CharField(max_length=500, null=True, db_column='otherServices')
-    plans = CharField(max_length=500, null=True)
-    primarycontact = CharField(max_length=100, null=True, db_column='primaryContact')
-    securityinfo = CharField(max_length=10, null=True, db_column='securityInfo')
-    securityreview = CharField(max_length=50, null=True, db_column='securityReview')
-    servicegateway1 = CharField(max_length=100, null=True, db_column='serviceGateway1')
-    servicegateway2 = CharField(max_length=100, null=True, db_column='serviceGateway2')
+    othercontact = CharField(max_length=100, null=True)
+    otherservices = TextField(null=True)
+    plans = TextField(null=True)
+    primarycontact = CharField(max_length=100, null=True)
+    remedycase = CharField(max_length=100, null=True)
+    securityinfo = BooleanField(null=True)
+    servicegateway1 = CharField(max_length=100, null=True)
+    servicegateway2 = CharField(max_length=100, null=True)
     status = IntegerField(null=True)
     subscriber = CharField(max_length=100, null=True)
-    targetdate = DateField(null=True, db_column='targetDate')
-    teamname = CharField(max_length=100, null=True, db_column='teamName')
-    updated = DateTimeField()
-    vapapproval = CharField(max_length=10, null=True, db_column='vapApproval')
+    targetdate = DateField(null=True)
+    teamname = CharField(max_length=100, null=True)
+    updated = DateTimeField(null=True)
+    vapapproval = CharField(max_length=100, null=True)
 
     class Meta:
         db_table = 'clients'
 
 class notes(BaseModel):
-    noteid = PrimaryKeyField(db_column='noteid', primary_key=True)
-    engagementid = ForeignKeyField(db_column='engagementid', rel_model=clients)
-    content = TextField()
-    posted = DateTimeField()
+    content = TextField(null=True)
+    engagementid = ForeignKeyField(null=True, db_column='engagementid', rel_model=clients)
+    noteid = PrimaryKeyField()
+    posted = DateTimeField(null=True)
 
     class Meta:
         db_table = 'notes'

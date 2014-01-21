@@ -318,44 +318,43 @@ def client():
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
+	nextid = 0
 	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
-		currentId = result[0] + 1
-	return render_template('corporateNetwork/dmzAddClient.html', clientId = currentId)
+		if result[0] == None:
+			nextid = 1
+		else:
+			nextid = (result[0] + 1)
+	return render_template('corporateNetwork/dmzAddClient.html', nextid = nextid)
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
-		currentId = result[0] + 1
-
-	isInService = request.form['inservice']
-	if isInService == "Yes":
-		isInService = 1
-		newStatus = 1
-	else:
-		isInService = 0
-		newStatus= 2
-
 	newGoLiveDate = request.form['golivedate']
 	if newGoLiveDate == None:
-		newGoLiveDate == "0000-01-01"
+		newGoLiveDate == "1990-01-01"
 
 	newTargetDate = request.form['targetdate']
 	if newTargetDate == None:
-		newTargetDate = "0000-01-01"
+		newTargetDate = "1990-01-01"
+
+	newStatus = 0
+	if (request.form['inservice'] == 'yes'):
+		newStatus = 1
+	else:
+		newStatus = 2
 
 	newClient = clients.insert(
-						engagementid = int(currentId),
+						engagementid = int(request.form['engagementid']),
 					    activityconducted = request.form['activity'],
-    					billtoid = request.form['departmentid'],
-    					billtoname = request.form['departmentname'],
-    					case = request.form['case'],
+    					billtoid = request.form['billtoid'],
+    					billtoname = request.form['billtoname'],
+    					remedycase = request.form['remedycase'],
     					comments = request.form['comments'],
     					connectionowner = request.form['connectionowner'],
     					crosscharge = request.form['crosscharge'],
-    					estimatedmaximumbandwidth = request.form['maxbandwidth'],
+    					estimatedmaximumbandwidth = request.form['estimatedmaximumbandwidth'],
     					golivedate = newGoLiveDate,
     					implementation = request.form['implementation'],
-    					inservice = isInService,
+    					inservice = request.form['inservice'],
     					labid = request.form['labid'],
     					labname = request.form['labname'],
     					labstatus = request.form['labstatus'],
@@ -365,7 +364,8 @@ def addingClient():
     					plans = request.form['plans'],
     					primarycontact = request.form['primarycontact'],
     					securityinfo = request.form['securityinfo'],
-    					securityreview = request.form['securityreview'],
+    					architecturereview = request.form['architecturereview'],
+    					aclreview = request.form['aclreview'],
     					servicegateway1 = request.form['servicegateway1'],
     					servicegateway2 = request.form['servicegateway2'],
     					status = newStatus,
@@ -375,7 +375,7 @@ def addingClient():
     					vapapproval = request.form['vapapproval'])
 	newClient.execute()
 
-	return redirect('/corporateNetwork/dmz/client?id=' + (int(currentId) + 1))
+	return redirect('/corporateNetwork/dmz/client?id=' + (int(request.form['engagementid'])))
 
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():
@@ -394,10 +394,10 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 
-	for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
-		currentId = result[0]
+	#for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
+	#	currentId = result[0]
 
-	newNote = notes.insert(noteid = 5, engagementid = client, content = noteContent)
+	newNote = notes.insert(engagementid = client, content = noteContent)
 	newNote.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
@@ -444,7 +444,8 @@ def editClient():
     					plans = request.form['plans'],
     					primarycontact = request.form['primarycontact'],
     					securityinfo = request.form['securityinfo'],
-    					securityreview = request.form['securityreview'],
+    					architecturereview = request.form['architecturereview'],
+    					aclreview = request.form['aclreview'],
     					servicegateway1 = request.form['servicegateway1'],
     					servicegateway2 = request.form['servicegateway2'],
     					status = newStatus,
@@ -522,7 +523,7 @@ def getProgress(client):
 			</div>'''
 		return result
 
-	if client.securityreview == 'Completed':
+	if (client.architecturereview == 'Completed') and (client.aclreview == 'Completed'):
 		result = {}
 		result['status'] = 'Security Review completed'
 		result['bar'] = '''
@@ -533,7 +534,7 @@ def getProgress(client):
 			</div>'''
 		return result
 
-	if client.securityreview == 'In Progress':
+	if (client.architecturereview == 'In Progress') or (client.aclreview == 'In Progress'):
 		result = {}
 		result['status'] = 'Security Review in progress'
 		result['bar'] = '''

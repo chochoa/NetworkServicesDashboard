@@ -28,6 +28,10 @@ td {
 	padding: 7.5px;
 }
 
+.statusLabel {
+	text-align: center;
+}
+
 #submitCenter {
 	width: 50%;
 }

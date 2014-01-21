@@ -220,7 +220,7 @@ def wirelessIncidents():
 def ion():
 	html = ""
 	#for rows html += rows
-	return render_template('corporateNetwork/ion.html', 
+	return render_template('corporateNetwork/ion.html',
 							outageNumber = 0,
 							ionIncidents = html,
 							ionCriticalCount = 0,
@@ -402,19 +402,6 @@ def dmzDeleteClient():
 	deleteClient.execute()
 	return redirect('/corporateNetwork/dmz')
 
-@app.route('/corporateNetwork/dmz/newNote', methods=['POST'])
-def newNote():
-	client = request.form['clientId']
-	noteContent = request.form['noteContent']
-
-	#for result in database.execute_sql('SELECT MAX(noteid) FROM notes'):
-	#	currentId = result[0]
-
-	newNote = notes.insert(engagementid = client, content = noteContent)
-	newNote.execute()
-
-	return redirect('/corporateNetwork/dmz/client?id=' + client)
-
 @app.route('/corporateNetwork/dmz/editClient', methods=['POST'])
 def editClient():
 	client = request.form['clientidhidden']
@@ -467,25 +454,28 @@ def editClient():
     					teamname = request.form['teamname'],
     					vapapproval = request.form['vapapproval']).where(clients.engagementid == client)
 	updatedClient.execute()
-
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
+
+@app.route('/corporateNetwork/dmz/newNote', methods=['POST'])
+def newNote():
+	client = request.form['clientId']
+	noteContent = request.form['noteContent']
+	newNote = notes.insert(engagementid = client, content = noteContent)
+	newNote.execute()
+	return redirect('/corporateNetwork/dmz/client?id=' + client)
+
+@app.route('/corporateNetwork/dmz/deleteNote', methods = ['POST'])
+def deleteNote():
+	noteid = request.form['noteid']
+	delete = notes.delete().where(notes.noteid == int(request.form['noteid']))
+	delete.execute()
+	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
 
 @app.route('/corporateNetwork/itaac')
 def itaac():
 	html = ""
 	return render_template('corporateNetwork/itaac.html',
 							itaacIncidents = html)
-
-@app.route('/testing')
-def test():
-	return '''<html>
-				<body>
-					<form name='caseQuery' action='/case' method='POST'>
-						<input type='text' name='caseNo' />
-						<input type='submit'>
-					</form>
-				</body>
-			</html>'''
 
 #########################
 #		End Routing		#
@@ -585,6 +575,11 @@ def getNotes(client):
 	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
 		html += '''
 			<div class="well">
+				<form method="POST" action="/corporateNetwork/dmz/deleteNote" onsubmit='return confirm(&quot;Do you really want to delete this note?&quot;);'>
+					<input type="hidden" name="noteid" value="''' + str(note.noteid) + '''">
+					<input type="hidden" name="engagementid" value="''' + str(client.engagementid) + '''">
+					<input type="submit" class="close" aria-hidden="true" value="&times;">
+				</form>
 				<h4>''' + str(note.posted) + '''</h4>
 				<p>''' + str(note.content) + '''</p>
 			</div>'''

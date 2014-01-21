@@ -5,8 +5,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#navDMZ').attr('class', 'active');
-			$("#targetDate").datepicker();
-			$("#goLiveDate").datepicker();
+			$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
+			$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
 		});
 	</script>
 {% endblock %}
@@ -15,7 +15,7 @@
 
 <h3>Add New DMZaaS Client</h3>
 
-<form method="POST" action="/corporateNetwork/dmz/addingClient">
+<form name="addClient" method="POST" action="/corporateNetwork/dmz/addingClient" class="form-horizontal">
 	<div class="form-group">
 		<label for="clientId" class="col-sm-2 control-label">Client ID</label>
 		<div class="col-sm-10">
@@ -234,12 +234,12 @@
 		<label for="inService" class="col-sm-2 control-label">In Service?</label>
 		<div class="col-sm-10">
 			<select class="form-control" id="inservice" name="inservice">
-				<option>No</option>
-				<option>Yes</option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
 			</select>
 		</div>
 	</div>
 
-	<input class="form-control" type="submit" value="Add Client">
+	<input class="form-control" type="submit" value="Add Client" />
 </form>
 {% endblock %}

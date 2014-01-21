@@ -344,7 +344,7 @@ def addingClient():
 
 	newClient = clients.insert(
 						engagementid = int(request.form['engagementid']),
-					    activityconducted = request.form['activity'],
+					    activityconducted = request.form['activityconducted'],
     					billtoid = request.form['billtoid'],
     					billtoname = request.form['billtoname'],
     					remedycase = request.form['remedycase'],
@@ -424,7 +424,7 @@ def editClient():
 		newTargetDate = "0000-01-01"
 
 	updatedClient = clients.update(
-					    activityconducted = request.form['activity'],
+					    activityconducted = request.form['activityconducted'],
     					billtoid = request.form['departmentid'],
     					billtoname = request.form['departmentname'],
     					case = request.form['case'],

@@ -1,1 +1,1 @@
-web: gunicorn networkServicesDashboard:app
+web: newrelic-admin run-program gunicorn networkServicesDashboard:app

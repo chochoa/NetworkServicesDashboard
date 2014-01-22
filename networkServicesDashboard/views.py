@@ -548,7 +548,7 @@ def getProgress(client):
 			</div>'''
 		return result
 
-	if client.securityinfo == 'No' or client.securityinfo == None:
+	if client.securityinfo == 0 or client.securityinfo == None:
 		result = {}
 		result['status'] = 'Initially engaged/collecting information'
 		result['bar'] = '''
@@ -559,7 +559,7 @@ def getProgress(client):
 			</div>'''
 		return result
 
-	if client.securityinfo == 'Yes':
+	if client.securityinfo == 1:
 		result = {}
 		result['status'] = 'Security Review not started'
 		result['bar'] = '''

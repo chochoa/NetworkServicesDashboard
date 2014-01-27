@@ -388,7 +388,7 @@ def addingClient():
 						addressspace = request.form['addressspace'])
 	newClient.execute()
 
-	return redirect('/corporateNetwork/dmz/client?id=' + (int(request.form['engagementid'])))
+	return redirect('/corporateNetwork/dmz/client?id=' + request.form['engagementid'])
 
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():

@@ -416,11 +416,11 @@ def editClient():
 		newSatus = 2
 
 	newGoLiveDate = request.form['golivedate']
-	if newGoLiveDate == "":
+	if newGoLiveDate == "" or newGoLiveDate == "None":
 		newGoLiveDate = None
 
 	newTargetDate = request.form['targetdate']
-	if newTargetDate == "":
+	if newTargetDate == "" or newTargetDate == "None":
 		newTargetDate = None
 
 	updatedClient = clients.update(

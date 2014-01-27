@@ -341,7 +341,6 @@ def dmzAddClient():
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-
 	if request.form['inservice'] == 1:
 		newStatus = 1
 	else:
@@ -349,7 +348,7 @@ def addingClient():
 
 	newGoLiveDate = request.form['golivedate']
 	if newGoLiveDate == "":
-		newGoLiveDate == None
+		newGoLiveDate = None
 
 	newTargetDate = request.form['targetdate']
 	if newTargetDate == "":

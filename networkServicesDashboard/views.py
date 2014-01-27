@@ -341,22 +341,21 @@ def dmzAddClient():
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-	newGoLiveDate = request.form['golivedate']
-	if newGoLiveDate == None:
-		newGoLiveDate == "1990-01-01"
 
-	newTargetDate = request.form['targetdate']
-	if newTargetDate == None:
-		newTargetDate = "1990-01-01"
-
-	newStatus = 0
-	if (request.form['inservice'] == 'yes'):
+	if request.form['inservice'] == 1:
 		newStatus = 1
 	else:
 		newStatus = 2
 
+	newGoLiveDate = request.form['golivedate']
+	if newGoLiveDate == "":
+		newGoLiveDate == None
+
+	newTargetDate = request.form['targetdate']
+	if newTargetDate == "":
+		newTargetDate = None
+
 	newClient = clients.insert(
-						#engagementid = int(request.form['engagementid']),
 					    activityconducted = request.form['activityconducted'],
     					billtoid = request.form['billtoid'],
     					billtoname = request.form['billtoname'],
@@ -367,7 +366,7 @@ def addingClient():
     					estimatedmaximumbandwidth = request.form['estimatedmaximumbandwidth'],
     					golivedate = newGoLiveDate,
     					implementation = request.form['implementation'],
-    					inservice = request.form['inservice'],
+    					inservice = int(request.form['inservice']),
     					labid = request.form['labid'],
     					labname = request.form['labname'],
     					labstatus = request.form['labstatus'],
@@ -376,7 +375,7 @@ def addingClient():
     					otherservices = request.form['otherservices'],
     					plans = request.form['plans'],
     					primarycontact = request.form['primarycontact'],
-    					securityinfo = request.form['securityinfo'],
+    					securityinfo = int(request.form['securityinfo']),
     					architecturereview = request.form['architecturereview'],
     					aclreview = request.form['aclreview'],
     					servicegateway1 = request.form['servicegateway1'],
@@ -385,7 +384,8 @@ def addingClient():
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
-    					vapapproval = request.form['vapapproval'])
+    					vapapproval = int(request.form['vapapproval']),
+						addressspace = request.form['addressspace'])
 	newClient.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + (int(request.form['engagementid'])))
@@ -416,12 +416,12 @@ def editClient():
 		newSatus = 2
 
 	newGoLiveDate = request.form['golivedate']
-	if newGoLiveDate == None or newGoLiveDate == 'None':
-		newGoLiveDate = "0000-01-01"
+	if newGoLiveDate == "":
+		newGoLiveDate = None
 
 	newTargetDate = request.form['targetdate']
-	if newTargetDate == None or newTargetDate == 'None':
-		newTargetDate = "0000-01-01"
+	if newTargetDate == "":
+		newTargetDate = None
 
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
@@ -452,6 +452,7 @@ def editClient():
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
+    					addressspace = request.form['addressspace'],
     					vapapproval = request.form['vapapproval']).where(clients.engagementid == client)
 	updatedClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + client)

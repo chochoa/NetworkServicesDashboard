@@ -329,19 +329,23 @@ def client():
 
 	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases=remedycases)
 
+# @app.route('/corporateNetwork/dmz/addClient')
+# def dmzAddClient():
+# 	nextid = 0
+# 	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
+# 		if result[0] == None:
+# 			nextid = 1
+# 		else:
+# 			nextid = (result[0] + 1)
+# 	return render_template('corporateNetwork/dmzAddClient.html', nextid = nextid)
+
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
-	nextid = 0
-	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
-		if result[0] == None:
-			nextid = 1
-		else:
-			nextid = (result[0] + 1)
-	return render_template('corporateNetwork/dmzAddClient.html', nextid = nextid)
+	return render_template('corporateNetwork/dmzAddClient.html')
 
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
-	if request.form['inservice'] == 1:
+	if int(request.form['inservice']) == 1:
 		newStatus = 1
 	else:
 		newStatus = 2
@@ -354,9 +358,17 @@ def addingClient():
 	if newTargetDate == "":
 		newTargetDate = None
 
+	newLabId = request.form['labid']
+	if newLabId == '':
+		newLabId = None
+
+	departmentid = request.form['billtoid']
+	if departmentid == '':
+		departmentid = None
+
 	newClient = clients.insert(
 					    activityconducted = request.form['activityconducted'],
-    					billtoid = request.form['billtoid'],
+    					billtoid = departmentid,
     					billtoname = request.form['billtoname'],
     					remedycase = request.form['remedycase'],
     					comments = request.form['comments'],
@@ -366,7 +378,7 @@ def addingClient():
     					golivedate = newGoLiveDate,
     					implementation = request.form['implementation'],
     					inservice = int(request.form['inservice']),
-    					labid = request.form['labid'],
+    					labid = newLabId,
     					labname = request.form['labname'],
     					labstatus = request.form['labstatus'],
     					location = request.form['location'],
@@ -387,7 +399,11 @@ def addingClient():
 						addressspace = request.form['addressspace'])
 	newClient.execute()
 
-	return redirect('/corporateNetwork/dmz/client?id=' + request.form['engagementid'])
+	nextid = 0
+	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
+		nextid = result[0]
+
+	return redirect('/corporateNetwork/dmz/client?id=' + str(nextid))
 
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():
@@ -397,22 +413,21 @@ def dmzWithdrawClient():
 
 @app.route('/corporateNetwork/dmz/deleteClient', methods=['POST'])
 def dmzDeleteClient():
+	noteList = getNotesByClient(request.form['clientId'])
+	for note in noteList:
+		noteid = note.noteid
+		deleteNote = notes.delete().where(notes.noteid == noteid)
+		deleteNote.execute()
 	deleteClient = clients.delete().where(clients.engagementid == request.form['clientId'])
 	deleteClient.execute()
 	return redirect('/corporateNetwork/dmz')
 
 @app.route('/corporateNetwork/dmz/editClient', methods=['POST'])
 def editClient():
-	client = request.form['clientidhidden']
-
-	isInService = request.form['inservice']
-	newStatus = 0
-	if isInService == "Yes":
-		isInService = 1
+	isInService = int(request.form['inservice'])
+	newStatus = 2
+	if isInService == 1:
 		newStatus = 1
-	else:
-		isInService = 0
-		newSatus = 2
 
 	newGoLiveDate = request.form['golivedate']
 	if newGoLiveDate == "" or newGoLiveDate == "None":
@@ -422,11 +437,19 @@ def editClient():
 	if newTargetDate == "" or newTargetDate == "None":
 		newTargetDate = None
 
+	newLabId = request.form['labid']
+	if newLabId == '' or newLabId == "None":
+		newLabId = None
+
+	newDepartmentId = request.form['departmentid']
+	if newDepartmentId == '' or newDepartmentId == "None":
+		newDepartmentId = None
+
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
-    					billtoid = request.form['departmentid'],
+    					billtoid = newDepartmentId,
     					billtoname = request.form['departmentname'],
-    					case = request.form['case'],
+    					remedycase = request.form['remedycase'],
     					comments = request.form['comments'],
     					connectionowner = request.form['connectionowner'],
     					crosscharge = request.form['crosscharge'],
@@ -434,15 +457,15 @@ def editClient():
     					golivedate = newGoLiveDate,
     					implementation = request.form['implementation'],
     					inservice = isInService,
-    					labid = request.form['labid'],
-    					labname = request.form['labname'],
+    					labid = newLabId,
+    					labname = newLabId,
     					labstatus = request.form['labstatus'],
     					location = request.form['location'],
     					othercontact = request.form['othercontact'],
     					otherservices = request.form['otherservices'],
     					plans = request.form['plans'],
     					primarycontact = request.form['primarycontact'],
-    					securityinfo = request.form['securityinfo'],
+    					securityinfo = int(request.form['securityinfo']),
     					architecturereview = request.form['architecturereview'],
     					aclreview = request.form['aclreview'],
     					servicegateway1 = request.form['servicegateway1'],
@@ -452,9 +475,9 @@ def editClient():
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
     					addressspace = request.form['addressspace'],
-    					vapapproval = request.form['vapapproval']).where(clients.engagementid == client)
+    					vapapproval = int(request.form['vapapproval'])).where(clients.engagementid == request.form['clientid'])
 	updatedClient.execute()
-	return redirect('/corporateNetwork/dmz/client?id=' + client)
+	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 
 @app.route('/corporateNetwork/dmz/newNote', methods=['POST'])
 def newNote():
@@ -569,6 +592,13 @@ def getProgress(client):
   				</div>
 			</div>'''
 		return result
+
+def getNotesByClient(clientid):
+	noteList = []
+	for note in notes.select().join(clients).where(clients.engagementid == clientid).order_by(notes.posted.desc()):
+		noteList.append(note)
+	return noteList
+
 
 def getNotes(client):
 	html = ''

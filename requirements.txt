@@ -4,7 +4,6 @@ MarkupSafe==0.18
 Werkzeug==0.9.4
 distribute==0.6.28
 itsdangerous==0.23
-newrelic==2.10.0.8
 peewee==2.1.7
 psycopg2==2.5.2
 suds==0.3.4

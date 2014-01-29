@@ -325,9 +325,9 @@ def client():
 	remedycases = ''
 	for case in cases:
 		if case[:3] == "INC":
-			remedycases += "<a href='http://case/" + case + "'>" + case + "</a><br />"
+			remedycases += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
 		elif case[:3] == "CRQ" or case[0:2] == "RFC":
-			remedycases += "<a href='http://rfc/" + case + "'>" + case + "</a><br />"
+			remedycases += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
 		else:
 			remedycases += case + "<br />"
 

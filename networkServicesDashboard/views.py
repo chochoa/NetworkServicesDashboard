@@ -1,6 +1,7 @@
 from networkServicesDashboard import *
 from flask import render_template, redirect
 from databaseConnection import *
+import datetime
 incidentList = []
 
 #####################
@@ -252,6 +253,7 @@ def dmzInProgress():
 	for client in clients.select():
 		if client.status == 2:
 			result = getProgress(client)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -269,6 +271,7 @@ def dmzInService():
 	for client in clients.select():
 		if client.status == 1:
 			result = getProgress(client)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -286,6 +289,7 @@ def dmzWithdrawn():
 	for client in clients.select():
 		if client.status == 3:
 			result = getProgress(client)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -313,6 +317,7 @@ def client():
 		lastNoteDate = ''
 		lastNoteContent = "N/A"
 	else:
+		lastNote.posted = (lastNote.posted).strftime("%Y-%m-%d %H:%M:%S")
 		lastNoteDate = str(lastNote.posted)
 		lastNoteContent = str(lastNote.content)
 
@@ -602,6 +607,7 @@ def getNotesByClient(clientid):
 def getNotes(client):
 	html = ''
 	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
+		note.posted = (note.posted).strftime("%Y-%m-%d %H:%M:%S")
 		html += '''
 			<div class="well">
 				<form method="POST" action="/corporateNetwork/dmz/deleteNote" onsubmit='return confirm(&quot;Do you really want to delete this note?&quot;);'>

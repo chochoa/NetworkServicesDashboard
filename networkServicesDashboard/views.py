@@ -462,7 +462,7 @@ def editClient():
     					implementation = request.form['implementation'],
     					inservice = isInService,
     					labid = newLabId,
-    					labname = newLabId,
+    					labname = request.form['labname'],
     					labstatus = request.form['labstatus'],
     					location = request.form['location'],
     					othercontact = request.form['othercontact'],

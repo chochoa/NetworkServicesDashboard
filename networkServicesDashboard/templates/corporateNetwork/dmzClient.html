@@ -15,6 +15,7 @@
 			$("#vapapproval").val("{{clientArray.vapapproval}}");
 			$("#architecturereview").val("{{clientArray.architecturereview}}");
 			$("#addressspace").val("{{clientArray.addressspace}}");
+			$("#aclreview").val("{{clientArray.aclreview}}");
 			$("#implementation").val("{{clientArray.implementation}}");
 			if ("{{clientArray.securityinfo}}" == "True") {
 				$("#securityInfoYes").attr("selected","True");
@@ -94,10 +95,9 @@
 
 		<div class="row">
 			{{progress | safe}}
-			<div class="col-md-4" style="text-align: center"></div>
-			<div class="col-md-4">Intially Engaged</div>
-			<div class="col-md-4">Security Review</div>
-			<div class="col-md-4">Implementation</div>
+			<div class="col-md-4" style="text-align: right"><h5>Intial Engagement</h6></div>
+			<div class="col-md-4" style="text-align: center"><h5>Security Review</h6></div>
+			<div class="col-md-4" style="text-align: left"><h5>Implementation</h6></div>
 		</div>
 
 		<h4>Latest Note:<a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#newNote">New Note</a></h4>
@@ -129,7 +129,7 @@
 		<div class="tab-content">
   			<div class="tab-pane fade in active" id="details">
   				<form id="detailsForm" class="form-horizontal" role="form" action="/corporateNetwork/dmz/editClient" method="post" onsubmit='return confirm(&quot;Do you really want to save these changes?&quot;);'>
-					<div class="form-group">
+					<div class="form-group hidden">
 						<label for="clientId" class="col-sm-2 control-label">Client ID</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" id="clientId" name="clientid" value="{{clientArray.engagementid}}" readonly>
@@ -363,7 +363,7 @@
 					<div class="form-group">
 						<label for="addressspace" class="col-sm-2 control-label">Address Space</label>
 						<div class="col-sm-10">
-							<select class="form-control" name="addressspace" id="addressspace">
+							<select class="form-control" name="addressspace" id="addressspace" disabled>
 								<option value="Not Started">Not Started </option>
 								<option value="In Progress">In Progress</option>
 								<option value="Completed">Completed</option>
@@ -375,7 +375,7 @@
 						<label for="aclreview" class="col-sm-2 control-label">ACL Review</label>
 						<div class="col-sm-10">
 							<select class="form-control" name="aclreview" id="aclreview" disabled>
-								<option value="Not Started">Not Started </option>
+								<option value="Not Started">Not Started</option>
 								<option value="In Progress">In Progress</option>
 								<option value="Completed">Completed</option>
 							</select>

@@ -32,7 +32,7 @@ class clients(BaseModel):
     otherservices = TextField(null=True)
     plans = TextField(null=True)
     primarycontact = CharField(max_length=100, null=True)
-    remedycase = TextField(max_length=100, null=True)
+    remedycase = TextField(null=True)
     securityinfo = BooleanField(null=True)
     servicegateway1 = CharField(max_length=100, null=True)
     servicegateway2 = CharField(max_length=100, null=True)

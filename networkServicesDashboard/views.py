@@ -219,7 +219,6 @@ def wirelessIncidents():
 @app.route('/corporateNetwork/ion')
 def ion():
 	html = ""
-	#for rows html += rows
 	return render_template('corporateNetwork/ion.html',
 							outageNumber = 0,
 							ionIncidents = html,

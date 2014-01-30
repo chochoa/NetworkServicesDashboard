@@ -1,6 +1,6 @@
 from peewee import *
 
-database = PostgresqlDatabase('dbff40je858639', **{'host': 'localhost', 'user': 'postgres'})
+database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': '', 'port': 5432, 'user': 'postgres'})
 
 class UnknownFieldType(object):
     pass

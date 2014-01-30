@@ -1,2 +1,2 @@
 from networkServicesDashboard import app
-app.run(debug=True)
+app.run(port=80,debug=True)

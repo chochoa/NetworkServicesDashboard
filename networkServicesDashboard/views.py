@@ -8,94 +8,94 @@ incidentList = []
 #		Routing		#
 #####################
 
-@app.route('/perlTest')
-def perl():
-	pipe = subprocess.Popen(["perl", "/testScript.pl"], stdin=subprocess.PIPE)
-	pipe.stdin.close()
-	return render_template('/test.html',
-							test = scriptResult)
+# @app.route('/perlTest')
+# def perl():
+# 	pipe = subprocess.Popen(["perl", "/testScript.pl"], stdin=subprocess.PIPE)
+# 	pipe.stdin.close()
+# 	return render_template('/test.html',
+# 							test = scriptResult)
 
-@app.route('/buildList')
-def build():
-	siteSetup.generateCountryMappings()
-	return redirect("/")
+# @app.route('/buildList')
+# def build():
+# 	siteSetup.generateCountryMappings()
+# 	return redirect("/")
 
-@app.route('/corporateNetwork/remoteOffice/sites/world')
-def world():
-	return render_template('/corporateNetwork/sites/world.html',
-							printArea = siteSetup.printRegionList())
+# @app.route('/corporateNetwork/remoteOffice/sites/world')
+# def world():
+# 	return render_template('/corporateNetwork/sites/world.html',
+# 							printArea = siteSetup.printRegionList())
 
-# AMER, AMER-LATAM, EMEA, APAC
-@app.route('/corporateNetwork/remoteOffice/sites/region')
-def region():
-	region = request.args.get('r','')
-	return render_template('/corporateNetwork/sites/region.html',
-							printArea = siteSetup.printCountriesList(region),
-							printRegion = region)
+# # AMER, AMER-LATAM, EMEA, APAC
+# @app.route('/corporateNetwork/remoteOffice/sites/region')
+# def region():
+# 	region = request.args.get('r','')
+# 	return render_template('/corporateNetwork/sites/region.html',
+# 							printArea = siteSetup.printCountriesList(region),
+# 							printRegion = region)
 
-# Lowercase ISO code e.g (us,uk,za,cn)
-@app.route('/corporateNetwork/remoteOffice/sites/country')
-def country():
-	country = request.args.get('c','')
-	region = siteSetup.getParentRegion(country)
-	return render_template('/corporateNetwork/sites/country.html',
-							printArea = siteSetup.printSites(country),
-							printRegion = region,
-							printCountry = siteSetup.returnCountryName(country),
-							printCountryCode = country)
+# # Lowercase ISO code e.g (us,uk,za,cn)
+# @app.route('/corporateNetwork/remoteOffice/sites/country')
+# def country():
+# 	country = request.args.get('c','')
+# 	region = siteSetup.getParentRegion(country)
+# 	return render_template('/corporateNetwork/sites/country.html',
+# 							printArea = siteSetup.printSites(country),
+# 							printRegion = region,
+# 							printCountry = siteSetup.returnCountryName(country),
+# 							printCountryCode = country)
 
-# Lowercase site code
-@app.route('/corporateNetwork/remoteOffice/sites/site')
-def site():
-	siteID = request.args.get('s','')
-	country = siteSetup.getParentCountry(siteID)
-	countryName = siteSetup.returnCountryName(country)
-	region = siteSetup.getParentRegion(country)
-	return render_template('/corporateNetwork/sites/site.html',
-							printArea = siteSetup.printSiteInfo(siteID),
-							printRegion = region,
-							printCountry = country,
-							printCountryName = countryName,
-							printSite = siteID)
+# # Lowercase site code
+# @app.route('/corporateNetwork/remoteOffice/sites/site')
+# def site():
+# 	siteID = request.args.get('s','')
+# 	country = siteSetup.getParentCountry(siteID)
+# 	countryName = siteSetup.returnCountryName(country)
+# 	region = siteSetup.getParentRegion(country)
+# 	return render_template('/corporateNetwork/sites/site.html',
+# 							printArea = siteSetup.printSiteInfo(siteID),
+# 							printRegion = region,
+# 							printCountry = country,
+# 							printCountryName = countryName,
+# 							printSite = siteID)
 
-# Lowercase site code
-@app.route('/corporateNetwork/remoteOffice/sites/router')
-def link():
-	router = request.args.get('r','')
-	siteID = siteSetup.getParentSite(router)
-	country = siteSetup.getParentCountry(siteID)
-	countryName = siteSetup.returnCountryName(country)
-	region = siteSetup.getParentRegion(country)
-	return render_template('/corporateNetwork/sites/link.html',
-							printArea = siteSetup.printRouterInfo(router),
-							printRegion = region,
-							printCountry = country,
-							printCountryName = countryName,
-							printSite = siteID,
-							printRouter = router)
-
-
-@app.route('/corporateNetwork/remoteOffice/sites/linkType')
-def filterLink():
-	filterValue = request.args.get('l','')
-	return render_template('/corporateNetwork/sites/filter.html',
-							printArea = siteSetup.printFilter('Link Type', filterValue),
-							printType = 'Link Type',
-							printValue = filterValue)
+# # Lowercase site code
+# @app.route('/corporateNetwork/remoteOffice/sites/router')
+# def link():
+# 	router = request.args.get('r','')
+# 	siteID = siteSetup.getParentSite(router)
+# 	country = siteSetup.getParentCountry(siteID)
+# 	countryName = siteSetup.returnCountryName(country)
+# 	region = siteSetup.getParentRegion(country)
+# 	return render_template('/corporateNetwork/sites/link.html',
+# 							printArea = siteSetup.printRouterInfo(router),
+# 							printRegion = region,
+# 							printCountry = country,
+# 							printCountryName = countryName,
+# 							printSite = siteID,
+# 							printRouter = router)
 
 
-@app.route('/corporateNetwork/remoteOffice/sites/classification')
-def filterClassification():
-	filterValue = request.args.get('c','')
-	return render_template('/corporateNetwork/sites/filter.html',
-							printArea = siteSetup.printFilter('Site Classification', filterValue),
-							printType = 'Site Classification',
-							printValue = filterValue)
+# @app.route('/corporateNetwork/remoteOffice/sites/linkType')
+# def filterLink():
+# 	filterValue = request.args.get('l','')
+# 	return render_template('/corporateNetwork/sites/filter.html',
+# 							printArea = siteSetup.printFilter('Link Type', filterValue),
+# 							printType = 'Link Type',
+# 							printValue = filterValue)
 
-@app.route('/corporateNetwork/remoteOffice/sites/listing')
-def fullListing():
-	return render_template('/corporateNetwork/sites/fullListing.html',
-							printArea = siteSetup.printSites('all'))
+
+# @app.route('/corporateNetwork/remoteOffice/sites/classification')
+# def filterClassification():
+# 	filterValue = request.args.get('c','')
+# 	return render_template('/corporateNetwork/sites/filter.html',
+# 							printArea = siteSetup.printFilter('Site Classification', filterValue),
+# 							printType = 'Site Classification',
+# 							printValue = filterValue)
+
+# @app.route('/corporateNetwork/remoteOffice/sites/listing')
+# def fullListing():
+# 	return render_template('/corporateNetwork/sites/fullListing.html',
+# 							printArea = siteSetup.printSites('all'))
 
 # Root/Index Page
 @app.route('/')

@@ -261,7 +261,7 @@ def dmzInProgress():
 		if client.status == 2:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
-			client.updated = utcToLocal(client.updated)
+			#client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -279,7 +279,7 @@ def dmzInService():
 		if client.status == 1:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
-			client.updated = utcToLocal(client.updated)
+			#client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -298,7 +298,7 @@ def dmzWithdrawn():
 		if client.status == 3:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
-			client.updated = utcToLocal(client.updated)
+			#client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>

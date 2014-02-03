@@ -408,8 +408,7 @@ def addingClient():
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
     					vapapproval = int(request.form['vapapproval']),
-						addressspace = request.form['addressspace'],
-						updated = datetime.datetime.now())
+						addressspace = request.form['addressspace'])
 	newClient.execute()
 
 	nextid = 0
@@ -488,8 +487,7 @@ def editClient():
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
     					addressspace = request.form['addressspace'],
-    					vapapproval = int(request.form['vapapproval']),
-    					updated = datetime.datetime.now()).where(clients.engagementid == request.form['clientid'])
+    					vapapproval = int(request.form['vapapproval'])).where(clients.engagementid == request.form['clientid'])
 	updatedClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 

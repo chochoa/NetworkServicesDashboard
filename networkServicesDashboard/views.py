@@ -1,8 +1,15 @@
 from networkServicesDashboard import *
 from flask import render_template, redirect
 from databaseConnection import *
-import datetime
+import calendar
+from datetime import datetime, timedelta
 incidentList = []
+
+def utcToLocal(time):
+	timestamp = calendar.timegm(time.timetuple())
+	local = datetime.fromtimestamp(timestamp)
+	assert time.resolution >= timedelta(microseconds=1)
+	return local.replace(microsecond=time.microsecond)
 
 #####################
 #		Routing		#
@@ -254,6 +261,7 @@ def dmzInProgress():
 		if client.status == 2:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -271,6 +279,7 @@ def dmzInService():
 		if client.status == 1:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -289,6 +298,7 @@ def dmzWithdrawn():
 		if client.status == 3:
 			result = getProgress(client)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			client.updated = utcToLocal(client.updated)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>

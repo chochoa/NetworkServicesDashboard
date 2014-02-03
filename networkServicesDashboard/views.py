@@ -417,6 +417,10 @@ def addingClient():
 
 	return redirect('/corporateNetwork/dmz/client?id=' + str(nextid))
 
+@app.route('/testing')
+def testing():
+	return "<h1>Success</h1>"
+
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():
 	withdrawnClient = clients.update(status = 3).where(clients.engagementid == request.form['clientId'])

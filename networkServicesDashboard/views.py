@@ -5,11 +5,11 @@ import calendar
 from datetime import datetime, timedelta
 incidentList = []
 
-def utcToLocal(time):
-	timestamp = calendar.timegm(time.timetuple())
-	local = datetime.fromtimestamp(timestamp)
-	assert time.resolution >= timedelta(microseconds=1)
-	return local.replace(microsecond=time.microsecond)
+# def utcToLocal(time):
+# 	timestamp = calendar.timegm(time.timetuple())
+# 	local = datetime.fromtimestamp(timestamp)
+# 	assert time.resolution >= timedelta(microseconds=1)
+# 	return local.replace(microsecond=time.microsecond)
 
 #####################
 #		Routing		#
@@ -260,8 +260,8 @@ def dmzInProgress():
 	for client in clients.select():
 		if client.status == 2:
 			result = getProgress(client)
-			client.updated = utcToLocal(client.updated)
-			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			#client.updated = utcToLocal(client.updated)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -278,8 +278,8 @@ def dmzInService():
 	for client in clients.select():
 		if client.status == 1:
 			result = getProgress(client)
-			client.updated = utcToLocal(client.updated)
-			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			#client.updated = utcToLocal(client.updated)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -297,8 +297,8 @@ def dmzWithdrawn():
 	for client in clients.select():
 		if client.status == 3:
 			result = getProgress(client)
-			client.updated = utcToLocal(client.updated)
-			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M:%S")
+			#client.updated = utcToLocal(client.updated)
+			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>

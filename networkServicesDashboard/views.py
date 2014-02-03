@@ -325,7 +325,7 @@ def client():
 		lastNoteDate = ''
 		lastNoteContent = "N/A"
 	else:
-		lastNote.posted = (lastNote.posted).strftime("%Y-%m-%d %H:%M:%S")
+		lastNote.posted = (lastNote.posted).strftime("%Y-%m-%d %H:%M")
 		lastNoteDate = str(lastNote.posted)
 		lastNoteContent = str(lastNote.content)
 

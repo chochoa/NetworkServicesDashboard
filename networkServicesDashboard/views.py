@@ -3,6 +3,7 @@ from flask import render_template, redirect
 from databaseConnection import *
 import calendar
 from datetime import datetime, timedelta
+import time
 incidentList = []
 
 # def utcToLocal(time):
@@ -339,7 +340,9 @@ def client():
 		else:
 			remedycases += case + "<br />"
 
-	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases=remedycases)
+	timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
+
+	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases=remedycases)
 
 # @app.route('/corporateNetwork/dmz/addClient')
 # def dmzAddClient():
@@ -461,6 +464,11 @@ def editClient():
 	if newDepartmentId == '' or newDepartmentId == "None":
 		newDepartmentId = None
 
+	client = clients.get(clients.engagementid == request.form['clientid'])
+	updateFlag = 0
+	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice']))):
+		updateFlag = 1
+
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
     					billtoid = newDepartmentId,
@@ -493,6 +501,11 @@ def editClient():
     					addressspace = request.form['addressspace'],
     					vapapproval = int(request.form['vapapproval'])).where(clients.engagementid == request.form['clientid'])
 	updatedClient.execute()
+
+	if updateFlag == 1:
+		updatedClient = clients.update(statustimestart = str(datetime.fromtimestamp(time.time()))).where(clients.engagementid == request.form['clientid'])
+		updatedClient.execute()
+
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 
 @app.route('/corporateNetwork/dmz/newNote', methods=['POST'])

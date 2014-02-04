@@ -74,6 +74,16 @@
 				$("#remedycase").removeClass("hidden");
 				$("#remedycase").removeAttr("disabled");
 			});
+
+			if ({{time}} < 7) {
+				$("#timeInStatus").css("color", "green");
+			}
+			else if ({{time}} < 15) {
+				$("#timeInStatus").css("color", "orange");
+			}
+			else {
+				$("#timeInStatus").css("color", "red");
+			}
 		});
 	</script>
 {% endblock %}
@@ -91,6 +101,7 @@
 	</ul>
 
 	<div>
+		<h5 class="pull-right" id="timeInStatus">Time in status: {{time}} days</h5>
 		<h3>Status: {{currentStatus}}</h3>
 
 		<div class="row">

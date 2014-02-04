@@ -43,6 +43,7 @@ class clients(BaseModel):
     updated = DateTimeField(null=True)
     vapapproval = BooleanField(null=True)
     addressspace = CharField(max_length=100, null=True)
+    statustimestart = DateTimeField(null=True)
 
     class Meta:
         db_table = 'clients'

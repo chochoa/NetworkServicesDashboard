@@ -411,7 +411,8 @@ def addingClient():
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
     					vapapproval = int(request.form['vapapproval']),
-						addressspace = request.form['addressspace'])
+						addressspace = request.form['addressspace'],
+						statustimestart = datetime.fromtimestamp(time.time()))
 	newClient.execute()
 
 	nextid = 0

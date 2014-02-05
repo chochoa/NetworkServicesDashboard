@@ -84,6 +84,9 @@
 			else {
 				$("#timeInStatus").css("color", "red");
 			}
+
+			//$(window).scrollTop($('#begin').offset().top);
+			$("html").animate({scrollTop:"160px"});
 		});
 	</script>
 {% endblock %}
@@ -100,6 +103,7 @@
  		<li class = "pull-right"><button type="button" class="btn btn-warning" id="editClient">Edit Client</button></li>
 	</ul>
 
+	<div id="begin"></div>
 	<div>
 		<h5 class="pull-right" id="timeInStatus">Time in status: {{time}} days</h5>
 		<h3>Status: {{currentStatus}}</h3>

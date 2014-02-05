@@ -84,12 +84,15 @@
 			else {
 				$("#timeInStatus").css("color", "red");
 			}
+
+			var offset = ($("#begin").position().top) - ($("#banner").height());
+			$("html").animate({scrollTop:(offset)});
 		});
 	</script>
 {% endblock %}
 {% block level2 %}DMZaaS{% endblock %}
 {% block content %}
-	<h2>{{clientArray.subscriber}}</h2>
+	<h2 id="begin">{{clientArray.subscriber}}</h2>
 
 	<ul class="nav nav-pills">
   		<li><a href="../dmz">In Progress</a></li>
@@ -100,7 +103,6 @@
  		<li class = "pull-right"><button type="button" class="btn btn-warning" id="editClient">Edit Client</button></li>
 	</ul>
 
-	<div id="begin"></div>
 	<div>
 		<h5 class="pull-right" id="timeInStatus">Time in status: {{time}} days</h5>
 		<h3>Status: {{currentStatus}}</h3>

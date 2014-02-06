@@ -276,11 +276,13 @@ def dmzInProgress():
 @app.route('/corporateNetwork/dmz/inService')
 def dmzInService():
 	html = ''
+	totalCrossCharge = 0
 	for client in clients.select():
 		if client.status == 1:
 			result = getProgress(client)
 			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
+			totalCrossCharge += int(client.crosscharge)
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
@@ -290,7 +292,7 @@ def dmzInService():
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
-	return render_template('corporateNetwork/dmzInService.html', inServiceClients = html)
+	return render_template('corporateNetwork/dmzInService.html', inServiceClients = html, totalCrossCharge = totalCrossCharge)
 
 @app.route('/corporateNetwork/dmz/withdrawn')
 def dmzWithdrawn():

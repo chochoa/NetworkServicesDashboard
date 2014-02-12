@@ -261,16 +261,26 @@ def dmzInProgress():
 	for client in clients.select():
 		if client.status == 2:
 			result = getProgress(client)
-			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
+
+			timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
+			if timeInStatus < 7:
+				colorValue = "rgba(119,221,119,0.4);";
+			elif timeInStatus < 15:
+				colorValue = "rgba(255,179,71,0.4);"
+			else:
+				colorValue = "rgba(255,105,97,0.4);"
+
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>
+							<td style="background-color:''' + colorValue + '''">''' + str(timeInStatus) + ''' days</td>
 						</tr>
 					'''
+
 	return render_template('corporateNetwork/dmzInProgress.html', inProgressClients = html)
 
 @app.route('/corporateNetwork/dmz/inService')

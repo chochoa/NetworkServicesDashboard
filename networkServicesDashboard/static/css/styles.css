@@ -28,6 +28,21 @@ a {
 	margin: 0px auto;
 }
 
+.thumbnail {
+	height: 135px;
+	text-align: center;
+	padding: 5px;
+}
+
+.thumbnail img {
+	height: 75px;
+	width: 225px;
+}
+
+.thumbnail h3 {
+	margin-top: 5px;
+}
+
 td {
 	padding: 7.5px;
 }

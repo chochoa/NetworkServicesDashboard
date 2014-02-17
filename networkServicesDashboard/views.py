@@ -6,11 +6,9 @@ from datetime import datetime, timedelta
 import time
 incidentList = []
 
-# def utcToLocal(time):
-# 	timestamp = calendar.timegm(time.timetuple())
-# 	local = datetime.fromtimestamp(timestamp)
-# 	assert time.resolution >= timedelta(microseconds=1)
-# 	return local.replace(microsecond=time.microsecond)
+@app.route('/presentation')
+def presentation():
+	return render_template("/tradeshow.html")
 
 #####################
 #		Routing		#
@@ -264,9 +262,9 @@ def dmzInProgress():
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 
 			timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
-			if timeInStatus < 7:
+			if timeInStatus <= 7:
 				colorValue = "rgba(119,221,119,0.4);";
-			elif timeInStatus < 15:
+			elif timeInStatus <= 14:
 				colorValue = "rgba(255,179,71,0.4);"
 			else:
 				colorValue = "rgba(255,105,97,0.4);"

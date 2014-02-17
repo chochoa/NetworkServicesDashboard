@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/css/tradeshowstyles.css">
+	</head>
+	<body onkeydown="reveal();">
+		<div id="impress">
+			<!-- Let's Win Life -->
+
+			<!-- Title Slide -->
+			<div id="intro" class="step" data-x="0" data-y="0" data-z="5000" data-scale="10">
+				<h4><strong>GIS</strong></h4>
+				<h1>NETWORK SERVICES</h1>
+			</div>
+
+			<!-- Questions Posed -->
+			<div id="question" class="step" data-x="0" data-y="0">
+				<p>Why Services?</p>
+			</div>
+
+			<!-- Point 1 -->
+			<div id="one" class="step" data-x="1750" data-y="0" data-z="1000" data-rotate="90">
+				<strong>I </strong>
+				<p>Reduced Costs</p>
+
+				<strong>II </strong>
+				<p>Increased Quality</p>
+
+				<strong>III </strong>
+				<p>Continual Improvement</p>
+			</div>
+
+			<!-- Graph -->
+			<div id="graph" class="step" data-x="2500" data-y="950" data-z="2000" data-rotate-x="-90">
+				<iframe style="height:750px;width:1500px;" src="http://vm-rilogan-002/corporateNetwork/dmz"></iframe>
+			</div>
+
+			<!-- Aris -->
+			<div id="aris" class="step" data-x="7500" data-y="950" data-z"2000" data-rotate-x="-90">
+				<h4><strong>GIS</strong></h4>
+				<img id="eStore" src="/static/eStore.png">
+				<h1>CISCO PRIME SERVICE CATALOG <br /><strong>(eStore)</strong></h1>
+			</div>
+
+			<div id="aris1" class="step" data-x="10000" data-y="950" data-z"2000" data-rotate-x="-90">
+				<img id="no" src="/static/no.png"></img>
+				<p>No more requests through emails or opening cases, wasting time and resources.</p>
+			</div>
+
+			<div id="aris2" class="step" data-x="12500" data-y="950" data-z"2000" data-rotate-x="-90">
+				<h4>The automation process</h4>
+				<img src="/static/process.png">
+			</div>
+
+			<div id="aris3" class="step" data-x="15000" data-y="950" data-z"2000" data-rotate-x="-90">
+				<p>Average time taken before:<br /><strong>~2880 Minutes</strong></p>
+				<p>Average time taken after:<br /><strong>~1 Minute</strong></p>
+			</div>
+		</div>
+
+		<script src="/static/js/impress.js"></script>
+		<script>impress().init();</script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript">
+			function reveal() {
+				$(".future").addClass("fadeIn");
+			}
+		</script>
+	</body>
+</html>

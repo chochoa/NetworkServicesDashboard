@@ -264,7 +264,7 @@ def dmzInProgress():
 			timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
 			if timeInStatus <= 7:
 				colorValue = "rgba(119,221,119,0.4);";
-			elif timeInStatus <= 14:
+			elif timeInStatus <= 30:
 				colorValue = "rgba(255,179,71,0.4);"
 			else:
 				colorValue = "rgba(255,105,97,0.4);"

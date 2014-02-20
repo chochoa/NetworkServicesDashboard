@@ -291,7 +291,7 @@ def dmzInService():
 			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			value = int(client.crosscharge)
-			if value == "":
+			if value == "" or value == None:
 				value = 0
 			totalCrossCharge += value
 			html += '''

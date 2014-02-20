@@ -290,7 +290,10 @@ def dmzInService():
 			result = getProgress(client)
 			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
-			totalCrossCharge += int(client.crosscharge)
+			value = int(client.crosscharge)
+			if value == "":
+				value = 0
+			totalCrossCharge += value
 			html += '''
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>

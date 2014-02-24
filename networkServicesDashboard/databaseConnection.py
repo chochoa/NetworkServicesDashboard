@@ -13,7 +13,7 @@ class clients(BaseModel):
     aclreview = CharField(max_length=100, null=True)
     activityconducted = TextField(null=True)
     architecturereview = CharField(max_length=100, null=True)
-    billtoid = IntegerField(null=True)
+    billtoid = CharField(max_length=50, null=True)
     billtoname = CharField(max_length=100, null=True)
     comments = TextField(null=True)
     connectionowner = CharField(max_length=100, null=True)

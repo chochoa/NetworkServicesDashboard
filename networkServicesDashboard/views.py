@@ -389,13 +389,13 @@ def addingClient():
 	if newLabId == '':
 		newLabId = None
 
-	departmentid = request.form['billtoid']
+	departmentid = str(request.form['billtoid'])
 	if departmentid == '':
 		departmentid = None
 
 	newClient = clients.insert(
 					    activityconducted = request.form['activityconducted'],
-    					billtoid = departmentid,
+    					billtoid = str(departmentid),
     					billtoname = request.form['billtoname'],
     					remedycase = request.form['remedycase'],
     					comments = request.form['comments'],
@@ -473,7 +473,7 @@ def editClient():
 	if newLabId == '' or newLabId == "None":
 		newLabId = None
 
-	newDepartmentId = request.form['departmentid']
+	newDepartmentId = str(request.form['departmentid'])
 	if newDepartmentId == '' or newDepartmentId == "None":
 		newDepartmentId = None
 
@@ -484,7 +484,7 @@ def editClient():
 
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
-    					billtoid = newDepartmentId,
+    					billtoid = str(newDepartmentId),
     					billtoname = request.form['departmentname'],
     					remedycase = request.form['remedycase'],
     					comments = request.form['comments'],

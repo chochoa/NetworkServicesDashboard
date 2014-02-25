@@ -441,13 +441,20 @@ def dmzReport():
 		departments.update({client.billtoid:client.billtoname})
 
 	for departmentId, departmentName in departments.iteritems():
-		html += "<h3>" + departmentId + " <small>" + departmentName + "</small></h3>"
+		totalDepartmentCharge = 0
+		for client in clients.select().where(clients.billtoid == departmentId):
+			if client.crosscharge == '' or None:
+				client.crosscharge = 0
+			totalDepartmentCharge += int(client.crosscharge)
+		html += "<h3>" + departmentId + " <small>" + departmentName + "</small></h3><span class='pull-right' style='font-weight:bold'>$ " + str(totalDepartmentCharge) + "</span>"
 
 		html += "<table class='table table-condensed'><tbody>"
 		for client in clients.select().where(clients.billtoid == departmentId):
+			if client.crosscharge == '' or None:
+				client.crosscharge = 0
 			html += '''<tr>
-						<td>''' + client.subscriber + '''</td>
-						<td>''' + str(client.crosscharge) + '''</td>
+						<td style='width:75%;'>''' + client.subscriber + '''</td>
+						<td style='width:75%;'>$ ''' + str(client.crosscharge) + '''</td>
 					</tr>'''
 		html += "</tbody></table>"
 

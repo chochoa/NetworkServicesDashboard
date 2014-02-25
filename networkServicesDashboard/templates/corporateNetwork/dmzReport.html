@@ -1,0 +1,14 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navDMZ').attr('class', 'active');
+		});
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+	{{costReport | safe }}
+{% endblock %}

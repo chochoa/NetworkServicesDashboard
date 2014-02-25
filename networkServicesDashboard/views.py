@@ -263,11 +263,11 @@ def dmzInProgress():
 
 			timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
 			if timeInStatus <= 7:
-				colorValue = "rgba(119,221,119,0.4);";
+				colorClass = "success"
 			elif timeInStatus <= 30:
-				colorValue = "rgba(255,179,71,0.4);"
+				colorClass = "warning"
 			else:
-				colorValue = "rgba(255,105,97,0.4);"
+				colorClass = "danger"
 
 			html += '''
 						<tr class="clickable">
@@ -275,7 +275,7 @@ def dmzInProgress():
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>
-							<td style="background-color:''' + colorValue + '''">''' + str(timeInStatus) + ''' days</td>
+							<td class="''' + colorClass + '''">''' + str(timeInStatus) + ''' days</td>
 						</tr>
 					'''
 
@@ -432,6 +432,26 @@ def addingClient():
 		nextid = result[0]
 
 	return redirect('/corporateNetwork/dmz/client?id=' + str(nextid))
+
+@app.route('/corporateNetwork/dmz/report')
+def dmzReport():
+	html = ""
+	departments = {}
+	for client in clients.select().where(clients.inservice == True):
+		departments.update({client.billtoid:client.billtoname})
+
+	for departmentId, departmentName in departments.iteritems():
+		html += "<h3>" + departmentId + " <small>" + departmentName + "</small></h3>"
+
+		html += "<table class='table table-condensed'><tbody>"
+		for client in clients.select().where(clients.billtoid == departmentId):
+			html += '''<tr>
+						<td>''' + client.subscriber + '''</td>
+						<td>''' + str(client.crosscharge) + '''</td>
+					</tr>'''
+		html += "</tbody></table>"
+
+	return render_template('/corporateNetwork/dmzReport.html', costReport = html)
 
 @app.route('/testing')
 def testing():

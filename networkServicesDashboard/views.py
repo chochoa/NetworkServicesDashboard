@@ -448,15 +448,15 @@ def dmzReport():
 
 	for departmentId, departmentName in departments.iteritems():
 		totalDepartmentCharge = 0
-		for client in clients.select().where(clients.billtoid == departmentId):
-			if client.crosscharge == '' or None:
+		for client in clients.select().where((clients.billtoid == departmentId) & (clients.inservice == True)):
+			if client.crosscharge == '' or client.crosscharge == None:
 				client.crosscharge = 0
 			totalDepartmentCharge += int(client.crosscharge)
 		html += "<h3>" + departmentId + " <small>" + departmentName + "</small></h3><span class='pull-right' style='font-weight:bold'>$ " + str(totalDepartmentCharge) + "</span>"
 
 		html += "<table class='table table-condensed'><tbody>"
-		for client in clients.select().where(clients.billtoid == departmentId):
-			if client.crosscharge == '' or None:
+		for client in clients.select().where((clients.billtoid == departmentId) & (clients.inservice == True)):
+			if client.crosscharge == '' or client.crosscharge == None:
 				client.crosscharge = 0
 			html += '''<tr>
 						<td style='width:75%;'>''' + client.subscriber + '''</td>

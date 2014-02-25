@@ -437,8 +437,14 @@ def addingClient():
 def dmzReport():
 	html = ""
 	departments = {}
+	totalCrossCharge = 0
 	for client in clients.select().where(clients.inservice == True):
 		departments.update({client.billtoid:client.billtoname})
+		if client.crosscharge == '' or client.crosscharge == None:
+			client.crosscharge = 0
+		totalCrossCharge += int(client.crosscharge)
+
+	html += "<h2>DMZaaS Cross Charge Report<span class='pull-right'>Total: $" + str(totalCrossCharge) + "</span></h2><hr />"
 
 	for departmentId, departmentName in departments.iteritems():
 		totalDepartmentCharge = 0

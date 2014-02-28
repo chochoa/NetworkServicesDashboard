@@ -1,0 +1,31 @@
+--
+-- PostgreSQL database cluster dump
+--
+
+\connect postgres
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE dba;
+ALTER ROLE dba WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
+CREATE ROLE rilogan;
+ALTER ROLE rilogan WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
+CREATE ROLE root;
+ALTER ROLE root WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION;
+
+
+
+
+
+
+--
+-- PostgreSQL database cluster dump complete
+--
+

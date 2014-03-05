@@ -60,13 +60,13 @@ docs/_build/
 [Ll]ib
 [Ss]cripts
 
+# OSX Files
 .DS_Store
 .AppleDouble
 .LSOverride
 
 # Icon must ends with two \r.
 Icon
-
 
 # Thumbnails
 ._*

@@ -342,29 +342,35 @@ def client():
 		lastNoteDate = str(lastNote.posted)
 		lastNoteContent = str(lastNote.content)
 
-	cases = client.remedycase.split(';')
-	remedycases = ''
-	for case in cases:
-		if case[:3] == "INC":
-			remedycases += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
-		elif case[:3] == "CRQ" or case[0:2] == "RFC":
-			remedycases += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
-		else:
-			remedycases += case + "<br />"
+	if ((client.remedycase != None) and (client.remedycase != '')):
+		cases = client.remedycase.split(';')
+		remedycases = ''
+		for case in cases:
+			if case[:3] == "INC":
+				remedycases += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
+			elif case[:3] == "CRQ" or case[0:2] == "RFC":
+				remedycases += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
+			else:
+				remedycases += case + "<br />"
+	else:
+		remedycases = ''
+
+	if ((client.implementationcr != None) and (client.implementationcr != '')):
+		crs = client.implementationcr.split(';')
+		remedycrs = ''
+		for cr in crs:
+			if cr[:3]== "INC":
+				remedycrs += "<a href='http://case/" + cr + "' target='_blank'>" + cr + "</a><br />"
+			elif cr[:3] == "CRQ" or cr[0:2] == "RFC":
+				remedycrs += "<a href='http://rfc/" + cr + "' target='_blank'>" + cr + "</a><br />"
+			else:
+				remedycrs += cr + "<br />"
+	else:
+		remedycrs = ''
 
 	timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
 
-	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases=remedycases)
-
-# @app.route('/corporateNetwork/dmz/addClient')
-# def dmzAddClient():
-# 	nextid = 0
-# 	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
-# 		if result[0] == None:
-# 			nextid = 1
-# 		else:
-# 			nextid = (result[0] + 1)
-# 	return render_template('corporateNetwork/dmzAddClient.html', nextid = nextid)
+	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
@@ -398,6 +404,7 @@ def addingClient():
     					billtoid = str(departmentid),
     					billtoname = request.form['billtoname'],
     					remedycase = request.form['remedycase'],
+    					implementationcr = request.form['implementationcr'],
     					comments = request.form['comments'],
     					connectionowner = request.form['connectionowner'],
     					crosscharge = request.form['crosscharge'],
@@ -520,6 +527,7 @@ def editClient():
     					billtoid = str(newDepartmentId),
     					billtoname = request.form['departmentname'],
     					remedycase = request.form['remedycase'],
+    					implementationcr = request.form['implementationcr'],
     					comments = request.form['comments'],
     					connectionowner = request.form['connectionowner'],
     					crosscharge = request.form['crosscharge'],

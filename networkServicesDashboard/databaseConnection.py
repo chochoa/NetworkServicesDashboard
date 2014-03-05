@@ -1,5 +1,9 @@
 from peewee import *
 
+#Development Database
+#database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': 'Li0ns3393.', 'port': 5432, 'user': 'rilogan'})
+
+#Production Database
 database = PostgresqlDatabase('dmzaasClients')
 
 class UnknownFieldType(object):
@@ -44,6 +48,7 @@ class clients(BaseModel):
     vapapproval = BooleanField(null=True)
     addressspace = CharField(max_length=100, null=True)
     statustimestart = DateTimeField(null=True)
+    implementationcr = CharField(max_length=100, null=True)
 
     class Meta:
         db_table = 'clients'

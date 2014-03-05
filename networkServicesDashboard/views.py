@@ -348,7 +348,7 @@ def client():
 		for case in cases:
 			if case[:3] == "INC":
 				remedycases += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
-			elif case[:3] == "CRQ" or case[0:2] == "RFC":
+			elif case[:3] == "CRQ" or case[:3] == "RFC":
 				remedycases += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
 			else:
 				remedycases += case + "<br />"
@@ -361,7 +361,7 @@ def client():
 		for cr in crs:
 			if cr[:3]== "INC":
 				remedycrs += "<a href='http://case/" + cr + "' target='_blank'>" + cr + "</a><br />"
-			elif cr[:3] == "CRQ" or cr[0:2] == "RFC":
+			elif cr[:3] == "CRQ" or cr[:3] == "RFC":
 				remedycrs += "<a href='http://rfc/" + cr + "' target='_blank'>" + cr + "</a><br />"
 			else:
 				remedycrs += cr + "<br />"

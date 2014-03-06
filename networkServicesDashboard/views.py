@@ -262,9 +262,9 @@ def dmzInProgress():
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 
 			timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
-			if timeInStatus <= 7:
+			if timeInStatus <= 14:
 				colorClass = "success"
-			elif timeInStatus <= 30:
+			elif timeInStatus <= 60:
 				colorClass = "warning"
 			else:
 				colorClass = "danger"

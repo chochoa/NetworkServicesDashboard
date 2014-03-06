@@ -73,12 +73,12 @@ strong {
 	text-align: center;
 }
 
-#wildcard {
+#wildcard, #wildcard2 {
 	font-family: "Champagne & Limousines";
 	font-size: 35px;
 }
 
-#wildcard ul {
+#wildcard ul, #wildcard2 ul {
 	font-family: "Helvetica";
 }
 

@@ -78,6 +78,10 @@ strong {
 	font-size: 35px;
 }
 
+#wildcard ul {
+	font-family: "Helvetica";
+}
+
 #one, #two, #three {
 	width: 750px;
 	height: auto;

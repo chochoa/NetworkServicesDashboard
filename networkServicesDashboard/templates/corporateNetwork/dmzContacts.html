@@ -1,0 +1,35 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navDMZ').attr('class', 'active');
+		});
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+	<h2>DMZaaS Clients</h2>
+
+	<ul class="nav nav-pills">
+  		<li><a href="../dmz">In Progress</a></li>
+  		<li><a href="inService">In Service</a></li>
+ 		<li><a href="withdrawn">Withdrawn</a></li>
+ 		<li class="active"><a href="#">Contacts</a></li>
+ 		<li class="pull-right"><a href="addClient">Add New Client</a></li>
+ 		<li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
+	</ul>
+
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Subscriber</th>
+				<th>Primary Contact</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{contacts | safe}}
+		</tbody>
+	</table>
+{% endblock %}

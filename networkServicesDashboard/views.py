@@ -473,9 +473,17 @@ def dmzReport():
 
 	return render_template('/corporateNetwork/dmzReport.html', costReport = html)
 
-@app.route('/testing')
-def testing():
-	return "<h1>Success</h1>"
+@app.route('/corporateNetwork/dmz/pocs')
+def dmzaasPocs():
+	html= ""
+	for client in clients.select().where(clients.status == 2):
+		html += '''
+					<tr>
+						<td>''' + client.subscriber + '''</td>
+						<td>''' + client.primarycontact + '''</td>
+					</tr>
+				'''
+	return render_template('/corporateNetwork/dmzContacts.html', contacts = html)
 
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():

@@ -476,7 +476,7 @@ def dmzReport():
 @app.route('/corporateNetwork/dmz/pocs')
 def dmzaasPocs():
 	html= ""
-	for client in clients.select().where(clients.status == 2):
+	for client in clients.select().where(clients.status == 1):
 		html += '''
 					<tr>
 						<td>''' + client.subscriber + '''</td>

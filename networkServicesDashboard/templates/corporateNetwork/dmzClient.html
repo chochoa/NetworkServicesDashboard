@@ -3,6 +3,7 @@
 {% block head %}
 	{{super()}}
 	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen-bootstrap.css">
 	<script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -11,8 +12,7 @@
 
 			//Populate Drop Downs
 			$("#labStatus").val("{{clientArray.labstatus}}");
-			$("#servicegateway1").val("{{clientArray.servicegateway1}}");
-			$("#servicegateway2").val("{{clientArray.servicegateway2}}");
+			$("#servicegateways").val(["{{clientArray.servicegateway1}}", "{{clientArray.servicegateway2}}"]);
 			$("#maxBandwidth").val("{{clientArray.estimatedmaximumbandwidth}}");
 			$("#vapapproval").val("{{clientArray.vapapproval}}");
 			$("#architecturereview").val("{{clientArray.architecturereview}}");
@@ -31,6 +31,19 @@
 			else {
 				$("#inServiceNo").attr("selected","True");
 			}
+
+			//Chosen JS init
+			$("#labStatus").chosen({disable_search_threshold: 5});
+			$("#servicegateways").chosen({max_selected_options: 2});
+			$("#maxBandwidth").chosen({disable_search_threshold: 5});
+			$("#vapapproval").chosen({disable_search_threshold: 5});
+			$("#securityinfo").chosen({disable_search_threshold:5});
+			$("#architecturereview").chosen({disable_search_threshold:5});
+			$("#addressspace").chosen({disable_search_threshold:5});
+			$("#aclreview").chosen({disable_search_threshold:5});
+			$("#implementation").chosen({disable_search_threshold:5});
+			$("#inservice").chosen({disable_search_threshold:5});
+			$('.chosen-select').trigger("chosen:updated");
 
 			//Links in form
 			var regExp = /\(([^)]+)\)/;
@@ -78,6 +91,16 @@
 				$("#printImplementationCRs").addClass("hidden");
 				$("#implementationcr").removeClass("hidden");
 				$("#implementationcr").removeAttr("disabled");
+				$("#labStatus").removeAttr("disabled").trigger("chosen:updated");
+				$("#servicegateways").removeAttr("disabled").trigger("chosen:updated");
+				$("#maxBandwidth").removeAttr("disabled").trigger("chosen:updated");
+				$("#vapapproval").removeAttr("disabled").trigger("chosen:updated");
+				$("#securityinfo").removeAttr("disabled").trigger("chosen:updated");
+				$("#architecturereview").removeAttr("disabled").trigger("chosen:updated");
+				$("#addressspace").removeAttr("disabled").trigger("chosen:updated");
+				$("#aclreview").removeAttr("disabled").trigger("chosen:updated");
+				$("#implementation").removeAttr("disabled").trigger("chosen:updated");
+				$("#inservice").removeAttr("disabled").trigger("chosen:updated");
 			});
 
 			if ({{time}} < 7) {
@@ -92,8 +115,6 @@
 
 			var offset = ($("#begin").position().top) - ($("#banner").height());
 			$("html").animate({scrollTop:(offset)});
-
-			//$("select").chosen();
 		});
 	</script>
 {% endblock %}
@@ -264,42 +285,33 @@
 					</div>
 
 					<div class="form-group">
-						<label for="servicegateways1" class="col-sm-2 control-label" >Service Gateways</label>
+						<label for="servicegateways" class="col-sm-2 control-label">Service Gateways</label>
 						<div class="col-sm-10">
-							<select class="form-control" id="servicegateway1" name="servicegateway1" disabled>
-								<option value="N/A">N/A</option>
-								<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
-								<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
-								<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
-								<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
-								<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
-								<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
-								<option value="rtp1-dmzvaas-gw1">rtp1-dmzvaas-gw1</option>
-								<option value="rtp7-dmzvaas-gw1">rtp7-dmzvaas-gw1</option>
-								<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
-								<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
-								<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
-								<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
-								<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
-								<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
-							</select>
-							<br />
-							<select class="form-control" id="servicegateway2" name="servicegateway2" disabled>
-								<option value="N/A">N/A</option>
-								<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
-								<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
-								<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
-								<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
-								<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
-								<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
-								<option value="rtp1-dmzvaas-gw1">rtp1-dmzvaas-gw1</option>
-								<option value="rtp7-dmzvaas-gw1">rtp7-dmzvaas-gw1</option>
-								<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
-								<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
-								<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
-								<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
-								<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
-								<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
+							<select data-placeholder="Gateways" class="form-control chosen-select" id="servicegateways" name="servicegateways" multiple disabled>
+								<optgroup label="Amsterdam (AER01)" style="font-weight:bold;">
+									<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
+									<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
+									<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
+									<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
+								</optgroup>
+								<optgroup label="RTP">
+									<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
+									<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
+								</optgroup>
+								<optgroup label="Allen (ALLN01)">
+									<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
+									<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
+								</optgroup>
+								<optgroup label="Richardson (RCDN)">
+									<option value="rcdn9-sdfa-dmzvaas-gw1">rcdn9-sdfa-dmzvaas-gw1</option>
+									<option value="rcdn9-sdfc-dmzvaas-gw2">rcdn9-sdfc-dmzvaas-gw2</option>
+								</optgroup>
+								<optgroup label="Singapore (SNG)">
+									<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
+									<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
+									<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
+									<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
+								</optgroup>
 							</select>
 						</div>
 					</div>

@@ -532,6 +532,16 @@ def editClient():
 	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice']))):
 		updateFlag = 1
 
+	if len(request.form.getlist('servicegateways')) == 0:
+		gateway1 = None
+		gateway2 = None
+	elif len(request.form.getlist('servicegateways')) == 1:
+		gateway1 = str(request.form.getlist('servicegateways')[0])
+		gateway2 = None
+	else:
+		gateway1 = str(request.form.getlist('servicegateways')[0])
+		gateway2 = str(request.form.getlist('servicegateways')[1])
+
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
     					billtoid = str(newDepartmentId),
@@ -556,8 +566,8 @@ def editClient():
     					securityinfo = int(request.form['securityinfo']),
     					architecturereview = request.form['architecturereview'],
     					aclreview = request.form['aclreview'],
-    					servicegateway1 = request.form['servicegateway1'],
-    					servicegateway2 = request.form['servicegateway2'],
+    					servicegateway1 = gateway1,
+    					servicegateway2 = gateway2,
     					status = newStatus,
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
@@ -571,6 +581,7 @@ def editClient():
 		updatedClient.execute()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
+
 
 @app.route('/corporateNetwork/dmz/newNote', methods=['POST'])
 def newNote():

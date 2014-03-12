@@ -401,6 +401,16 @@ def addingClient():
 	if departmentid == '':
 		departmentid = None
 
+	if len(request.form.getlist('servicegateways')) == 0:
+		gateway1 = None
+		gateway2 = None
+	elif len(request.form.getlist('servicegateways')) == 1:
+		gateway1 = str(request.form.getlist('servicegateways')[0])
+		gateway2 = None
+	else:
+		gateway1 = str(request.form.getlist('servicegateways')[0])
+		gateway2 = str(request.form.getlist('servicegateways')[1])
+
 	newClient = clients.insert(
 					    activityconducted = request.form['activityconducted'],
     					billtoid = str(departmentid),
@@ -425,8 +435,8 @@ def addingClient():
     					securityinfo = int(request.form['securityinfo']),
     					architecturereview = request.form['architecturereview'],
     					aclreview = request.form['aclreview'],
-    					servicegateway1 = request.form['servicegateway1'],
-    					servicegateway2 = request.form['servicegateway2'],
+    					servicegateway1 = gateway1,
+    					servicegateway2 = gateway2,
     					status = newStatus,
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,

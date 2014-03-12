@@ -2,6 +2,8 @@
 {% block title %}Corporate Network - DMZaaS{% endblock %}
 {% block head %}
 	{{super()}}
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
+	<script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//NavBar
@@ -90,6 +92,8 @@
 
 			var offset = ($("#begin").position().top) - ($("#banner").height());
 			$("html").animate({scrollTop:(offset)});
+
+			//$("select").chosen();
 		});
 	</script>
 {% endblock %}
@@ -127,7 +131,7 @@
 			<form name="newNote" action="/corporateNetwork/dmz/newNote" method="POST">
 				<input type="hidden" name="clientId" value="{{clientArray.engagementid}}"/>
 				<textarea name="noteContent" class="form-control" rows="4"></textarea><br />
-				<input type="submit" class="btn btn-default pull-right"></input>
+				<input type="submit" class="btn btn-default pull-right" value="Post"></input>
 			</form>
 			<br /><br />
 		</div>

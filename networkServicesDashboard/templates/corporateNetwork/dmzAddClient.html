@@ -2,11 +2,27 @@
 {% block title %}Corporate Network - DMZaaS{% endblock %}
 {% block head %}
 	{{super()}}
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen-bootstrap.css">
+	<script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#navDMZ').attr('class', 'active');
 			$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
 			$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
+
+			//Chosen JS init
+			$("#labStatus").chosen({disable_search_threshold: 5});
+			$("#servicegateways").chosen({max_selected_options: 2});
+			$("#maxBandwidth").chosen({disable_search_threshold: 5});
+			$("#vapapproval").chosen({disable_search_threshold: 5});
+			$("#securityinfo").chosen({disable_search_threshold:5});
+			$("#architecturereview").chosen({disable_search_threshold:5});
+			$("#addressspace").chosen({disable_search_threshold:5});
+			$("#aclreview").chosen({disable_search_threshold:5});
+			$("#implementation").chosen({disable_search_threshold:5});
+			$("#inservice").chosen({disable_search_threshold:5});
+			$('.chosen-select').trigger("chosen:updated");
 		});
 	</script>
 {% endblock %}
@@ -104,44 +120,35 @@
 	</div>
 
 	<div class="form-group">
-		<label for="servicegateways1" class="col-sm-2 control-label">Service Gateways</label>
-			<div class="col-sm-10">
-				<select class="form-control" id="servicegateway1" name="servicegateway1">
-					<option>N/A</option>
-					<option>aer01-mda1-dmzaas-gw1</option>
-					<option>aer01-mda2-dmzaas-gw2</option>
-					<option>aer01-mda1-dmzvaas-gw1</option>
-					<option>aer01-mda2-dmzvaas-gw2</option>
-					<option>rtp5-dmzaas-gw1</option>
-					<option>rtp10-dmzaas-gw1</option>
-					<option>rtp1-dmzvaas-gw1</option>
-					<option>rtp7-dmzvaas-gw1</option>
-					<option>alln01-mda1-dmzaas-gw1</option>
-					<option>alln01-mda2-dmzaas-gw2</option>
-					<option>sngdc01-mda1-dmzaas-gw1</option>
-					<option>sngdc01-mda2-dmzaas-gw2</option>
-					<option>sngidc-dmzvaas-gw1</option>
-					<option>sngidc-dmzvaas-gw2</option>
-				</select>
-				<br />
-				<select class="form-control" id="servicegateway2" name="servicegateway2">
-					<option>N/A</option>
-					<option>aer01-mda1-dmzaas-gw1</option>
-					<option>aer01-mda2-dmzaas-gw2</option>
-					<option>aer01-mda1-dmzvaas-gw1</option>
-					<option>aer01-mda2-dmzvaas-gw2</option>
-					<option>rtp5-dmzaas-gw1</option>
-					<option>rtp10-dmzaas-gw1</option>
-					<option>rtp1-dmzvaas-gw1</option>
-					<option>rtp7-dmzvaas-gw1</option>
-					<option>alln01-mda1-dmzaas-gw1</option>
-					<option>alln01-mda2-dmzaas-gw2</option>
-					<option>sngdc01-mda1-dmzaas-gw1</option>
-					<option>sngdc01-mda2-dmzaas-gw2</option>
-					<option>sngidc-dmzvaas-gw1</option>
-					<option>sngidc-dmzvaas-gw2</option>
-				</select>
-			</div>
+		<label for="servicegateways" class="col-sm-2 control-label">Service Gateways</label>
+		<div class="col-sm-10">
+			<select data-placeholder="Select Gateways" class="form-control chosen-select" id="servicegateways" name="servicegateways" multiple>
+				<optgroup label="Amsterdam (AER01)" style="font-weight:bold;">
+					<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
+					<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
+					<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
+					<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
+				</optgroup>
+				<optgroup label="RTP">
+					<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
+					<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
+				</optgroup>
+				<optgroup label="Allen (ALLN01)">
+					<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
+					<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
+				</optgroup>
+				<optgroup label="Richardson (RCDN)">
+					<option value="rcdn9-sdfa-dmzvaas-gw1">rcdn9-sdfa-dmzvaas-gw1</option>
+					<option value="rcdn9-sdfc-dmzvaas-gw2">rcdn9-sdfc-dmzvaas-gw2</option>
+				</optgroup>
+				<optgroup label="Singapore (SNG)">
+					<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
+					<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
+					<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
+					<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
+				</optgroup>
+			</select>
+		</div>
 	</div>
 
 	<div class="form-group">

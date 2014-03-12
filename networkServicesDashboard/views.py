@@ -273,6 +273,7 @@ def dmzInProgress():
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
+							<td>''' + str(client.location) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.updated) + '''</td>
 							<td class="''' + colorClass + '''">''' + str(timeInStatus) + ''' days</td>
@@ -297,6 +298,7 @@ def dmzInService():
 						<tr class="clickable">
 							<td><a href='/corporateNetwork/dmz/client?id=''' + str(client.engagementid) + ''''>''' + str(client.labid) + '''</a></td>
 							<td>''' + str(client.subscriber) + '''</td>
+							<td>''' + str(client.location) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.crosscharge) + '''</td>
 							<td>''' + str(client.updated) + '''</td>

@@ -1,7 +1,7 @@
-{% extends "template.html" %}    
+{% extends "template.html" %}
 {% block level1 %}Corporate Network{% endblock %}
 {% block navItems %}
-  <nav>
+<!--   <nav>
     <ul class="nav nav-tabs">
       <li id='navCore'><a href="/corporateNetwork/core">Core </a></li>
       <li id='navCorpRemote'><a href="/corporateNetwork/remoteOffice">Corporate Remote</span></a></li>
@@ -11,5 +11,32 @@
       <li id='navDMZ'><a href="/corporateNetwork/dmz">DMZ as a Service (DMZaaS)</a></li>
       <li id='navITAAC'><a href="/corporateNetwork/itaac">IT as a Carrier (ITaaC)</a></li>
     </ul>
+  </nav> -->
+
+  
+  <nav>
+    <ul class="nav nav-tabs">
+      <li id='navCore'><a href="#" disabled>Core </a></li>
+      <li id='navCorpRemote'><a href="#">Corporate Remote</span></a></li>
+      <li id='navWireless'><a href="#">Wireless</a></li>
+      <li id='navION'><a href="#">Internet Only Network (ION)</a></li>
+      <li id='navCDN'><a href="#">Content Delivery Network (CDN)</a></li>
+      <li id='navDMZ'><a href="/corporateNetwork/dmz">DMZ as a Service (DMZaaS)</a></li>
+      <li id='navITAAC'><a href="#">IT as a Carrier (ITaaC)</a></li>
+    </ul>
   </nav>
+
+  <br />
+
+  <div class="alert alert-warning alert-dismissable hidden" id="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Please Note:</strong> Only DMZaaS is currently available in this tool
+  </div>
+
+  <script type="text/javascript">
+  $('a').click(function() {
+    $('#alert').removeClass('hidden');
+  });
+  </script>
+
 {% endblock %}

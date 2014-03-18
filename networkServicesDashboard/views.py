@@ -598,8 +598,7 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 	newNote = notes.insert(engagementid = client, content = noteContent)
-	#current time in format 'YYYY-DD-MM HH:MM:SS.MMMMMM'
-	updateClient = clients.update(updated = datetime.now()).where(clients.engagementid == client)
+	updateClient = clients.update(updated = datetime.utcnow()).where(clients.engagementid == client)
 	newNote.execute()
 	updateClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
@@ -616,7 +615,9 @@ def editNote():
 def deleteNote():
 	noteid = request.form['noteid']
 	delete = notes.delete().where(notes.noteid == int(request.form['noteid']))
+	updateClient = clients.update(updated = datetime.utcnow()).where(clients.engagementid == request.form['engagementid'])
 	delete.execute()
+	updateClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
 
 @app.route('/corporateNetwork/itaac')

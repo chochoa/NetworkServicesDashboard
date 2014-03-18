@@ -4,15 +4,8 @@
 	{{super()}}
 	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/chosen-bootstrap.css">
-	<script type="text/javascript" src="/static/js/chosen.jquery.js"></script>
+	<script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
 	<script type="text/javascript">
-		var getHiddenOffsetWidth = function (el) {
-		    var $hiddenElement = $(el).clone().appendTo('body');
-		    var width = $hiddenElement.outerWidth();
-		   	$hiddenElement.remove();
-		   	return width-200;
-		};
-
 		$(document).ready(function() {
 			$('#navDMZ').attr('class', 'active');
 			$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
@@ -30,44 +23,6 @@
 			$("#implementation").chosen({disable_search_threshold:5});
 			$("#inservice").chosen({disable_search_threshold:5});
 			$('.chosen-select').trigger("chosen:updated");
-
-			//Form Help
-			$("#labId").popover({
-								'trigger':'focus',
-								'content':'The ID of the Lab as noted in the LabReg tool. This will link automatically.', 'placement':'top'
-			});
-			$("#labName").popover({
-								'trigger':'focus',
-								'content':'The name of the Lab as noted in the LabReg tool.', 'placement':'top'
-			});
-			$("#subscriber").popover({
-								'trigger':'focus',
-								'content':'The name that will identify this deployment internally. Try to be unambigious.', 'placement':'top'
-			});
-			$("#primaryContact").popover({
-								'trigger':'focus',
-								'content':'Business contact for this deployment. Enter as "FirstName Surname (userid)" for auto dir/ link', 'placement':'top'
-			});
-			$("#otherContact").popover({
-								'trigger':'focus',
-								'content':'Technical contact for this deployment. Enter as "Firstname Surname (userid)" for auto dir/ link', 'placement':'top'
-			});
-			$("#activity").popover({
-								'trigger':'focus',
-								'content':'A short description of what business this DMZ will support', 'placement':'top'
-			});
-			$("#targetDate").popover({
-								'trigger':'focus',
-								'content':'The target date for being In Service (YYYY-MM-DD)', 'placement':'top'
-			});
-			$("#location").popover({
-								'trigger':'focus',
-								'content':'The building code where this deployment will be physically located (e.g SJC12)', 'placement':'top'
-			});
-			$("#remedycase").popover({
-								'trigger':'focus',
-								'content':'Any Remedy INC or RFC cases associated with this deployement. Enter as INCXXXXXXX or RFCXXXXXX. Seperate multiple cases with ;', 'placement':'top'
-			});
 		});
 	</script>
 {% endblock %}
@@ -75,8 +30,6 @@
 {% block content %}
 
 <h3>Add New DMZaaS Client</h3>
-
-<div class="alert alert-info" style="text-align:center;">Please fill in the form below to start the engagement process. All that is needed to begin is a SUBSCRIBER name and a PRIMARY CONTACT. <br /><br /> No other fields are explicitly required. Please reach out to the team at 'dmz-service@cisco.com' for any assistance.</div>
 
 <form name="addClient" method="POST" action="/corporateNetwork/dmz/addingClient" class="form-horizontal">
 <!-- 	<div class="form-group">
@@ -89,21 +42,21 @@
 	<div class="form-group">
 		<label for="labId" class="col-sm-2 control-label">Lab ID</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="number" class="form-control" name="labid" id="labId" placeholder="Lab ID">
+			<input type="number" class="form-control" name="labid" id="labId" placeholder="Lab ID">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="labName" class="col-sm-2 control-label">Lab Name</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="labName" name="labname" placeholder="Lab Name">
+			<input type="text" class="form-control" id="labName" name="labname" placeholder="Lab Name">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="subscriber" class="col-sm-2 control-label">Subscriber</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="subscriber" name="subscriber" placeholder="Subscriber" required>
+			<input type="text" class="form-control" id="subscriber" name="subscriber" placeholder="Subscriber" required>
 		</div>
 	</div>
 
@@ -117,35 +70,42 @@
 	<div class="form-group">
 		<label for="primaryContact" class="col-sm-2 control-label">Primary Contact/Business</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="primaryContact" name="primarycontact" placeholder="Full Name + (CEC ID)" required>
+			<input type="text" class="form-control" id="primaryContact" name="primarycontact" placeholder="Full Name + (CEC ID)" required>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="otherContact" class="col-sm-2 control-label">Other Contact/Technical</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="otherContact" name="othercontact" placeholder="Full Name + (CEC ID)">
+			<input type="text" class="form-control" id="otherContact" name="othercontact" placeholder="Full Name + (CEC ID)">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="activity" class="col-sm-2 control-label">Type of Business/Service/Activity Conducted</label>
 		<div class="col-sm-10">
-			<textarea data-toggle="tooltip" id="activity" class="form-control" name="activityconducted" rows="3"></textarea>
+			<textarea id="activity" class="form-control" name="activityconducted" rows="3"></textarea>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="targetDate" class="col-sm-2 control-label">Target Date</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip"type="text" class="form-control" id="targetDate" name="targetdate" placeholder="YYYY-MM-DD">
+			<input type="text" class="form-control" id="targetDate" name="targetdate" placeholder="YYYY-MM-DD">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="goLiveDate" class="col-sm-2 control-label">Go-live Date</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="goLiveDate" name="golivedate" placeholder="YYYY-MM-DD">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="location" class="col-sm-2 control-label">Location</label>
 		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="location" name="location" placeholder="e.g SJC12">
+			<input type="text" class="form-control" id="location" name="location" placeholder="e.g SJC12">
 		</div>
 	</div>
 
@@ -156,13 +116,6 @@
 				<option>Non-compliant</option>
 				<option>Compliant</option>
 			</select>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="case" class="col-sm-2 control-label">Remedy Case</label>
-		<div class="col-sm-10">
-			<input data-toggle="tooltip" type="text" class="form-control" id="case" name="remedycase" placeholder="INC############">
 		</div>
 	</div>
 
@@ -218,6 +171,13 @@
 	</div>
 
 	<div class="form-group">
+		<label for="crossCharge" class="col-sm-2 control-label">Monthly Service Cross Charge</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="crossCharge" name="crosscharge">
+		</div>
+	</div>
+
+	<div class="form-group">
 		<label for="vapApproval" class="col-sm-2 control-label">VAP Tool Approval</label>
 		<div class="col-sm-10">
 			<select class="form-control" id="vapapproval" name="vapapproval">
@@ -257,84 +217,84 @@
 		</div>
 	</div>
 
-	<hr />
-
-	<h4><a class="btn btn-danger" id="showAdvanced" data-toggle="collapse" data-target="#advanced">Show Advanced Options (Only change if advised)</a></h4>
-
-	<div id="advanced" class="collapse">
-		<div class="form-group">
-			<label for="crossCharge" class="col-sm-2 control-label">Monthly Service Cross Charge</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="crossCharge" name="crosscharge">
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="securityInfo" class="col-sm-2 control-label">Security Info Provided?</label>
-			<div class="col-sm-10">
-				<select class="form-control" name="securityinfo" id="securityinfo">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="maxBandwidth" class="col-sm-2 control-label">Architecture Review</label>
-			<div class="col-sm-10">
-				<select class="form-control" name="architecturereview" id="architecturereview">
-					<option>Not Started </option>
-					<option>In Progress</option>
-					<option>Completed</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="maxBandwidth" class="col-sm-2 control-label">Address Space</label>
-			<div class="col-sm-10">
-				<select class="form-control" name="addressspace" id="addressspace">
-					<option>Not Started </option>
-					<option>In Progress</option>
-					<option>Completed</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="maxBandwidth" class="col-sm-2 control-label">ACL Review</label>
-			<div class="col-sm-10">
-				<select class="form-control" name="aclreview" id="aclreview">
-					<option>Not Started </option>
-					<option>In Progress</option>
-					<option>Completed</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="maxBandwidth" class="col-sm-2 control-label">Implementation</label>
-			<div class="col-sm-10">
-				<select class="form-control" id="implementation" name="implementation">
-					<option>Not Started</option>
-					<option>In Progress</option>
-					<option>Completed</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="form-group" id="last">
-			<label for="inService" class="col-sm-2 control-label">In Service?</label>
-			<div class="col-sm-10">
-				<select class="form-control" id="inservice" name="inservice">
-					<option value="0">No</option>
-					<option value="1">Yes</option>
-				</select>
-			</div>
+	<div class="form-group">
+		<label for="case" class="col-sm-2 control-label">Remedy Case</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="case" name="remedycase" placeholder="INC############">
 		</div>
 	</div>
 
-	<hr />
+	<div class="form-group">
+		<label for="cr" class="col-sm-2 control-label">Implementation CR</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="cr" name="implementationcr" placeholder="CRQ############">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="securityInfo" class="col-sm-2 control-label">Security Info Provided?</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="securityinfo" id="securityinfo">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Architecture Review</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="architecturereview" id="architecturereview">
+				<option>Not Started </option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Address Space</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="addressspace" id="addressspace">
+				<option>Not Started </option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">ACL Review</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="aclreview" id="aclreview">
+				<option>Not Started </option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="maxBandwidth" class="col-sm-2 control-label">Implementation</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="implementation" name="implementation">
+				<option>Not Started</option>
+				<option>In Progress</option>
+				<option>Completed</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group" id="last">
+		<label for="inService" class="col-sm-2 control-label">In Service?</label>
+		<div class="col-sm-10">
+			<select class="form-control" id="inservice" name="inservice">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</select>
+		</div>
+	</div>
+
 	<input class="form-control" type="submit" value="Add Client" />
 </form>
 {% endblock %}

@@ -598,8 +598,19 @@ def newNote():
 	client = request.form['clientId']
 	noteContent = request.form['noteContent']
 	newNote = notes.insert(engagementid = client, content = noteContent)
+	#current time in format 'YYYY-DD-MM HH:MM:SS.MMMMMM'
+	updateClient = clients.update(updated = datetime.now()).where(clients.engagementid == client)
 	newNote.execute()
+	updateClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
+
+@app.route('/corporateNetwork/dmz/editNote', methods=['POST'])
+def editNote():
+	noteid = request.form['noteid']
+	newContent = request.form['newContent']
+	updatedNote = notes.update(content = newContent).where(notes.noteid == int(request.form['noteid']))
+	updatedNote.execute()
+	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
 
 @app.route('/corporateNetwork/dmz/deleteNote', methods = ['POST'])
 def deleteNote():
@@ -712,7 +723,6 @@ def getNotesByClient(clientid):
 	for note in notes.select().join(clients).where(clients.engagementid == clientid).order_by(notes.posted.desc()):
 		noteList.append(note)
 	return noteList
-
 
 def getNotes(client):
 	html = ''

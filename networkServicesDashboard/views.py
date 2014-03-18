@@ -6,10 +6,6 @@ from datetime import datetime, timedelta
 import time
 incidentList = []
 
-@app.route('/presentation')
-def presentation():
-	return render_template("/tradeshow.html")
-
 #####################
 #		Routing		#
 #####################

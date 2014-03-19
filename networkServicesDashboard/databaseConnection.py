@@ -1,7 +1,7 @@
 from peewee import *
 
 #Development Database
-#database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': 'Li0ns3393.', 'port': 5432, 'user': 'rilogan'})
+#database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': '', 'port': 5432, 'user': 'rilogan'})
 
 #Production Database
 database = PostgresqlDatabase('dmzaasClients')

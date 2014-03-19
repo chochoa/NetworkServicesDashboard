@@ -101,6 +101,8 @@
 				$("#aclreview").removeAttr("disabled").trigger("chosen:updated");
 				$("#implementation").removeAttr("disabled").trigger("chosen:updated");
 				$("#inservice").removeAttr("disabled").trigger("chosen:updated");
+				$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
+				$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
 			});
 
 			if ({{time}} < 7) {
@@ -447,7 +449,7 @@
 						</div>
 					</div>
 
-					<input id="submitEdits" type="submit" class="form-control hidden btn btn-success" disabled>
+					<input id="submitEdits" type="submit" class="form-control hidden btn btn-success" value="Update" disabled>
 
 					<br /><br />
 

@@ -271,6 +271,7 @@ def dmzInProgress():
 							<td>''' + str(client.subscriber) + '''</td>
 							<td>''' + str(client.location) + '''</td>
 							<td>''' + result['status'] + '''</td>
+							<td>''' + str(client.assignee) + '''</td>
 							<td>''' + str(client.updated) + '''</td>
 							<td class="''' + colorClass + '''">''' + str(timeInStatus) + ''' days</td>
 						</tr>
@@ -327,6 +328,7 @@ def client():
 
 	result = getProgress(client)
 	status = result['status']
+	assignee = str(client.assignee)
 	bar = result['bar']
 
 	notesHtml = getNotes(client)
@@ -368,7 +370,7 @@ def client():
 
 	timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
 
-	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
+	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, currentAssignee = assignee, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
 
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
@@ -550,6 +552,7 @@ def editClient():
 
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
+					    assignee = request.form['assignee'],
     					billtoid = str(newDepartmentId),
     					billtoname = request.form['departmentname'],
     					remedycase = request.form['remedycase'],

@@ -19,6 +19,7 @@
 			$("#addressspace").val("{{clientArray.addressspace}}");
 			$("#aclreview").val("{{clientArray.aclreview}}");
 			$("#implementation").val("{{clientArray.implementation}}");
+			$("#assignee").val("{{clientArray.assignee}}");
 			if ("{{clientArray.securityinfo}}" == "True") {
 				$("#securityInfoYes").attr("selected","True");
 			}
@@ -35,6 +36,7 @@
 			//Chosen JS init
 			$("#labStatus").chosen({disable_search_threshold: 5});
 			$("#servicegateways").chosen({max_selected_options: 2});
+			$("#assignee").chosen({disable_search: true});
 			$("#maxBandwidth").chosen({disable_search_threshold: 5});
 			$("#vapapproval").chosen({disable_search_threshold: 5});
 			$("#securityinfo").chosen({disable_search_threshold:5});
@@ -50,9 +52,11 @@
 			var primaryContact = $('#primaryContact').val()
 			var otherContact = $('#otherContact').val()
 			var clientConnectionOwner = $('#connectionOwner').val()
+			var assignee = $('#assignee').val()
 			primaryContact = regExp.exec(primaryContact);
 			otherContact = regExp.exec(otherContact);
 			clientConnectionOwner = regExp.exec(clientConnectionOwner);
+			assignee = regExp.exec(assignee)
 			$("#clickLabId").click(function() {
 				window.open('http://eman-core.cisco.com/infosec/labreg/view.pcgi?lab_id={{clientArray.labid}}');
 			});
@@ -65,6 +69,9 @@
 			$("#clickConnectionOwner").click(function() {
 				window.open('http://dir/' + clientConnectionOwner[1]);
 			});
+			$("#clickAssignee").click(function() {
+				window.open('http://dir/' + assignee[1]);
+			})
 
 			//Form Help
 			$("#remedycase").popover({
@@ -93,6 +100,7 @@
 				$("#implementationcr").removeAttr("disabled");
 				$("#labStatus").removeAttr("disabled").trigger("chosen:updated");
 				$("#servicegateways").removeAttr("disabled").trigger("chosen:updated");
+				$("#assignee").removeAttr("disabled").trigger("chosen:updated");
 				$("#maxBandwidth").removeAttr("disabled").trigger("chosen:updated");
 				$("#vapapproval").removeAttr("disabled").trigger("chosen:updated");
 				$("#securityinfo").removeAttr("disabled").trigger("chosen:updated");
@@ -137,6 +145,7 @@
 	<div>
 		<h5 class="pull-right" id="timeInStatus">Time in status: {{time}} days</h5>
 		<h3>Status: {{currentStatus}}</h3>
+		<h3>Assigned To: <span id="clickAssignee">{{currentAssignee}}</span></h3>
 
 		<div class="row">
 			{{progress | safe}}
@@ -447,6 +456,26 @@
 							<select class="form-control" id="inservice" name="inservice" disabled>
 								<option id="inServiceNo"	value="0">No</option>
 								<option id="inServiceYes"	value="1">Yes</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="assignee" class="col-sm-2 control-label">Assignee</label>
+						<div class="col-sm-10">
+							<select data-placeholder="Assignee" class="form-control chosen-select" id="assignee" name="assignee" disabled>
+								<option value="None">None</option>
+								<optgroup label="Service Team" style="font-weight:bold;">
+									<option value="Jerry Applegate (japplega)">Jerry Applegate (japplega)</option>
+									<option value="Rich Logan (rilogan)">Rich Logan (rilogan)</option>
+								</optgroup>
+								<optgroup label="Security/InfoSec">
+									<option value="David Bell (dabell)">David Bell (dabell)</option>
+									<option value="Tom Woodard (woodart)">Tom Woodard (woodart)</option>
+								</optgroup>
+								<optgroup label="Implementations">
+									<option value="Jaime Venago (jvenago)">Jaime Venago (jvenago)</option>
+								</optgroup>
 							</select>
 						</div>
 					</div>

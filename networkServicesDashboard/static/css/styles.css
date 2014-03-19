@@ -158,12 +158,12 @@ td {
 	width: 90%;
 }
 
-#labId[disabled], #case[disabled], #primaryContact, #otherContact, #connectionOwner {
+#labId[disabled], #case[disabled], #primaryContact, #otherContact, #connectionOwner, #clickAssignee {
 	color: #0000FF;
 	text-decoration: underline;
 }
 
-#clickLabId, #clickCase, #clickPrimaryContact, #clickOtherContact, #clickConnectionOwner {
+#clickLabId, #clickCase, #clickPrimaryContact, #clickOtherContact, #clickConnectionOwner, #clickAssignee {
 	cursor: pointer;
 }
 

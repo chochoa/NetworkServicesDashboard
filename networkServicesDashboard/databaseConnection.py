@@ -1,10 +1,10 @@
 from peewee import *
 
 #Development Database
-#database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': 'Li0ns3393.', 'port': 5432, 'user': 'rilogan'})
+database = PostgresqlDatabase('dmzaasClients', **{'host': 'localhost', 'password': 'Li0ns3393.', 'port': 5432, 'user': 'rilogan'})
 
 #Production Database
-database = PostgresqlDatabase('dmzaasClients')
+#database = PostgresqlDatabase('dmzaasClients')
 
 class UnknownFieldType(object):
     pass
@@ -49,6 +49,7 @@ class clients(BaseModel):
     addressspace = CharField(max_length=100, null=True)
     statustimestart = DateTimeField(null=True)
     implementationcr = CharField(max_length=100, null=True)
+    assignee = CharField(max_length=100, null=True)
 
     class Meta:
         db_table = 'clients'

@@ -45,7 +45,6 @@ class clients(BaseModel):
     targetdate = DateField(null=True)
     teamname = CharField(max_length=100, null=True)
     updated = DateTimeField(null=True)
-    vapapproval = BooleanField(null=True)
     addressspace = CharField(max_length=100, null=True)
     statustimestart = DateTimeField(null=True)
     implementationcr = CharField(max_length=100, null=True)
@@ -62,3 +61,19 @@ class notes(BaseModel):
 
     class Meta:
         db_table = 'notes'
+
+class gateways(BaseModel):
+    gatewayid = PrimaryKeyField()
+    location = TextField()
+    name = TextField()
+
+    class Meta:
+        db_table = 'gateways'
+
+class assignees(BaseModel):
+    assigneeid = PrimaryKeyField()
+    function = TextField()
+    name = TextField()
+
+    class Meta:
+        db_table = 'assignees'

@@ -29,7 +29,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			{{contacts | safe}}
+			{% for client in clients %}
+				<tr>
+					<td>{{client.subscriber}}</td>
+					<td>{{client.primarycontact}}</td>
+				</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 {% endblock %}

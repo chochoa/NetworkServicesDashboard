@@ -47,6 +47,10 @@ def deletingGateway():
 	deleteGateway.execute()
 	return redirect('/admin')
 
+@app.route('/help')
+def help():
+	return render_template('/help/help.html')
+
 ################
 # DMZaaS Views #
 ################
@@ -90,7 +94,6 @@ def dmzInService():
 	for client in clients.select():
 		if client.status == 1:
 			result = getProgress(client)
-			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			if client.crosscharge == "" or client.crosscharge == None:
 				client.crosscharge = 0
@@ -114,7 +117,6 @@ def dmzWithdrawn():
 	for client in clients.select():
 		if client.status == 3:
 			result = getProgress(client)
-			#client.updated = utcToLocal(client.updated)
 			client.updated = (client.updated).strftime("%Y-%m-%d %H:%M")
 			html += '''
 						<tr class="clickable">
@@ -536,7 +538,7 @@ def getProgress(client):
 			</div>'''
 		return result
 
-# Returns all notes for one client
+# Returns list of all notes by client
 def getNotesByClient(clientid):
 	noteList = []
 	for note in notes.select().join(clients).where(clients.engagementid == clientid).order_by(notes.posted.desc()):

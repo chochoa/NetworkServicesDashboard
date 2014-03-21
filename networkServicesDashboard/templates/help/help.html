@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block level1 %}Help{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-2">
+			<br />
+			<ul class="nav nav-pills nav-stacked">
+				<li class="active"><a href="#home">Home</a></li>
+				<li><a href="#dmzaas">DMZaaS</a></li>
+				<li><a href="#itaac">ITaaC</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10">
+			<div id="home">
+				<h2>Introduction</h2>
+
+				<p>
+					Welcome to the Network Services Dashboard. This dashboard aims to provide a simple, smooth and fast engagement process for supported services.
+					<br /><br />
+					These currently include:
+					<ul>
+						<li><a href="">DMZ as a Service (DMZaaS)</a></li>
+						<li><a href="">IT as a Carrier (ITaaC)</a></li>
+					</ul>
+				</p>
+			</div>
+
+			<div id="dmzaas">
+				<h2>DMZaaS</h2>
+
+				<p>
+					This part of the application tracks all of the DMZaaS engagements and clients. This is accomplished using three tables.
+					<ol>
+						<li>In Progress Clients</li>
+						<li>In Service Clients</li>
+						<li>Widthdrawn Clients</li>
+					</ol>
+
+					Each of these are slightly different but the main principle remains the same.
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -4,251 +4,54 @@ from databaseConnection import *
 import calendar
 from datetime import datetime, timedelta
 import time
-incidentList = []
 
-#####################
-#		Routing		#
-#####################
+#############################
+# General Application Views #
+#############################
 
-# @app.route('/perlTest')
-# def perl():
-# 	pipe = subprocess.Popen(["perl", "/testScript.pl"], stdin=subprocess.PIPE)
-# 	pipe.stdin.close()
-# 	return render_template('/test.html',
-# 							test = scriptResult)
-
-# @app.route('/buildList')
-# def build():
-# 	siteSetup.generateCountryMappings()
-# 	return redirect("/")
-
-# @app.route('/corporateNetwork/remoteOffice/sites/world')
-# def world():
-# 	return render_template('/corporateNetwork/sites/world.html',
-# 							printArea = siteSetup.printRegionList())
-
-# # AMER, AMER-LATAM, EMEA, APAC
-# @app.route('/corporateNetwork/remoteOffice/sites/region')
-# def region():
-# 	region = request.args.get('r','')
-# 	return render_template('/corporateNetwork/sites/region.html',
-# 							printArea = siteSetup.printCountriesList(region),
-# 							printRegion = region)
-
-# # Lowercase ISO code e.g (us,uk,za,cn)
-# @app.route('/corporateNetwork/remoteOffice/sites/country')
-# def country():
-# 	country = request.args.get('c','')
-# 	region = siteSetup.getParentRegion(country)
-# 	return render_template('/corporateNetwork/sites/country.html',
-# 							printArea = siteSetup.printSites(country),
-# 							printRegion = region,
-# 							printCountry = siteSetup.returnCountryName(country),
-# 							printCountryCode = country)
-
-# # Lowercase site code
-# @app.route('/corporateNetwork/remoteOffice/sites/site')
-# def site():
-# 	siteID = request.args.get('s','')
-# 	country = siteSetup.getParentCountry(siteID)
-# 	countryName = siteSetup.returnCountryName(country)
-# 	region = siteSetup.getParentRegion(country)
-# 	return render_template('/corporateNetwork/sites/site.html',
-# 							printArea = siteSetup.printSiteInfo(siteID),
-# 							printRegion = region,
-# 							printCountry = country,
-# 							printCountryName = countryName,
-# 							printSite = siteID)
-
-# # Lowercase site code
-# @app.route('/corporateNetwork/remoteOffice/sites/router')
-# def link():
-# 	router = request.args.get('r','')
-# 	siteID = siteSetup.getParentSite(router)
-# 	country = siteSetup.getParentCountry(siteID)
-# 	countryName = siteSetup.returnCountryName(country)
-# 	region = siteSetup.getParentRegion(country)
-# 	return render_template('/corporateNetwork/sites/link.html',
-# 							printArea = siteSetup.printRouterInfo(router),
-# 							printRegion = region,
-# 							printCountry = country,
-# 							printCountryName = countryName,
-# 							printSite = siteID,
-# 							printRouter = router)
-
-
-# @app.route('/corporateNetwork/remoteOffice/sites/linkType')
-# def filterLink():
-# 	filterValue = request.args.get('l','')
-# 	return render_template('/corporateNetwork/sites/filter.html',
-# 							printArea = siteSetup.printFilter('Link Type', filterValue),
-# 							printType = 'Link Type',
-# 							printValue = filterValue)
-
-
-# @app.route('/corporateNetwork/remoteOffice/sites/classification')
-# def filterClassification():
-# 	filterValue = request.args.get('c','')
-# 	return render_template('/corporateNetwork/sites/filter.html',
-# 							printArea = siteSetup.printFilter('Site Classification', filterValue),
-# 							printType = 'Site Classification',
-# 							printValue = filterValue)
-
-# @app.route('/corporateNetwork/remoteOffice/sites/listing')
-# def fullListing():
-# 	return render_template('/corporateNetwork/sites/fullListing.html',
-# 							printArea = siteSetup.printSites('all'))
-
-# Root/Index Page
+#Index Page
 @app.route('/')
 def index():
-	return render_template('/index.html',
-							homeAndRemoteIssues = 99,
-							extranetIssues = 99,
-							dcIssues = 99,
-							corpNetworkIssues = len(incidentList))
+	return render_template('/index.html')
 
-# Home and Remote
-@app.route('/homeAndRemote/homeOffice')
-def homeAndRemote():
-	return render_template('/homeAndRemote/homeOffice.html')
+#Admin Interface
+@app.route('/admin')
+def adminInterface():
+	locations = []
+	for gateway in gateways.select():
+		locations.append(gateway.location)
+	locations = list(set(locations))
+	return render_template('/admin.html', assignees = assignees.select(), gateways = gateways.select(), locations = locations)
 
-@app.route('/homeAndRemote/homeOffice/incidentClassification')
-def homeAndRemoteIncidentClassification():
-	return render_template('/homeAndRemote/homeOfficeIncidents.html')
+@app.route('/corporateNetwork/dmz/addingAssignee', methods=['POST'])
+def addingAssignee():
+	newAssignee = assignees.insert(name = request.form['assigneeName'], function = request.form['assigneeFunction'])
+	newAssignee.execute()
+	return redirect('/admin')
 
-@app.route('/homeAndRemote/vpn')
-def vpn():
-	return render_template('/homeAndRemote/vpn.html')
+@app.route('/corporateNetwork/dmz/deletingAssignee', methods=['POST'])
+def deletingAssingee():
+	deleteAssignee = assignees.delete().where(assignees.assigneeid == request.form['assigneeid'])
+	deleteAssignee.execute()
+	return redirect('/admin')
 
-@app.route('/homeAndRemote/vpn/incidentClassification')
-def vpnIncidentClassification():
-	return render_template('/homeAndRemote/vpnIncidents.html')
+@app.route('/corporateNetwork/dmz/addingGateway', methods=['POST'])
+def addingGateway():
+	newGateway = gateways.insert(name = request.form['gatewayName'], location = request.form['gatewayLocation'])
+	newGateway.execute()
+	return redirect('/admin')
 
-# Extranet
-@app.route('/extranet/siteConnection')
-def extranet():
-	return render_template('/extranet/siteConnection.html')
+@app.route('/corporateNetwork/dmz/deletingGateway', methods=['POST'])
+def deletingGateway():
+	deleteGateway = gateways.delete().where(gateways.gatewayid == request.form['gatewayid'])
+	deleteGateway.execute()
+	return redirect('/admin')
 
-@app.route('/extranet/siteConnection/incidentClassification')
-def incidentClassification():
-	return render_template('/extranet/siteIncidents.html')
+################
+# DMZaaS Views #
+################
 
-@app.route('/extranet/vpn')
-def extranetVPN():
-	return render_template('/extranet/vpn.html')
-
-@app.route('/extranet/vpn/incidentClassification')
-def extraincidentClassification():
-	return render_template('/extranet/vpnIncidents.html')
-
-# DC Networking
-@app.route('/dcNetworking')
-def dcNetworking():
-	return render_template('/dcNetworking/dcNetworking.html')
-
-# Corporate Network
-@app.route('/corporateNetwork/')
-@app.route('/corporateNetwork/core')
-def core():
-	return render_template('/corporateNetwork/core.html')
-
-@app.route('/corporateNetwork/remoteOffice/')
-def outages():
-		critCount = 0
-		highCount = 0
-		medCount = 0
-		html = ""
-
-		if len(incidentList) > 0:
-			for i in range(len(incidentList)):
-				rowHTML = "<tr><td><a href='" + incidentList[i].link + "'>" + incidentList[i].title + "</a></td><td>" + incidentList[i].description + "</td></tr>"
-				html += rowHTML
-				incident = incidentList[i].title
-				incident = incident.split("-", 1)
-				incident = str(incident[0]).strip()
-				if incident == "Critical Priority":
-					critCount += 1
-				elif incident == "High Priority":
-					highCount += 1
-				elif incident == "Medium Priority":
-					medCount += 1
-
-		return render_template('/corporateNetwork/remoteOffice.html',
-								remoteOfficeOutages = html,
-								outageNumber = 0,
-								criticalNo = critCount,
-								highNo = highCount,
-								mediumNo = medCount)
-
-#@app.route('/corporateNetwork/remoteOffice/sites')
-#def siteInfo():
-#	return render_template('/corporateNetwork/siteInfo.html', outageNumber = len(incidentList))
-
-#@app.route('/corporateNetwork/remoteOffice/sites/region')
-#def regions():
-#	return render_template('/corporateNetwork/region.html')
-
-@app.route('/corporateNetwork/remoteOffice/remoteIncidents')
-def remoteIncidents():
-	return render_template('/corporateNetwork/remoteIncidents.html')
-
-@app.route('/corporateNetwork/wireless')
-def wireless():
-	html = ""
-	#for rows html += row
-	return render_template('/corporateNetwork/wireless.html',
-							outageNumber = 0,
-							wirelessIncidents = html,
-							wirelessCriticalCount = 1,
-							wirelessHighCount = 2,
-							wirelessMediumCount = 4,
-							wirelessLowCount = 10)
-
-@app.route('/corporateNetwork/wireless/infra')
-def wirelessInfra():
-	return render_template('/corporateNetwork/wirelessInfra.html',
-							apCount = 112546,
-							controllerCount = 345)
-
-@app.route('/corporateNetwork/wireless/status')
-def wirelessStatus():
-	return render_template('/corporateNetwork/wirelessStatus.html')
-
-@app.route('/corporateNetwork/wireless/incidentClassification')
-def wirelessIncidents():
-	return render_template('/corporateNetwork/wirelessIncidents.html')
-
-@app.route('/corporateNetwork/ion')
-def ion():
-	html = ""
-	return render_template('corporateNetwork/ion.html',
-							outageNumber = 0,
-							ionIncidents = html,
-							ionCriticalCount = 0,
-							ionHighCount = 2,
-							ionMediumCount = 5,
-							ionLowCount = 0)
-
-@app.route('/corporateNetwork/ion/stats')
-def ionStats():
-	return render_template('corporateNetwork/ionStats.html',
-							outageNumber = 0,
-							sponsorNo = 1601,
-							guestNo = 5723,
-							successNo = 4740,
-							cecNo = 996)
-
-@app.route('/corporateNetwork/cdn')
-def cdn():
-	html = ""
-	return render_template('corporateNetwork/cdn.html',
-							cdnIncidents = html,
-							cdnCriticalCount = 0,
-							cdnHighCount = 0,
-							cdnMediumCount = 5,
-							cdnLowCount = 10)
-
+# In Progress Clients Summary Table
 @app.route('/corporateNetwork/dmz')
 def dmzInProgress():
 	html = ''
@@ -279,6 +82,7 @@ def dmzInProgress():
 
 	return render_template('corporateNetwork/dmzInProgress.html', inProgressClients = html)
 
+# In Service Clients Summary Table
 @app.route('/corporateNetwork/dmz/inService')
 def dmzInService():
 	html = ''
@@ -303,6 +107,7 @@ def dmzInService():
 					'''
 	return render_template('corporateNetwork/dmzInService.html', inServiceClients = html, totalCrossCharge = totalCrossCharge)
 
+# Withdrawn Clients Summary Table
 @app.route('/corporateNetwork/dmz/withdrawn')
 def dmzWithdrawn():
 	html = ''
@@ -321,6 +126,7 @@ def dmzWithdrawn():
 					'''
 	return render_template('corporateNetwork/dmzWithdrawn.html', withdrawnClients = html)
 
+# Individual Client Profiles
 @app.route('/corporateNetwork/dmz/client')
 def client():
 	clientId = request.args.get('id', '')
@@ -328,7 +134,6 @@ def client():
 
 	result = getProgress(client)
 	status = result['status']
-	assignee = str(client.assignee)
 	bar = result['bar']
 
 	notesHtml = getNotes(client)
@@ -370,12 +175,38 @@ def client():
 
 	timeInStatus = (datetime.fromtimestamp(time.time()) - client.statustimestart).days
 
-	return render_template('corporateNetwork/dmzClient.html', clientArray = client, progress = bar, currentStatus = status, currentAssignee = assignee, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
+	gatewayList = {}
+	locations = []
+	for gateway in gateways.select():
+		locations.append(gateway.location)
+	locations = list(set(locations))
+	for location in locations:
+		gatewayList[location] = gateways.select().where(gateways.location == location)
 
+	assigneeList = {}
+	functions = []
+	for assignee in assignees.select():
+		functions.append(assignee.function)
+	functions = list(set(functions))
+	for function in functions:
+		assigneeList[function] = assignees.select().where(assignees.function == function)
+
+	return render_template('corporateNetwork/dmzClient.html', assignees = assigneeList, gateways = gatewayList, locations = locations, functions = functions, clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
+
+# New Client Form
 @app.route('/corporateNetwork/dmz/addClient')
 def dmzAddClient():
-	return render_template('corporateNetwork/dmzAddClient.html')
+	gatewayList = {}
+	locations = []
+	for gateway in gateways.select():
+		locations.append(gateway.location)
+	locations = list(set(locations))
+	for location in locations:
+		gatewayList[location] = gateways.select().where(gateways.location == location)
 
+	return render_template('corporateNetwork/dmzAddClient.html', gateways = gatewayList, locations = locations)
+
+# Logic to add a new client to the database
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
 def addingClient():
 	if int(request.form['inservice']) == 1:
@@ -439,7 +270,6 @@ def addingClient():
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
-    					vapapproval = int(request.form['vapapproval']),
 						addressspace = request.form['addressspace'],
 						statustimestart = datetime.fromtimestamp(time.time()))
 	newClient.execute()
@@ -450,6 +280,7 @@ def addingClient():
 
 	return redirect('/corporateNetwork/dmz/client?id=' + str(nextid))
 
+# Cross Charge Reports
 @app.route('/corporateNetwork/dmz/report')
 def dmzReport():
 	html = ""
@@ -483,24 +314,19 @@ def dmzReport():
 
 	return render_template('/corporateNetwork/dmzReport.html', costReport = html)
 
+# Primary point of contact report
 @app.route('/corporateNetwork/dmz/pocs')
 def dmzaasPocs():
-	html= ""
-	for client in clients.select().where(clients.status == 1):
-		html += '''
-					<tr>
-						<td>''' + client.subscriber + '''</td>
-						<td>''' + client.primarycontact + '''</td>
-					</tr>
-				'''
-	return render_template('/corporateNetwork/dmzContacts.html', contacts = html)
+	return render_template('/corporateNetwork/dmzContacts.html', clients = clients.select().where(clients.status == 1))
 
+# Logic to withdrawn a client
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():
 	withdrawnClient = clients.update(status = 3).where(clients.engagementid == request.form['clientId'])
 	withdrawnClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientId'])
 
+# Logic to delete a client
 @app.route('/corporateNetwork/dmz/deleteClient', methods=['POST'])
 def dmzDeleteClient():
 	noteList = getNotesByClient(request.form['clientId'])
@@ -512,6 +338,7 @@ def dmzDeleteClient():
 	deleteClient.execute()
 	return redirect('/corporateNetwork/dmz')
 
+# Logic to edit a client
 @app.route('/corporateNetwork/dmz/editClient', methods=['POST'])
 def editClient():
 	isInService = int(request.form['inservice'])
@@ -581,8 +408,7 @@ def editClient():
     					subscriber = request.form['subscriber'],
     					targetdate = newTargetDate,
     					teamname = request.form['teamname'],
-    					addressspace = request.form['addressspace'],
-    					vapapproval = int(request.form['vapapproval'])).where(clients.engagementid == request.form['clientid'])
+    					addressspace = request.form['addressspace']).where(clients.engagementid == request.form['clientid'])
 	updatedClient.execute()
 
 	if updateFlag == 1:
@@ -591,7 +417,7 @@ def editClient():
 
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 
-
+# Logic to create a note
 @app.route('/corporateNetwork/dmz/newNote', methods=['POST'])
 def newNote():
 	client = request.form['clientId']
@@ -602,14 +428,15 @@ def newNote():
 	updateClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + client)
 
-@app.route('/corporateNetwork/dmz/editNote', methods=['POST'])
-def editNote():
-	noteid = request.form['noteid']
-	newContent = request.form['newContent']
-	updatedNote = notes.update(content = newContent).where(notes.noteid == int(request.form['noteid']))
-	updatedNote.execute()
-	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
+# @app.route('/corporateNetwork/dmz/editNote', methods=['POST'])
+# def editNote():
+# 	noteid = request.form['noteid']
+# 	newContent = request.form['newContent']
+# 	updatedNote = notes.update(content = newContent).where(notes.noteid == int(request.form['noteid']))
+# 	updatedNote.execute()
+# 	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
 
+# Logic to delete a note
 @app.route('/corporateNetwork/dmz/deleteNote', methods = ['POST'])
 def deleteNote():
 	noteid = request.form['noteid']
@@ -619,16 +446,7 @@ def deleteNote():
 	updateClient.execute()
 	return redirect('/corporateNetwork/dmz/client?id=' + str(request.form['engagementid']))
 
-@app.route('/corporateNetwork/itaac')
-def itaac():
-	html = ""
-	return render_template('corporateNetwork/itaac.html',
-							itaacIncidents = html)
-
-#########################
-#		End Routing		#
-#########################
-
+# Computes the status of a client
 def getProgress(client):
 	if client.status == 3:
 		result = {}
@@ -718,12 +536,14 @@ def getProgress(client):
 			</div>'''
 		return result
 
+# Returns all notes for one client
 def getNotesByClient(clientid):
 	noteList = []
 	for note in notes.select().join(clients).where(clients.engagementid == clientid).order_by(notes.posted.desc()):
 		noteList.append(note)
 	return noteList
 
+# Get all notes for a client
 def getNotes(client):
 	html = ''
 	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
@@ -740,6 +560,15 @@ def getNotes(client):
 			</div>'''
 	return html
 
+# Gets the latest note for a client
 def getLatestNote(client):
 	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
 		return note
+
+###############
+# ITaaC Views #
+###############
+
+@app.route('/corporateNetwork/itaac')
+def itaac():
+	return render_template('corporateNetwork/itaac.html')

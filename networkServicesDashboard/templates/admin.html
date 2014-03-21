@@ -1,0 +1,104 @@
+{% extends "template.html" %}
+{% block title %}Admin Interface{% endblock %}
+{% block head %}
+	{{super()}}
+{% endblock %}
+{% block level1 %}Admin Interface{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-4">
+			<ul id="tabs" class="nav nav-pills nav-stacked" data-tabs="tabs">
+				<h5>DMZaaS</h5>
+				<li class="active"><a href="#assignees" data-toggle="tab">Assignees</a></li>
+				<li><a href="#gateways" data-toggle="tab" onclick="refresh();">Gateways</a></li>
+				<h5>ITaaC</h5>
+				<li><a href="#itaac1" data-toggle="tab">ITaaC Space</a></li>
+			</ul>
+		</div>
+		<div class="col-md-8">
+			<div class="tab-content">
+				<!-- Assignee Tab -->
+				<div class="tab-pane fade in active" id="assignees">
+					<h4>Current list of Assignees:</h4>
+					<table class="table table-condensed">
+						<thead>
+							<th>Assignee</th>
+							<th>Function</th>
+							<th style="text-align:right">Delete?</th>
+						</thead>
+						<tbody>
+							{% for assignee in assignees %}
+								<tr>
+									<td>{{assignee.name}}</td>
+									<td>{{assignee.function}}</td>
+									<form method="POST" action="/corporateNetwork/dmz/deletingAssignee" onsubmit='return confirm(&quot;Do you really want to delete this assignee?&quot;);'>
+										<input type="hidden" name="assigneeid" value="{{assignee.assigneeid}}">
+										<td><input type="submit" class="close" aria-hidden="true" value="&times;"></td>
+									</form>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<hr />
+
+					<div class="form-group">
+						<form name="addAssignee" method="POST" action="/corporateNetwork/dmz/addingAssignee">
+							<label for="assigneeFunction" class="control-label">Function <small style="color:#FF7878;">Be Consistent!</small></label>
+							<input type="text" class="form-control" id="assigneeFunction" name="assigneeFunction" placeholder="Function" required>
+							<br />
+							<label for="assigneeFunction" class="control-label">Assignee Name</label>
+							<input type="text" class="form-control" id="assigneeName" name="assigneeName" placeholder="FirstName Surname (login)" required>
+							<br />
+							<input style="margin: 0 auto;width:15%;" type="submit" class="form-control" value="Add Assignee">
+						</form>
+					</div>
+				</div>
+
+				<!-- Gateway Tab -->
+				<div class="tab-pane fade in" id="gateways">
+					<h4>Current list of Gateways:</h4>
+					<table class="table table-condensed">
+						<thead>
+							<th>Gateway</th>
+							<th>Location</th>
+							<th style="text-align:right">Delete?</th>
+						</thead>
+						<tbody>
+							{% for gateway in gateways %}
+								<tr>
+									<td>{{gateway.name}}</td>
+									<td>{{gateway.location}}</td>
+									<form method="POST" action="/corporateNetwork/dmz/deletingGateway" onsubmit='return confirm(&quot;Do you really want to delete this Gateway?&quot;);'>
+										<input type="hidden" name="gatewayid" value="{{gateway.gatewayid}}">
+										<td><input type="submit" class="close" aria-hidden="true" value="&times;"></td>
+									</form>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<hr />
+
+					<div class="form-group">
+						<form name="addGateway" method="POST" action="/corporateNetwork/dmz/addingGateway">
+							<label for="gatewayLocation" class="control-label">Location <small style="color:#FF7878;">Be Consistent! (e.g RTP)</small></label>
+							<input type="text" class="form-control" id="gatewayLocation" name="gatewayLocation" placeholder="Location" required>
+							<br />
+							<label for="gatewayName" class="control-label">Gateway Name</label>
+							<input type="text" class="form-control" id="gatewayName" name="gatewayName" placeholder="abc01-dmzaas-gw1" required>
+							<br />
+							<input style="margin: 0 auto;width:15%;" type="submit" class="form-control" value="Add Gateway">
+						</form>
+						</form>
+					</div>
+				</div>
+
+				<!-- Gateway Tab -->
+				<div class="tab-pane fade in" id="itaac1">
+					<h4>ITaaC Space</h4>
+				</div>
+			</div>
+		</div>
+  	</div>
+{% endblock %}

@@ -145,7 +145,7 @@
 	<div>
 		<h5 class="pull-right" id="timeInStatus">Time in status: {{time}} days</h5>
 		<h3>Status: {{currentStatus}}</h3>
-		<h3>Assigned To: <span id="clickAssignee">{{currentAssignee}}</span></h3>
+		<h3>Assigned To: <span id="clickAssignee">{{clientArray.assignee}}</span></h3>
 
 		<div class="row">
 			{{progress | safe}}
@@ -299,32 +299,13 @@
 						<label for="servicegateways" class="col-sm-2 control-label">Service Gateways</label>
 						<div class="col-sm-10">
 							<select data-placeholder="Select Gateways" class="form-control chosen-select" id="servicegateways" name="servicegateways" multiple disabled>
-								<optgroup label="Amsterdam (AER01)" style="font-weight:bold;">
-									<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
-									<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
-									<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
-									<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
-								</optgroup>
-								<optgroup label="RTP">
-									<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
-									<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
-									<option value="rtp5-dmzvaas-gw1">rtp5-dmzvaas-gw1</option>
-									<option value="rtp10-dmzvaas-gw1">rtp10-dmzvaas-gw1</option>
-								</optgroup>
-								<optgroup label="Allen (ALLN01)">
-									<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
-									<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
-								</optgroup>
-								<optgroup label="Richardson (RCDN)">
-									<option value="rcdn9-sdfa-dmzvaas-gw1">rcdn9-sdfa-dmzvaas-gw1</option>
-									<option value="rcdn9-sdfc-dmzvaas-gw2">rcdn9-sdfc-dmzvaas-gw2</option>
-								</optgroup>
-								<optgroup label="Singapore (SNG)">
-									<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
-									<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
-									<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
-									<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
-								</optgroup>
+								{% for location in locations %}
+									<optgroup label="{{location}}">
+										{% for gateway in gateways[location] %}
+											<option value="{{gateway.name}}">{{gateway.name}}</option>
+										{% endfor %}
+									</optgroup>
+								{% endfor %}
 							</select>
 						</div>
 					</div>
@@ -353,16 +334,6 @@
 						<label for="crossCharge" class="col-sm-2 control-label">Monthly Service Cross Charge</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="crossCharge" name="crosscharge" disabled value="{{clientArray.crosscharge}}">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="vapApproval" class="col-sm-2 control-label">VAP Tool Approval</label>
-						<div class="col-sm-10">
-							<select class="form-control" id="vapapproval" name="vapapproval" disabled>
-								<option value="0">No</option>
-								<option value="1">Yes</option>
-							</select>
 						</div>
 					</div>
 
@@ -463,19 +434,15 @@
 					<div class="form-group">
 						<label for="assignee" class="col-sm-2 control-label">Assignee</label>
 						<div class="col-sm-10">
-							<select data-placeholder="Assignee" class="form-control chosen-select" id="assignee" name="assignee" disabled>
+							<select data-placeholder="Assigee" class="form-control chosen-select" id="assignee" name="assignee" disabled>
 								<option value="None">None</option>
-								<optgroup label="Service Team" style="font-weight:bold;">
-									<option value="Jerry Applegate (japplega)">Jerry Applegate (japplega)</option>
-									<option value="Rich Logan (rilogan)">Rich Logan (rilogan)</option>
-								</optgroup>
-								<optgroup label="Security/InfoSec">
-									<option value="David Bell (dabell)">David Bell (dabell)</option>
-									<option value="Tom Woodard (woodart)">Tom Woodard (woodart)</option>
-								</optgroup>
-								<optgroup label="Implementations">
-									<option value="Jaime Venago (jvenago)">Jaime Venago (jvenago)</option>
-								</optgroup>
+								{% for function in functions %}
+									<optgroup label="{{function}}">
+										{% for assignee in assignees[function] %}
+											<option value="{{assignee.name}}">{{assignee.name}}</option>
+										{% endfor %}
+									</optgroup>
+								{% endfor %}
 							</select>
 						</div>
 					</div>

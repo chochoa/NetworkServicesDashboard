@@ -170,32 +170,13 @@
 		<label for="servicegateways" class="col-sm-2 control-label">Service Gateways</label>
 		<div class="col-sm-10">
 			<select data-placeholder="Select Gateways" class="form-control chosen-select" id="servicegateways" name="servicegateways" multiple>
-				<optgroup label="Amsterdam (AER01)" style="font-weight:bold;">
-					<option value="aer01-mda1-dmzaas-gw1">aer01-mda1-dmzaas-gw1</option>
-					<option value="aer01-mda2-dmzaas-gw2">aer01-mda2-dmzaas-gw2</option>
-					<option value="aer01-mda1-dmzvaas-gw1">aer01-mda1-dmzvaas-gw1</option>
-					<option value="aer01-mda2-dmzvaas-gw2">aer01-mda2-dmzvaas-gw2</option>
-				</optgroup>
-				<optgroup label="RTP">
-					<option value="rtp5-dmzaas-gw1">rtp5-dmzaas-gw1</option>
-					<option value="rtp10-dmzaas-gw1">rtp10-dmzaas-gw1</option>
-					<option value="rtp5-dmzvaas-gw1">rtp5-dmzvaas-gw1</option>
-					<option value="rtp10-dmzvaas-gw1">rtp10-dmzvaas-gw1</option>
-				</optgroup>
-				<optgroup label="Allen (ALLN01)">
-					<option value="alln01-mda1-dmzaas-gw1">alln01-mda1-dmzaas-gw1</option>
-					<option value="alln01-mda2-dmzaas-gw2">alln01-mda2-dmzaas-gw2</option>
-				</optgroup>
-				<optgroup label="Richardson (RCDN)">
-					<option value="rcdn9-sdfa-dmzvaas-gw1">rcdn9-sdfa-dmzvaas-gw1</option>
-					<option value="rcdn9-sdfc-dmzvaas-gw2">rcdn9-sdfc-dmzvaas-gw2</option>
-				</optgroup>
-				<optgroup label="Singapore (SNG)">
-					<option value="sngdc01-mda1-dmzaas-gw1">sngdc01-mda1-dmzaas-gw1</option>
-					<option value="sngdc01-mda2-dmzaas-gw2">sngdc01-mda2-dmzaas-gw2</option>
-					<option value="sngidc-dmzvaas-gw1">sngidc-dmzvaas-gw1</option>
-					<option value="sngidc-dmzvaas-gw2">sngidc-dmzvaas-gw2</option>
-				</optgroup>
+				{% for location in locations %}
+					<optgroup label="{{location}}">
+						{% for gateway in gateways[location] %}
+							<option value="{{gateway.name}}">{{gateway.name}}</option>
+						{% endfor %}
+					</optgroup>
+				{% endfor %}
 			</select>
 		</div>
 	</div>
@@ -215,16 +196,6 @@
 				<option>10MB</option>
 				<option>50MB</option>
 				<option>100MB</option>
-			</select>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="vapApproval" class="col-sm-2 control-label">VAP Tool Approval</label>
-		<div class="col-sm-10">
-			<select class="form-control" id="vapapproval" name="vapapproval">
-				<option value="0">No</option>
-				<option value="1">Yes</option>
 			</select>
 		</div>
 	</div>

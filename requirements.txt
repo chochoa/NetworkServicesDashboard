@@ -6,5 +6,4 @@ distribute==0.6.28
 itsdangerous==0.23
 peewee==2.1.7
 psycopg2==2.5.2
-suds==0.3.4
 wsgiref==0.1.2

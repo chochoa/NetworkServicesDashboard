@@ -45,6 +45,40 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: assignees; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+--
+
+CREATE TABLE assignees (
+    assigneeid integer NOT NULL,
+    name character varying(100),
+    function character varying(100)
+);
+
+
+ALTER TABLE public.assignees OWNER TO root;
+
+--
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE; Schema: public; Owner: root
+--
+
+CREATE SEQUENCE assignees_assigneeid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.assignees_assigneeid_seq OWNER TO root;
+
+--
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+--
+
+ALTER SEQUENCE assignees_assigneeid_seq OWNED BY assignees.assigneeid;
+
+
+--
 -- Name: clients; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
 --
 
@@ -83,7 +117,8 @@ CREATE TABLE clients (
     vapapproval boolean,
     addressspace character varying(50),
     statustimestart timestamp without time zone,
-    implementationcr character varying(100)
+    implementationcr character varying(100),
+    assignee character varying(100)
 );
 
 
@@ -108,6 +143,40 @@ ALTER TABLE public.clients_engagementid_seq OWNER TO rilogan;
 --
 
 ALTER SEQUENCE clients_engagementid_seq OWNED BY clients.engagementid;
+
+
+--
+-- Name: gateways; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+--
+
+CREATE TABLE gateways (
+    gatewayid integer NOT NULL,
+    name character varying(100),
+    location character varying(100)
+);
+
+
+ALTER TABLE public.gateways OWNER TO root;
+
+--
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE; Schema: public; Owner: root
+--
+
+CREATE SEQUENCE gateways_gatewayid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.gateways_gatewayid_seq OWNER TO root;
+
+--
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+--
+
+ALTER SEQUENCE gateways_gatewayid_seq OWNED BY gateways.gatewayid;
 
 
 --
@@ -146,10 +215,24 @@ ALTER SEQUENCE notes_noteid_seq OWNED BY notes.noteid;
 
 
 --
+-- Name: assigneeid; Type: DEFAULT; Schema: public; Owner: root
+--
+
+ALTER TABLE ONLY assignees ALTER COLUMN assigneeid SET DEFAULT nextval('assignees_assigneeid_seq'::regclass);
+
+
+--
 -- Name: engagementid; Type: DEFAULT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY clients ALTER COLUMN engagementid SET DEFAULT nextval('clients_engagementid_seq'::regclass);
+
+
+--
+-- Name: gatewayid; Type: DEFAULT; Schema: public; Owner: root
+--
+
+ALTER TABLE ONLY gateways ALTER COLUMN gatewayid SET DEFAULT nextval('gateways_gatewayid_seq'::regclass);
 
 
 --
@@ -160,41 +243,62 @@ ALTER TABLE ONLY notes ALTER COLUMN noteid SET DEFAULT nextval('notes_noteid_seq
 
 
 --
+-- Data for Name: assignees; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY assignees (assigneeid, name, function) FROM stdin;
+1	Rich Logan (rilogan)	Service Management
+2	Jerry Applegate (japplega)	Service Management
+3	Jaime Vengao (jvenago)	Implementation
+4	David Bell (dabell)	InfoSec
+\.
+
+
+--
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+--
+
+SELECT pg_catalog.setval('assignees_assigneeid_seq', 5, true);
+
+
+--
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: rilogan
 --
 
-COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact, othercontact, activityconducted, targetdate, golivedate, location, labstatus, servicegateway1, servicegateway2, connectionowner, estimatedmaximumbandwidth, crosscharge, billtoid, billtoname, otherservices, plans, comments, remedycase, securityinfo, architecturereview, aclreview, implementation, inservice, status, updated, inservicedatetime, vapapproval, addressspace, statustimestart, implementationcr) FROM stdin;
-65	4258	MITG-TME	MITG	Mobile (MI BU)	Haridev Cheviry (hcheviry)	Kiran Bommareddy (kbommare)	Mobile related product demos , video optimization, interoperability testing	\N	\N	SJC14-2 264	Compliant	N/A	N/A		100MB	1400	\N						f	Not Started	Not Started	Not Started	f	3	2014-02-03 16:25:40.338898	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-48	5150	GGSG-IT DMZ extension	Triad & GSO	Triad IT	Kelly Alexander (alexanke)	Brian Postma (bpostma)	Former Iron Port	\N	2013-06-07	RTP7	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		10MB	500	20020927	Triad IT		Maintain service levels - high priority	http://iwe.cisco.com/ws#/web/ggsg-it-and-gso		t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N
-55	23987	BFL-9-GDD-DCLOUD-HA	dCloud - BFL-11	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-03-01	BDLK11	Compliant	aer01-mda1-dmzvaas-gw1	aer01-mda2-dmzvaas-gw2	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N
-39	2323	CCIE-lab-Brussels	CCIE - Brussels		Rob Altman (raltman)	Jan Vandenberghe (vandenbe)	Provides CCIE exams to training vendors hosting classes	\N	\N	DIEGEM - PEGASUS 2	Compliant	N/A	N/A		100MB	1400	020056900	CCIE Programs				INC000027104363;INC000028722294	f	Completed	In Progress	Not Started	f	2	2014-03-05 19:26:13.017024	\N	f	Completed	2014-02-26 17:36:29.458805	
-45	31528	SJC10 Martens	GGSG		Christopher Nolan (chnolan)	Dan Martens (damarten)		\N	\N	SJC10	Non-compliant	\N	\N		N/A		020071291	Government Security				INC000028828905	t	Completed	Completed	In Progress	f	2	2014-03-12 22:27:10.399842	\N	f	Completed	2014-02-26 17:52:35.681708	None
-58	14569	VCE Secondary DC - RTP7 Rm 251 - DCaaS	VCE (Virtual Cloud Environment) - RTP	VCE	Ted Hannock (thannock)	Greg Zukowski (gzukowsk)	Cisco spin-off - cloud market	\N	2012-08-01	RTP4	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		100MB	1400	020022787	Acadia Costs	DCaaS, ITaaC				t	Completed	Completed	Completed	t	1	2014-03-12 22:27:57.656246	\N	f	Completed	2014-02-03 16:25:40.338898	None
-43	32308	Autotest - AER01 DMZaaS	MFG Autotest		Hiu-Man Cheung (hcheung)		Supply chain management\r\n\r\nManage licensing,delivering products to customers\r\n\r\nCommunication with partner sites	2014-01-01	\N	AER01	Non-compliant	N/A	N/A		N/A		020012365	TQSG - US				INC000029363389	f	Not Started	Not Started	Not Started	f	2	2014-02-24 18:25:15.040425	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-40	1080	TIS Certification Labs	CCIE - SJC		Rob Altman (raltman)	Thy Nguyen (thynguy)	Provides CCIE exams to training vendors hosting classes	2014-03-18	\N	SJCC	Compliant	N/A	N/A		100MB	1400	020600414	CCIE Programs				INC000028722294;CRQ000000118185;CRQ000000118192;CRQ000000118198	t	Completed	Not Started	In Progress	f	2	2014-03-12 16:33:47.854679	\N	f	Completed	2014-02-03 16:25:40.338898	None
-54	23988	SNG-11	dCloud - SNG	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-05-01	SNG11	Compliant	sngidc-dmzvaas-gw1	sngidc-dmzvaas-gw2		100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-03-12 22:29:33.914266	\N	f	Completed	2014-02-03 16:25:40.338898	None
-63	30328	Allen - RMS - DCaaS	RMS - Allen	RMS	Tom Biddle (tbiddle)	DCN-Team@cisco.com	Remote Monitoring	\N	2013-09-23	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020053052	CSTG RMS Release and Support				INC000028171450	t	Completed	Completed	Completed	t	1	2014-03-12 22:31:21.111147	\N	f	Completed	2014-02-03 16:25:40.338898	None
-52	17447	RTP10 SDU Lab	SDU Lab	SDU / Cloud Systems Development	Patrick Wilson (patwilso)	rtp10-sdu-lab-admins@cisco.com	Cloud Systems Development	\N	2012-07-01	RTP10	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		100MB	1400	020022838	Cloud Systems Development			Question: Power problem - Racks went down/ 2nd Lab, can connection be split with another location?	INC000026600228	t	Completed	Completed	Completed	t	1	2014-03-12 22:32:46.221157	\N	f	Completed	2014-02-03 16:25:40.338898	None
-64	20007	Managed Wi-Fi Core	Managed Wi-Fi Core	Mobility	Mark Cannon (marcanno)	Barry Van Cleeve (bvanclev)		\N	2013-09-23	RTP12	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		100MB	1400	020551512	(MS.Mobility.COE.COGS- US)				INC000028632251	t	Completed	Completed	Completed	t	1	2014-03-14 18:21:11.122562	\N	f	Completed	2014-02-03 16:25:40.338898	None
-62	26567	PNOC Allen	PNOC - Allen	PNOC	Alan Sheets (alsheets)	Jeff Lester (jlester)	Service Provider Advanced Services	\N	2013-05-15	ALLN01	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020550661	WWSP Architecture Practice	DCaaS, DMZaaS, CIBB	Complete migration, continue to grow customer base			t	Completed	Completed	Completed	t	1	2014-03-12 22:30:44.871302	\N	f	Completed	2014-02-03 16:25:40.338898	None
-59	20207	Cisco UC Sandbox	UC Sandbox		Dennis Durick (dedurick)	Bill Willcutt (bwillcut)	Cisco internal demonstration	\N	2012-02-01	ALLN01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	20236649	Collaboration-US Enterprise-Engineering-Op		Keep running, reallocations but no additions			t	Completed	Completed	Completed	t	1	2014-03-12 22:28:30.303779	\N	f	Completed	2014-02-03 16:25:40.338898	None
-57	14627	VCE Primary DC - ALLN01 Data Hall #2 - DCaaS	VCE (Virtual Cloud Environment) - Allen	VCE	Ted Hannock (thannock)	Greg Zukowski (gzukowsk)	Cisco spin-off - cloud market	\N	2012-08-01	ALLN01	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		100MB	1400	020022787	Acadia Costs	DCaaS, ITaaC		2 connections to each gateway		t	Completed	Completed	Completed	t	1	2014-03-12 22:28:11.890626	\N	f	Completed	2014-02-03 16:25:40.338898	None
-66	\N		Nimbus		Liz Kiewiet (ekiewiet)			2014-03-15	\N		Non-compliant	N/A	N/A		N/A		None						f	Not Started	Not Started	Not Started	f	2	2014-02-26 17:56:06.203522	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-60	22727	ALLN01	US SP Managed Service	Smart Ops	Amarjeet Singh (amarjesi)	Aneesh Nair (aneenair)	Remote provisioning of CPE routers for customers	\N	2012-02-15	ALLN01	Non-compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	020550174	US SP Managed Services	DCaaS			INC000024064638	t	Completed	Completed	Completed	t	1	2014-03-12 22:42:19.882841	\N	f	Completed	2014-02-03 16:25:40.338898	None
-53	22847	RTP-4-GDD-DCLOUD-HA	dCloud - RTP	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-04-01	RTP4	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-03-12 22:28:41.795473	\N	f	Completed	2014-02-03 16:25:40.338898	None
-38	30248	BYODaaS	BYOD		Curt Mah (cmah)	Naman Latif (mulatif)		\N	2014-02-19	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		N/A		020023716	BN.OPEX.AMER.US				INC000028150121	t	Completed	Completed	Completed	t	1	2014-03-12 22:29:16.191028	\N	f	Completed	2014-02-19 17:10:01.947309	None
-56	30668	Sao Paulo DMZaaS Field Lab	Brazil Demo Center	Sao Paulo DMZaaS Field Lab	Sandra Fiorentini (sfiorent)	Paulo Quinta (pquinta)	Sales/Demos	2013-03-01	2013-10-01	SPL1	Compliant	\N	\N		100MB	1400	107030825	BZ HQ				INC000028367829	t	Completed	Completed	Completed	t	1	2014-03-12 22:29:50.109943	\N	f	Completed	2014-02-03 16:25:40.338898	None
-46	32188	aer01-servicegrid	ServiceGrid - AER01		Harald Haas (hahaas)	Joachim Niederreiter (joaniede)		2014-05-01	\N	AER01	Non-compliant	N/A	N/A		N/A		530024998	IBTG ServiceGrid BU R&D Austria (SolveDirect)	DCaaS?			INC000029318339	f	Not Started	Not Started	Not Started	f	3	2014-02-06 22:01:38.713483	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-47	32168	alln01-servicegrid	ServiceGrid - ALLN01		Harald Haas (hahaas)			2014-02-01	\N	ALLN01	Non-compliant	N/A	N/A		N/A		530024998	IBTG ServiceGrid BU R&D Austria (SolveDirect)	DCaaS			INC000029318167	f	Not Started	Not Started	Not Started	f	3	2014-02-06 22:02:26.194448	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-61	26167	Managed Threat Defense (MTD)	Managed Threat Defense (MTD)	MTD	Annie Ballew (ballew)	Larry Edie (laedie)	Security Services	2013-05-01	2013-05-01	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020554994	BN.MTD.Practice.COGS- United States	DCaaS				t	Completed	Completed	Completed	t	1	2014-03-12 22:29:00.732513	\N	f	Completed	2014-02-03 16:25:40.338898	None
-70	33068	Rio Center of Innovation - Brazil	Rio Center of Innovation - Brazil		Sandra Fiorentini (sfiorent)	Joao Peixoto (jpeixoto)	RIo Center of Innovation is a new Cisco office in Brazil, and main purpose for it is deploy solutions integrated with Cisco products according with Innovation initiatives started recently inside Cisco. External partners, including some universities groups, will work with us in those projects. We need a lab infrastructure with servers that can be accessed externally by partners. This DMZ was requested to attend this need, we have reserved two racks in our lab to install servers without any network connection with production network. 	\N	\N	RDJ3	Non-compliant	\N	\N		N/A		None					INC000029636285	f	Not Started	Not Started	Not Started	f	2	2014-03-12 22:38:59.367025	\N	f	Not Started	2014-03-05 17:56:26.306137	None
-69	31788	AMS-DMZ-CTG-Alpha	CTG Alpha		Denis Savostiyanov (desavost)	Erik Fosshaug (erikfoss)		2014-02-01	2014-02-19	AER01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		N/A		020020805	Collaboration Systems - Systems Test - US				INC000029013215	t	Completed	Completed	Completed	t	1	2014-02-24 18:26:43.848962	\N	f	Completed	2014-02-19 17:29:38.233012	\N
-42	\N	ETE-SNG	ETE/Strategic Innovation - SNG	ETE/Alpha Test Group	Jeff Creese (jcreese)	ete-engineering@cisco.com	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	\N	2012-10-01	SNDGDC01	Non-compliant	sngdc01-mda1-dmzaas-gw1	sngdc01-mda2-dmzaas-gw2		N/A		020070375	GIS-ETE-US			Live, but not as proper service\r\nWill be copied from AER01 when completed		f	Not Started	Not Started	Not Started	f	2	2014-03-12 22:44:37.075066	\N	f	Not Started	2014-02-03 16:25:40.338898	None
-41	31588	ETE-AER01	ETE/Strategic Innovation - AER01	ETE/Alpha Test Group	Jeff Creese (jcreese)	ete-engineering@cisco.com	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	2014-01-01	2014-03-01	AER01	Non-compliant	N/A	N/A		N/A		020070375	GIS-ETE-US				INC000028893229	f	Not Started	Not Started	Not Started	f	2	2014-02-26 17:53:53.222328	\N	f	Not Started	2014-02-03 16:25:40.338898	\N
-44	33029	dcloud-dev-infra	dCloud - BDLK09	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	2014-01-01	\N	BDLK09	Compliant	N/A	N/A	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Development Lab	Patching issues resolved, expect to be live January	INC000027632324	t	Completed	Completed	Not Started	t	1	2014-02-26 20:49:33.245584	\N	f	Completed	2014-02-26 20:49:33.245313	\N
-35	28768	DC South External POD	UCS Demo	UCS Demo	Brandon Beck (robbeck)	Tighe Kuykendall (tkuykend)	Proof of concept for wireless related services and products, UCS Training and Demos (full day customer workshops and sales demos)	2013-10-01	\N	AST03	Non-compliant	N/A	N/A		N/A	1400	020038919	Data Center-US Commercial-Engineering-South	DCaaS			INC000027400282;INC000029702285	t	Completed	Completed	In Progress	f	2	2014-03-12 16:44:16.355917	\N	f	Completed	2014-02-19 17:33:26.50508	None
-72	33148	Columbo-CPE	Columbo		Sam Wilkes (sawilkes)	Wayne McDilda (wamcdild)		\N	\N	ALLN01	Non-compliant	\N	\N		N/A		None					INC000029665144	f	Not Started	Not Started	Not Started	f	2	2014-03-13 17:18:59.786665	\N	f	Not Started	2014-03-10 18:44:15.190573	
-73	32608	MTD / RTP	Managed Threat Defense	Managed Threat Defense	Chad Mayfield (chamayfi)	Chad Mayfield (chamayfi)		\N	\N	RTP10	Compliant	\N	\N		N/A		None					INC000029489921	f	Not Started	Not Started	Not Started	f	2	2014-03-12 22:26:21.352524	\N	f	Not Started	2014-03-12 16:19:49.443403	
+COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact, othercontact, activityconducted, targetdate, golivedate, location, labstatus, servicegateway1, servicegateway2, connectionowner, estimatedmaximumbandwidth, crosscharge, billtoid, billtoname, otherservices, plans, comments, remedycase, securityinfo, architecturereview, aclreview, implementation, inservice, status, updated, inservicedatetime, vapapproval, addressspace, statustimestart, implementationcr, assignee) FROM stdin;
+65	4258	MITG-TME	MITG	Mobile (MI BU)	Haridev Cheviry (hcheviry)	Kiran Bommareddy (kbommare)	Mobile related product demos , video optimization, interoperability testing	\N	\N	SJC14-2 264	Compliant	N/A	N/A		100MB	1400	\N						f	Not Started	Not Started	Not Started	f	3	2014-02-03 16:25:40.338898	\N	f	Not Started	2014-02-03 16:25:40.338898	\N	\N
+48	5150	GGSG-IT DMZ extension	Triad & GSO	Triad IT	Kelly Alexander (alexanke)	Brian Postma (bpostma)	Former Iron Port	\N	2013-06-07	RTP7	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		10MB	500	20020927	Triad IT		Maintain service levels - high priority	http://iwe.cisco.com/ws#/web/ggsg-it-and-gso		t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N	\N
+55	23987	BFL-9-GDD-DCLOUD-HA	dCloud - BFL-11	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-03-01	BDLK11	Compliant	aer01-mda1-dmzvaas-gw1	aer01-mda2-dmzvaas-gw2	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N	\N
+43	32308	Autotest - AER01 DMZaaS	MFG Autotest		Hiu-Man Cheung (hcheung)		Supply chain management\r\n\r\nManage licensing,delivering products to customers\r\n\r\nCommunication with partner sites	2014-01-01	\N	AER01	Non-compliant	\N	\N		N/A		020012365	TQSG - US				INC000029363389	f	Not Started	Not Started	Not Started	f	2	2014-03-21 16:09:45.938603	\N	f	Not Started	2014-02-03 16:25:40.338898	None	Rich Logan (rilogan)
+40	1080	TIS Certification Labs	CCIE - SJC		Rob Altman (raltman)	Thy Nguyen (thynguy)	Provides CCIE exams to training vendors hosting classes	2014-03-18	\N	SJCC	Compliant	\N	\N		100MB	1400	020600414	CCIE Programs				INC000028722294;INC000029720631	t	Completed	Not Started	In Progress	f	2	2014-03-21 16:09:35.968111	\N	f	Completed	2014-02-03 16:25:40.338898	None	Jaime Vengao (jvenago)
+58	14569	VCE Secondary DC - RTP7 Rm 251 - DCaaS	VCE (Virtual Cloud Environment) - RTP	VCE	Ted Hannock (thannock)	Greg Zukowski (gzukowsk)	Cisco spin-off - cloud market	\N	2012-08-01	RTP4	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		100MB	1400	020022787	Acadia Costs	DCaaS, ITaaC				t	Completed	Completed	Completed	t	1	2014-03-12 22:27:57.656246	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+45	31528	SJC10 Martens	GGSG		Christopher Nolan (chnolan)	Dan Martens (damarten)		\N	\N	SJC10	Non-compliant	\N	\N		N/A		020071291	Government Security				INC000028828905	t	Completed	Completed	In Progress	f	3	2014-03-19 16:24:26.97199	\N	f	Completed	2014-02-26 17:52:35.681708	None	\N
+54	23988	SNG-11	dCloud - SNG	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-05-01	SNG11	Compliant	sngidc-dmzvaas-gw1	sngidc-dmzvaas-gw2		100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-03-12 22:29:33.914266	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+63	30328	Allen - RMS - DCaaS	RMS - Allen	RMS	Tom Biddle (tbiddle)	DCN-Team@cisco.com	Remote Monitoring	\N	2013-09-23	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020053052	CSTG RMS Release and Support				INC000028171450	t	Completed	Completed	Completed	t	1	2014-03-12 22:31:21.111147	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+52	17447	RTP10 SDU Lab	SDU Lab	SDU / Cloud Systems Development	Patrick Wilson (patwilso)	rtp10-sdu-lab-admins@cisco.com	Cloud Systems Development	\N	2012-07-01	RTP10	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		100MB	1400	020022838	Cloud Systems Development			Question: Power problem - Racks went down/ 2nd Lab, can connection be split with another location?	INC000026600228	t	Completed	Completed	Completed	t	1	2014-03-12 22:32:46.221157	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+64	20007	Managed Wi-Fi Core	Managed Wi-Fi Core	Mobility	Mark Cannon (marcanno)	Barry Van Cleeve (bvanclev)		\N	2013-09-23	RTP12	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		100MB	1400	020551512	(MS.Mobility.COE.COGS- US)				INC000028632251	t	Completed	Completed	Completed	t	1	2014-03-14 18:21:11.122562	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+62	26567	PNOC Allen	PNOC - Allen	PNOC	Alan Sheets (alsheets)	Jeff Lester (jlester)	Service Provider Advanced Services	\N	2013-05-15	ALLN01	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020550661	WWSP Architecture Practice	DCaaS, DMZaaS, CIBB	Complete migration, continue to grow customer base			t	Completed	Completed	Completed	t	1	2014-03-12 22:30:44.871302	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+57	14627	VCE Primary DC - ALLN01 Data Hall #2 - DCaaS	VCE (Virtual Cloud Environment) - Allen	VCE	Ted Hannock (thannock)	Greg Zukowski (gzukowsk)	Cisco spin-off - cloud market	\N	2012-08-01	ALLN01	Non-compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		100MB	1400	020022787	Acadia Costs	DCaaS, ITaaC		2 connections to each gateway		t	Completed	Completed	Completed	t	1	2014-03-12 22:28:11.890626	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+66	\N		Nimbus		Liz Kiewiet (ekiewiet)			2014-03-15	\N		Non-compliant	N/A	N/A		N/A		None						f	Not Started	Not Started	Not Started	f	2	2014-02-26 17:56:06.203522	\N	f	Not Started	2014-02-03 16:25:40.338898	\N	\N
+60	22727	ALLN01	US SP Managed Service	Smart Ops	Amarjeet Singh (amarjesi)	Aneesh Nair (aneenair)	Remote provisioning of CPE routers for customers	\N	2012-02-15	ALLN01	Non-compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	020550174	US SP Managed Services	DCaaS			INC000024064638	t	Completed	Completed	Completed	t	1	2014-03-12 22:42:19.882841	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+53	22847	RTP-4-GDD-DCLOUD-HA	dCloud - RTP	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-04-01	RTP4	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-03-12 22:28:41.795473	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+39	2323	CCIE-lab-Brussels	CCIE - Brussels		Rob Altman (raltman)	Jan Vandenberghe (vandenbe)	Provides CCIE exams to training vendors hosting classes	\N	\N	DGM2	Compliant	\N	\N		100MB	1400	020056900	CCIE Programs				INC000027104363;INC000028722294	t	Completed	Completed	In Progress	f	2	2014-03-21 16:09:23.137588	\N	f	Completed	2014-03-19 18:11:46.535462	CRQ000000128924	Jaime Vengao (jvenago)
+56	30668	Sao Paulo DMZaaS Field Lab	Brazil Demo Center	Sao Paulo DMZaaS Field Lab	Sandra Fiorentini (sfiorent)	Paulo Quinta (pquinta)	Sales/Demos	2013-03-01	2013-10-01	SPL1	Compliant	\N	\N		100MB	1400	107030825	BZ HQ				INC000028367829	t	Completed	Completed	Completed	t	1	2014-03-12 22:29:50.109943	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+38	30248	BYODaaS	BYOD		Curt Mah (cmah)	Naman Latif (mulatif)	Provide the ability for end users at sporting events (PGA tour), Best Buy Stores etc to log onto a wifi network at the event / store.. then provide user marketing data to the customer.	\N	2014-02-19	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020023716	BN.OPEX.AMER.US				INC000028150121	t	Completed	Completed	Completed	t	1	2014-03-20 17:22:58.506896	\N	f	Completed	2014-02-19 17:10:01.947309	None	None
+46	32188	aer01-servicegrid	ServiceGrid - AER01		Harald Haas (hahaas)	Joachim Niederreiter (joaniede)		2014-05-01	\N	AER01	Non-compliant	N/A	N/A		N/A		530024998	IBTG ServiceGrid BU R&D Austria (SolveDirect)	DCaaS?			INC000029318339	f	Not Started	Not Started	Not Started	f	3	2014-02-06 22:01:38.713483	\N	f	Not Started	2014-02-03 16:25:40.338898	\N	\N
+47	32168	alln01-servicegrid	ServiceGrid - ALLN01		Harald Haas (hahaas)			2014-02-01	\N	ALLN01	Non-compliant	N/A	N/A		N/A		530024998	IBTG ServiceGrid BU R&D Austria (SolveDirect)	DCaaS			INC000029318167	f	Not Started	Not Started	Not Started	f	3	2014-02-06 22:02:26.194448	\N	f	Not Started	2014-02-03 16:25:40.338898	\N	\N
+61	26167	Managed Threat Defense (MTD)	Managed Threat Defense (MTD)	MTD	Annie Ballew (ballew)	Larry Edie (laedie)	Security Services	2013-05-01	2013-05-01	ALLN01	Compliant	alln01-mda1-dmzaas-gw1	alln01-mda2-dmzaas-gw2		50MB	800	020554994	BN.MTD.Practice.COGS- United States	DCaaS				t	Completed	Completed	Completed	t	1	2014-03-12 22:29:00.732513	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
+70	33068	Rio Center of Innovation - Brazil	Rio Center of Innovation - Brazil		Sandra Fiorentini (sfiorent)	Joao Peixoto (jpeixoto)	RIo Center of Innovation is a new Cisco office in Brazil, and main purpose for it is deploy solutions integrated with Cisco products according with Innovation initiatives started recently inside Cisco. External partners, including some universities groups, will work with us in those projects. We need a lab infrastructure with servers that can be accessed externally by partners. This DMZ was requested to attend this need, we have reserved two racks in our lab to install servers without any network connection with production network. 	2014-03-24	\N	RDJ3	Compliant	\N	\N		100MB		None					INC000029636285	t	In Progress	In Progress	In Progress	f	2	2014-03-19 16:33:13.648515	\N	f	In Progress	2014-03-19 16:32:24.231271	None	\N
+35	28768	DC South External POD	UCS Demo	UCS Demo	Brandon Beck (robbeck)	Tighe Kuykendall (tkuykend)	Proof of concept for wireless related services and products, UCS Training and Demos (full day customer workshops and sales demos)	2013-10-01	\N	AST03	Non-compliant	\N	\N		N/A	1400	020038919	Data Center-US Commercial-Engineering-South	DCaaS			INC000027400282;INC000029702285	t	Completed	Completed	In Progress	f	2	2014-03-21 16:10:03.559582	\N	f	Completed	2014-02-19 17:33:26.50508	None	Jaime Vengao (jvenago)
+42	\N	ETE-SNG	ETE/Strategic Innovation - SNG	ETE/Alpha Test Group	Jeff Creese (jcreese)	ete-engineering@cisco.com	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	\N	2012-10-01	SNGDC01	Non-compliant	sngdc01-mda1-dmzaas-gw1	sngdc01-mda2-dmzaas-gw2		N/A		020070375	GIS-ETE-US			Live, but not as proper service\r\nWill be copied from AER01 when completed		f	Not Started	Not Started	Not Started	f	2	2014-03-19 17:08:10.452958	\N	f	Not Started	2014-02-03 16:25:40.338898	None	\N
+73	32608	MTD / RTP	Managed Threat Defense	Managed Threat Defense	Chad Mayfield (chamayfi)	Chad Mayfield (chamayfi)		\N	\N	RTP10	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		N/A		None		ITaaC			INC000029489921	t	In Progress	In Progress	Not Started	f	2	2014-03-19 16:27:29.926474	\N	f	Not Started	2014-03-19 16:27:29.92635		\N
+44	33029	dcloud-dev-infra	dCloud - BDLK09	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	2014-01-01	\N	BDLK09	Compliant	N/A	N/A	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Development Lab	Patching issues resolved, expect to be live January	INC000027632324	t	Completed	Completed	Not Started	t	1	2014-02-26 20:49:33.245584	\N	f	Completed	2014-02-26 20:49:33.245313	\N	\N
+72	33148	Columbo-CPE	Columbo		Sam Wilkes (sawilkes)	Wayne McDilda (wamcdild)	Performance testing/simulation for Nimbus	\N	\N	ALLN01	Non-compliant	\N	\N		N/A		None					INC000029665144	t	In Progress	In Progress	Not Started	f	2	2014-03-19 18:28:42.217511	\N	f	Not Started	2014-03-19 16:15:59.11151		\N
+41	31588	ETE-AER01	ETE/Strategic Innovation - AER01	ETE/Alpha Test Group	Jeff Creese (jcreese)	ete-engineering@cisco.com	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	2014-01-01	2014-03-01	AER01	Non-compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		N/A		020070375	GIS-ETE-US				INC000028893229	t	Completed	Completed	In Progress	f	2	2014-03-19 16:55:45.134935	\N	f	Not Started	2014-03-19 16:47:15.24468	None	\N
+77	3573	GGSG-IT RTP Hardwood 2	TRIAD	TRIAD-IT AS RTP	Christopher Nolan (chnolan)	Eric Middleton (emidd), Kelly Alexander (alexanke)	CorpDMZ access for Advanced Services. 	2014-04-30	\N	RTP2	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1	Eric Middleton (emidd)	10MB		020550720	Advanced Services 					f	Not Started	Not Started	Not Started	f	2	2014-03-19 20:38:20.432267	\N	f	Not Started	2014-03-18 20:44:08.862213		Rich Logan (rilogan)
+81	33428	ETE - SJCK CD	ETE/Strategic Innovation - SJCK	ETE	Paula Wong (paulawon)	Travis Norling (tnorling)	Building/Moving DMZaaS to SJCK	2014-06-30	\N	SJCK	Non-compliant	\N	\N	Paula Wong (paulawon)	100MB		020070375	GIS-ETE-US	ACE	Migration from SJCE DMZ to SJCK DMZ		INC000029766124	f	Not Started	Not Started	Not Started	f	2	2014-03-21 22:42:14.798928	\N	\N	Not Started	2014-03-21 21:15:05.275916		None
+59	20207	Cisco UC Sandbox	UC Sandbox		Dennis Durick (dedurick)	Bill Willcutt (bwillcut)	Tandberg demonstrations and roadshows. They use this DMZ in order to show prototypes to customers and internal prototyping without affecting the production network. As a result this service is deemed to be pretty critical to their business	\N	2012-02-01	ALLN01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	20236649	Collaboration-US Enterprise-Engineering-Op		Keep running, reallocations but no additions			t	Completed	Completed	Completed	t	1	2014-03-24 17:15:11.940416	\N	f	Completed	2014-02-03 16:25:40.338898	None	None
+69	31788	AMS-DMZ-CTG-Alpha	CTG Alpha		Denis Savostiyanov (desavost)	Erik Fosshaug (erikfoss)	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	2014-02-01	2014-02-19	AER01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	020020805	Collaboration Systems - Systems Test - US				INC000029013215	t	Completed	Completed	Completed	t	1	2014-03-20 17:33:52.879812	\N	f	Completed	2014-02-19 17:29:38.233012	None	None
 \.
 
 
@@ -202,7 +306,40 @@ COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact
 -- Name: clients_engagementid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
-SELECT pg_catalog.setval('clients_engagementid_seq', 76, true);
+SELECT pg_catalog.setval('clients_engagementid_seq', 81, true);
+
+
+--
+-- Data for Name: gateways; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY gateways (gatewayid, name, location) FROM stdin;
+1	rtp1-dmzvaas-gw1	RTP
+2	rtp7-dmzvaas-gw1	RTP
+4	aer01-mda1-dmzaas-gw1	AER
+5	aer01-mda2-dmzaas-gw2	AER
+6	alln01-mda1-dmzaas-gw1	ALLN
+7	alln01-mda2-dmzaas-gw2	ALLN
+9	rtp10-dmzaas-gw1	RTP
+10	rtp5-dmzaas-gw1	RTP
+11	sjce-dmzaas-gw1	SJC
+12	sjck-dmzaas-gw1	SJC
+13	sngdc01-mda1-dmzaas-gw1	SNG
+14	sngdc01-mda2-dmzaas-gw2	SNG
+15	aer01-mda1-dmzvaas-gw1	AER
+17	aer01-mda2-dmzvaas-gw2	AER
+18	rcdn9-sdfa-dmzvaas-gw1	RCDN
+19	rcdn9-sdfc-dmzvaas-gw2	RCDN
+20	sngidc-dmzvaas-gw1	SNG
+21	sngidc-dmzvaas-gw2	SNG
+\.
+
+
+--
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+--
+
+SELECT pg_catalog.setval('gateways_gatewayid_seq', 21, true);
 
 
 --
@@ -243,6 +380,14 @@ COPY notes (noteid, engagementid, content, posted) FROM stdin;
 41	73	will use the default access template, InfoSec has approved	2014-03-12 16:36:47.235382
 42	70	Local IT contact is working on bandwidth capacity, Rich sent security review info	2014-03-12 16:42:44.787314
 44	70	Meeting on 03/13: Need to decide whether they are converting old DMZ lab to DMZaaS or creating a new environment. Decision should be made by 03/14.	2014-03-13 19:58:03.545747
+45	45	Emailed Christopher Nolan for some info re: his setup.  If this is in San Jose 10, then that is Site 4.  We will need to either deploy headends in Site 4 or use a virtual connection.	2014-03-17 17:50:16.625462
+48	40	Case INC000029720631 w/LIT for Patching	2014-03-19 16:02:13.301788
+49	43	Requested an update	2014-03-19 16:28:47.250672
+50	70	Treating this engagement as a pilot for their innovation center in Rio.	2014-03-19 16:33:13.64132
+51	41	InfoSec Arch review completed w/ Tom Woodard and Rich West.  As this is an Infra only build-out, we approved w/ the caveat that we can document the specific architecture.  Business services (Alpha) that come into the environment will need to go through a specific request before any special access (ACL) modifications are made.	2014-03-19 16:55:45.126828
+52	72	Confirmed - need the new ACL entries (non-standard) from the client.  Contacted Sam Wilkes, and reiterated the request.	2014-03-19 17:05:59.430812
+53	72	Just received a note from Sam Wilkes - he requested this project be put on short-term hold while he works out some internal activities.	2014-03-19 18:28:42.209858
+54	81	Moving from an existing DMZ lab in SJCE to a new DMZaaS lab in SJCK	2014-03-21 22:42:14.790939
 \.
 
 
@@ -250,7 +395,15 @@ COPY notes (noteid, engagementid, content, posted) FROM stdin;
 -- Name: notes_noteid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
-SELECT pg_catalog.setval('notes_noteid_seq', 44, true);
+SELECT pg_catalog.setval('notes_noteid_seq', 54, true);
+
+
+--
+-- Name: assignees_pkey; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+--
+
+ALTER TABLE ONLY assignees
+    ADD CONSTRAINT assignees_pkey PRIMARY KEY (assigneeid);
 
 
 --
@@ -259,6 +412,14 @@ SELECT pg_catalog.setval('notes_noteid_seq', 44, true);
 
 ALTER TABLE ONLY clients
     ADD CONSTRAINT clients_pk PRIMARY KEY (engagementid);
+
+
+--
+-- Name: gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+--
+
+ALTER TABLE ONLY gateways
+    ADD CONSTRAINT gateways_pkey PRIMARY KEY (gatewayid);
 
 
 --

@@ -25,6 +25,8 @@
 				</p>
 			</div>
 
+			<hr />
+
 			<div id="dmzaas">
 				<h2>DMZaaS</h2>
 
@@ -37,6 +39,53 @@
 					</ol>
 
 					Each of these are slightly different but the main principle remains the same.
+
+					<h3>In Progress</h3>
+
+					The In Progress view gives a quick overview of all clients that are currently in the process of deploying DMZaaS.<br /><br />
+
+					There are a number of columns providing information:<br /><br />
+
+					<table class="table table-bordered table-condensed">
+						<thead>
+							<th>Column</th>
+							<th>Details</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Lab ID</strong></td>
+								<td>The ID of the Lab associated with this deployment as shown in the LabReg tool. It is an InfoSec requirement that all deployments have an associated lab</td>
+							</tr>
+							<tr>
+								<td><strong>Subscriber</strong></td>
+								<td>The name associated with this deployement.</td>
+							</tr>
+							<tr>
+								<td><strong>Location</strong></td>
+								<td>Where the lab containing the DMZ is physically located. (Note: Not the DC the DMZ is conencting to)</td>
+							</tr>
+							<tr>
+								<td><strong>Status</strong></td>
+								<td>The status that the deployment is currently in (Initial Engagement, Security Review, Implementation)</td>
+							</tr>
+							<tr>
+								<td><strong>Assignee</strong></td>
+								<td>The team member this deployment is currently assigned to</td>
+							</tr>
+							<tr>
+								<td><strong>Date Updated</strong></td>
+								<td>The Date/Time that this client profile was last updated</td>
+							</tr>
+							<tr>
+								<td><strong>Time in status</strong></td>
+								<td>The number of days that the deployment has been in status it is currently in</td>
+							</tr>
+							<tr>
+								<td><strong>Monthly Cross Charge</strong></td>
+								<td>The charge the owning department is billed for the service per month. Only present for the In Service view.</td>
+							</tr>
+						</tbody>
+					</table>
 				</p>
 			</div>
 		</div>

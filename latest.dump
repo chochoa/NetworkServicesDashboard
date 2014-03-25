@@ -25,7 +25,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- Name: update_changetimestamp_column(); Type: FUNCTION; Schema: public; Owner: rilogan
+-- Name: update_changetimestamp_column(); Type: FUNCTION; Schema: public; Owner: root
 --
 
 CREATE FUNCTION update_changetimestamp_column() RETURNS trigger
@@ -38,7 +38,7 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_changetimestamp_column() OWNER TO rilogan;
+ALTER FUNCTION public.update_changetimestamp_column() OWNER TO root;
 
 SET default_tablespace = '';
 
@@ -79,7 +79,7 @@ ALTER SEQUENCE assignees_assigneeid_seq OWNED BY assignees.assigneeid;
 
 
 --
--- Name: clients; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
+-- Name: clients; Type: TABLE; Schema: public; Owner: root; Tablespace: 
 --
 
 CREATE TABLE clients (
@@ -122,10 +122,10 @@ CREATE TABLE clients (
 );
 
 
-ALTER TABLE public.clients OWNER TO rilogan;
+ALTER TABLE public.clients OWNER TO root;
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
+-- Name: clients_engagementid_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE clients_engagementid_seq
@@ -136,10 +136,10 @@ CREATE SEQUENCE clients_engagementid_seq
     CACHE 1;
 
 
-ALTER TABLE public.clients_engagementid_seq OWNER TO rilogan;
+ALTER TABLE public.clients_engagementid_seq OWNER TO root;
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
+-- Name: clients_engagementid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE clients_engagementid_seq OWNED BY clients.engagementid;
@@ -180,7 +180,7 @@ ALTER SEQUENCE gateways_gatewayid_seq OWNED BY gateways.gatewayid;
 
 
 --
--- Name: notes; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
+-- Name: notes; Type: TABLE; Schema: public; Owner: root; Tablespace: 
 --
 
 CREATE TABLE notes (
@@ -191,10 +191,10 @@ CREATE TABLE notes (
 );
 
 
-ALTER TABLE public.notes OWNER TO rilogan;
+ALTER TABLE public.notes OWNER TO root;
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
+-- Name: notes_noteid_seq; Type: SEQUENCE; Schema: public; Owner: root
 --
 
 CREATE SEQUENCE notes_noteid_seq
@@ -205,10 +205,10 @@ CREATE SEQUENCE notes_noteid_seq
     CACHE 1;
 
 
-ALTER TABLE public.notes_noteid_seq OWNER TO rilogan;
+ALTER TABLE public.notes_noteid_seq OWNER TO root;
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
+-- Name: notes_noteid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
 
 ALTER SEQUENCE notes_noteid_seq OWNED BY notes.noteid;
@@ -222,7 +222,7 @@ ALTER TABLE ONLY assignees ALTER COLUMN assigneeid SET DEFAULT nextval('assignee
 
 
 --
--- Name: engagementid; Type: DEFAULT; Schema: public; Owner: rilogan
+-- Name: engagementid; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY clients ALTER COLUMN engagementid SET DEFAULT nextval('clients_engagementid_seq'::regclass);
@@ -236,7 +236,7 @@ ALTER TABLE ONLY gateways ALTER COLUMN gatewayid SET DEFAULT nextval('gateways_g
 
 
 --
--- Name: noteid; Type: DEFAULT; Schema: public; Owner: rilogan
+-- Name: noteid; Type: DEFAULT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY notes ALTER COLUMN noteid SET DEFAULT nextval('notes_noteid_seq'::regclass);
@@ -247,7 +247,7 @@ ALTER TABLE ONLY notes ALTER COLUMN noteid SET DEFAULT nextval('notes_noteid_seq
 --
 
 COPY assignees (assigneeid, name, function) FROM stdin;
-1	Rich Logan (rilogan)	Service Management
+1	Rich Logan (root)	Service Management
 2	Jerry Applegate (japplega)	Service Management
 3	Jaime Vengao (jvenago)	Implementation
 4	David Bell (dabell)	InfoSec
@@ -262,14 +262,14 @@ SELECT pg_catalog.setval('assignees_assigneeid_seq', 5, true);
 
 
 --
--- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: rilogan
+-- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: root
 --
 
 COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact, othercontact, activityconducted, targetdate, golivedate, location, labstatus, servicegateway1, servicegateway2, connectionowner, estimatedmaximumbandwidth, crosscharge, billtoid, billtoname, otherservices, plans, comments, remedycase, securityinfo, architecturereview, aclreview, implementation, inservice, status, updated, inservicedatetime, vapapproval, addressspace, statustimestart, implementationcr, assignee) FROM stdin;
 65	4258	MITG-TME	MITG	Mobile (MI BU)	Haridev Cheviry (hcheviry)	Kiran Bommareddy (kbommare)	Mobile related product demos , video optimization, interoperability testing	\N	\N	SJC14-2 264	Compliant	N/A	N/A		100MB	1400	\N						f	Not Started	Not Started	Not Started	f	3	2014-02-03 16:25:40.338898	\N	f	Not Started	2014-02-03 16:25:40.338898	\N	\N
 48	5150	GGSG-IT DMZ extension	Triad & GSO	Triad IT	Kelly Alexander (alexanke)	Brian Postma (bpostma)	Former Iron Port	\N	2013-06-07	RTP7	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		10MB	500	20020927	Triad IT		Maintain service levels - high priority	http://iwe.cisco.com/ws#/web/ggsg-it-and-gso		t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N	\N
 55	23987	BFL-9-GDD-DCLOUD-HA	dCloud - BFL-11	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	\N	2013-03-01	BDLK11	Compliant	aer01-mda1-dmzvaas-gw1	aer01-mda2-dmzvaas-gw2	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Significant Growth			t	Completed	Completed	Completed	t	1	2014-02-03 16:25:40.338898	\N	f	Completed	2014-02-03 16:25:40.338898	\N	\N
-43	32308	Autotest - AER01 DMZaaS	MFG Autotest		Hiu-Man Cheung (hcheung)		Supply chain management\r\n\r\nManage licensing,delivering products to customers\r\n\r\nCommunication with partner sites	2014-01-01	\N	AER01	Non-compliant	\N	\N		N/A		020012365	TQSG - US				INC000029363389	f	Not Started	Not Started	Not Started	f	2	2014-03-21 16:09:45.938603	\N	f	Not Started	2014-02-03 16:25:40.338898	None	Rich Logan (rilogan)
+43	32308	Autotest - AER01 DMZaaS	MFG Autotest		Hiu-Man Cheung (hcheung)		Supply chain management\r\n\r\nManage licensing,delivering products to customers\r\n\r\nCommunication with partner sites	2014-01-01	\N	AER01	Non-compliant	\N	\N		N/A		020012365	TQSG - US				INC000029363389	f	Not Started	Not Started	Not Started	f	2	2014-03-21 16:09:45.938603	\N	f	Not Started	2014-02-03 16:25:40.338898	None	Rich Logan (root)
 40	1080	TIS Certification Labs	CCIE - SJC		Rob Altman (raltman)	Thy Nguyen (thynguy)	Provides CCIE exams to training vendors hosting classes	2014-03-18	\N	SJCC	Compliant	\N	\N		100MB	1400	020600414	CCIE Programs				INC000028722294;INC000029720631	t	Completed	Not Started	In Progress	f	2	2014-03-21 16:09:35.968111	\N	f	Completed	2014-02-03 16:25:40.338898	None	Jaime Vengao (jvenago)
 58	14569	VCE Secondary DC - RTP7 Rm 251 - DCaaS	VCE (Virtual Cloud Environment) - RTP	VCE	Ted Hannock (thannock)	Greg Zukowski (gzukowsk)	Cisco spin-off - cloud market	\N	2012-08-01	RTP4	Non-compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1		100MB	1400	020022787	Acadia Costs	DCaaS, ITaaC				t	Completed	Completed	Completed	t	1	2014-03-12 22:27:57.656246	\N	f	Completed	2014-02-03 16:25:40.338898	None	\N
 45	31528	SJC10 Martens	GGSG		Christopher Nolan (chnolan)	Dan Martens (damarten)		\N	\N	SJC10	Non-compliant	\N	\N		N/A		020071291	Government Security				INC000028828905	t	Completed	Completed	In Progress	f	3	2014-03-19 16:24:26.97199	\N	f	Completed	2014-02-26 17:52:35.681708	None	\N
@@ -295,7 +295,7 @@ COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact
 44	33029	dcloud-dev-infra	dCloud - BDLK09	dCloud	James Doran (jamdoran)	dcloud-netops@cisco.com	Partner sales support / demos	2014-01-01	\N	BDLK09	Compliant	N/A	N/A	dcloud-netops@cisco.com	100MB	1400	570037560	WW Field Demos - Switzerland		Development Lab	Patching issues resolved, expect to be live January	INC000027632324	t	Completed	Completed	Not Started	t	1	2014-02-26 20:49:33.245584	\N	f	Completed	2014-02-26 20:49:33.245313	\N	\N
 72	33148	Columbo-CPE	Columbo		Sam Wilkes (sawilkes)	Wayne McDilda (wamcdild)	Performance testing/simulation for Nimbus	\N	\N	ALLN01	Non-compliant	\N	\N		N/A		None					INC000029665144	t	In Progress	In Progress	Not Started	f	2	2014-03-19 18:28:42.217511	\N	f	Not Started	2014-03-19 16:15:59.11151		\N
 41	31588	ETE-AER01	ETE/Strategic Innovation - AER01	ETE/Alpha Test Group	Jeff Creese (jcreese)	ete-engineering@cisco.com	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	2014-01-01	2014-03-01	AER01	Non-compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		N/A		020070375	GIS-ETE-US				INC000028893229	t	Completed	Completed	In Progress	f	2	2014-03-19 16:55:45.134935	\N	f	Not Started	2014-03-19 16:47:15.24468	None	\N
-77	3573	GGSG-IT RTP Hardwood 2	TRIAD	TRIAD-IT AS RTP	Christopher Nolan (chnolan)	Eric Middleton (emidd), Kelly Alexander (alexanke)	CorpDMZ access for Advanced Services. 	2014-04-30	\N	RTP2	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1	Eric Middleton (emidd)	10MB		020550720	Advanced Services 					f	Not Started	Not Started	Not Started	f	2	2014-03-19 20:38:20.432267	\N	f	Not Started	2014-03-18 20:44:08.862213		Rich Logan (rilogan)
+77	3573	GGSG-IT RTP Hardwood 2	TRIAD	TRIAD-IT AS RTP	Christopher Nolan (chnolan)	Eric Middleton (emidd), Kelly Alexander (alexanke)	CorpDMZ access for Advanced Services. 	2014-04-30	\N	RTP2	Compliant	rtp5-dmzaas-gw1	rtp10-dmzaas-gw1	Eric Middleton (emidd)	10MB		020550720	Advanced Services 					f	Not Started	Not Started	Not Started	f	2	2014-03-19 20:38:20.432267	\N	f	Not Started	2014-03-18 20:44:08.862213		Rich Logan (root)
 81	33428	ETE - SJCK CD	ETE/Strategic Innovation - SJCK	ETE	Paula Wong (paulawon)	Travis Norling (tnorling)	Building/Moving DMZaaS to SJCK	2014-06-30	\N	SJCK	Non-compliant	\N	\N	Paula Wong (paulawon)	100MB		020070375	GIS-ETE-US	ACE	Migration from SJCE DMZ to SJCK DMZ		INC000029766124	f	Not Started	Not Started	Not Started	f	2	2014-03-21 22:42:14.798928	\N	\N	Not Started	2014-03-21 21:15:05.275916		None
 59	20207	Cisco UC Sandbox	UC Sandbox		Dennis Durick (dedurick)	Bill Willcutt (bwillcut)	Tandberg demonstrations and roadshows. They use this DMZ in order to show prototypes to customers and internal prototyping without affecting the production network. As a result this service is deemed to be pretty critical to their business	\N	2012-02-01	ALLN01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	20236649	Collaboration-US Enterprise-Engineering-Op		Keep running, reallocations but no additions			t	Completed	Completed	Completed	t	1	2014-03-24 17:15:11.940416	\N	f	Completed	2014-02-03 16:25:40.338898	None	None
 69	31788	AMS-DMZ-CTG-Alpha	CTG Alpha		Denis Savostiyanov (desavost)	Erik Fosshaug (erikfoss)	Host ACE UC services (VCSE) and Alpha VPN (anyconnect)	2014-02-01	2014-02-19	AER01	Compliant	aer01-mda1-dmzaas-gw1	aer01-mda2-dmzaas-gw2		100MB	1400	020020805	Collaboration Systems - Systems Test - US				INC000029013215	t	Completed	Completed	Completed	t	1	2014-03-20 17:33:52.879812	\N	f	Completed	2014-02-19 17:29:38.233012	None	None
@@ -303,7 +303,7 @@ COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact
 
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
+-- Name: clients_engagementid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
 
 SELECT pg_catalog.setval('clients_engagementid_seq', 81, true);
@@ -343,7 +343,7 @@ SELECT pg_catalog.setval('gateways_gatewayid_seq', 21, true);
 
 
 --
--- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: rilogan
+-- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: root
 --
 
 COPY notes (noteid, engagementid, content, posted) FROM stdin;
@@ -392,7 +392,7 @@ COPY notes (noteid, engagementid, content, posted) FROM stdin;
 
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
+-- Name: notes_noteid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
 
 SELECT pg_catalog.setval('notes_noteid_seq', 54, true);
@@ -407,7 +407,7 @@ ALTER TABLE ONLY assignees
 
 
 --
--- Name: clients_pk; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
+-- Name: clients_pk; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
 --
 
 ALTER TABLE ONLY clients
@@ -423,7 +423,7 @@ ALTER TABLE ONLY gateways
 
 
 --
--- Name: notid_pk; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
+-- Name: notid_pk; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
 --
 
 ALTER TABLE ONLY notes
@@ -431,14 +431,14 @@ ALTER TABLE ONLY notes
 
 
 --
--- Name: update_clients_changetimestamp; Type: TRIGGER; Schema: public; Owner: rilogan
+-- Name: update_clients_changetimestamp; Type: TRIGGER; Schema: public; Owner: root
 --
 
 CREATE TRIGGER update_clients_changetimestamp BEFORE UPDATE ON clients FOR EACH ROW EXECUTE PROCEDURE update_changetimestamp_column();
 
 
 --
--- Name: notes_engagementid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rilogan
+-- Name: notes_engagementid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: root
 --
 
 ALTER TABLE ONLY notes
@@ -452,7 +452,7 @@ ALTER TABLE ONLY notes
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO rilogan;
+GRANT ALL ON SCHEMA public TO root;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 

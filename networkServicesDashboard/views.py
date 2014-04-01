@@ -1,9 +1,12 @@
 from networkServicesDashboard import *
 from flask import render_template, redirect
-from databaseConnection import *
 import calendar
 from datetime import datetime, timedelta
 import time
+
+#Databases
+from dmzaasClients import *
+from itaacProjects import *
 
 #############################
 # General Application Views #
@@ -49,7 +52,11 @@ def deletingGateway():
 
 @app.route('/help')
 def help():
-	return render_template('/help/help.html')
+	return render_template('/help/functionality.html')
+
+@app.route('/help/technical')
+def helpTechnical():
+	return render_template('/help/technical.html')
 
 ################
 # DMZaaS Views #
@@ -84,7 +91,7 @@ def dmzInProgress():
 						</tr>
 					'''
 
-	return render_template('corporateNetwork/dmzInProgress.html', inProgressClients = html)
+	return render_template('corporateNetwork/dmz/inProgress.html', inProgressClients = html)
 
 # In Service Clients Summary Table
 @app.route('/corporateNetwork/dmz/inService')
@@ -108,7 +115,7 @@ def dmzInService():
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
-	return render_template('corporateNetwork/dmzInService.html', inServiceClients = html, totalCrossCharge = totalCrossCharge)
+	return render_template('corporateNetwork/dmz/inService.html', inServiceClients = html, totalCrossCharge = totalCrossCharge)
 
 # Withdrawn Clients Summary Table
 @app.route('/corporateNetwork/dmz/withdrawn')
@@ -126,7 +133,7 @@ def dmzWithdrawn():
 							<td>''' + str(client.updated) + '''</td>
 						</tr>
 					'''
-	return render_template('corporateNetwork/dmzWithdrawn.html', withdrawnClients = html)
+	return render_template('corporateNetwork/dmz/withdrawn.html', withdrawnClients = html)
 
 # Individual Client Profiles
 @app.route('/corporateNetwork/dmz/client')
@@ -193,7 +200,7 @@ def client():
 	for function in functions:
 		assigneeList[function] = assignees.select().where(assignees.function == function)
 
-	return render_template('corporateNetwork/dmzClient.html', assignees = assigneeList, gateways = gatewayList, locations = locations, functions = functions, clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
+	return render_template('corporateNetwork/dmz/client.html', assignees = assigneeList, gateways = gatewayList, locations = locations, functions = functions, clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
 
 # New Client Form
 @app.route('/corporateNetwork/dmz/addClient')
@@ -206,7 +213,7 @@ def dmzAddClient():
 	for location in locations:
 		gatewayList[location] = gateways.select().where(gateways.location == location)
 
-	return render_template('corporateNetwork/dmzAddClient.html', gateways = gatewayList, locations = locations)
+	return render_template('corporateNetwork/dmz/addClient.html', gateways = gatewayList, locations = locations)
 
 # Logic to add a new client to the database
 @app.route('/corporateNetwork/dmz/addingClient', methods=['POST'])
@@ -314,12 +321,12 @@ def dmzReport():
 					</tr>'''
 		html += "</tbody></table>"
 
-	return render_template('/corporateNetwork/dmzReport.html', costReport = html)
+	return render_template('/corporateNetwork/dmz/report.html', costReport = html)
 
 # Primary point of contact report
 @app.route('/corporateNetwork/dmz/pocs')
 def dmzaasPocs():
-	return render_template('/corporateNetwork/dmzContacts.html', clients = clients.select().where(clients.status == 1))
+	return render_template('/corporateNetwork/dmz/contacts.html', clients = clients.select().where(clients.status == 1))
 
 # Logic to withdrawn a client
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
@@ -573,4 +580,83 @@ def getLatestNote(client):
 
 @app.route('/corporateNetwork/itaac')
 def itaac():
-	return render_template('corporateNetwork/itaac.html')
+	inServiceProjects = Projects.select().where(Projects.status == 2)
+	return render_template('corporateNetwork/itaac/inProgress.html', projects = inServiceProjects)
+
+@app.route('/corporateNetwork/itaac/addProject')
+def itaacAddProject():
+	return render_template('corporateNetwork/itaac/addProject.html')
+
+@app.route('/corporateNetwork/itaac/project')
+def itaacViewProject():
+	project = Projects.get(Projects.projectid == request.args.get('id', ''))
+	return render_template('corporateNetwork/itaac/project.html', project = project)
+
+@app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
+def itaacAddingProject():
+	newRequestDate = request.form['requestdate']
+	if newRequestDate == "":
+		newRequestDate = None
+
+	newDeliveryDate = request.form['deliverydate']
+	if newDeliveryDate == "":
+		newDeliveryDate = None
+	newProject = Projects.insert(
+				accesstype = request.form['accesstype'],
+				activity = request.form['activity'],
+				buildingid_a = request.form['buildingid_A'],
+				buildingid_b = request.form['buildingid_B'],
+				businessimpact = request.form['businessimpact'],
+				businessunit = request.form['businessunit'],
+				cellnumber_a = request.form['cellnumber_A'],
+				cellnumber_b = request.form['cellnumber_B'],
+				circuitsize = request.form['circuitsize'],
+				city_a = request.form['city_A'],
+				city_b = request.form['city_B'],
+				company_a = request.form['company_A'],
+				company_b = request.form['company_B'],
+				contacttitle_a = request.form['contacttitle_A'],
+				contacttitle_b = request.form['contacttitle_B'],
+				contactcompany_a = request.form['contactcompany_A'],
+				contactcompany_b = request.form['contactcompany_B'],
+				contactemail_a = request.form['contactemail_A'],
+				contactemail_b = request.form['contactemail_B'],
+				contactname_a = request.form['contactname_A'],
+				contactname_b = request.form['contactname_B'],
+				contactnumber_a = request.form['contactnumber_A'],
+				contactnumber_b = request.form['contactnumber_B'],
+				deliverydate = newDeliveryDate,
+				department = request.form['department'],
+				dependencies = request.form['dependencies'],
+				diversity = request.form['diversity'],
+				documentation = request.form['documentation'],
+				floor_a = request.form['floor_A'],
+				floor_b = request.form['floor_B'],
+				intercampus = request.form['intercampus'],
+				latency = request.form['latency'],
+				nickname = request.form['nickname'],
+				othercontacts = request.form['othercontacts'],
+				otherinfo = request.form['otherinfo'],
+				projectname = request.form['projectname'],
+				projectscope = request.form['projectscope'],
+				protection = request.form['protection'],
+				requestdate = newRequestDate,
+				requestorname = request.form['requestorname'],
+				requirementsurl = request.form['requirementsurl'],
+				state_a = request.form['state_A'],
+				state_b = request.form['state_B'],
+				street_a = request.form['street_A'],
+				street_b = request.form['street_B'],
+				teammailer = request.form['teammailer'],
+				tel_a = request.form['tel_A'],
+				tel_b = request.form['tel_B'],
+				zipcode_a = request.form['zipcode_A'],
+				zipcode_b = request.form['zipcode_B'],
+				status = 2)
+	newProject.execute()
+
+	nextid = 0
+	for result in itaacProjects.execute_sql('SELECT MAX(projectid) FROM Projects'):
+		nextid = result[0]
+
+	return redirect('/corporateNetwork/itaac/project?id=' + str(nextid))

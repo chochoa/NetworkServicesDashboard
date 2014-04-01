@@ -1,0 +1,622 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - ITaaC{% endblock %}
+{% block head %}
+	{{super()}}
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/chosen-bootstrap.css">
+	<script type="text/javascript" src="/static/js/chosen.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var getHiddenOffsetWidth = function (el) {
+		    	var $hiddenElement = $(el).clone().appendTo('body');
+		    	var width = $hiddenElement.outerWidth();
+		   		$hiddenElement.remove();
+		   		return width-200;
+			};
+
+			$('#navITaaC').attr('class', 'active');
+
+			//Chosen JS init
+			$("#accesstype").chosen({disable_search_threshold: 5});
+			$("#circuitsize").chosen({disable_search_threshold: 5});
+			$("#diversity").chosen({disable_search_threshold: 5});
+			$("#protection").chosen({disable_search_threshold: 5});
+			$("#intercampus").chosen({disable_search_threshold: 5});
+			$("#state_A").chosen();
+
+			$('#collapseFour').on('show.bs.collapse', function() {
+  				$('.chosen-select').trigger("chosen:updated");
+			})
+		});
+	</script>
+{% endblock %}
+{% block level2 %}ITaaC - Add Project{% endblock %}
+{% block content %}
+
+<ul class="nav nav-pills">
+  		<li class="active"><a href="itaac">In Progress</a></li>
+ 		<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
+</ul>
+
+<h3>Add New ITaaC Project</h3>
+
+<div class="alert alert-info" style="text-align:center;">Please fill in the form below to start the engagement process.</div>
+
+<form name="addClient" method="POST" action="/corporateNetwork/itaac/addingProject" class="form-horizontal">
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+	    	<div class="panel-heading">
+	      		<h4 class="panel-title">
+	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+	          			Client Information
+	        		</a>
+	      		</h4>
+	    	</div>
+	    	<div id="collapseOne" class="panel-collapse collapse in">
+	      		<div class="panel-body">
+	        		<div id="clientInfo">
+						<h3>Client Information</h3>
+
+						<div class="form-group">
+							<label for="requestorname" class="col-sm-2 control-label">Requestor Name</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="requestorname" id="requestorname" placeholder="Requestor Name">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="teammailer" class="col-sm-2 control-label">Team Mailer</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="teammailer" id="teammailer" placeholder="Team Mailer">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="othercontacts" class="col-sm-2 control-label">Other Contacts</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="othercontacts" id="othercontacts" placeholder="Other Contacts">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="businessunit" class="col-sm-2 control-label">Business Unit</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="businessunit" id="businessunit" placeholder="Business Unit">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="nickname" class="col-sm-2 control-label">Business or Team nickname</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="nickname" id="nickname" placeholder="Business or Team nickname">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="activity" class="col-sm-2 control-label">Activity this circuit will support</label>
+							<div class="col-sm-10 input-group">
+								<textarea data-toggle="tooltip" id="activity" class="form-control" name="activity" rows="3"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="department" class="col-sm-2 control-label">Department Code for billing</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="number" class="form-control" name="department" id="department" placeholder="Department Code for billing">
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	    </div>
+
+	    <div class="panel panel-default">
+	    	<div class="panel-heading">
+	    		<h4 class="panel-title">
+	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+	          			Project Information
+	        		</a>
+	      		</h4>
+	    	</div>
+	   		<div id="collapseTwo" class="panel-collapse collapse">
+	      		<div class="panel-body">
+	        		<div id="projectInfo">
+						<h3>Project Information</h3>
+
+						<div class="form-group">
+							<label for="requestdate" class="col-sm-2 control-label">Date of Request</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="requestdate" id="requestdate" placeholder="Date of Request">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="deliverydate" class="col-sm-2 control-label">Requested Delivery Date</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="deliverydate" id="deliverydate" placeholder="Requested Delivery Date">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="projectname" class="col-sm-2 control-label">Project Name</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="projectname" id="projectname" placeholder="Project Name">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="projectscope" class="col-sm-2 control-label">Project Scope</label>
+							<div class="col-sm-10 input-group">
+								<textarea data-toggle="tooltip" id="activity" class="form-control" name="projectscope" rows="3"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="businessimpact" class="col-sm-2 control-label">Business Impact/Expected Benefit</label>
+							<div class="col-sm-10 input-group">
+								<textarea data-toggle="tooltip" id="activity" class="form-control" name="businessimpact" rows="3"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="otherinfo" class="col-sm-2 control-label">Other Information/Dates</label>
+							<div class="col-sm-10 input-group">
+								<textarea data-toggle="tooltip" id="activity" class="form-control" name="otherinfo" rows="3"></textarea>
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	    </div>
+
+	    <div class="panel panel-default">
+	  		<div class="panel-heading">
+	      		<h4 class="panel-title">
+	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+	          			Services Requested
+	        		</a>
+	      		</h4>
+	    	</div>
+
+	    	<div id="collapseThree" class="panel-collapse collapse">
+	      		<div class="panel-body">
+	        		<div id="servicesRequested">
+						<h3>Services Requested</h3>
+
+						<div class="form-group">
+							<label for="accesstype" class="col-sm-2 control-label">Type of Access</label>
+							<div class="col-sm-10 input-group">
+								<select class="form-control" id="accesstype" name="accesstype">
+									<option value="">Please Select</option>
+									<option value="metro">Metro</option>
+									<option value="Local">Local</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="circuitsize" class="col-sm-2 control-label">Circuit Size</label>
+							<div class="col-sm-10 input-group">
+								<select class="form-control" id="circuitsize" name="circuitsize">
+									<option>N/A</option>
+									<option>10 G</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="diversity" class="col-sm-2 control-label">Diversity?</label>
+							<div class="col-sm-10 input-group">
+								<select class="form-control" id="diversity" name="diversity">
+									<option value="no">No</option>
+									<option value="yes">Yes</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="protection" class="col-sm-2 control-label">Protection Required?</label>
+							<div class="col-sm-10 input-group">
+								<select class="form-control" id="protection" name="protection">
+									<option value="no">No</option>
+									<option value="yes">Yes</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="intercampus" class="col-sm-2 control-label">Intercampus?</label>
+							<div class="col-sm-10 input-group">
+								<select class="form-control" id="intercampus" name="intercampus">
+									<option value="no">No</option>
+									<option value="yes">Yes</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="latency" class="col-sm-2 control-label">Latency Required</label>
+							<div class="col-sm-10 input-group">
+								<input data-toggle="tooltip" type="text" class="form-control" name="latency" id="latency" placeholder="Latency Required (ms)">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="dependencies" class="col-sm-2 control-label">List any dependencies</label>
+							<div class="col-sm-10 input-group">
+								<textarea data-toggle="tooltip" id="activity" class="form-control" name="dependencies" rows="3"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="requirementsurl" class="col-sm-2 control-label">Requirements Document</label>
+							<div class="col-sm-10 input-group">
+								<span class="input-group-addon">http://</span>
+								<input data-toggle="tooltip" type="text" class="form-control" name="requirementsurl" id="requirementsurl" placeholder="URL">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="documentation" class="col-sm-2 control-label">Other Documentation</label>
+							<div class="col-sm-10 input-group">
+								<span class="input-group-addon">http://</span>
+								<input data-toggle="tooltip" type="text" class="form-control" name="documentation" id="documentation" placeholder="URL">
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	  	</div>
+
+	  	<div class="panel panel-default">
+	  		<div class="panel-heading">
+	      		<h4 class="panel-title">
+	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+	          			Origin (A) + Terminating (B) Information
+	        		</a>
+	      		</h4>
+	    	</div>
+
+	    	<div id="collapseFour" class="panel-collapse collapse">
+	      		<div class="panel-body">
+	        		<div id="A-B Zones">
+						<div id="A End">
+							<h3>Origin End</h3>
+							<div id="A Location">
+								<h4>Location</h4>
+								<div class="form-group">
+									<label for="buildingid_A" class="col-sm-2 control-label">Building ID</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="buildingid_A" id="buildingid_A" placeholder="SJ12">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="company_A" class="col-sm-2 control-label">Company</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="company_A" id="company_A" placeholder="Cisco">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="street_A" class="col-sm-2 control-label">Street</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="street_A" id="street_A" placeholder="400 E Tasman Drive">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="city_A" class="col-sm-2 control-label">City</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="city_A" id="city_A" placeholder="San Jose">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="state_A" class="col-sm-2 control-label">State</label>
+									<div class="col-sm-10 input-group">
+										<select class="form-control chosen-select" id="state_A" name="state_A">
+											<option value="">N/A</option>
+											<option value="AK">Alaska</option>
+											<option value="AL">Alabama</option>
+											<option value="AR">Arkansas</option>
+											<option value="AZ">Arizona</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DC">District of Columbia</option>
+											<option value="DE">Delaware</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="IA">Iowa</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MD">Maryland</option>
+											<option value="ME">Maine</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MO">Missouri</option>
+											<option value="MS">Mississippi</option>
+											<option value="MT">Montana</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="NE">Nebraska</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NV">Nevada</option>
+											<option value="NY">New York</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="PR">Puerto Rico</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VA">Virginia</option>
+											<option value="VT">Vermont</option>
+											<option value="WA">Washington</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WV">West Virginia</option>
+											<option value="WY">Wyoming</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="zipcode_A" class="col-sm-2 control-label">Zip Code</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="zipcode_A" id="zipcode_A" placeholder="95134">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="tel_A" class="col-sm-2 control-label">Building Telephone Number</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="tel_A" id="tel_A" placeholder="+1 (408) 527-7797">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="floor_A" class="col-sm-2 control-label">Floor and Room Number</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="floor_A" id="floor_A" placeholder="SJC12-3/240">
+									</div>
+								</div>
+							</div>
+							<div id="A Contact">
+								<h4>Contact</h4>
+
+								<div class="form-group">
+									<label for="contactname_A" class="col-sm-2 control-label">Contact Name</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactname_A" id="contactname_A" placeholder="Rich Logan (rilogan)">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contacttitle_A" class="col-sm-2 control-label">Position/Title</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contacttitle_A" id="contacttitle_A" placeholder="Engineer">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactcompany_A" class="col-sm-2 control-label">Company</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactcompany_A" id="contactcompany_A" placeholder="Cisco">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactemail_A" class="col-sm-2 control-label">Email</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">@</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactemail_A" id="contactemail_A" placeholder="rilogan@cisco.com">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactnumber_A" class="col-sm-2 control-label">Contact Number</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactnumber_A" id="contactnumber_A" placeholder="+1 (123) 456-7890">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="cellnumber_A" class="col-sm-2 control-label">Cell Phone</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="cellnumber_A" id="cellnumber_A" placeholder="+1 (123) 456-7890">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="B End">
+							<h3>Terminating End</h3>
+							<div id="B Location">
+								<h4>Location</h4>
+								<div class="form-group">
+									<label for="buildingid_B" class="col-sm-2 control-label">Building ID</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="buildingid_B" id="buildingid_B" placeholder="SJ12">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="company_B" class="col-sm-2 control-label">Company</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="company_B" id="company_B" placeholder="Cisco">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="street_B" class="col-sm-2 control-label">Street</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="street_B" id="street_B" placeholder="400 E Tasman Drive">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="city_B" class="col-sm-2 control-label">City</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="city_B" id="city_B" placeholder="San Jose">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="state_B" class="col-sm-2 control-label">State</label>
+									<div class="col-sm-10 input-group">
+										<select class="form-control chosen-select" id="state_B" name="state_B">
+											<option value="">N/A</option>
+											<option value="AK">Alaska</option>
+											<option value="AL">Alabama</option>
+											<option value="AR">Arkansas</option>
+											<option value="AZ">Arizona</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DC">District of Columbia</option>
+											<option value="DE">Delaware</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="IA">Iowa</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MD">Maryland</option>
+											<option value="ME">Maine</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MO">Missouri</option>
+											<option value="MS">Mississippi</option>
+											<option value="MT">Montana</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="NE">Nebraska</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NV">Nevada</option>
+											<option value="NY">New York</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="PR">Puerto Rico</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VA">Virginia</option>
+											<option value="VT">Vermont</option>
+											<option value="WA">Washington</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WV">West Virginia</option>
+											<option value="WY">Wyoming</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="zipcode_B" class="col-sm-2 control-label">Zip Code</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="zipcode_B" id="zipcode_B" placeholder="95134">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="tel_B" class="col-sm-2 control-label">Building Telephone Number</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="tel_B" id="tel_B" placeholder="+1 (408) 527-7797">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="floor_B" class="col-sm-2 control-label">Floor and Room Number</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="floor_B" id="floor_B" placeholder="SJC12-3/240">
+									</div>
+								</div>
+							</div>
+							<div id="B Contact">
+								<h4>Contact</h4>
+
+								<div class="form-group">
+									<label for="contactname_B" class="col-sm-2 control-label">Contact Name</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactname_B" id="contactname_B" placeholder="Rich Logan (rilogan)">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contacttitle_B" class="col-sm-2 control-label">Position/Title</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contacttitle_B" id="contacttitle_B" placeholder="Engineer">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactcompany_B" class="col-sm-2 control-label">Company</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactcompany_B" id="contactcompany_B" placeholder="Cisco">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactemail_B" class="col-sm-2 control-label">Email</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">@</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactemail_B" id="contactemail_B" placeholder="rilogan@cisco.com">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="contactnumber_B" class="col-sm-2 control-label">Contact Number</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="contactnumber_B" id="contactnumber_B" placeholder="+1 (123) 456-7890">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="cellnumber_B" class="col-sm-2 control-label">Cell Phone</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-addon">#</span>
+										<input data-toggle="tooltip" type="text" class="form-control" name="cellnumber_B" id="cellnumber_B" placeholder="+1 (123) 456-7890">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
+
+	<br />
+
+	<input class="form-control" style="background-color:#428bca;color:#FFFFFF;" type="submit" value="Add Project" />
+</form>
+{% endblock %}

@@ -5,7 +5,7 @@
 	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#navDMZ').attr('class', 'active')
+			$('#navDMZ').attr('class', 'active');
 			$(".clickable").click(function() {
   				window.location.href = $(this).find("a").attr("href");
 			});
@@ -17,22 +17,25 @@
 			var z = x.children(":first").children("input")
 			z.addClass('form-control').attr('placeholder','Search').unwrap();
 			x.contents().filter(function(){ return this.nodeType != 1; }).remove();
-		})
+		});
 	</script>
 {% endblock %}
 {% block level2 %}DMZaaS{% endblock %}
 {% block content %}
-	<h2>DMZaaS Clients</h2>
+	<!-- <h2>DMZaaS Clients</h2> -->
+	<br />
 
 	<ul class="nav nav-pills">
   		<li><a href="../dmz">In Progress</a></li>
-  		<li><a href="inService">In Service</a></li>
- 		<li class="active"><a href="withdrawn">Withdrawn</a></li>
+  		<li class="active"><a href="inService">In Service</a></li>
+ 		<li><a href="withdrawn">Withdrawn</a></li>
  		<li class="pull-right"><a href="addClient">Add New Client</a></li>
  		<li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
 	</ul>
 
 	<br />
+
+	<h4><a href='report'>Estimated Total Monthly Charges: ${{totalCrossCharge}}</a></h4>
 
 	<div>
 		<table class="table table-condensed table-hover" id='dataTable'>
@@ -40,12 +43,14 @@
 				<tr>
 					<th>Lab ID</th>
 					<th>Subscriber</th>
+					<th>Location</th>
 					<th>Status</th>
+					<th>Monthly Cross Charge ($)</th>
 					<th>Date Updated (UTC)</th>
 				</tr>
 			</thead>
 			<tbody>
-				{{withdrawnClients | safe}}
+				{{inServiceClients | safe}}
 			</tbody>
 		</table>
 	</div>

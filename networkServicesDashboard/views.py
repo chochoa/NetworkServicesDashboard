@@ -146,8 +146,8 @@ def client():
 		lastNoteContent = "N/A"
 	else:
 		lastNote.posted = (lastNote.posted).strftime("%Y-%m-%d %H:%M")
-		lastNoteDate = str(lastNote.posted)
-		lastNoteContent = str(lastNote.content)
+		lastNoteDate = (lastNote.posted).encode('utf-8')
+		lastNoteContent = (lastNote.content).encode('utf-8')
 
 	if ((client.remedycase != None) and (client.remedycase != '')):
 		cases = client.remedycase.split(';')
@@ -193,7 +193,7 @@ def client():
 	for function in functions:
 		assigneeList[function] = assignees.select().where(assignees.function == function)
 
-	return render_template('corporateNetwork/dmzClient.html', assignees = assigneeList, gateways = gatewayList, locations = locations, functions = functions, clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml, lastDate = lastNoteDate, lastContent = lastNoteContent, splitcases = remedycases, splitcrs = remedycrs)
+	return render_template('corporateNetwork/dmzClient.html', assignees = assigneeList, gateways = gatewayList, locations = locations, functions = functions, clientArray = client, progress = bar, currentStatus = status, time = timeInStatus, printNotes = notesHtml.decode('utf-8'), lastDate = lastNoteDate, lastContent = lastNoteContent.decode('utf-8'), splitcases = remedycases, splitcrs = remedycrs)
 
 # New Client Form
 @app.route('/corporateNetwork/dmz/addClient')
@@ -557,8 +557,8 @@ def getNotes(client):
 					<input type="hidden" name="engagementid" value="''' + str(client.engagementid) + '''">
 					<input type="submit" class="close" aria-hidden="true" value="&times;">
 				</form>
-				<h4>''' + str(note.posted) + '''</h4>
-				<p>''' + str(note.content) + '''</p>
+				<h4>''' + (note.posted).encode('utf-8') + '''</h4>
+				<p>''' + (note.content).encode('utf-8') + '''</p>
 			</div>'''
 	return html
 

@@ -1,0 +1,108 @@
+#skrollr-body {
+	text-align: center;
+}
+
+body {
+	padding: 0;
+/*	background-color: #000000;
+	background: url('/static/images/cables.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+    color: #FFFFFF;
+
+    /*-webkit-filter: blur(5px);
+  	-moz-filter: blur(5px);
+  	-o-filter: blur(5px);
+  	-ms-filter: blur(5px);
+  	filter: blur(5px);*/
+}
+
+ul, ol {
+   list-style-position: inside;
+}
+
+.is-loading {
+  background-color: black;
+  background-image: url('http://desandro.github.io/imagesloaded/assets/loading.gif');
+}
+
+#intro {
+	background: url('/static/images/dc.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+
+#page1 {
+
+}
+
+#ciscoLogo {
+	height: 33vh;
+	width: auto;
+}
+
+#mainTitle {
+	font-size: 100px;
+	height: 23vh;
+	line-height: 23vh;
+	background-color: rgba(0,0,0,0.5);
+}
+
+#nextScreenArrow {
+	font-size: 200px;
+	height: 33vh;
+	line-height: 33vh;
+	margin-bottom: 10vh;
+	color: #FFFFFF;
+}
+
+#page2 {
+	height: 100vh;
+}
+
+#page2Title {
+	background-color: rgba(0,0,0,0.5);
+	height: 27vh;
+	line-height: 15vh;
+}
+
+#buttonWrapper {
+	width: 1000px;
+	height: 50vh;
+	vertical-align: middle;
+	margin: 0 auto;
+	margin-top: 20vh;
+	margin-bottom: (50vh + 200px);
+}
+
+.servicebutton {
+	width: 500px;
+	height: 200px;
+	font-size: 50px;
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+	line-height: normal;
+	padding: 10px;
+	opacity: 0.4;
+	filter: blur(1px);
+}
+
+#dmzaas {
+	height: 100vh;
+	background: url('/static/images/cables.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+
+#dmzaasCostTable, #dmzaasProcessTable {
+	margin: 0 auto;
+	text-align: left;
+	width: 500px;
+}

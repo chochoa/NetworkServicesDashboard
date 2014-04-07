@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<title>Network Services Service Ordering</title>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/tutorial.css">
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/skrollr.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('a[href^="#"]').on('click',function (e) {
+	    		e.preventDefault();
+			    var target = this.hash,
+	    		$target = $(target);
+
+	    		$('html, body').stop().animate({
+	        		'scrollTop': $target.offset().top
+	    		}, 900, 'swing', function () {
+	        		window.location.hash = target;
+	    		});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="skrollr-body">
+		<div id="introBackground"></div>
+		<div id="intro">
+			<div id="page1">
+				<img style="padding-top: 10px" id="ciscoLogo" src="/static/logo.png">
+				<h1 id="mainTitle">GIS - Network Services</h1>
+				<a href="#page2">
+					<span class="glyphicon glyphicon-arrow-down" id="nextScreenArrow"></span>
+				</a>
+			</div>
+
+			<div id="page2">
+				<h1 id="page2Title">Let's get started!<br /> First up, which service are you looking for?</h1>
+				<div id="buttonWrapper">
+					<a href="#dmzaas" class="btn btn-default servicebutton">DMZaaS<br />(DMZ as a Service)</a>
+					<a href="#itaac" class="btn btn-default servicebutton">ITaaC<br />(IT as a Carrier)</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="dmzaas">
+			<h1 id="dmzaasTitle">DMZ as a Service</h1>
+
+			<p id="dmzaasDesc">DMZaaS allows Internet Access through Cisco IT connections in order to support DCaaS, customer facing demos, training or other obligations that require production level support and a degree of resiliancy that would not be found in the traditional DMZ lab setting</p>
+
+			<div id="dmzaasBenefits">
+				<p>We can provide:</p>
+				<ul>
+					<li>Complete control over your own equipment</li>
+					<li>Redundant gateways</li>
+				</ul>
+			</div>
+
+			<div id="serviceFlavours">
+				<p>We provide 3 'flavours' of DMZaaS</p>
+
+				<table class="table table-condensed" id="dmzaasCostTable">
+					<thead>
+						<th>Flavour</th>
+						<th>Speed</th>
+						<th>Monthly Cost</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Low</td>
+							<th>10MBps</th>
+							<th>$500</th>
+						</tr>
+						<tr>
+							<td>Medium</td>
+							<th>50MBps</th>
+							<th>$800</th>
+						</tr>
+						<tr>
+							<td>High</td>
+							<th>100MBps</th>
+							<th>$1400</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div id="dmzaasGo">
+				<p>Sounds good? Let's get you <a href="/corporateNetwork/dmz/addClient">onboarded!</a></p>
+
+				<p>Got some questions? <a href="mailto:dmz-service@cisco.com">Email us</a>!</p>
+			</div>
+
+			<div id="dmzCompleted">
+				<h1>What's next?</h1>
+
+				<p>The current process consists of a number of steps involving a number of groups</p>
+				<table class="table table-condensed" id="dmzaasCostTable">
+					<thead>
+						<th>Step</th>
+						<th>Action</th>
+						<th>Responsible Group</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Architecture Review</td>
+							<td>InfoSec</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Creation and Submission of ACL (if required)</td>
+							<td>Client</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>ACL Review</td>
+							<td>InfoSec</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Implementation</td>
+							<td>GNIS</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	</div>
+
+	<script type="text/javascript">skrollr.init();</script>
+</body>
+</html>

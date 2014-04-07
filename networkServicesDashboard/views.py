@@ -15,7 +15,7 @@ from itaacProjects import *
 #Index Page
 @app.route('/')
 def index():
-	return render_template('/index.html')
+	return render_template('/tutorial.html')
 
 #Admin Interface
 @app.route('/admin')
@@ -57,6 +57,10 @@ def help():
 @app.route('/help/technical')
 def helpTechnical():
 	return render_template('/help/technical.html')
+
+@app.route('/tutorial')
+def tutorial():
+	return render_template('/tutorial.html')
 
 ################
 # DMZaaS Views #

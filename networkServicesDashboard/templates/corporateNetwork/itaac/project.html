@@ -9,6 +9,7 @@
 		$(document).ready(function() {
 			$('#navITaaC').attr('class', 'active');
 
+			//Disable All Inputs
 			$(":input").prop('disabled', true);
 
 			//Chosen JS init
@@ -19,9 +20,8 @@
 			$("#intercampus").chosen({disable_search_threshold: 5});
 			$("#state_A").chosen();
 
-			$('#collapseFour').on('show.bs.collapse', function() {
-  				$('.chosen-select').trigger("chosen:updated");
-			})
+			//Date Pickers
+			
 		});
 	</script>
 {% endblock %}
@@ -36,12 +36,12 @@
  		<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
 </ul>
 
-<h2><span style="color:#DD1637;">Project Name: </span><b>{{project.projectname}}</b></h2>
+<h2>Project Name: <b>{{project.projectname}}</b></h2>
 
 <form name="viewproject" method="POST" action="/corporateNetwork/itaac/editProject" class="form-horizontal">
 	<div class="panel-group" id="accordion">
 		<div class="panel panel-default">
-	    	<div class="panel-heading">
+	    	<div class="panel-heading" id="collapseHeadingOne">
 	      		<h4 class="panel-title">
 	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
 	          			Client Information
@@ -105,7 +105,7 @@
 	    </div>
 
 	    <div class="panel panel-default">
-	    	<div class="panel-heading">
+	    	<div class="panel-heading" id="collapseHeadingTwo">
 	    		<h4 class="panel-title">
 	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 	          			Project Information
@@ -162,7 +162,7 @@
 	    </div>
 
 	    <div class="panel panel-default">
-	  		<div class="panel-heading">
+	  		<div class="panel-heading" id="collapseHeadingThree">
 	      		<h4 class="panel-title">
 	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 	          			Services Requested
@@ -259,7 +259,7 @@
 	  	</div>
 
 	  	<div class="panel panel-default">
-	  		<div class="panel-heading">
+	  		<div class="panel-heading" id="collapseHeadingFour">
 	      		<h4 class="panel-title">
 	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 	          			Origin (A) + Terminating (B) Information

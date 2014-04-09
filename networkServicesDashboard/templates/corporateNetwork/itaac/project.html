@@ -33,7 +33,7 @@
 <ul class="nav nav-pills">
   		<li><a href="../itaac">In Progress</a></li>
   		<li class="active"><a href="project?id={{project.projectid}}">{{project.projectname}}</a></li>
- 		<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
+ 		<li class="pull-right"><a href="addProject">Add New Project</a></li>
 </ul>
 
 <h2>Project Name: <b>{{project.projectname}}</b></h2>
@@ -603,6 +603,29 @@
 	      		</div>
 	    	</div>
 	  	</div>
+
+	  	<div class="panel panel-default">
+	    	<div class="panel-heading">
+	    		<h4 class="panel-title">
+	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+	          			Comments
+	        		</a>
+	      		</h4>
+	    	</div>
+	   		<div id="collapseFive" class="panel-collapse collapse">
+	      		<div class="panel-body">
+	        		<div id="comments">
+						<h3>Comments</h3>
+
+						<div class="form-group">
+							<div class="col-sm-12 input-group">
+								<textarea id="comments" name="comments" class="form-control" rows="4">{{project.comments}}</textarea>
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	    </div>
 	</div>
 
 	<br />

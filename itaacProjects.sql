@@ -49,7 +49,8 @@ CREATE TABLE Projects (
 	contactcompany_B varchar(255),
 	contactemail_B varchar(255),
 	contactnumber_B varchar(255),
-	cellnumber_B varchar(255));
+	cellnumber_B varchar(255),
+	comments text);
 
 CREATE TABLE Assignees (
 	assigneeid SERIAL PRIMARY KEY,

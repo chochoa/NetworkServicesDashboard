@@ -33,6 +33,7 @@ class Projects(itaacModel):
     contactname_b = CharField(max_length=255, null=True)
     contactnumber_a = CharField(max_length=255, null=True)
     contactnumber_b = CharField(max_length=255, null=True)
+    comments = TextField(null=True)
     deliverydate = DateField(null=True)
     department = CharField(max_length=255, null=True)
     dependencies = TextField(null=True)

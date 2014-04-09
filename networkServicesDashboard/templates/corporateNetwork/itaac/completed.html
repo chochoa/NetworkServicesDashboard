@@ -1,11 +1,11 @@
 {% extends "corpTemplate.html" %}
-{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block title %}Corporate Network - ITaaC{% endblock %}
 {% block head %}
 	{{super()}}
 	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#navDMZ').attr('class', 'active');
+			$('#navITaaC').attr('class', 'active');
 			$(".clickable").click(function() {
   				window.location.href = $(this).find("a").attr("href");
 			});
@@ -20,34 +20,39 @@
 		});
 	</script>
 {% endblock %}
-{% block level2 %}DMZaaS{% endblock %}
+{% block level2 %}ITaaC{% endblock %}
 {% block content %}
 	<br />
 
 	<ul class="nav nav-pills">
-  		<li><a href="../dmz">In Progress</a></li>
-  		<li class="active"><a href="inService">In Service</a></li>
- 		<li><a href="withdrawn">Withdrawn</a></li>
- 		<li class="pull-right"><a href="addClient">Add New Client</a></li>
- 		<li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
+  		<li><a href="../itaac">In Progress</a></li>
+  		<li class="active"><a href="completed">Completed</a></li>
+ 		<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
 	</ul>
 
-	<h4><a href='report'>Estimated Total Monthly Charges: ${{totalCrossCharge}}</a></h4>
+	<br />
 
 	<div>
 		<table class="table table-condensed table-hover" id='dataTable'>
 			<thead>
 				<tr>
-					<th>Lab ID</th>
-					<th>Subscriber</th>
-					<th>Location</th>
-					<th>Status</th>
-					<th>Monthly Cross Charge ($)</th>
-					<th>Date Updated (UTC)</th>
+					<th>Project ID</th>
+					<th>Project Name</th>
+					<th>Origin Point</th>
+					<th>Terminating Point</th>
+					<th>Date Completed</th>
 				</tr>
 			</thead>
 			<tbody>
-				{{inServiceClients | safe}}
+				{% for project in projects %}
+					<tr class="clickable">
+						<td><a href="itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
+						<td>{{project.projectname}}</td>
+						<td>{{project.buildingid_a}}, {{project.city_a}}, {{project.state_a}}</td>
+						<td>{{project.buildingid_b}}, {{project.city_b}}, {{project.state_b}}</td>
+						<td>placeholder</td>
+					</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>

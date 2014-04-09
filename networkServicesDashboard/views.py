@@ -582,20 +582,30 @@ def getLatestNote(client):
 # ITaaC Views #
 ###############
 
+# In Progress ITaaC Projects
 @app.route('/corporateNetwork/itaac')
 def itaac():
 	inServiceProjects = Projects.select().where(Projects.status == 2)
 	return render_template('corporateNetwork/itaac/inProgress.html', projects = inServiceProjects)
 
+@app.route('/corporateNetwork/itaac/completed')
+def itaacCompletedProjects():
+	completedProjects = Projects.select().where(Projects.status == 1)
+	return render_template('corporateNetwork/itaac/completed.html', projects = completedProjects)
+
+# Form to add new ITaaC Project
 @app.route('/corporateNetwork/itaac/addProject')
 def itaacAddProject():
 	return render_template('corporateNetwork/itaac/addProject.html')
 
+# Display details of ITaaC project
 @app.route('/corporateNetwork/itaac/project')
 def itaacViewProject():
 	project = Projects.get(Projects.projectid == request.args.get('id', ''))
 	return render_template('corporateNetwork/itaac/project.html', project = project)
 
+
+# Login to add new ITaaC project
 @app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
 def itaacAddingProject():
 	newRequestDate = request.form['requestdate']
@@ -629,6 +639,7 @@ def itaacAddingProject():
 				contactname_b = request.form['contactname_B'],
 				contactnumber_a = request.form['contactnumber_A'],
 				contactnumber_b = request.form['contactnumber_B'],
+				comments = request.form['comments'],
 				deliverydate = newDeliveryDate,
 				department = request.form['department'],
 				dependencies = request.form['dependencies'],
@@ -655,7 +666,7 @@ def itaacAddingProject():
 				tel_a = request.form['tel_A'],
 				tel_b = request.form['tel_B'],
 				zipcode_a = request.form['zipcode_A'],
-				zipcode_b = request.form['zipcode_B'],
+				zipcode_b = requirementsurlest.form['zipcode_B'],
 				status = 2)
 	newProject.execute()
 

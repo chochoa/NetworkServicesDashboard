@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/chosen.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/chosen-bootstrap.css">
 	<script type="text/javascript" src="/static/js/chosen.jquery.js"></script>
+	<script type="text/javascript" src="/static/vendor/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var getHiddenOffsetWidth = function (el) {
@@ -14,6 +15,7 @@
 		   		return width-200;
 			};
 
+			//NavBar Highlight
 			$('#navITaaC').attr('class', 'active');
 
 			//Chosen JS init
@@ -26,12 +28,17 @@
 
 			$('#collapseFour').on('show.bs.collapse', function() {
   				$('.chosen-select').trigger("chosen:updated");
-			})
+			});
+
+			//CKEditor Init
+			CKEDITOR.replace('comments');
 		});
 	</script>
 {% endblock %}
 {% block level2 %}ITaaC - Add Project{% endblock %}
 {% block content %}
+
+<br />
 
 <ul class="nav nav-pills">
   		<li class="active"><a href="itaac">In Progress</a></li>
@@ -613,6 +620,29 @@
 	      		</div>
 	    	</div>
 	  	</div>
+
+	  	<div class="panel panel-default">
+	    	<div class="panel-heading">
+	    		<h4 class="panel-title">
+	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+	          			Comments
+	        		</a>
+	      		</h4>
+	    	</div>
+	   		<div id="collapseFive" class="panel-collapse collapse">
+	      		<div class="panel-body">
+	        		<div id="comments">
+						<h3>Comments</h3>
+
+						<div class="form-group">
+							<div class="col-sm-12 input-group">
+								<textarea id="comments" name="comments" class="form-control" rows="4"></textarea>
+							</div>
+						</div>
+					</div>
+	      		</div>
+	    	</div>
+	    </div>
 	</div>
 
 	<br />

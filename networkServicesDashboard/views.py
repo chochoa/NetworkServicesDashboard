@@ -105,7 +105,7 @@ def dmzInService():
 							<td>''' + str(client.location) + '''</td>
 							<td>''' + result['status'] + '''</td>
 							<td>''' + str(client.crosscharge) + '''</td>
-							<td>''' + str(client.updated) + '''</td>
+							<td>''' + str(client.golivedate) + '''</td>
 						</tr>
 					'''
 	return render_template('corporateNetwork/dmzInService.html', inServiceClients = html, totalCrossCharge = totalCrossCharge)

@@ -332,6 +332,10 @@ def dmzReport():
 def dmzaasPocs():
 	return render_template('/corporateNetwork/dmz/contacts.html', clients = clients.select().where(clients.status == 1))
 
+@app.route('/corporateNetwork/dmz/billing')
+def dmzBillingReport():
+	return render_template('/corporateNetwork/dmz/billing.html', clients = clients.select().where(clients.status == 1))
+
 # Logic to withdrawn a client
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])
 def dmzWithdrawClient():

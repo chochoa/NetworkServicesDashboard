@@ -30,6 +30,10 @@
   				$('.chosen-select').trigger("chosen:updated");
 			});
 
+			//Date Pickers
+			$("#requestdate").datepicker({dateFormat:'yy-mm-dd'});
+			$("#deliverydate").datepicker({dateFormat:'yy-mm-dd'});
+
 			//CKEditor Init
 			CKEDITOR.replace('comments');
 		});

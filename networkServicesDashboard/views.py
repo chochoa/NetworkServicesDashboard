@@ -1,5 +1,10 @@
 from networkServicesDashboard import *
+<<<<<<< HEAD
 from flask import render_template, redirect
+=======
+from flask import render_template, redirect, make_response
+from databaseConnection import *
+>>>>>>> c51a5ba... Reporting additions
 import calendar
 from datetime import datetime, timedelta
 import time
@@ -335,6 +340,15 @@ def dmzaasPocs():
 @app.route('/corporateNetwork/dmz/billing')
 def dmzBillingReport():
 	return render_template('/corporateNetwork/dmz/billing.html', clients = clients.select().where(clients.status == 1))
+
+@app.route('/corporateNetwork/dmz/billing/download')
+def downloadDMZBillingReport():
+	csv = 'SubscriberID, Lab ID, Subscriber, Location, Department ID, Department Name, Status, Go Live Date, Monthly Recovery\r\n'
+	for client in clients.select().where(clients.status == 1):
+		csv += '"' + str(client.engagementid) + '","' + str(client.labid) + '","' + str(client.subscriber) + '","' + str(client.location) + '","' + str(client.billtoid) + '","' + str(client.billtoname) + '","' + str(client.status) + '","' + str(client.golivedate) + '","' + str(client.crosscharge) + '"\r\n'
+	response = make_response(csv)
+	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_dmzaasBilling.csv"
+	return response
 
 # Logic to withdrawn a client
 @app.route('/corporateNetwork/dmz/withdrawClient', methods=['POST'])

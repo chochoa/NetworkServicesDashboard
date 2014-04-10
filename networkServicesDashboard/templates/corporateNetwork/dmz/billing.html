@@ -15,11 +15,23 @@
   <ul class="nav nav-pills">
       <li><a href="../dmz">In Progress</a></li>
       <li><a href="inService">In Service</a></li>
-     <li><a href="withdrawn">Withdrawn</a></li>
-     <li class="active"><a href="#">Billing</a></li>
+      <li><a href="withdrawn">Withdrawn</a></li>
+      <li class="dropdown active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/corporateNetwork/dmz/billing">Billing</a></li>
+          <li><a href="/corporateNetwork/dmz/pocs">Contacts</a></li>
+        </ul>
+      </li>
      <li class="pull-right"><a href="addClient">Add New Client</a></li>
      <li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
   </ul>
+
+  <br />
+
+  <a href="billing/download" class="btn btn-success btn-lg active" role="button">Download as CSV</a>
+
+  <br /><br />
 
   <table class="table table-condensed">
     <thead>

@@ -112,6 +112,14 @@
 				$("#inservice").removeAttr("disabled").trigger("chosen:updated");
 				$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
 				$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
+				//In Service Check
+				$('#inservice').change(function () {
+					if ($('#inservice option:selected').val() == 1) {
+						$( "#goLiveDate" ).attr( "required", true );
+						$( "#departmentId" ).attr( "required", true );
+						$( "#crossCharge" ).attr( "required", true );
+					};
+				});
 			});
 
 			if ({{time}} < 7) {
@@ -129,6 +137,15 @@
 
 			//CKEditor Init
 			CKEDITOR.replace('newNoteText');
+
+			//InService Requirements
+			$('#inservice').change(function () {
+				if ($('#inservice option:selected').val() == 1) {
+					$( "#goLiveDate" ).attr( "required", true );
+					$( "#departmentId" ).attr( "required", true );
+					$( "#crossCharge" ).attr( "required", true );
+				};
+			});
 		});
 	</script>
 {% endblock %}
@@ -344,7 +361,7 @@
 					<div class="form-group">
 						<label for="departmentId" class="col-sm-2 control-label">Bill To Department</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="departmentId" name="departmentid" disabled placeholder="Department ID" value="{{clientArray.billtoid}}">
+							<input type="text" class="form-control" id="departmentId" name="departmentid" disabled placeholder="Department ID" value="{{clientArray.departmentId}}">
 							<br />
 							<input type="text" class="form-control" id="departmentName" name="departmentname" disabled placeholder="Department Name" value="{{clientArray.billtoname}}">
 						</div>

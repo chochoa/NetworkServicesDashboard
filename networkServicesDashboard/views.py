@@ -1,10 +1,6 @@
 from networkServicesDashboard import *
-<<<<<<< HEAD
-from flask import render_template, redirect
-=======
 from flask import render_template, redirect, make_response
 from databaseConnection import *
->>>>>>> c51a5ba... Reporting additions
 import calendar
 from datetime import datetime, timedelta
 import time

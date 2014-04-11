@@ -11,8 +11,8 @@
 			var getHiddenOffsetWidth = function (el) {
 		    	var $hiddenElement = $(el).clone().appendTo('body');
 		    	var width = $hiddenElement.outerWidth();
-		   		$hiddenElement.remove();
-		   		return width-200;
+				$hiddenElement.remove();
+				return width-200;
 			};
 
 			//NavBar Highlight
@@ -27,7 +27,7 @@
 			$("#state_A").chosen();
 
 			$('#collapseFour').on('show.bs.collapse', function() {
-  				$('.chosen-select').trigger("chosen:updated");
+				$('.chosen-select').trigger("chosen:updated");
 			});
 
 			//Date Pickers
@@ -45,8 +45,8 @@
 <br />
 
 <ul class="nav nav-pills">
-  		<li class="active"><a href="itaac">In Progress</a></li>
- 		<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
+	<li class="active"><a href="itaac">In Progress</a></li>
+	<li class="pull-right"><a href="itaac/addProject">Add New Project</a></li>
 </ul>
 
 <h3>Add New ITaaC Project</h3>
@@ -56,15 +56,15 @@
 <form name="addClient" method="POST" action="/corporateNetwork/itaac/addingProject" class="form-horizontal">
 	<div class="panel-group" id="accordion">
 		<div class="panel panel-default">
-	    	<div class="panel-heading">
-	      		<h4 class="panel-title">
-	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-	          			Client Information
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						Client Information
 	        		</a>
-	      		</h4>
+				</h4>
 	    	</div>
 	    	<div id="collapseOne" class="panel-collapse collapse in">
-	      		<div class="panel-body">
+				<div class="panel-body">
 	        		<div id="clientInfo">
 						<h3>Client Information</h3>
 
@@ -117,20 +117,20 @@
 							</div>
 						</div>
 					</div>
-	      		</div>
+				</div>
 	    	</div>
 	    </div>
 
 	    <div class="panel panel-default">
 	    	<div class="panel-heading">
 	    		<h4 class="panel-title">
-	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-	          			Project Information
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+						Project Information
 	        		</a>
-	      		</h4>
+				</h4>
 	    	</div>
-	   		<div id="collapseTwo" class="panel-collapse collapse">
-	      		<div class="panel-body">
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
 	        		<div id="projectInfo">
 						<h3>Project Information</h3>
 
@@ -176,21 +176,21 @@
 							</div>
 						</div>
 					</div>
-	      		</div>
+				</div>
 	    	</div>
 	    </div>
 
 	    <div class="panel panel-default">
-	  		<div class="panel-heading">
-	      		<h4 class="panel-title">
-	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-	          			Services Requested
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+						Services Requested
 	        		</a>
-	      		</h4>
+				</h4>
 	    	</div>
 
 	    	<div id="collapseThree" class="panel-collapse collapse">
-	      		<div class="panel-body">
+				<div class="panel-body">
 	        		<div id="servicesRequested">
 						<h3>Services Requested</h3>
 
@@ -275,21 +275,21 @@
 							</div>
 						</div>
 					</div>
-	      		</div>
+				</div>
 	    	</div>
-	  	</div>
+		</div>
 
-	  	<div class="panel panel-default">
-	  		<div class="panel-heading">
-	      		<h4 class="panel-title">
-	        		<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-	          			Origin (A) + Terminating (B) Information
-	        		</a>
-	      		</h4>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+						Origin (A) + Terminating (B) Information
+					</a>
+				</h4>
 	    	</div>
 
 	    	<div id="collapseFour" class="panel-collapse collapse">
-	      		<div class="panel-body">
+				<div class="panel-body">
 	        		<div id="A-B Zones">
 						<div id="A End">
 							<h3>Origin End</h3>
@@ -621,32 +621,31 @@
 							</div>
 						</div>
 					</div>
-	      		</div>
+				</div>
 	    	</div>
-	  	</div>
+		</div>
 
-	  	<div class="panel panel-default">
+		<div class="panel panel-default">
 	    	<div class="panel-heading">
 	    		<h4 class="panel-title">
 	    			<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-	          			Comments
-	        		</a>
-	      		</h4>
-	    	</div>
-	   		<div id="collapseFive" class="panel-collapse collapse">
-	      		<div class="panel-body">
-	        		<div id="comments">
+						Comments
+					</a>
+				</h4>
+			</div>
+			<div id="collapseFive" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div id="commentPanel">
 						<h3>Comments</h3>
-
 						<div class="form-group">
 							<div class="col-sm-12 input-group">
 								<textarea id="comments" name="comments" class="form-control" rows="4"></textarea>
 							</div>
 						</div>
 					</div>
-	      		</div>
-	    	</div>
-	    </div>
+				</div>
+		    </div>
+		</div>
 	</div>
 
 	<br />

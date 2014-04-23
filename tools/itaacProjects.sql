@@ -5,7 +5,7 @@ CREATE TABLE Projects (
 	othercontacts text,
 	businessunit varchar(255),
 	nickname varchar(255),
-	activity text
+	activity text,
 	department varchar(255),
 	requestdate date,
 	deliverydate date,
@@ -49,7 +49,7 @@ CREATE TABLE Projects (
 	contactcompany_B varchar(255),
 	contactemail_B varchar(255),
 	contactnumber_B varchar(255),
-	cellnumber_B varchar(255),
+	cellnumber_B varchar(255)
 );
 
 CREATE TABLE Assignees (

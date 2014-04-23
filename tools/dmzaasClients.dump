@@ -25,7 +25,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- Name: update_changetimestamp_column(); Type: FUNCTION; Schema: public; Owner: root
+-- Name: update_changetimestamp_column(); Type: FUNCTION; Schema: public; Owner: rilogan
 --
 
 CREATE FUNCTION update_changetimestamp_column() RETURNS trigger
@@ -38,14 +38,14 @@ END;
 $$;
 
 
-ALTER FUNCTION public.update_changetimestamp_column() OWNER TO root;
+ALTER FUNCTION public.update_changetimestamp_column() OWNER TO rilogan;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: assignees; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+-- Name: assignees; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 CREATE TABLE assignees (
@@ -55,10 +55,10 @@ CREATE TABLE assignees (
 );
 
 
-ALTER TABLE public.assignees OWNER TO root;
+ALTER TABLE public.assignees OWNER TO rilogan;
 
 --
--- Name: assignees_assigneeid_seq; Type: SEQUENCE; Schema: public; Owner: root
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
 --
 
 CREATE SEQUENCE assignees_assigneeid_seq
@@ -69,17 +69,17 @@ CREATE SEQUENCE assignees_assigneeid_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignees_assigneeid_seq OWNER TO root;
+ALTER TABLE public.assignees_assigneeid_seq OWNER TO rilogan;
 
 --
--- Name: assignees_assigneeid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
 --
 
 ALTER SEQUENCE assignees_assigneeid_seq OWNED BY assignees.assigneeid;
 
 
 --
--- Name: clients; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+-- Name: clients; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 CREATE TABLE clients (
@@ -122,10 +122,10 @@ CREATE TABLE clients (
 );
 
 
-ALTER TABLE public.clients OWNER TO root;
+ALTER TABLE public.clients OWNER TO rilogan;
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE; Schema: public; Owner: root
+-- Name: clients_engagementid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
 --
 
 CREATE SEQUENCE clients_engagementid_seq
@@ -136,17 +136,17 @@ CREATE SEQUENCE clients_engagementid_seq
     CACHE 1;
 
 
-ALTER TABLE public.clients_engagementid_seq OWNER TO root;
+ALTER TABLE public.clients_engagementid_seq OWNER TO rilogan;
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+-- Name: clients_engagementid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
 --
 
 ALTER SEQUENCE clients_engagementid_seq OWNED BY clients.engagementid;
 
 
 --
--- Name: gateways; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+-- Name: gateways; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 CREATE TABLE gateways (
@@ -156,10 +156,10 @@ CREATE TABLE gateways (
 );
 
 
-ALTER TABLE public.gateways OWNER TO root;
+ALTER TABLE public.gateways OWNER TO rilogan;
 
 --
--- Name: gateways_gatewayid_seq; Type: SEQUENCE; Schema: public; Owner: root
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
 --
 
 CREATE SEQUENCE gateways_gatewayid_seq
@@ -170,17 +170,17 @@ CREATE SEQUENCE gateways_gatewayid_seq
     CACHE 1;
 
 
-ALTER TABLE public.gateways_gatewayid_seq OWNER TO root;
+ALTER TABLE public.gateways_gatewayid_seq OWNER TO rilogan;
 
 --
--- Name: gateways_gatewayid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
 --
 
 ALTER SEQUENCE gateways_gatewayid_seq OWNED BY gateways.gatewayid;
 
 
 --
--- Name: notes; Type: TABLE; Schema: public; Owner: root; Tablespace: 
+-- Name: notes; Type: TABLE; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 CREATE TABLE notes (
@@ -191,10 +191,10 @@ CREATE TABLE notes (
 );
 
 
-ALTER TABLE public.notes OWNER TO root;
+ALTER TABLE public.notes OWNER TO rilogan;
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE; Schema: public; Owner: root
+-- Name: notes_noteid_seq; Type: SEQUENCE; Schema: public; Owner: rilogan
 --
 
 CREATE SEQUENCE notes_noteid_seq
@@ -205,45 +205,45 @@ CREATE SEQUENCE notes_noteid_seq
     CACHE 1;
 
 
-ALTER TABLE public.notes_noteid_seq OWNER TO root;
+ALTER TABLE public.notes_noteid_seq OWNER TO rilogan;
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
+-- Name: notes_noteid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rilogan
 --
 
 ALTER SEQUENCE notes_noteid_seq OWNED BY notes.noteid;
 
 
 --
--- Name: assigneeid; Type: DEFAULT; Schema: public; Owner: root
+-- Name: assigneeid; Type: DEFAULT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY assignees ALTER COLUMN assigneeid SET DEFAULT nextval('assignees_assigneeid_seq'::regclass);
 
 
 --
--- Name: engagementid; Type: DEFAULT; Schema: public; Owner: root
+-- Name: engagementid; Type: DEFAULT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY clients ALTER COLUMN engagementid SET DEFAULT nextval('clients_engagementid_seq'::regclass);
 
 
 --
--- Name: gatewayid; Type: DEFAULT; Schema: public; Owner: root
+-- Name: gatewayid; Type: DEFAULT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY gateways ALTER COLUMN gatewayid SET DEFAULT nextval('gateways_gatewayid_seq'::regclass);
 
 
 --
--- Name: noteid; Type: DEFAULT; Schema: public; Owner: root
+-- Name: noteid; Type: DEFAULT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY notes ALTER COLUMN noteid SET DEFAULT nextval('notes_noteid_seq'::regclass);
 
 
 --
--- Data for Name: assignees; Type: TABLE DATA; Schema: public; Owner: root
+-- Data for Name: assignees; Type: TABLE DATA; Schema: public; Owner: rilogan
 --
 
 COPY assignees (assigneeid, name, function) FROM stdin;
@@ -255,14 +255,14 @@ COPY assignees (assigneeid, name, function) FROM stdin;
 
 
 --
--- Name: assignees_assigneeid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+-- Name: assignees_assigneeid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
 SELECT pg_catalog.setval('assignees_assigneeid_seq', 7, true);
 
 
 --
--- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: root
+-- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: rilogan
 --
 
 COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact, othercontact, activityconducted, targetdate, golivedate, location, labstatus, servicegateway1, servicegateway2, connectionowner, estimatedmaximumbandwidth, crosscharge, billtoid, billtoname, otherservices, plans, comments, remedycase, securityinfo, architecturereview, aclreview, implementation, inservice, status, updated, inservicedatetime, vapapproval, addressspace, statustimestart, implementationcr, assignee) FROM stdin;
@@ -303,14 +303,14 @@ COPY clients (engagementid, labid, labname, subscriber, teamname, primarycontact
 
 
 --
--- Name: clients_engagementid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+-- Name: clients_engagementid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
 SELECT pg_catalog.setval('clients_engagementid_seq', 83, true);
 
 
 --
--- Data for Name: gateways; Type: TABLE DATA; Schema: public; Owner: root
+-- Data for Name: gateways; Type: TABLE DATA; Schema: public; Owner: rilogan
 --
 
 COPY gateways (gatewayid, name, location) FROM stdin;
@@ -336,14 +336,14 @@ COPY gateways (gatewayid, name, location) FROM stdin;
 
 
 --
--- Name: gateways_gatewayid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+-- Name: gateways_gatewayid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
 SELECT pg_catalog.setval('gateways_gatewayid_seq', 21, true);
 
 
 --
--- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: root
+-- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: rilogan
 --
 
 COPY notes (noteid, engagementid, content, posted) FROM stdin;
@@ -415,14 +415,14 @@ COPY notes (noteid, engagementid, content, posted) FROM stdin;
 
 
 --
--- Name: notes_noteid_seq; Type: SEQUENCE SET; Schema: public; Owner: root
+-- Name: notes_noteid_seq; Type: SEQUENCE SET; Schema: public; Owner: rilogan
 --
 
 SELECT pg_catalog.setval('notes_noteid_seq', 81, true);
 
 
 --
--- Name: assignees_pkey; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+-- Name: assignees_pkey; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 ALTER TABLE ONLY assignees
@@ -430,7 +430,7 @@ ALTER TABLE ONLY assignees
 
 
 --
--- Name: clients_pk; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+-- Name: clients_pk; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 ALTER TABLE ONLY clients
@@ -438,7 +438,7 @@ ALTER TABLE ONLY clients
 
 
 --
--- Name: gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+-- Name: gateways_pkey; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 ALTER TABLE ONLY gateways
@@ -446,7 +446,7 @@ ALTER TABLE ONLY gateways
 
 
 --
--- Name: notid_pk; Type: CONSTRAINT; Schema: public; Owner: root; Tablespace: 
+-- Name: notid_pk; Type: CONSTRAINT; Schema: public; Owner: rilogan; Tablespace: 
 --
 
 ALTER TABLE ONLY notes
@@ -454,14 +454,14 @@ ALTER TABLE ONLY notes
 
 
 --
--- Name: update_clients_changetimestamp; Type: TRIGGER; Schema: public; Owner: root
+-- Name: update_clients_changetimestamp; Type: TRIGGER; Schema: public; Owner: rilogan
 --
 
 CREATE TRIGGER update_clients_changetimestamp BEFORE UPDATE ON clients FOR EACH ROW EXECUTE PROCEDURE update_changetimestamp_column();
 
 
 --
--- Name: notes_engagementid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: root
+-- Name: notes_engagementid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rilogan
 --
 
 ALTER TABLE ONLY notes
@@ -475,7 +475,7 @@ ALTER TABLE ONLY notes
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO root;
+GRANT ALL ON SCHEMA public TO rilogan;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 

@@ -1,15 +1,15 @@
 from peewee import *
 
-database = PostgresqlDatabase('dmzaasClients', user='rilogan')
+dmzaasClients = PostgresqlDatabase('dmzaasClients', user = 'rilogan')
 
 class UnknownFieldType(object):
     pass
 
-class BaseModel(Model):
+class dmzaasModel(Model):
     class Meta:
-        database = database
+        database = dmzaasClients
 
-class clients(BaseModel):
+class clients(dmzaasModel):
     aclreview = CharField(max_length=100, null=True)
     activityconducted = TextField(null=True)
     architecturereview = CharField(max_length=100, null=True)
@@ -49,7 +49,7 @@ class clients(BaseModel):
     class Meta:
         db_table = 'clients'
 
-class notes(BaseModel):
+class notes(dmzaasModel):
     content = TextField(null=True)
     engagementid = ForeignKeyField(null=True, db_column='engagementid', rel_model=clients)
     noteid = PrimaryKeyField()
@@ -58,7 +58,7 @@ class notes(BaseModel):
     class Meta:
         db_table = 'notes'
 
-class gateways(BaseModel):
+class gateways(dmzaasModel):
     gatewayid = PrimaryKeyField()
     location = TextField()
     name = TextField()
@@ -66,7 +66,7 @@ class gateways(BaseModel):
     class Meta:
         db_table = 'gateways'
 
-class assignees(BaseModel):
+class assignees(dmzaasModel):
     assigneeid = PrimaryKeyField()
     function = TextField()
     name = TextField()

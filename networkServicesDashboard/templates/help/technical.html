@@ -1,0 +1,157 @@
+{% extends "template.html" %}
+{% block level1 %}Help{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-2">
+			<br />
+			<ul class="nav nav-pills nav-stacked">
+				<h5><a href="/help">Functionality</a></h5>
+
+				<h5>Technical</h5>
+				<li><a href="/help/technical#outline">Outline</a></li>
+				<li><a href="/help/technical#deploy">Deploy</a></li>
+				<li><a href="/help/technical#update">Update</a></li>
+				<li><a href="/help/technical#backup">Backup</a></li>
+			</ul>
+		</div>
+		<div class="col-md-10">
+			<div id="outline">
+				<h1>Technical Information</h1>
+
+				<p>
+					Below is an outline of the application itself from a technical standpoint. There are also a number of sections that walkthrough common tasks.
+				</p>
+
+				<h2>Outline</h2>
+
+				<p>
+					This application is written in Python using the Flask microframework. The data (e.g DMZaaS Client Profiles) is held in a number of PostgreSQL databases that connect to the application using PeeWee, a lightweight Python ORM.
+				</p>
+
+				<p>
+					The code itself is Open Source and is stored on GitHub, currently at <a href="https://github.com/RichLogan/NetworkServicesDashboard">https://github.com/RichLogan/NetworkServicesDashboard</a> although no data regarding clients or other information is kept here.
+				</p>
+
+				<p>
+					The application is hosted on the CITEIS environment and uses the DNS name http://networkservices.cisco.com, or more simply: networkservices/
+				</p>
+			</div>
+
+			<div id="deploy">
+				<h2>Deployment - A Walkthrough</h2>
+
+				<p>
+					Follow this process to deploy the Network Services Dashboard onto a server.
+				</p>
+
+				<p>
+					This assumes that a VM or other server running Ubuntu Server (12.04, although versions should not matter) has already been setup.
+				</p>
+
+				<p>
+					<strong>SSH to target VM</strong><br />
+					<ul>
+						<li>$ ssh root@networkservices</li>
+						<li>PW: Netw0rkServ1ces</li>
+					</ul>
+
+					<strong>Install all needed packages</strong>
+					<ul>
+						<li>$ sudo apt-get update</li>
+						<li>$ sudo apt-get install git</li>
+						<li>$ sudo apt-get install python-pip</li>
+						<li>$ sudo apt-get install postgresql libpq-dev</li>
+						<li>$ sudo apt-get python-dev</li>
+					</ul>
+
+					<strong>Get application code</strong>
+					<ul>
+						<li>$ cd /</li>
+						<li>$ git clone https://github.com/RichLogan/NetworkServicesDashboard.git</li>
+						<li>$ cd /NetworkServicesDashboard</li>
+					</ul>
+
+					<strong>Setup Databases</strong>
+					<ul>
+						<li>$ su - postgres</li>
+						<li>$ createuser -d -a -P root</li>
+						<li>PW: Netw0rkServ1ces</li>
+						<li>$ exit</li>
+						<li>$ createdb dmzaasClients</li>
+						<li>$ pgsql dmzaasClients &lt; latest.dump</li>
+					</ul>
+
+					<strong>Install Dependencies</strong>
+					<ul>
+						<li>$ sudo pip install -r requirements.txt</li>
+						<li>$ sudo easy_install -U gunicorn</li>
+					</ul>
+
+					<strong>Run!</strong>
+					<ul>
+						<li>$ gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</li>
+						<li>(--daemon is a DOUBLE dash)</li>
+					</ul>
+				</p>
+			</div>
+
+			<div id="update">
+				<h2>Updating - A Walkthrough</h2>
+
+				<p>
+					Pulling down updates from the git repository is a very straightforward process. It involves getting the new changes and restarting the server.
+				</p>
+
+				<strong>SSH in</strong>
+				<ul>
+					<li>$ ssh root@networkservices</li>
+					<li>PW: Netw0rkServ1ces</li>
+				</ul>
+
+				<strong>Pull Changes</strong>
+				<ul>
+					<li>$ cd /NetworkServicesDashboard</li>
+					<li>$ git pull</li>
+				</ul>
+
+				<strong>Kill and restart server</strong>
+				<ul>
+					<li>This takes a tiny bit of explaining. First we find the id of the process that represents our Gunicorn webserver</li>
+					<li>$ ps ax | grep gunicorn</li>
+					<li>This will most likely return a list of three things. Two will show networkServicesDashboard:app. Pick the id (the far left number) of either of these</li>
+					<li>Now we kill the existing server and bring up a new instance. We chain these commands together so the actual server will be down for a negligable amount of time. xxxx represents the id of the process we located with the previous command</li>
+					<li>$ kill xxxx;gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</li>
+					<li>Now check you can access the application through a browser, and you're good to go!</li>
+				</ul>
+			</div>
+
+			<div id="backup">
+				<h2>Backups - A Walkthrough</h2>
+
+				<p>
+					Manual backups of the database(s) are made on a weekly basis, usually on Monday. Below is an example of backing up and restoring the 'dmzaasClients' database. (Assumes the backup is being stored in the top level of /NetworkServicesDashboard)
+				</p>
+
+				<strong>SSH in</strong>
+				<ul>
+					<li>$ ssh root@networkservices</li>
+					<li>PW: Netw0rkServ1ces</li>
+				</ul>
+
+				<strong>Make Backup</strong>
+				<ul>
+					<li>$ cd /NetworkServicesDashboard</li>
+					<li>$ pg_dump dmzaasClients > dmzaasClients.dump</li>
+				</ul>
+
+				<strong>Restoring from a backup</strong>
+				<ul>
+					<li>$ cd /NetworkServicesDashboard</li>
+					<li>$ psql dmzaasClients &lt; dmzaasClients.dump</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<a href="https://github.com/RichLogan/NetworkServicesDashboard"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+{% endblock %}

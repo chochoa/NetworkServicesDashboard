@@ -92,4 +92,8 @@ Icon
 /test/reports
 /bower.json
 /component.json
+<<<<<<< HEAD
 /bower_components
+=======
+/bower_components
+>>>>>>> itaac

@@ -112,14 +112,6 @@
 				$("#inservice").removeAttr("disabled").trigger("chosen:updated");
 				$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
 				$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
-				//In Service Check
-				$('#inservice').change(function () {
-					if ($('#inservice option:selected').val() == 1) {
-						$( "#goLiveDate" ).attr( "required", true );
-						$( "#departmentId" ).attr( "required", true );
-						$( "#crossCharge" ).attr( "required", true );
-					};
-				});
 			});
 
 			if ({{time}} < 7) {
@@ -137,15 +129,6 @@
 
 			//CKEditor Init
 			CKEDITOR.replace('newNoteText');
-
-			//InService Requirements
-			$('#inservice').change(function () {
-				if ($('#inservice option:selected').val() == 1) {
-					$( "#goLiveDate" ).attr( "required", true );
-					$( "#departmentId" ).attr( "required", true );
-					$( "#crossCharge" ).attr( "required", true );
-				};
-			});
 		});
 	</script>
 {% endblock %}

@@ -15,7 +15,7 @@ from itaacProjects import *
 #Index Page
 @app.route('/')
 def index():
-	return render_template('/tutorial.html')
+	return redirect('/corporateNetwork/dmz')
 
 #Admin Interface
 @app.route('/admin')

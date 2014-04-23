@@ -1,6 +1,6 @@
 from peewee import *
 
-dmzaasClients = PostgresqlDatabase('dmzaasClients', user = 'rilogan')
+dmzaasClients = PostgresqlDatabase('dmzaasClients')
 
 class UnknownFieldType(object):
     pass

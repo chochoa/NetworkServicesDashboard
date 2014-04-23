@@ -6,6 +6,7 @@ Departmental dashboard for Network Services
 This dashboard should currently be live at networkservices/ (networkservices.cisco.com). Documentation can be found at /help.
 
 Should you wish to run this locally please clone the repository and install the dependencies listed in requirements.txt and then run the server:
+
     $ git clone git@github.com:RichLogan/NetworkServicesDashboard.git
     $ pip install -r requirements.txt
     $ python runServer.py

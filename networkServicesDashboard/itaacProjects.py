@@ -1,6 +1,6 @@
 from peewee import *
 
-itaacProjects = PostgresqlDatabase('itaacProjects', user = 'rilogan')
+itaacProjects = PostgresqlDatabase('itaacProjects')
 
 class UnknownFieldType(object):
     pass

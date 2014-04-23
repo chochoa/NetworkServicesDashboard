@@ -1,6 +1,5 @@
 from networkServicesDashboard import *
 from flask import render_template, redirect, make_response
-from databaseConnection import *
 import calendar
 from datetime import datetime, timedelta
 import time
@@ -289,7 +288,7 @@ def addingClient():
 	newClient.execute()
 
 	nextid = 0
-	for result in database.execute_sql('SELECT MAX(engagementid) FROM clients'):
+	for result in dmzaasClients.execute_sql('SELECT MAX(engagementid) FROM clients'):
 		nextid = result[0]
 
 	return redirect('/corporateNetwork/dmz/client?id=' + str(nextid))

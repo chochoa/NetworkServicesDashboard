@@ -7,7 +7,7 @@ This dashboard should currently be live at networkservices/ (networkservices.cis
 
 Should you wish to run this locally please install the dependencies listed in requirements.txt and then run the following from the project's root directory:
 
-$ python runServer.py
+    $ python runServer.py
 
 The application should be now running at http://127.0.0.1:5000/ on a local development/debug server.
 

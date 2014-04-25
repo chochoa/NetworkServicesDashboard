@@ -73,4 +73,4 @@ class Assignees(itaacModel):
     name = TextField(null=True)
 
     class Meta:
-        db_table = 'pssignees'
+        db_table = 'assignees'

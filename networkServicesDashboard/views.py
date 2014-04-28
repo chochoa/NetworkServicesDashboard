@@ -3,6 +3,8 @@ from flask import render_template, redirect, make_response
 import calendar
 from datetime import datetime, timedelta
 import time
+import smtplib
+import re
 
 #Databases
 from dmzaasClients import *
@@ -395,7 +397,7 @@ def editClient():
 
 	client = clients.get(clients.engagementid == request.form['clientid'])
 	updateFlag = 0
-	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice']))):
+	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice'])) or (client.assignee != request.form['assignee'])):
 		updateFlag = 1
 
 	if len(request.form.getlist('servicegateways')) == 0:
@@ -445,6 +447,17 @@ def editClient():
 	if updateFlag == 1:
 		updatedClient = clients.update(statustimestart = str(datetime.fromtimestamp(time.time()))).where(clients.engagementid == request.form['clientid'])
 		updatedClient.execute()
+
+		# Status Change E-Mail
+		sender = '"DMZ-Service" <dmz-service@cisco.com>'
+		login = re.search(r"\(([A-Za-z0-9_]+)\)", client.assignee)
+		recipient = str(login.group(1)) + "@cisco.com"
+		subject = "DMZaaS: " + str(client.subscriber)
+		message = "Hello,\n\nThis is an automated mail informing you that the DMZaaS deployment " + str(client.subscriber).upper() + " has been updated and you are currently listed as the assignee for this project.\n\nPlease check the information at http://networkservices-dev/corporateNetwork/dmz/client?id=" + str(client.engagementid) + " and complete any required action.\n\nIf you believe this wrongly assigned or need more information, please reply to dmz-service@cisco.com.\n\nMany thanks,\n\nThe DMZ-Service Team."
+		server = smtplib.SMTP('outbound.cisco.com')
+		m = "From: %s\r\nTo: %s\r\nSubject: %s\r\nX-Mailer: networkservices-dev.cisco.com\r\n\r\n" % (sender, recipient, subject)
+		server.sendmail(sender, recipient, m+message)
+		server.quit()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 

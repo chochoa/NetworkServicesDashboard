@@ -1,0 +1,132 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navDMZ').attr('class', 'active');
+			$(".clickable").click(function() {
+  				window.location.href = $(this).find("a").attr("href");
+			});
+
+			var sortedTable = $('#dataTable').dataTable({"bPaginate":false});
+			sortedTable.fnSort([[1,'asc']]);
+			var x = $('#dataTable_filter');
+			x.addClass('input-group');
+			var z = x.children(":first").children("input")
+			z.addClass('form-control').attr('placeholder','Search').unwrap();
+			x.contents().filter(function(){ return this.nodeType != 1; }).remove();
+
+			//Formatting
+			$(".initial").each(function() {
+  				if ($(this).text() == "True") {
+  					$(this).addClass("success");
+  				}
+  				else {
+  					$(this).addClass("danger");
+  				}
+			});
+			$(".arch").each(function() {
+  				if ($(this).text() == "Completed") {
+  					$(this).addClass("success");
+  				}
+  				else if ($(this).text() == "In Progress") {
+  					$(this).addClass("warning");
+  				}
+  				else {
+  					$(this).addClass("danger");
+  				}
+			});
+			$(".acl").each(function() {
+  				if ($(this).text() == "Completed") {
+  					$(this).addClass("success");
+  				}
+  				else if ($(this).text() == "In Progress") {
+  					$(this).addClass("warning");
+  				}
+  				else {
+  					$(this).addClass("danger");
+  				}
+			});
+			$(".imp").each(function() {
+  				if ($(this).text() == "Completed") {
+  					$(this).addClass("success");
+  				}
+  				else if ($(this).text() == "In Progress") {
+  					$(this).addClass("warning");
+  				}
+  				else {
+  					$(this).addClass("danger");
+  				}
+			});
+			$(".service").each(function() {
+  				if ($(this).text() == "True") {
+  					$(this).addClass("success");
+  				}
+  				else {
+  					$(this).addClass("danger");
+  				}
+			});
+		});
+	</script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+	<!-- <h2>DMZaaS Clients</h2> -->
+	<br />
+
+	<ul class="nav nav-pills">
+		<li class="dropdown active">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">In Progress <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="/corporateNetwork/dmz">General</a></li>
+				<li class="active"><a href="/corporateNetwork/dmz/smo">SM Overview</a></li>
+			</ul>
+		</li>
+  		<li><a href="/corporateNetwork/dmz/inService">In Service</a></li>
+ 		<li><a href="/corportdmz/withdrawn">Withdrawn</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="/corporateNetwork/dmz/billing">Billing</a></li>
+				<li><a href="/corporateNetwork/dmz/pocs">Contacts</a></li>
+			</ul>
+		</li>
+ 		<li class="pull-right"><a href="dmz/addClient">Add New Client</a></li>
+ 		<li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
+	</ul>
+
+	<br />
+
+	<div>
+		<table class="table table-condensed table-hover" id='dataTable'>
+			<thead>
+				<tr>
+					<th>Engagement ID</th>
+					<th>Subscriber</th>
+					<th>Assignee</th>
+					<th>Initial Engagement</th>
+					<th>Architecture Review</th>
+					<th>ACL Review</th>
+					<th>Implementation</th>
+					<th>In Service</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for client in clients %}
+					<tr>
+						<td>{{client.engagementid}}</td>
+						<td>{{client.subscriber}}</td>
+						<td>{{client.assignee}}</td>
+						<td class="initial">{{client.securityinfo}}</td>
+						<td class="arch">{{client.architecturereview}}</td>
+						<td class="acl">{{client.aclreview}}</td>
+						<td class="imp">{{client.implementation}}</td>
+						<td class="service">{{client.inservice}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

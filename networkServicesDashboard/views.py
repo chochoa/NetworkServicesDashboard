@@ -99,6 +99,11 @@ def dmzInProgress():
 
 	return render_template('corporateNetwork/dmz/inProgress.html', inProgressClients = html)
 
+@app.route('/corporateNetwork/dmz/smo')
+def dmzInProgressSMO():
+	inProgressClients = clients.select().where(clients.status == 2)
+	return render_template('corporateNetwork/dmz/smo.html', clients = inProgressClients)
+
 # In Service Clients Summary Table
 @app.route('/corporateNetwork/dmz/inService')
 def dmzInService():

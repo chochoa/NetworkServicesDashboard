@@ -24,9 +24,15 @@
 {% block content %}
 	<!-- <h2>DMZaaS Clients</h2> -->
 	<br />
-	
+
 	<ul class="nav nav-pills">
-  		<li class="active"><a href="dmz">In Progress</a></li>
+		<li class="dropdown active">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">In Progress <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li class="active"><a href="dmz">General</a></li>
+				<li><a href="dmz/smo">SM Overview</a></li>
+			</ul>
+		</li>
   		<li><a href="dmz/inService">In Service</a></li>
  		<li><a href="dmz/withdrawn">Withdrawn</a></li>
 		<li class="dropdown">

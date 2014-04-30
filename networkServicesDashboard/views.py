@@ -454,15 +454,16 @@ def editClient():
 		updatedClient.execute()
 
 		# Status Change E-Mail
-		sender = '"DMZ-Service" <dmz-service@cisco.com>'
-		login = re.search(r"\(([A-Za-z0-9_]+)\)", client.assignee)
-		recipient = str(login.group(1)) + "@cisco.com"
-		subject = "DMZaaS: " + str(client.subscriber)
-		message = "Hello,\n\nThis is an automated mail informing you that the DMZaaS deployment " + str(client.subscriber).upper() + " has been updated and you are currently listed as the assignee for this project.\n\nPlease check the information at http://networkservices-dev/corporateNetwork/dmz/client?id=" + str(client.engagementid) + " and complete any required action.\n\nIf you believe this wrongly assigned or need more information, please reply to dmz-service@cisco.com.\n\nMany thanks,\n\nThe DMZ-Service Team."
-		server = smtplib.SMTP('outbound.cisco.com')
-		m = "From: %s\r\nTo: %s\r\nSubject: %s\r\nX-Mailer: networkservices-dev.cisco.com\r\n\r\n" % (sender, recipient, subject)
-		server.sendmail(sender, recipient, m+message)
-		server.quit()
+		if (client.assignee != None) and (client.assignee != ""):
+			sender = '"DMZ-Service" <dmz-service@cisco.com>'
+			login = re.search(r"\(([A-Za-z0-9_]+)\)", client.assignee)
+			recipient = str(login.group(1)) + "@cisco.com"
+			subject = "DMZaaS: " + str(client.subscriber)
+			message = "Hello,\n\nThis is an automated mail informing you that the DMZaaS deployment " + str(client.subscriber).upper() + " has been updated and you are currently listed as the assignee for this project.\n\nPlease check the information at http://networkservices-dev/corporateNetwork/dmz/client?id=" + str(client.engagementid) + " and complete any required action.\n\nIf you believe this wrongly assigned or need more information, please reply to dmz-service@cisco.com.\n\nMany thanks,\n\nThe DMZ-Service Team."
+			server = smtplib.SMTP('outbound.cisco.com')
+			m = "From: %s\r\nTo: %s\r\nSubject: %s\r\nX-Mailer: networkservices-dev.cisco.com\r\n\r\n" % (sender, recipient, subject)
+			server.sendmail(sender, recipient, m+message)
+			server.quit()
 
 	return redirect('/corporateNetwork/dmz/client?id=' + request.form['clientid'])
 

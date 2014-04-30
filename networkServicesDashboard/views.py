@@ -337,7 +337,7 @@ def dmzReport():
 # Primary point of contact report
 @app.route('/corporateNetwork/dmz/pocs')
 def dmzaasPocs():
-	return render_template('/corporateNetwork/dmz/contacts.html', inservice = clients.select().where(clients.status == 1), inprogress = clients.select().where(clients.status == 2))
+	return render_template('/corporateNetwork/dmz/contacts.html', clients = clients.select().where(clients.status == 1))
 
 @app.route('/corporateNetwork/dmz/billing')
 def dmzRez():

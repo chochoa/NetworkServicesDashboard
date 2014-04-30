@@ -30,8 +30,6 @@
 
 	<h2>Points of Contact</h2>
 
-	<h3>In Service</h3>
-
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -40,28 +38,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for client in inservice %}
-				<tr>
-					<td>{{client.subscriber}}</td>
-					<td>{{client.primarycontact}}</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	<hr />
-
-	<h3>In Progress</h3>
-
-	<table class="table table-condensed">
-		<thead>
-			<tr>
-				<th>Subscriber</th>
-				<th>Primary Contact</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for client in inprogress %}
+			{% for client in clients %}
 				<tr>
 					<td>{{client.subscriber}}</td>
 					<td>{{client.primarycontact}}</td>

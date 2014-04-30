@@ -402,7 +402,7 @@ def editClient():
 
 	client = clients.get(clients.engagementid == request.form['clientid'])
 	updateFlag = 0
-	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice'])) or (client.assignee != request.form['assignee'])):
+	if ((client.securityinfo != int(request.form['securityinfo'])) or (client.architecturereview != request.form['architecturereview']) or (client.addressspace != request.form['addressspace']) or (client.aclreview != request.form['aclreview']) or (client.implementation != request.form['implementation']) or (client.inservice != int(request.form['inservice'])):
 		updateFlag = 1
 
 	if len(request.form.getlist('servicegateways')) == 0:

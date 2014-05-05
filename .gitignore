@@ -1,3 +1,7 @@
+# DB Backup Files
+/tools/dmzaasClients.dump
+/tools/itaacProjects.dump
+
 venv
 *.pyc
 

@@ -1,0 +1,31 @@
+{% extends "corporateNetwork/corpTemplate.html" %}
+{% block buttons %}
+	<br />
+
+	<ul class="nav nav-pills">
+		<li>
+        	<div class="btn-group navbar-btn">
+            	<button class="btn">In Progress</button>
+                <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/corporateNetwork/dmz">General</a></li>
+                    <li><a href="/corporateNetwork/dmz/smo">SM Overview</a></li>
+                </ul>
+            </div>
+        </li>
+
+  		<li><a href="dmz/inService">In Service</a></li>
+ 		<li><a href="dmz/withdrawn">Withdrawn</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="/corporateNetwork/dmz/billing">Billing</a></li>
+				<li><a href="/corporateNetwork/dmz/pocs">Contacts</a></li>
+			</ul>
+		</li>
+ 		<li class="pull-right"><a href="dmz/addClient">Add New Client</a></li>
+ 		<li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
+	</ul>
+
+	<br />
+{% endblock %}

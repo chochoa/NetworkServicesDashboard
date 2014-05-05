@@ -1,0 +1,66 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - DMZaaS{% endblock %}
+{% block head %}
+  {{super()}}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#navDMZ').attr('class', 'active');
+    });
+  </script>
+{% endblock %}
+{% block level2 %}DMZaaS{% endblock %}
+{% block content %}
+  <br />
+
+  <ul class="nav nav-pills">
+      <li><a href="../dmz">In Progress</a></li>
+      <li><a href="inService">In Service</a></li>
+      <li><a href="withdrawn">Withdrawn</a></li>
+      <li class="dropdown active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/corporateNetwork/dmz/billing">Billing</a></li>
+          <li><a href="/corporateNetwork/dmz/pocs">Contacts</a></li>
+        </ul>
+      </li>
+     <li class="pull-right"><a href="addClient">Add New Client</a></li>
+     <li class="pull-right"><a href="http://iwe.cisco.com/web/view-post/post/-/posts?postId=571900092" target="_blank">?</a></li>
+  </ul>
+
+  <br />
+
+  <a href="billing/download" class="btn btn-success btn-lg active" role="button">Download as CSV</a>
+
+  <br /><br />
+
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Subscriber ID</th>
+        <th>Lab ID</th>
+        <th>Subscriber</th>
+        <th>Location</th>
+        <th>Department ID</th>
+        <th>Department Name</th>
+        <th>Status</th>
+        <th>Go Live Date</th>
+        <th>Montly Recovery ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for client in clients %}
+        <tr>
+          <td>{{client.engagementid}}</td>
+          <td>{{client.labid}}</td>
+          <td>{{client.subscriber}}</td>
+          <td>{{client.location}}</td>
+          <td>{{client.billtoid}}</td>
+          <td>{{client.billtoname}}</td>
+          <td>In Service</td>
+          <td>{{client.golivedate}}</td>
+          <td>{{client.crosscharge}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

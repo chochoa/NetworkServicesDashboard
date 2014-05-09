@@ -28,6 +28,7 @@ class clients(dmzaasModel):
     labname = CharField(max_length=100, null=True)
     labstatus = CharField(max_length=100, null=True)
     location = CharField(max_length=100, null=True)
+    onhold = BooleanField(null=True)
     othercontact = CharField(max_length=100, null=True)
     otherservices = TextField(null=True)
     plans = TextField(null=True)

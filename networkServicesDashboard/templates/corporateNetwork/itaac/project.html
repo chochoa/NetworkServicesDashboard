@@ -23,6 +23,9 @@
 			//Date Pickers
 			$("#requestdate").datepicker({dateFormat:'yy-mm-dd'});
 			$("#deliverydate").datepicker({dateFormat:'yy-mm-dd'});
+
+			//Linking
+
 		});
 	</script>
 {% endblock %}
@@ -32,7 +35,8 @@
 	<br />
 
 	<ul class="nav nav-pills">
-		<li><a href="../itaac">In Progress</a></li>
+		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
+		<li><a href="/corporateNetwork/itaac/completed">Completed</a></li>
 		<li class="active"><a href="project?id={{project.projectid}}">{{project.projectname}}</a></li>
 		<li class="pull-right"><a href="addProject">Add New Project</a></li>
 	</ul>
@@ -45,7 +49,7 @@
 	    		<div class="panel-heading" id="collapseHeadingOne">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-							Client Information
+							Client Information <small>Information detailing the requestor</small>
 						</a>
 					</h4>
 				</div>
@@ -109,7 +113,7 @@
 				<div class="panel-heading" id="collapseHeadingTwo">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-							Project Information
+							Project Information <small>Business related information</small>
 						</a>
 					</h4>
 				</div>
@@ -157,6 +161,13 @@
 									<textarea data-toggle="tooltip" id="activity" class="form-control" name="otherinfo" rows="3">{{project.otherinfo}}</textarea>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="tmsorder" class="col-sm-2 control-label">TMS Order Numbers</label>
+								<div class="col-sm-10 input-group">
+									<textarea data-toggle="tooltip" id="tmsorder" class="form-control" name="tmsorder" rows="2">{{project.tmsorder}}</textarea>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -166,7 +177,7 @@
 				<div class="panel-heading" id="collapseHeadingThree">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-							Services Requested
+							Services Requested <small>Technical details</small>
 						</a>
 					</h4>
 				</div>
@@ -263,7 +274,7 @@
 				<div class="panel-heading" id="collapseHeadingFour">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-							Origin (A) + Terminating (B) Information
+							Origin (A) + Terminating (B) Information <small>Circuit Information</small>
 						</a>
 					</h4>
 				</div>
@@ -436,6 +447,8 @@
 									</div>
 								</div>
 							</div>
+
+							<hr />
 
 							<div id="B End">
 								<h3>Terminating End</h3>
@@ -630,9 +643,5 @@
 				</div>
 	    	</div>
 		</div>
-
-		<br />
-
-		<input class="form-control" style="background-color:#428bca;color:#FFFFFF;" type="submit" value="Add Project" />
 	</form>
 {% endblock %}

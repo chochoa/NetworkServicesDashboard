@@ -61,6 +61,7 @@ class Projects(itaacModel):
     teammailer = CharField(max_length=255, null=True)
     tel_a = CharField(max_length=255, null=True)
     tel_b = CharField(max_length=255, null=True)
+    tmsorder = CharField(max_length=255, null=True)
     zipcode_a = CharField(max_length=255, null=True)
     zipcode_b = CharField(max_length=255, null=True)
 

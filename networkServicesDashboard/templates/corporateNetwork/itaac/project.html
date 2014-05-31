@@ -12,6 +12,16 @@
 			//Disable All Inputs
 			$(":input").prop('disabled', true);
 
+			//Edit
+			$('#editProject').click(function(event) {
+				event.preventDefault();
+				$(":input").removeProp('disabled');
+				$("#editRequirements").removeProp("disabled");
+				$("#editDocumentation").removeProp("disabled");
+				$("#submitEdits").removeClass("hidden");
+				$("#submitEdits").removeAttr("disabled");
+			});
+
 			//Chosen JS init
 			$("#accesstype").chosen({disable_search_threshold: 5});
 			$("#circuitsize").chosen({disable_search_threshold: 5});
@@ -31,19 +41,34 @@
 {% endblock %}
 {% block level2 %}ITaaC Project- {{project.projectname}}{% endblock %}
 {% block content %}
-
 	<br />
 
 	<ul class="nav nav-pills">
 		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
 		<li><a href="/corporateNetwork/itaac/completed">Completed</a></li>
+		<li><a href="/corporateNetwork/itaac/circuitList">Circuits</a></li>
 		<li class="active"><a href="project?id={{project.projectid}}">{{project.projectname}}</a></li>
+		<li class="pull-right"><a id="editProject" href="" class="btn-warning">Edit Project</a></li>
 		<li class="pull-right"><a href="addProject">Add New Project</a></li>
 	</ul>
 
-	<h2>Project Name: <b>{{project.projectname}}</b></h2>
+	<h2>
+		Project Name: <b>{{project.projectname}}</b>
+		<span class="pull-right">
+			<h2>Status:
+				<select>
+					<option value="2">In Progress</option>
+					<option value="1">Complete</option>
+					<option value="3">Declined</option>
+				</select>
+			</h2>
+		</span>
+	</h2>
 
-	<form name="viewproject" method="POST" action="/corporateNetwork/itaac/editProject" class="form-horizontal">
+	<br />
+
+	<form name="viewproject" method="POST" action="/corporateNetwork/itaac/editProject" class="form-horizontal" enctype=multipart/form-data>
+		<input type="hidden" name="projectid" value="{{project.projectid}}">
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
 	    		<div class="panel-heading" id="collapseHeadingOne">
@@ -253,16 +278,20 @@
 							<div class="form-group">
 								<label for="requirementsurl" class="col-sm-2 control-label">Requirements Document</label>
 								<div class="col-sm-10 input-group">
-									<span class="input-group-addon">http://</span>
-									<input data-toggle="tooltip" type="text" class="form-control" name="requirementsurl" id="requirementsurl" placeholder="URL" value="{{project.requirementsurl}}">
+										<a href="/static/uploads/{{project.requirementsurl}}">{{project.requirementsurl}}</a>
+										<span name="editRequirements" class="btn btn-default btn-file" style="width:100%">
+    										Browse <input name="requirementsurl" type="file" disabled>
+										</span>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="documentation" class="col-sm-2 control-label">Other Documentation</label>
 								<div class="col-sm-10 input-group">
-									<span class="input-group-addon">http://</span>
-									<input data-toggle="tooltip" type="text" class="form-control" name="documentation" id="documentation" placeholder="URL" value="{{project.documentation}}">
+									<a href="/static/uploads/{{project.documentation}}">{{project.documentation}}</a>
+									<span name="editDocumentation" class="btn btn-default btn-file" style="width:100%">
+    									Browse <input name="documentation" type="file" disabled>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -643,5 +672,7 @@
 				</div>
 	    	</div>
 		</div>
+		<br />
+		<input id="submitEdits" type="submit" class="form-control hidden btn btn-success" value="Update" disabled>
 	</form>
 {% endblock %}

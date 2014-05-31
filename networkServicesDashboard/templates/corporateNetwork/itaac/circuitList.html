@@ -1,0 +1,98 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - ITaaC{% endblock %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript" src='/static/js/jquery.dataTables.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#navITaaC').attr('class', 'active');
+			$(".clickable").click(function() {
+				window.location.href = $(this).find("a").attr("href");
+			});
+
+			var sortedTable = $('#dataTable').dataTable({"bPaginate":false});
+			sortedTable.fnSort([[0,'asc']]);
+			var x = $('#dataTable_filter');
+			x.addClass('input-group');
+			var z = x.children(":first").children("input")
+			z.addClass('form-control').attr('placeholder','Search').unwrap();
+			x.contents().filter(function(){ return this.nodeType != 1; }).remove();
+		});
+	</script>
+{% endblock %}
+{% block level2 %}Circuits{% endblock %}
+{% block content %}
+	<br />
+
+	<ul class="nav nav-pills">
+		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
+		<li><a href="/corporateNetwork/itaac/completed">Completed</a></li>
+		<li class="active"><a href="/corporateNetwork/itaac/circuitList">Circuits</a></li>
+		<li class="pull-right"><a href="/corporateNetwork/itaac/addProject">Add New Project</a></li>
+	</ul>
+
+	<br />
+
+	<div>
+		<table class="table table-condensed table-hover" id='dataTable'>
+			<thead>
+				<tr>
+					<td>Circuit #</td>
+					<td>A Building</td>
+					<td>Z Building</td>
+					<!-- <td>A Node</td> -->
+					<!-- <td>Z Node</td> -->
+					<td>Circuit ID</td>
+					<td>Curcuit ID Number</td>
+					<td>Protocol</td>
+					<!-- <td>Protected</td> -->
+					<td>Customer</td>
+					<!-- <td>Cross Connect ID</td> -->
+					<!-- <td>Long Haul Circuit ID</td> -->
+					<!-- <td>Description</td> -->
+					<!-- <td>Mailers</td> -->
+					<!-- <td>Business Use</td> -->
+					<td>Primary POC</td>
+					<!-- <td>Email</td> -->
+					<!-- <td>Phone</td> -->
+					<!-- <td>Secondary POC</td> -->
+					<!-- <td>Email</td> -->
+					<!-- <td>Phone</td> -->
+					<!-- <td>Quarter</td> -->
+					<!-- <td>ckt_cnt_in_service</td> -->
+					<!-- <td>Notes</td> -->
+				</tr>
+			</thead>
+			<tbody>
+				{% for circuit in circuits %}
+					<tr class="clickable">
+						<td>{{circuit.circuitid}}</td>
+						<td>{{circuit.a_bldg}}</td>
+						<td>{{circuit.z_bldg}}</td>
+						<!-- <td>{{circuit.a_node}}</td> -->
+						<!-- <td>{{circuit.z_node}}</td> -->
+						<td>{{circuit.circuit}}</td>
+						<td>{{circuit.circuit_id_no}}</td>
+						<td>{{circuit.protocol}}</td>
+						<!-- <td>{{circuit.protected}}</td> -->
+						<td>{{circuit.customer}}</td>
+						<!-- <td>{{circuit.cross_connect}}</td> -->
+						<!-- <td>{{circuit.long_haul_circuit}}</td> -->
+						<!-- <td>{{circuit.description}}</td> -->
+						<!-- <td>{{circuit.mailers}}</td> -->
+						<!-- <td>{{circuit.business_use}}</td> -->
+						<td>{{circuit.poc}}</td>
+						<!-- <td>{{circuit.poc_email}}</td> -->
+						<!-- <td>{{circuit.poc_phone}}</td> -->
+						<!-- <td>{{circuit.sec_poc}}</td> -->
+						<!-- <td>{{circuit.sec_poc_email}}</td> -->
+						<!-- <td>{{circuit.sec_poc_phone}}</td> -->
+						<!-- <td>{{circuit.qrtr}}</td> -->
+						<!-- <td>{{circuit.ckt_cnt_in_service}}</td> -->
+						<!-- <td>{{circuit.notes}}</td> -->
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

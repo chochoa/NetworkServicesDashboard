@@ -38,7 +38,7 @@ class Projects(itaacModel):
     department = CharField(max_length=255, null=True)
     dependencies = TextField(null=True)
     diversity = BooleanField(null=True)
-    documentation = CharField(max_length=255, null=True)
+    documentation = BlobField(null=True)
     floor_a = CharField(max_length=255, null=True)
     floor_b = CharField(max_length=255, null=True)
     intercampus = BooleanField(null=True)
@@ -52,7 +52,7 @@ class Projects(itaacModel):
     protection = BooleanField(null=True)
     requestdate = DateField(null=True)
     requestorname = CharField(max_length=255, null=True)
-    requirementsurl = CharField(max_length=255, null=True)
+    requirementsurl = BlobField(null=True)
     state_a = CharField(max_length=255, null=True)
     state_b = CharField(max_length=255, null=True)
     status = IntegerField(null=True)
@@ -75,3 +75,45 @@ class Assignees(itaacModel):
 
     class Meta:
         db_table = 'assignees'
+
+class Circuits(itaacModel):
+    a_bldg = CharField(max_length=255, null=True)
+    a_node = CharField(max_length=255, null=True)
+    business_use = CharField(max_length=255, null=True)
+    circuit = CharField(max_length=255, null=True, db_column='circuit_id')
+    circuit_id_no = IntegerField(null=True)
+    circuitid = PrimaryKeyField()
+    ckt_cnt_in_service = CharField(max_length=255, null=True)
+    cross_connect = CharField(max_length=255, null=True, db_column='cross_connect_id')
+    customer = CharField(max_length=255, null=True)
+    description = CharField(max_length=255, null=True)
+    long_haul_circuit = CharField(max_length=255, null=True, db_column='long_haul_circuit_id')
+    mailers = CharField(max_length=255, null=True)
+    notes = CharField(max_length=255, null=True)
+    poc = CharField(max_length=255, null=True)
+    poc_email = CharField(max_length=255, null=True)
+    poc_phone = CharField(max_length=255, null=True)
+    protected = CharField(max_length=255, null=True)
+    protocol = CharField(max_length=255, null=True)
+    qrtr = CharField(max_length=255, null=True)
+    sec_poc = CharField(max_length=255, null=True)
+    sec_poc_email = CharField(max_length=255, null=True)
+    sec_poc_phone = CharField(max_length=255, null=True)
+    z_bldg = CharField(max_length=255, null=True)
+    z_node = CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'circuits'
+
+class Colocombo(itaacModel):
+    address = CharField(max_length=255, null=True)
+    cabino_no = IntegerField(null=True)
+    combination = IntegerField(null=True)
+    comboid = PrimaryKeyField()
+    infoprovider = CharField(null=True)
+    notes = TextField(null=True)
+    ownder = CharField(max_length=255, null=True)
+    site = CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'colocombo'

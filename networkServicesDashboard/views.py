@@ -697,13 +697,13 @@ def itaacAddingProject():
 	requirements = request.files['requirementsurl']
 	if requirements and allowed_file(requirements.filename):
 		requirementsFilename = secure_filename(requirements.filename)
-		requirements.save('/static/uploads/' + requirementsFilename)
+		requirements.save('static/uploads/' + requirementsFilename)
 
 	documentationFilename = ""
 	documentation = request.files['documentation']
 	if documentation and allowed_file(documentation.filename):
 		documentationFilename = secure_filename(documentation.filename)
-		documentation.save('/static/uploads/' + documentationFilename)
+		documentation.save('static/uploads/' + documentationFilename)
 
 	newRequestDate = request.form['requestdate']
 	if newRequestDate == "":
@@ -782,13 +782,13 @@ def itaacEditProject():
 	requirements = request.files['requirementsurl']
 	if requirements and allowed_file(requirements.filename):
 		requirementsFilename = secure_filename(requirements.filename)
-		requirements.save('/static/uploads/' + requirementsFilename)
+		requirements.save('static/uploads/' + requirementsFilename)
 
 	documentationFilename = ""
 	documentation = request.files['documentation']
 	if documentation and allowed_file(documentation.filename):
 		documentationFilename = secure_filename(documentation.filename)
-		documentation.save('/static/uploads/' + documentationFilename)
+		documentation.save('static/uploads/' + documentationFilename)
 
 	newRequestDate = request.form['requestdate']
 	if newRequestDate == "":

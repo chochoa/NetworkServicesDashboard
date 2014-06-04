@@ -450,6 +450,14 @@ def editClient():
 		gateway1 = str(request.form.getlist('servicegateways')[0])
 		gateway2 = str(request.form.getlist('servicegateways')[1])
 
+	onHoldStatus = request.form['onhold']
+	if onHoldStatus == "False" or onHoldStatus == False:
+		onHoldStatus = 0
+	elif onHoldStatus == "True" or onHoldStatus == True:
+		onHoldStatus = 1
+	else:
+		onHoldStatus = None
+
 	updatedClient = clients.update(
 					    activityconducted = request.form['activityconducted'],
 					    assignee = request.form['assignee'],
@@ -470,7 +478,7 @@ def editClient():
     					location = request.form['location'],
     					othercontact = request.form['othercontact'],
     					otherservices = request.form['otherservices'],
-    					onhold = request.form['onhold'],
+    					onhold = onHoldStatus,
     					plans = request.form['plans'],
     					primarycontact = request.form['primarycontact'],
     					securityinfo = int(request.form['securityinfo']),

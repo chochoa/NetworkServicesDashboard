@@ -111,6 +111,7 @@
 				$("#addressspace").removeAttr("disabled").trigger("chosen:updated");
 				$("#aclreview").removeAttr("disabled").trigger("chosen:updated");
 				$("#implementation").removeAttr("disabled").trigger("chosen:updated");
+				$("#onhold").removeAttr("disabled").trigger("chosen:updated");
 				$("#inservice").removeAttr("disabled").trigger("chosen:updated");
 				$("#targetDate").datepicker({dateFormat:'yy-mm-dd'});
 				$("#goLiveDate").datepicker({dateFormat:'yy-mm-dd'});
@@ -467,7 +468,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="onhold" class="col-sm-2 control-label">Project Status</label>
+						<label for="onhold" class="col-sm-2 control-label">{{clientArray.onhold}}</label>
 						<div class="col-sm-10">
 							<select data-placeholder="onhold" class="form-control chosen-select" id="onhold" name="onhold" disabled>
 								<option value="False">On-going</option>

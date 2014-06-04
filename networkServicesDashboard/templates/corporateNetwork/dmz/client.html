@@ -47,6 +47,7 @@
 			$("#aclreview").chosen({disable_search_threshold:5});
 			$("#implementation").chosen({disable_search_threshold:5});
 			$("#inservice").chosen({disable_search_threshold:5});
+			$("#onhold").chosen({disable_search_threshold:5});
 			$('.chosen-select').trigger("chosen:updated");
 
 			//Links in form
@@ -469,8 +470,8 @@
 						<label for="onhold" class="col-sm-2 control-label">Project Status</label>
 						<div class="col-sm-10">
 							<select data-placeholder="onhold" class="form-control chosen-select" id="onhold" name="onhold" disabled>
-								<option value="0">On-going</option>
-								<option value="1">On-hold</option>
+								<option value="False">On-going</option>
+								<option value="True">On-hold</option>
 							</select>
 						</div>
 					</div>

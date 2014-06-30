@@ -3,10 +3,11 @@
 	src: url('../fonts/');
 }
 
-/*body { padding-top: 80px; }
-@media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
-}*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/static/fonts/glyphicons-halflings-regular.eot');
+  src: url('/static/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/static/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/static/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/static/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
 
 body {
 	width: 70%;
@@ -172,6 +173,27 @@ td {
 
 #clickLabId, #clickCase, #clickPrimaryContact, #clickOtherContact, #clickConnectionOwner, #clickAssignee {
 	cursor: pointer;
+}
+
+/* File Input Syles */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
 
 /* Dropdown Styles */

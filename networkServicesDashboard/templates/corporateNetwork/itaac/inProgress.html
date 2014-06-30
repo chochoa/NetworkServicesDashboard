@@ -39,11 +39,9 @@
 				<tr>
 					<th>Project ID</th>
 					<th>Project Name</th>
-					<th>Origin Point</th>
-					<th>Terminating Point</th>
-					<th>Assignee</th>
-					<th>Last Updated</th>
-					<th>Time in Status</th>
+					<th>Current Status</th>
+					<th>Target Date</th>
+					<th>Assigned To</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,11 +49,9 @@
 					<tr class="clickable">
 						<td><a href="itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
 						<td>{{project.projectname}}</td>
-						<td>{{project.buildingid_a}}, {{project.city_a}}, {{project.state_a}}</td>
-						<td>{{project.buildingid_b}}, {{project.city_b}}, {{project.state_b}}</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
+						<td>{{project.currentstatus}}</td>
+						<td>{{project.targetdate}}</td>
+						<td>{{project.assignee}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

@@ -9,64 +9,60 @@ class itaacModel(Model):
     class Meta:
         database = itaacProjects
 
-class Projects(itaacModel):
-    accesstype = CharField(max_length=255, null=True)
-    activity = TextField(null=True)
-    buildingid_a = CharField(max_length=255, null=True)
-    buildingid_b = CharField(max_length=255, null=True)
-    businessimpact = TextField(null=True)
+class NewProject(itaacModel):
+    alocation = CharField(max_length=255, null=True)
+    alocationcisco = CharField(max_length=255, null=True)
+    archdocumentation = CharField(max_length=255, null=True)
+    assignee = CharField(max_length=255, null=True)
+    billingauth = CharField(max_length=255, null=True)
+    billingdept = CharField(max_length=255, null=True)
     businessunit = CharField(max_length=255, null=True)
-    cellnumber_a = CharField(max_length=255, null=True)
-    cellnumber_b = CharField(max_length=255, null=True)
-    circuitsize = CharField(max_length=255, null=True)
-    city_a = CharField(max_length=255, null=True)
-    city_b = CharField(max_length=255, null=True)
-    company_a = CharField(max_length=255, null=True)
-    company_b = CharField(max_length=255, null=True)
-    contacttitle_a = CharField(max_length=255, null=True)
-    contacttitle_b = CharField(max_length=255, null=True)
-    contactcompany_a = CharField(max_length=255, null=True)
-    contactcompany_b = CharField(max_length=255, null=True)
-    contactemail_a = CharField(max_length=255, null=True)
-    contactemail_b = CharField(max_length=255, null=True)
-    contactname_a = CharField(max_length=255, null=True)
-    contactname_b = CharField(max_length=255, null=True)
-    contactnumber_a = CharField(max_length=255, null=True)
-    contactnumber_b = CharField(max_length=255, null=True)
-    comments = TextField(null=True)
-    deliverydate = DateField(null=True)
-    department = CharField(max_length=255, null=True)
-    dependencies = TextField(null=True)
-    diversity = BooleanField(null=True)
-    documentation = BlobField(null=True)
-    floor_a = CharField(max_length=255, null=True)
-    floor_b = CharField(max_length=255, null=True)
-    intercampus = BooleanField(null=True)
-    latency = CharField(max_length=255, null=True)
-    nickname = CharField(max_length=255, null=True)
-    othercontacts = TextField(null=True)
-    otherinfo = TextField(null=True)
+    circuitdiagram = CharField(max_length=255, null=True)
+    circuitid = CharField(max_length=255, null=True)
+    circuittype = CharField(max_length=255, null=True)
+    cost = CharField(max_length=255, null=True)
+    crdate = CharField(max_length=255, null=True)
+    crnumber = CharField(max_length=255, null=True)
+    currentstatus = CharField(max_length=255,null=True)
+    designclientapproval = CharField(max_length=255, null=True)
+    designdocumentation = CharField(max_length=255, null=True)
+    designstatus = CharField(max_length=255, null=True)
+    discoveryauthyes = CharField(max_length=255, null=True)
+    discoverystatus = CharField(max_length=255, null=True)
+    hardwareassessment = CharField(max_length=255, null=True)
+    hardwareinstallation = CharField(max_length=255, null=True)
+    hardwareneeded = CharField(max_length=255, null=True)
+    hardwareorderno = CharField(max_length=255, null=True)
+    i2ocaseaccepted = CharField(max_length=255, null=True)
+    i2ocaseacceptedtimestamp = CharField(max_length=255, null=True)
+    i2ocasecompleted = CharField(max_length=255, null=True)
+    i2ocasecompletedtimestamp = CharField(max_length=255, null=True)
+    i2ocasecreated = CharField(max_length=255, null=True)
+    i2ocasecreatedtimestamp = CharField(max_length=255, null=True)
+    implementationstatus = CharField(max_length=255, null=True)
+    impother = CharField(max_length=255, null=True)
+    labid = CharField(max_length=255, null=True)
+    linecard = CharField(max_length=255, null=True)
+    litcase = CharField(max_length=255, null=True)
+    mailer = CharField(max_length=255, null=True)
+    opsstatus = CharField(max_length=255, null=True)
     projectid = PrimaryKeyField()
     projectname = CharField(max_length=255, null=True)
-    projectscope = TextField(null=True)
-    protection = BooleanField(null=True)
-    requestdate = DateField(null=True)
-    requestorname = CharField(max_length=255, null=True)
-    requirementsurl = BlobField(null=True)
-    state_a = CharField(max_length=255, null=True)
-    state_b = CharField(max_length=255, null=True)
-    status = IntegerField(null=True)
-    street_a = CharField(max_length=255, null=True)
-    street_b = CharField(max_length=255, null=True)
-    teammailer = CharField(max_length=255, null=True)
-    tel_a = CharField(max_length=255, null=True)
-    tel_b = CharField(max_length=255, null=True)
-    tmsorder = CharField(max_length=255, null=True)
-    zipcode_a = CharField(max_length=255, null=True)
-    zipcode_b = CharField(max_length=255, null=True)
+    requestor = CharField(max_length=255, null=True)
+    securityfinalreview = CharField(max_length=255, null=True)
+    securitystatus = CharField(max_length=255, null=True)
+    servicestatus = IntegerField(null=True)
+    serviceteamcomments = CharField(max_length=255, null=True)
+    targetdate = CharField(max_length=255, null=True)
+    teamreview = CharField(max_length=255, null=True)
+    technicaldiscussion = CharField(max_length=255, null=True)
+    technicaldiscussiondate = CharField(max_length=255, null=True)
+    thirdparty = CharField(max_length=255, null=True)
+    zlocation = CharField(max_length=255, null=True)
+    zlocationcisco = CharField(max_length=255, null=True)
 
     class Meta:
-        db_table = 'projects'
+        db_table = 'newproject'
 
 class Assignees(itaacModel):
     assigneeid = PrimaryKeyField()
@@ -105,7 +101,7 @@ class Circuits(itaacModel):
     class Meta:
         db_table = 'circuits'
 
-class Colocombo(itaacModel):
+class ColoCombo(itaacModel):
     address = CharField(max_length=255, null=True)
     cabino_no = IntegerField(null=True)
     combination = IntegerField(null=True)
@@ -117,3 +113,36 @@ class Colocombo(itaacModel):
 
     class Meta:
         db_table = 'colocombo'
+
+class ProjectTypes(itaacModel):
+    monthlycost = IntegerField(null=True)
+    size = CharField(max_length=255, null=True)
+    circuittype = CharField(max_length=255, null=True)
+    typeid = PrimaryKeyField()
+
+    class Meta:
+        db_table = 'projecttypes'
+
+class ITaaCResources(itaacModel):
+    resourceid = PrimaryKeyField()
+    resourcelogin = CharField(max_length=255, null=True)
+    resourcename = CharField(max_length=255, null=True)
+    resourcetype = CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'itaacresources'
+
+class LineCards(itaacModel):
+    cardid = PrimaryKeyField()
+    cardname = CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'linecards'
+
+class Location(itaacModel):
+    locationid = PrimaryKeyField()
+    locationname = CharField(max_length=255, null=True)
+    locationtype = CharField(max_length=255, null=True)
+
+    class Meta:
+        db_table = 'location'

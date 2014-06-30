@@ -19,10 +19,7 @@ def check_auth(username, password):
     return username == 'admin' and password == 'NetworkServices'
 
 def authenticate():
-    return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+    return Response('Incorrect Username + Password :(', 401,{'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 def requires_auth(f):
     @wraps(f)
@@ -33,13 +30,227 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-def allowed_file(filename):
-	return '.' in filename and \
-		filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
 #############################
 # General Application Views #
 #############################
+
+@app.route('/corporateNetwork/itaac/project')
+def itaacProject():
+	projectid = request.args.get('id', '')
+	project = NewProject.get(NewProject.projectid == projectid)
+
+	resourceList = {}
+	resourcetypes = []
+	for resource in ITaaCResources.select():
+		resourcetypes.append(resource.resourcetype)
+	resourcetypes = list(set(resourcetypes))
+	for resourcetype in resourcetypes:
+		resourceList[resourcetype] = ITaaCResources.select().where(ITaaCResources.resourcetype == resourcetype)
+
+	locationList = {}
+	locationtypes = []
+	for location in Location.select():
+		locationtypes.append(location.locationtype)
+	locationtypes = list(set(locationtypes))
+	for locationtype in locationtypes:
+		locationList[locationtype] = Location.select().where(Location.locationtype == locationtype)
+
+	projectTypesList = {}
+	circuitTypesList = []
+	for projectType in ProjectTypes.select():
+		circuitTypesList.append(projectType.circuittype)
+	circuitTypesList = list(set(circuitTypesList))
+	for circuittype in circuitTypesList:
+		projectTypesList[circuittype] = ProjectTypes.select().where(ProjectTypes.circuittype == circuittype)
+
+	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes)
+
+@app.route('/corporateNetwork/itaac/addProject')
+def itaacAddNewProject():
+	locationList = {}
+	locationtypes = []
+	for location in Location.select():
+		locationtypes.append(location.locationtype)
+	locationtypes = list(set(locationtypes))
+	for locationtype in locationtypes:
+		locationList[locationtype] = Location.select().where(Location.locationtype == locationtype)
+
+
+	projectTypesList = {}
+	circuitTypesList = []
+	for projectType in ProjectTypes.select():
+		circuitTypesList.append(projectType.circuittype)
+	circuitTypesList = list(set(circuitTypesList))
+	for circuittype in circuitTypesList:
+		projectTypesList[circuittype] = ProjectTypes.select().where(ProjectTypes.circuittype == circuittype)
+	return render_template('/corporateNetwork/itaac/addProject.html', projectTypes = projectTypesList, circuitTypes = circuitTypesList, locations = locationList, locationtypes = locationtypes)
+
+@app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
+def itaacAddingNewProject():
+	newProject = NewProject.insert(
+		servicestatus = 2,
+		currentStatus = "Discovery: In Progress",
+		projectname =  request.form['projectname'],
+		requestor =  request.form['requestor'],
+		mailer =  request.form['mailer'],
+		businessunit =  request.form['businessunit'],
+		targetdate =  request.form['targetdate'],
+		alocation = request.form['alocation'],
+		alocationcisco = request.form['alocationcisco'],
+		zlocation = request.form['zlocation'],
+		zlocationcisco = request.form['zlocationcisco'],
+		circuittype =  request.form['circuittype'],
+		cost =  request.form['cost'],
+		billingdept =  request.form['billingdept'],
+		billingauth =  request.form['billingauth'],
+		discoveryauthyes = request.form['discoveryauthyes'])
+	newProject.execute()
+	return redirect('/corporateNetwork/itaac')
+
+@app.route('/corporateNetwork/itaac/editingProject', methods=['POST'])
+def itaacEditingProject():
+	# Need to handle empty checkboxes
+	hardwareneededCheck = ''
+	try:
+		hardwareneededCheck = request.form['hardwareneeded']
+	except KeyError, e:
+		hardwareneededCheck = 'off'
+
+	i2ocasecreatedCheck = ''
+	try:
+		i2ocasecreatedCheck = request.form['i2ocasecreated']
+	except KeyError, e:
+		i2ocasecreated = 'off'
+
+	i2ocaseacceptedCheck = ''
+	try:
+		i2ocaseacceptedCheck = request.form['i2ocaseaccepted']
+	except KeyError, e:
+		i2ocaseaccepted = 'off'
+
+	i2ocasecompletedCheck = ''
+	try:
+		i2ocasecompletedCheck = request.form['i2ocasecompleted']
+	except KeyError, e:
+		i2ocasecompleted = 'off'
+
+	newservicestatus = 2
+	finalStatus = ""
+	if request.form['discoverystatus'] == "In Progress":
+		finalStatus = "Discovery: In Progress"
+	if request.form['securitystatus'] == "In Progress":
+		finalStatus = "Security Review: In Progress"
+	if request.form['designstatus'] == "In Progress":
+		finalStatus = "Design: In Progress"
+	if request.form['implementationstatus'] == "In Progress":
+		finalStatus = "Implementation: In Progress"
+	if request.form['opsstatus'] == "In Progress":
+		finalStatus = "Operations: In Progress"
+	statuses = ['discoverystatus', 'securitystatus', 'designstatus', 'implementationstatus', 'opsstatus']
+	for status in statuses:
+		if request.form[status] == "Completed":
+			newservicestatus = 1
+	if request.form['discoverystatus'] == "Project Declined":
+		finalStatus = "Project Declined"
+		newservicestatus = 3
+
+	updatedProject = NewProject.update(
+		servicestatus = newservicestatus,
+		assignee = request.form['assignee'],
+		projectname = request.form['projectname'],
+		requestor = request.form['requestor'],
+		mailer = request.form['mailer'],
+		businessunit = request.form['businessunit'],
+		targetdate = request.form['targetdate'],
+		alocation = request.form['alocation'],
+		alocationcisco = request.form['alocationcisco'],
+		zlocation = request.form['zlocation'],
+		zlocationcisco = request.form['zlocationcisco'],
+		circuittype = request.form['circuittype'],
+		cost = request.form['cost'],
+		currentstatus = finalStatus,
+		billingdept = request.form['billingdept'],
+		billingauth = request.form['billingauth'],
+		discoveryauthyes = request.form['discoveryauthyes'],
+		discoverystatus = request.form['discoverystatus'],
+		serviceteamcomments = request.form['serviceteamcomments'],
+		hardwareassessment = request.form['hardwareassessment'],
+		securitystatus = request.form['securitystatus'],
+		labid = request.form['labid'],
+		archdocumentation = request.form['archdocumentation'],
+		securityfinalreview = request.form['securityfinalreview'],
+		designstatus = request.form['designstatus'],
+		circuitid = request.form['circuitid'],
+		designdocumentation = request.form['designdocumentation'],
+		linecard = request.form['linecard'],
+		teamreview = request.form['teamreview'],
+		thirdparty = request.form['thirdparty'],
+		designclientapproval = request.form['designclientapproval'],
+		implementationstatus = request.form['implementationstatus'],
+		technicaldiscussion = request.form['technicaldiscussion'],
+		technicaldiscussiondate = request.form['technicaldiscussiondate'],
+		hardwareinstallation = request.form['hardwareinstallation'],
+		crnumber = request.form['crnumber'],
+		crdate = request.form['crdate'],
+		hardwareneeded = hardwareneededCheck,
+		hardwareorderno = request.form['hardwareorderno'],
+		litcase = request.form['litcase'],
+		circuitdiagram = request.form['circuitdiagram'],
+		impother = request.form['impother'],
+		i2ocasecreated = i2ocasecreatedCheck,
+		i2ocasecreatedtimestamp = request.form['i2ocasecreatedtimestamp'],
+		opsstatus = request.form['opsstatus'],
+		i2ocaseaccepted = i2ocaseacceptedCheck,
+		i2ocaseacceptedtimestamp = request.form['i2ocaseacceptedtimestamp'],
+		i2ocasecompleted = i2ocasecompletedCheck,
+		i2ocasecompletedtimestamp = request.form['i2ocasecompletedtimestamp']).where(NewProject.projectid == request.form['projectid'])
+	updatedProject.execute()
+
+	return redirect('/corporateNetwork/itaac/project?id=' + request.form['projectid'])
+
+@app.route('/corporateNetwork/itaac/deleteProject', methods=['POST'])
+def deletingItaacProject():
+	deletedProject = NewProject.delete().where(NewProject.projectid == request.form['projectid'])
+	deletedProject.execute()
+	return redirect('/corporateNetwork/itaac')
+
+@app.route('/corporateNetwork/itaac/addingProjectType', methods=['POST'])
+def itaacAddingProjectType():
+	newProjectType = ProjectTypes.insert(
+		monthlycost = request.form['projectTypeCost'],
+		size = request.form['projectTypeSize'],
+		circuittype = request.form['projectTypeType'])
+	newProjectType.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/addingResource', methods=['POST'])
+def itaacAddingResource():
+	newItaacResource = ITaaCResources.insert(
+		resourcelogin = request.form['resourcelogin'],
+		resourcename = request.form['resourcename'],
+		resourcetype = request.form['resourcetype'])
+	newItaacResource.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/circuitList')
+def circuitList():
+	return render_template('corporateNetwork/itaac/circuitList.html', circuits = Circuits.select())
+
+@app.route('/corporateNetwork/itaac/coloInfo')
+def coloInfo():
+	return render_template('corporateNetwork/itaac/coloInfo.html', coloInfo = ColoCombo.select())
+
+# In Progress ITaaC Projects
+@app.route('/corporateNetwork/itaac')
+def itaac():
+	return render_template('corporateNetwork/itaac/inProgress.html', projects = NewProject.select().where(NewProject.servicestatus == 2))
+
+# Completed Projects
+@app.route('/corporateNetwork/itaac/completed')
+def itaacCompletedProjects():
+	return render_template('corporateNetwork/itaac/completed.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
+
+##################################################################################################################################################
 
 #Index Page
 @app.route('/')
@@ -54,7 +265,7 @@ def adminInterface():
 	for gateway in gateways.select():
 		locations.append(gateway.location)
 	locations = list(set(locations))
-	return render_template('/admin.html', assignees = assignees.select(), gateways = gateways.select(), locations = locations)
+	return render_template('/admin.html', assignees = assignees.select(), gateways = gateways.select(), locations = locations, projectTypes = ProjectTypes.select(), itaacResources = ITaaCResources.select())
 
 @app.route('/corporateNetwork/dmz/addingAssignee', methods=['POST'])
 def addingAssignee():
@@ -671,203 +882,184 @@ def getLatestNote(client):
 	for note in notes.select().join(clients).where(clients.engagementid == client.engagementid).order_by(notes.posted.desc()):
 		return note
 
-###############
-# ITaaC Views #
-###############
+###################
+# OLD ITaaC Views #
+###################
 
-# In Progress ITaaC Projects
-@app.route('/corporateNetwork/itaac')
-def itaac():
-	inServiceProjects = Projects.select().where(Projects.status == 2)
-	return render_template('corporateNetwork/itaac/inProgress.html', projects = inServiceProjects)
+# # Form to add new ITaaC Project
+# @app.route('/corporateNetwork/itaac/addProject')
+# def itaacAddProject():
+# 	return render_template('corporateNetwork/itaac/addProject.html')
 
-@app.route('/corporateNetwork/itaac/completed')
-def itaacCompletedProjects():
-	completedProjects = Projects.select().where(Projects.status == 1)
-	return render_template('corporateNetwork/itaac/completed.html', projects = completedProjects)
+# # Display details of ITaaC project
+# @app.route('/corporateNetwork/itaac/project')
+# def itaacViewProject():
+# 	project = Projects.get(Projects.projectid == request.args.get('id', ''))
+# 	return render_template('corporateNetwork/itaac/project.html', project = project)
 
-# Form to add new ITaaC Project
-@app.route('/corporateNetwork/itaac/addProject')
-def itaacAddProject():
-	return render_template('corporateNetwork/itaac/addProject.html')
+# # Logic to add new ITaaC project
+# @app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
+# def itaacAddingProject():
+# 	# File Upload
+# 	requirementsFilename = ""
+# 	requirements = request.files['requirementsurl']
+# 	if requirements and allowed_file(requirements.filename):
+# 		requirementsFilename = secure_filename(requirements.filename)
+# 		requirements.save(os.path.join(app.config['UPLOAD_FOLDER'], requirementsFilename))
 
-# Display details of ITaaC project
-@app.route('/corporateNetwork/itaac/project')
-def itaacViewProject():
-	project = Projects.get(Projects.projectid == request.args.get('id', ''))
-	return render_template('corporateNetwork/itaac/project.html', project = project)
+# 	documentationFilename = ""
+# 	documentation = request.files['documentation']
+# 	if documentation and allowed_file(documentation.filename):
+# 		documentationFilename = secure_filename(documentation.filename)
+# 		documentation.save(os.path.join(app.config['UPLOAD_FOLDER'], documentationFilename))
 
-# Logic to add new ITaaC project
-@app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
-def itaacAddingProject():
-	# File Upload
-	requirementsFilename = ""
-	requirements = request.files['requirementsurl']
-	if requirements and allowed_file(requirements.filename):
-		requirementsFilename = secure_filename(requirements.filename)
-		requirements.save(os.path.join(app.config['UPLOAD_FOLDER'], requirementsFilename))
+# 	newRequestDate = request.form['requestdate']
+# 	if newRequestDate == "":
+# 		newRequestDate = None
 
-	documentationFilename = ""
-	documentation = request.files['documentation']
-	if documentation and allowed_file(documentation.filename):
-		documentationFilename = secure_filename(documentation.filename)
-		documentation.save(os.path.join(app.config['UPLOAD_FOLDER'], documentationFilename))
+# 	newDeliveryDate = request.form['deliverydate']
+# 	if newDeliveryDate == "":
+# 		newDeliveryDate = None
+# 	newProject = Projects.insert(
+# 				accesstype = request.form['accesstype'],
+# 				activity = request.form['activity'],
+# 				buildingid_a = request.form['buildingid_A'],
+# 				buildingid_b = request.form['buildingid_B'],
+# 				businessimpact = request.form['businessimpact'],
+# 				businessunit = request.form['businessunit'],
+# 				cellnumber_a = request.form['cellnumber_A'],
+# 				cellnumber_b = request.form['cellnumber_B'],
+# 				circuitsize = request.form['circuitsize'],
+# 				city_a = request.form['city_A'],
+# 				city_b = request.form['city_B'],
+# 				company_a = request.form['company_A'],
+# 				company_b = request.form['company_B'],
+# 				contacttitle_a = request.form['contacttitle_A'],
+# 				contacttitle_b = request.form['contacttitle_B'],
+# 				contactcompany_a = request.form['contactcompany_A'],
+# 				contactcompany_b = request.form['contactcompany_B'],
+# 				contactemail_a = request.form['contactemail_A'],
+# 				contactemail_b = request.form['contactemail_B'],
+# 				contactname_a = request.form['contactname_A'],
+# 				contactname_b = request.form['contactname_B'],
+# 				contactnumber_a = request.form['contactnumber_A'],
+# 				contactnumber_b = request.form['contactnumber_B'],
+# 				comments = request.form['comments'],
+# 				deliverydate = newDeliveryDate,
+# 				department = request.form['department'],
+# 				dependencies = request.form['dependencies'],
+# 				diversity = request.form['diversity'],
+# 				documentation = documentationFilename,
+# 				floor_a = request.form['floor_A'],
+# 				floor_b = request.form['floor_B'],
+# 				intercampus = request.form['intercampus'],
+# 				latency = request.form['latency'],
+# 				nickname = request.form['nickname'],
+# 				othercontacts = request.form['othercontacts'],
+# 				otherinfo = request.form['otherinfo'],
+# 				projectname = request.form['projectname'],
+# 				projectscope = request.form['projectscope'],
+# 				protection = request.form['protection'],
+# 				requestdate = newRequestDate,
+# 				requestorname = request.form['requestorname'],
+# 				requirementsurl = requirementsFilename,
+# 				state_a = request.form['state_A'],
+# 				state_b = request.form['state_B'],
+# 				street_a = request.form['street_A'],
+# 				street_b = request.form['street_B'],
+# 				teammailer = request.form['teammailer'],
+# 				tel_a = request.form['tel_A'],
+# 				tel_b = request.form['tel_B'],
+# 				tmsorder = request.form['tmsorder'],
+# 				zipcode_a = request.form['zipcode_A'],
+# 				zipcode_b = request.form['zipcode_B'],
+# 				status = 2)
+# 	newProject.execute()
 
-	newRequestDate = request.form['requestdate']
-	if newRequestDate == "":
-		newRequestDate = None
+# 	nextid = 0
+# 	for result in itaacProjects.execute_sql('SELECT MAX(projectid) FROM Projects'):
+# 		nextid = result[0]
 
-	newDeliveryDate = request.form['deliverydate']
-	if newDeliveryDate == "":
-		newDeliveryDate = None
-	newProject = Projects.insert(
-				accesstype = request.form['accesstype'],
-				activity = request.form['activity'],
-				buildingid_a = request.form['buildingid_A'],
-				buildingid_b = request.form['buildingid_B'],
-				businessimpact = request.form['businessimpact'],
-				businessunit = request.form['businessunit'],
-				cellnumber_a = request.form['cellnumber_A'],
-				cellnumber_b = request.form['cellnumber_B'],
-				circuitsize = request.form['circuitsize'],
-				city_a = request.form['city_A'],
-				city_b = request.form['city_B'],
-				company_a = request.form['company_A'],
-				company_b = request.form['company_B'],
-				contacttitle_a = request.form['contacttitle_A'],
-				contacttitle_b = request.form['contacttitle_B'],
-				contactcompany_a = request.form['contactcompany_A'],
-				contactcompany_b = request.form['contactcompany_B'],
-				contactemail_a = request.form['contactemail_A'],
-				contactemail_b = request.form['contactemail_B'],
-				contactname_a = request.form['contactname_A'],
-				contactname_b = request.form['contactname_B'],
-				contactnumber_a = request.form['contactnumber_A'],
-				contactnumber_b = request.form['contactnumber_B'],
-				comments = request.form['comments'],
-				deliverydate = newDeliveryDate,
-				department = request.form['department'],
-				dependencies = request.form['dependencies'],
-				diversity = request.form['diversity'],
-				documentation = documentationFilename,
-				floor_a = request.form['floor_A'],
-				floor_b = request.form['floor_B'],
-				intercampus = request.form['intercampus'],
-				latency = request.form['latency'],
-				nickname = request.form['nickname'],
-				othercontacts = request.form['othercontacts'],
-				otherinfo = request.form['otherinfo'],
-				projectname = request.form['projectname'],
-				projectscope = request.form['projectscope'],
-				protection = request.form['protection'],
-				requestdate = newRequestDate,
-				requestorname = request.form['requestorname'],
-				requirementsurl = requirementsFilename,
-				state_a = request.form['state_A'],
-				state_b = request.form['state_B'],
-				street_a = request.form['street_A'],
-				street_b = request.form['street_B'],
-				teammailer = request.form['teammailer'],
-				tel_a = request.form['tel_A'],
-				tel_b = request.form['tel_B'],
-				tmsorder = request.form['tmsorder'],
-				zipcode_a = request.form['zipcode_A'],
-				zipcode_b = request.form['zipcode_B'],
-				status = 2)
-	newProject.execute()
+# 	return redirect('/corporateNetwork/itaac/project?id=' + str(nextid))
 
-	nextid = 0
-	for result in itaacProjects.execute_sql('SELECT MAX(projectid) FROM Projects'):
-		nextid = result[0]
+# # Logic to add new ITaaC project
+# @app.route('/corporateNetwork/itaac/editProject', methods=['POST'])
+# def itaacEditProject():
+# 	# File Upload
+# 	requirementsFilename = ""
+# 	requirements = request.files['requirementsurl']
+# 	if requirements and allowed_file(requirements.filename):
+# 		requirementsFilename = secure_filename(requirements.filename)
+# 		requirements.save(os.path.join(app.config['UPLOAD_FOLDER'], requirementsFilename))
 
-	return redirect('/corporateNetwork/itaac/project?id=' + str(nextid))
+# 	documentationFilename = ""
+# 	documentation = request.files['documentation']
+# 	if documentation and allowed_file(documentation.filename):
+# 		documentationFilename = secure_filename(documentation.filename)
+# 		documentation.save(os.path.join(app.config['UPLOAD_FOLDER'], documentationFilename))
 
-# Logic to add new ITaaC project
-@app.route('/corporateNetwork/itaac/editProject', methods=['POST'])
-def itaacEditProject():
-	# File Upload
-	requirementsFilename = ""
-	requirements = request.files['requirementsurl']
-	if requirements and allowed_file(requirements.filename):
-		requirementsFilename = secure_filename(requirements.filename)
-		requirements.save(os.path.join(app.config['UPLOAD_FOLDER'], requirementsFilename))
+# 	newRequestDate = request.form['requestdate']
+# 	if newRequestDate == "":
+# 		newRequestDate = None
 
-	documentationFilename = ""
-	documentation = request.files['documentation']
-	if documentation and allowed_file(documentation.filename):
-		documentationFilename = secure_filename(documentation.filename)
-		documentation.save(os.path.join(app.config['UPLOAD_FOLDER'], documentationFilename))
+# 	newDeliveryDate = request.form['deliverydate']
+# 	if newDeliveryDate == "":
+# 		newDeliveryDate = None
 
-	newRequestDate = request.form['requestdate']
-	if newRequestDate == "":
-		newRequestDate = None
+# 	editProject = Projects.update(
+# 				accesstype = request.form['accesstype'],
+# 				activity = request.form['activity'],
+# 				buildingid_a = request.form['buildingid_A'],
+# 				buildingid_b = request.form['buildingid_B'],
+# 				businessimpact = request.form['businessimpact'],
+# 				businessunit = request.form['businessunit'],
+# 				cellnumber_a = request.form['cellnumber_A'],
+# 				cellnumber_b = request.form['cellnumber_B'],
+# 				circuitsize = request.form['circuitsize'],
+# 				city_a = request.form['city_A'],
+# 				city_b = request.form['city_B'],
+# 				company_a = request.form['company_A'],
+# 				company_b = request.form['company_B'],
+# 				contacttitle_a = request.form['contacttitle_A'],
+# 				contacttitle_b = request.form['contacttitle_B'],
+# 				contactcompany_a = request.form['contactcompany_A'],
+# 				contactcompany_b = request.form['contactcompany_B'],
+# 				contactemail_a = request.form['contactemail_A'],
+# 				contactemail_b = request.form['contactemail_B'],
+# 				contactname_a = request.form['contactname_A'],
+# 				contactname_b = request.form['contactname_B'],
+# 				contactnumber_a = request.form['contactnumber_A'],
+# 				contactnumber_b = request.form['contactnumber_B'],
+# 				comments = request.form['comments'],
+# 				deliverydate = newDeliveryDate,
+# 				department = request.form['department'],
+# 				dependencies = request.form['dependencies'],
+# 				diversity = request.form['diversity'],
+# 				documentation = documentationFilename,
+# 				floor_a = request.form['floor_A'],
+# 				floor_b = request.form['floor_B'],
+# 				intercampus = request.form['intercampus'],
+# 				latency = request.form['latency'],
+# 				nickname = request.form['nickname'],
+# 				othercontacts = request.form['othercontacts'],
+# 				otherinfo = request.form['otherinfo'],
+# 				projectname = request.form['projectname'],
+# 				projectscope = request.form['projectscope'],
+# 				protection = request.form['protection'],
+# 				requestdate = newRequestDate,
+# 				requestorname = request.form['requestorname'],
+# 				requirementsurl = requirementsFilename,
+# 				state_a = request.form['state_A'],
+# 				state_b = request.form['state_B'],
+# 				street_a = request.form['street_A'],
+# 				street_b = request.form['street_B'],
+# 				teammailer = request.form['teammailer'],
+# 				tel_a = request.form['tel_A'],
+# 				tel_b = request.form['tel_B'],
+# 				tmsorder = request.form['tmsorder'],
+# 				zipcode_a = request.form['zipcode_A'],
+# 				zipcode_b = request.form['zipcode_B'],
+# 				status = 2).where(Projects.projectid == request.form['projectid'])
+# 	editProject.execute()
 
-	newDeliveryDate = request.form['deliverydate']
-	if newDeliveryDate == "":
-		newDeliveryDate = None
-
-	editProject = Projects.update(
-				accesstype = request.form['accesstype'],
-				activity = request.form['activity'],
-				buildingid_a = request.form['buildingid_A'],
-				buildingid_b = request.form['buildingid_B'],
-				businessimpact = request.form['businessimpact'],
-				businessunit = request.form['businessunit'],
-				cellnumber_a = request.form['cellnumber_A'],
-				cellnumber_b = request.form['cellnumber_B'],
-				circuitsize = request.form['circuitsize'],
-				city_a = request.form['city_A'],
-				city_b = request.form['city_B'],
-				company_a = request.form['company_A'],
-				company_b = request.form['company_B'],
-				contacttitle_a = request.form['contacttitle_A'],
-				contacttitle_b = request.form['contacttitle_B'],
-				contactcompany_a = request.form['contactcompany_A'],
-				contactcompany_b = request.form['contactcompany_B'],
-				contactemail_a = request.form['contactemail_A'],
-				contactemail_b = request.form['contactemail_B'],
-				contactname_a = request.form['contactname_A'],
-				contactname_b = request.form['contactname_B'],
-				contactnumber_a = request.form['contactnumber_A'],
-				contactnumber_b = request.form['contactnumber_B'],
-				comments = request.form['comments'],
-				deliverydate = newDeliveryDate,
-				department = request.form['department'],
-				dependencies = request.form['dependencies'],
-				diversity = request.form['diversity'],
-				documentation = documentationFilename,
-				floor_a = request.form['floor_A'],
-				floor_b = request.form['floor_B'],
-				intercampus = request.form['intercampus'],
-				latency = request.form['latency'],
-				nickname = request.form['nickname'],
-				othercontacts = request.form['othercontacts'],
-				otherinfo = request.form['otherinfo'],
-				projectname = request.form['projectname'],
-				projectscope = request.form['projectscope'],
-				protection = request.form['protection'],
-				requestdate = newRequestDate,
-				requestorname = request.form['requestorname'],
-				requirementsurl = requirementsFilename,
-				state_a = request.form['state_A'],
-				state_b = request.form['state_B'],
-				street_a = request.form['street_A'],
-				street_b = request.form['street_B'],
-				teammailer = request.form['teammailer'],
-				tel_a = request.form['tel_A'],
-				tel_b = request.form['tel_B'],
-				tmsorder = request.form['tmsorder'],
-				zipcode_a = request.form['zipcode_A'],
-				zipcode_b = request.form['zipcode_B'],
-				status = 2).where(Projects.projectid == request.form['projectid'])
-	editProject.execute()
-
-	return redirect('/corporateNetwork/itaac/project?id=' + request.form['projectid'])
-
-@app.route('/corporateNetwork/itaac/circuitList')
-def circuitList():
-	return render_template('corporateNetwork/itaac/circuitList.html', circuits = Circuits.select())
-
-@app.route('/corporateNetwork/itaac/coloInfo')
-def coloInfo():
-	return render_template('corporateNetwork/itaac/coloInfo.html', coloInfo = ColoCombo.select())
+# 	return redirect('/corporateNetwork/itaac/project?id=' + request.form['projectid'])

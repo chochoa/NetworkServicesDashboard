@@ -24,7 +24,8 @@
 				<li class="active"><a href="#assignees" data-toggle="tab">Assignees</a></li>
 				<li><a href="#gateways" data-toggle="tab" onclick="refresh();">Gateways</a></li>
 				<h5>ITaaC</h5>
-				<li><a href="#itaac1" data-toggle="tab">ITaaC Space</a></li>
+				<li><a href="#projectTypes" data-toggle="tab">Project Types</a></li>
+				<li><a href="#itaacResources" data-toggle="tab">ITaaC Resources</a></li>
 			</ul>
 		</div>
 		<div class="col-md-8">
@@ -106,9 +107,85 @@
 					</div>
 				</div>
 
-				<!-- Gateway Tab -->
-				<div class="tab-pane fade in" id="itaac1">
-					<h4>ITaaC Space</h4>
+				<!-- Project Types Tab -->
+				<div class="tab-pane fade in" id="projectTypes">
+					<h4>Project Types</h4>
+					<table class="table table-condensed dataTable">
+						<thead>
+							<th>Size</th>
+							<th>Type</th>
+							<th>Monthly Cost ($)</th>
+						</thead>
+						<tbody>
+							{% for projectType in projectTypes %}
+								<tr>
+									<td>{{projectType.size}}</td>
+									<td>{{projectType.circuittype}}</td>
+									<td>{{projectType.monthlycost}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<hr />
+
+					<div class="form-group">
+						<form name="addProjectType" method="POST" action="/corporateNetwork/itaac/addingProjectType">
+							<label for="projectTypeType" class="control-label">Type</label>
+							<select class="form-control" id="projectTypeType" name="projectTypeType" required>
+								<!-- Add in new types here -->
+								<option>Protected</option>
+								<option>Unprotected</option>
+							</select>
+							<br />
+							<label for="projectTypeSize" class="control-label">Size</label>
+							<input type="text" class="form-control" id="projectTypeSize" name="projectTypeSize" placeholder="xx GB" required>
+							<br />
+							<label for="projectTypeCost" class="control-label">Monthly Cost</label>
+							<input type="text" class="form-control" id="projectTypeCost" name="projectTypeCost" placeholder="Montly Cost ($)" required>
+							<br />
+							<input style="margin: 0 auto;width:15%;" type="submit" class="form-control" value="Add Project Type">
+						</form>
+						</form>
+					</div>
+				</div>
+
+				<!-- ITaaC Resources Tab -->
+				<div class="tab-pane fade in" id="itaacResources">
+					<h4>Resources</h4>
+					<table class="table table-condensed dataTable">
+						<thead>
+							<th>Name</th>
+							<th>Login</th>
+							<th>Type</th>
+						</thead>
+						<tbody>
+							{% for resource in itaacResources %}
+								<tr>
+									<td>{{resource.resourcename}}</td>
+									<td>{{resource.resourcelogin}}</td>
+									<td>{{resource.resourcetype}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+					<hr />
+
+					<div class="form-group">
+						<form name="addItaacResource" method="POST" action="/corporateNetwork/itaac/addingResource">
+							<label for="resourcename" class="control-label">Resource Name</label>
+							<input type="text" class="form-control" id="resourcename" name="resourcename" placeholder="Name" required>
+							<br />
+							<label for="resourcelogin" class="control-label">Resource Login</label>
+							<input type="text" class="form-control" id="resourcelogin" name="resourcelogin" placeholder="CEC" required>
+							<br />
+							<label for="resourcetype" class="control-label">Function <small style="color:#FF7878;">Be Consistent!</small></label>
+							<input type="text" class="form-control" id="resourcetype" name="resourcetype" placeholder="Design/Implementation/Ops" required>
+							<br />
+							<input style="margin: 0 auto;width:15%;" type="submit" class="form-control" value="Add Project Type">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

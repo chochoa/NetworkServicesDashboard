@@ -1,4 +1,5 @@
 {% extends "template.html" %}
+{% block title %}Documentation{% endblock %}
 {% block level1 %}Help{% endblock %}
 {% block content %}
 	<div class="row">
@@ -12,6 +13,8 @@
 				<li><a href="/help/technical#deploy">Deploy</a></li>
 				<li><a href="/help/technical#update">Update</a></li>
 				<li><a href="/help/technical#backup">Backup</a></li>
+
+				<h5><a href="/help/develop">Developing</a></h5>
 			</ul>
 		</div>
 		<div class="col-md-10">
@@ -45,51 +48,86 @@
 				</p>
 
 				<p>
-					This assumes that a VM or other server running Ubuntu Server (12.04, although versions should not matter) has already been setup.
+					This assumes that a VM or other server running Ubuntu Server (12.04, although versions should not matter) has already been setup. All lines preceded with a $ indicate they should be run.
+				</p>
+				<p>
+					I'm assuming you're on Linux or OSX. If you're on Windows then you're going to need some kind of SSH + SCP capabilities like <a href="http://www.putty.org/">PuTTY</a>
 				</p>
 
 				<p>
-					<strong>SSH to target VM</strong><br />
+					When giving commands regarding databases, I use one as an example: dmzaasClients. These parts need to be rerun for each DB, substituting in the name. At the time of writing there are two databases:
+						<ul>
+							<li>dmzaasClients</li>
+							<li>itaacProjects</li>
+						</ul>
+				</p>
+
+				<p>
+					<h4>SSH to target VM</h4>
 					<ul>
-						<li>$ ssh root@networkservices</li>
+						<li><code>$ ssh root@networkservices</code></li>
 						<li>PW: Netw0rkServ1ces</li>
 					</ul>
 
-					<strong>Install all needed packages</strong>
+					<h4>Install all needed packages</h4>
 					<ul>
-						<li>$ sudo apt-get update</li>
-						<li>$ sudo apt-get install git</li>
-						<li>$ sudo apt-get install python-pip</li>
-						<li>$ sudo apt-get install postgresql libpq-dev</li>
-						<li>$ sudo apt-get python-dev</li>
+						<li><code>$ sudo apt-get update</code></li>
+						<li><code>$ sudo apt-get install git</code></li>
+						<li><code>$ sudo apt-get install python-pip</code></li>
+						<li><code>$ sudo apt-get install postgresql libpq-dev</code></li>
+						<li><code>$ sudo apt-get python-dev</code></li>
 					</ul>
 
-					<strong>Get application code</strong>
+					<h4>Get application code</h4>
 					<ul>
-						<li>$ cd /</li>
-						<li>$ git clone https://github.com/RichLogan/NetworkServicesDashboard.git</li>
-						<li>$ cd /NetworkServicesDashboard</li>
+						<li><code>$ cd /</code></li>
+						<li><code>$ git clone https://github.com/RichLogan/NetworkServicesDashboard.git</code></li>
+						<li><code>$ cd /NetworkServicesDashboard</code></li>
 					</ul>
 
-					<strong>Setup Databases</strong>
+					<div>
+						<h4>Setup Databases</h4>
+						<ul>
+							<li><code>$ su - postgres</code></li>
+							<li><code>$ createuser -d -a -P root</code></li>
+							<li>Password: Netw0rkServ1ces</li>
+							<li><code>$ exit</code></li>
+							<li><code>$ createdb dmzaasClients</code></li>
+						</ul>
+
+						<h5>From backups</h5>
+						<p>
+							For this you will need to copy over the database dumps (which you should have) to the host
+						</p>
+
+						<ul>
+							<li>First, navigate to the directory on your own machine where these are</li>
+							<li>They should be in the format databaseName.dump. In this example 	we'll cover dmzaasClients but it is the same process for all 	databases (itaacProjects etc)</li>
+							<li><code>$ scp dmzaasClients.dump root@networkservices:/	NetworkServicesDashboard/tools/</code></li>
+							<li>Password: NetworkServ1ces</li>
+							<li>ssh back into the host</li>
+							<li><code>$ psql dmzaasClients &lt; dmzaasClients.dump</code></li>
+						</ul>
+
+						<h5>From Scratch</h5>
+						<p>
+							If for some reason you don't have dumps you will have to just install the databases blank. There are scripts in tools/ (e.g dmzaasClients.sql) that can be run to create blank databases. Open them and copy each table definition seperatly and do the following for each:
+						</p>
+
+						<ul>
+							<li><code>$ psql dmzaasClients</code></li>
+							<li>Paste the script in and run</li>
+						</ul>
+					</div>
+
+					<h4>Install Dependencies</h4>
 					<ul>
-						<li>$ su - postgres</li>
-						<li>$ createuser -d -a -P root</li>
-						<li>PW: Netw0rkServ1ces</li>
-						<li>$ exit</li>
-						<li>$ createdb dmzaasClients</li>
-						<li>$ pgsql dmzaasClients &lt; latest.dump</li>
+						<li><code>$ sudo pip install -r requirements.txt</code></li>
 					</ul>
 
-					<strong>Install Dependencies</strong>
+					<h4>Run!</h4>
 					<ul>
-						<li>$ sudo pip install -r requirements.txt</li>
-						<li>$ sudo easy_install -U gunicorn</li>
-					</ul>
-
-					<strong>Run!</strong>
-					<ul>
-						<li>$ gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</li>
+						<li><code>$ gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</code></li>
 						<li>(--daemon is a DOUBLE dash)</li>
 					</ul>
 				</p>
@@ -102,25 +140,25 @@
 					Pulling down updates from the git repository is a very straightforward process. It involves getting the new changes and restarting the server.
 				</p>
 
-				<strong>SSH in</strong>
+				<h4>SSH in</h4>
 				<ul>
-					<li>$ ssh root@networkservices</li>
+					<li><code>$ ssh root@networkservices</code></li>
 					<li>PW: Netw0rkServ1ces</li>
 				</ul>
 
-				<strong>Pull Changes</strong>
+				<h4>Pull Changes</h4>
 				<ul>
-					<li>$ cd /NetworkServicesDashboard</li>
-					<li>$ git pull</li>
+					<li><code>$ cd /NetworkServicesDashboard</code></li>
+					<li><code>$ git pull</code></li>
 				</ul>
 
-				<strong>Kill and restart server</strong>
+				<h4>Kill and restart server</h4>
 				<ul>
 					<li>This takes a tiny bit of explaining. First we find the id of the process that represents our Gunicorn webserver</li>
-					<li>$ ps ax | grep gunicorn</li>
+					<li><code>$ ps ax | grep gunicorn</code></li>
 					<li>This will most likely return a list of three things. Two will show networkServicesDashboard:app. Pick the id (the far left number) of either of these</li>
 					<li>Now we kill the existing server and bring up a new instance. We chain these commands together so the actual server will be down for a negligable amount of time. xxxx represents the id of the process we located with the previous command</li>
-					<li>$ kill xxxx;gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</li>
+					<li><code>$ kill xxxx;gunicorn networkServicesDashboard:app -b 0.0.0.0:80 --daemon</code></li>
 					<li>Now check you can access the application through a browser, and you're good to go!</li>
 				</ul>
 			</div>
@@ -132,26 +170,24 @@
 					Manual backups of the database(s) are made on a weekly basis, usually on Monday. Below is an example of backing up and restoring the 'dmzaasClients' database. (Assumes the backup is being stored in the top level of /NetworkServicesDashboard)
 				</p>
 
-				<strong>SSH in</strong>
+				<h4>SSH in</h4>
 				<ul>
-					<li>$ ssh root@networkservices</li>
+					<li><code>$ ssh root@networkservices</code></li>
 					<li>PW: Netw0rkServ1ces</li>
 				</ul>
 
-				<strong>Make Backup</strong>
+				<h4>Make Backup</h4>
 				<ul>
-					<li>$ cd /NetworkServicesDashboard</li>
-					<li>$ pg_dump dmzaasClients > dmzaasClients.dump</li>
+					<li><code>$ cd /NetworkServicesDashboard</code></li>
+					<li><code>$ pg_dump dmzaasClients > dmzaasClients.dump</code></li>
 				</ul>
 
-				<strong>Restoring from a backup</strong>
+				<h4>Restoring from a backup</h4>
 				<ul>
-					<li>$ cd /NetworkServicesDashboard</li>
-					<li>$ psql dmzaasClients &lt; dmzaasClients.dump</li>
+					<li><code>$ cd /NetworkServicesDashboard</code></li>
+					<li><code>$ psql dmzaasClients &lt; dmzaasClients.dump</code></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
-	<a href="https://github.com/RichLogan/NetworkServicesDashboard"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 {% endblock %}

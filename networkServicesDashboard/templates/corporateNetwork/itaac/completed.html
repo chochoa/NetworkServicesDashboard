@@ -26,7 +26,7 @@
 
 	<ul class="nav nav-pills">
 		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
-		<li class="active"><a href="/corportateNetwork/itaac/completed">Completed</a></li>
+		<li class="active"><a href="/corporateNetwork/itaac/completed">Completed</a></li>
 		<li><a href="/corporateNetwork/itaac/circuitList">Circuits</a></li>
 		<li class="pull-right"><a href="/corporateNetwork/itaac/addProject">Add New Project</a></li>
 	</ul>
@@ -39,19 +39,17 @@
 				<tr>
 					<th>Project ID</th>
 					<th>Project Name</th>
-					<th>Origin Point</th>
-					<th>Terminating Point</th>
-					<th>Date Completed</th>
+					<th>A Location</th>
+					<th>Z Location</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for project in projects %}
 					<tr class="clickable">
-						<td><a href="itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
+						<td><a href="/corporateNetwork/itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
 						<td>{{project.projectname}}</td>
-						<td>{{project.buildingid_a}}, {{project.city_a}}, {{project.state_a}}</td>
-						<td>{{project.buildingid_b}}, {{project.city_b}}, {{project.state_b}}</td>
-						<td>placeholder</td>
+						<td>{{project.alocation}}</td>
+						<td>{{project.zlocation}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

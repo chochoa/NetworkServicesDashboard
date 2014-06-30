@@ -89,7 +89,7 @@ def itaacAddNewProject():
 def itaacAddingNewProject():
 	newProject = NewProject.insert(
 		servicestatus = 2,
-		currentStatus = "Discovery: In Progress",
+		currentstatus = "Discovery: In Progress",
 		projectname =  request.form['projectname'],
 		requestor =  request.form['requestor'],
 		mailer =  request.form['mailer'],

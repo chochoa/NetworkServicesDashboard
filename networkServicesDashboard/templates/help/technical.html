@@ -189,15 +189,15 @@
 				<h4>Make Backup</h4>
 				<ul>
 					<li><code>$ cd /NetworkServicesDashboard</code></li>
-					<li><code>$ pg_dump dmzaasClients > dmzaasClients.dump</code></li>
-					<li><code>$ pg_dump itaacProjects > itaacProjects.dump</code></li>
+					<li><code>$ pg_dump dmzaasClients &gt; dmzaasClients.dump</code></li>
+					<li><code>$ pg_dump itaacProjects &gt; itaacProjects.dump</code></li>
 				</ul>
 
 				<h4>Restoring from a backup</h4>
 				<ul>
 					<li><code>$ cd /NetworkServicesDashboard</code></li>
-					<li><code>$ psql dmzaasClients &lt; dmzaasClients.dump</code></li>
-					<li><code>$ psql itaacProjects &lt; itaacProjects.dump</code></li>
+					<li><code>$ psql dmzaasClients &lt; tools/dmzaasClients.dump</code></li>
+					<li><code>$ psql itaacProjects &lt; tools/itaacProjects.dump</code></li>
 				</ul>
 			</div>
 		</div>

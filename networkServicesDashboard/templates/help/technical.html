@@ -90,9 +90,9 @@
 						<ul>
 							<li><code>$ su - postgres</code></li>
 							<li><code>$ createuser -d -a -P root</code></li>
-							<li>Password: Netw0rkServ1ces</li>
 							<li><code>$ exit</code></li>
 							<li><code>$ createdb dmzaasClients</code></li>
+							<li><code>$ createdb itaacProjects</code></li>
 						</ul>
 
 						<h5>From backups</h5>
@@ -102,11 +102,18 @@
 
 						<ul>
 							<li>First, navigate to the directory on your own machine where these are</li>
-							<li>They should be in the format databaseName.dump. In this example 	we'll cover dmzaasClients but it is the same process for all 	databases (itaacProjects etc)</li>
-							<li><code>$ scp dmzaasClients.dump root@networkservices:/	NetworkServicesDashboard/tools/</code></li>
+							<li>They should be in the format databaseName.dump. In this example 	we'll cover dmzaasClients but it is the same process for all databases (itaacProjects etc)</li>
+
+							<!-- WINDOWS -->
+
+							<!-- MAC/UNIX -->
+							<li><code>$ scp dmzaasClients.dump root@networkservices:/NetworkServicesDashboard/tools/</code></li>
+							<li><code>$ scp itaacProjects.dump root@networkservices:/NetworkServicesDashboard/tools/</code></li>
 							<li>Password: NetworkServ1ces</li>
 							<li>ssh back into the host</li>
+							<li><code>$ cd /NetworkServicesDashboard/tools</code></li>
 							<li><code>$ psql dmzaasClients &lt; dmzaasClients.dump</code></li>
+							<li><code>$ psql itaacProjects &lt; itaacProjects.dump</code></li>
 						</ul>
 
 						<h5>From Scratch</h5>
@@ -117,11 +124,14 @@
 						<ul>
 							<li><code>$ psql dmzaasClients</code></li>
 							<li>Paste the script in and run</li>
+							<li><code>$ psql itaacProjects</code></li>
+							<li>Paste the script in and run</li>
 						</ul>
 					</div>
 
 					<h4>Install Dependencies</h4>
 					<ul>
+						<li><code>$ cd /NetworkServicesDashboard/</code></li>
 						<li><code>$ sudo pip install -r requirements.txt</code></li>
 					</ul>
 
@@ -180,12 +190,14 @@
 				<ul>
 					<li><code>$ cd /NetworkServicesDashboard</code></li>
 					<li><code>$ pg_dump dmzaasClients > dmzaasClients.dump</code></li>
+					<li><code>$ pg_dump itaacProjects > itaacProjects.dump</code></li>
 				</ul>
 
 				<h4>Restoring from a backup</h4>
 				<ul>
 					<li><code>$ cd /NetworkServicesDashboard</code></li>
 					<li><code>$ psql dmzaasClients &lt; dmzaasClients.dump</code></li>
+					<li><code>$ psql itaacProjects &lt; itaacProjects.dump</code></li>
 				</ul>
 			</div>
 		</div>

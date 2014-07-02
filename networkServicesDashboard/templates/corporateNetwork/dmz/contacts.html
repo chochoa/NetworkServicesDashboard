@@ -40,7 +40,7 @@
 		<tbody>
 			{% for client in clients %}
 				<tr>
-					<td>{{client.subscriber}}</td>
+					<td><a href="/corporateNetwork/dmz/client?id={{client.engagementid}}">{{client.subscriber}}</a></td>
 					<td>{{client.primarycontact}}</td>
 					<td>{{client.othercontact}}
 				</tr>

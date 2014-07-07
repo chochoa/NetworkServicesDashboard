@@ -63,7 +63,41 @@ def itaacProject():
 	for circuittype in circuitTypesList:
 		projectTypesList[circuittype] = ProjectTypes.select().where(ProjectTypes.circuittype == circuittype)
 
-	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes)
+	if ((project.crnumber != None) and (project.crnumber != '')):
+		cases = project.crnumber.split(';')
+		crnumbers = ''
+		for case in cases:
+			if case[:3] == "INC":
+				crnumbers += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
+			elif case[:3] == "CRQ" or case[:3] == "RFC":
+				crnumbers += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
+			else:
+				crnumbers += case + "<br />"
+	else:
+		crnumbers = ''
+
+	if ((project.securitycase != None) and (project.securitycase != '')):
+		cases = project.securitycase.split(';')
+		securitycases = ''
+		for case in cases:
+			if case[:3] == "INC":
+				securitycases += "<a href='http://case/" + case + "' target='_blank'>" + case + "</a><br />"
+			elif case[:3] == "CRQ" or case[:3] == "RFC":
+				securitycases += "<a href='http://rfc/" + case + "' target='_blank'>" + case + "</a><br />"
+			else:
+				securitycases += case + "<br />"
+	else:
+		securitycases = ''
+
+	if ((project.labid != None) and (project.labid != '')):
+		cases = project.labid.split(';')
+		labids = ''
+		for case in cases:
+			labids += "<a href='http://eman-core.cisco.com/infosec/labreg/view.pcgi?lab_id=" + case + "' target='_blank'>" + case + "</a><br />"
+	else:
+		labids = ''
+
+	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes, splitcrnumbers = crnumbers, splitsecuritycases = securitycases, splitlabids = labids)
 
 @app.route('/corporateNetwork/itaac/addProject')
 def itaacAddNewProject():
@@ -179,6 +213,7 @@ def itaacEditingProject():
 		labid = request.form['labid'],
 		archdocumentation = request.form['archdocumentation'],
 		securityfinalreview = request.form['securityfinalreview'],
+		securitycase = request.form['securitycase'],
 		designstatus = request.form['designstatus'],
 		circuitid = request.form['circuitid'],
 		designdocumentation = request.form['designdocumentation'],
@@ -187,9 +222,6 @@ def itaacEditingProject():
 		thirdparty = request.form['thirdparty'],
 		designclientapproval = request.form['designclientapproval'],
 		implementationstatus = request.form['implementationstatus'],
-		technicaldiscussion = request.form['technicaldiscussion'],
-		technicaldiscussiondate = request.form['technicaldiscussiondate'],
-		hardwareinstallation = request.form['hardwareinstallation'],
 		crnumber = request.form['crnumber'],
 		crdate = request.form['crdate'],
 		hardwareneeded = hardwareneededCheck,

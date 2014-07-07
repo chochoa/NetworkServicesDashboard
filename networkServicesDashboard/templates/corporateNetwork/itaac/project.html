@@ -126,6 +126,15 @@
     			$("#alocationselect").removeClass("hidden");
     			$("#staticZLocation").addClass("hidden");
     			$("#zlocationselect").removeClass("hidden");
+    			$("#printCrNumbers").addClass("hidden");
+				$("#crnumber").removeClass("hidden");
+				$("#crnumber").removeAttr("disabled");
+				$("#printSecurityCases").addClass("hidden");
+				$("#securitycase").removeClass("hidden");
+				$("#securitycase").removeAttr("disabled");
+				$("#printLabIds").addClass("hidden");
+				$("#labid").removeClass("hidden");
+				$("#labid").removeAttr("disabled");
 
     			//Enable edit/save/delete
     			$("form :input").prop("disabled", false);
@@ -161,6 +170,15 @@
     			else {
     				$('#i2ocasecompletedtimestamp').val('');
     			}
+			});
+			//hardware order no
+			$('#hardwareneeded').change(function() {
+				if (this.checked) {
+					$('#hardwareorderno').prop('readonly', false);
+				}
+				else {
+					$('#hardwareorderno').prop('readonly', true);
+				}
 			});
 
 			//Show/Hide Cisco Location field
@@ -362,7 +380,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="cost" class="col-sm-2 control-label">Montly Cost</label>
+							<label for="cost" class="col-sm-2 control-label">Montly Cost ($)</label>
 							<div class="col-sm-10 input-group">
 								<input name="cost" id="cost" type="text" class="form-control" value="{{project.cost}}" disabled readonly>
 							</div>
@@ -482,14 +500,20 @@
 					<div class="form-group">
 						<label for="securitycase" class="col-sm-2 control-label">Security Case Number</label>
 						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="securitycase" id="securitycase" placeholder="INC" value="{{project.securitycase}}" disabled>
+							<p id="printSecurityCases" style="text-align:left;">
+								{{splitsecuritycases | safe}}
+							</p>
+							<textarea class="form-control hidden" name="securitycase" id="securitycase" placeholder="INC" rows="3" disabled>{{project.securitycase}}</textarea>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="labid" class="col-sm-2 control-label">Lab ID</label>
 						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="labid" id="labid" placeholder="$1M" value="{{project.labid}}" disabled>
+							<p id="printLabIds">
+								{{splitlabids | safe}}
+							</p>
+							<textarea class="form-control hidden" name="labid" id="labid" rows="3" disabled>{{project.labid}}</textarea>
 						</div>
 					</div>
 
@@ -647,35 +671,21 @@
 					<hr />
 
 					<div class="form-group">
-						<div class="col-sm-6" style="text-align:center;">
-							<label for="technicaldiscussion" class="col-sm-2 control-label">Technical Discussion</label>
-							<div class="col-sm-10 input-group">
-								<select class="form-control" name="technicaldiscussion" disabled>
-									<option>Not Started</option>
-									<option>Scheduled</option>
-									<option>Completed</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="col-sm-6" style="text-align:center;">
-		            		<label for="technicaldiscussiondate" class="col-sm-2 control-label">Scheduled Date</label>
-		                	<div class='col-sm-10 input-group date' id='technicaldiscussiondate'>
-		                    	<span class="input-group-addon">
-		                    		<i class="fa fa-calendar"></i>
-		                    	</span>
-		                    	<input name="technicaldiscussiondate" type='text' class="form-control" placeholder="<--" disabled/>
-			            	</div>
-						</div>
-					</div>
-
-					<br />
+						<label for="hardwareneeded" class="col-sm-2 control-label">Hardware Needed</label>
+						<div class="col-sm-10 input-group">
+      						<span class="input-group-addon">
+        						<input name="hardwareneeded" id="hardwareneeded" type="checkbox" disabled data-value="{{project.hardwareneeded}}">
+      						</span>
+      						<input name="hardwareorderno" id="hardwareorderno" type="text" class="form-control" readonly disabled>
+    					</div>
+    				</div>
 
 					<div class="form-group">
 						<label for="hardwareinstallation" class="col-sm-2 control-label">Hardware Installation</label>
 						<div class="col-sm-10 input-group">
 							<select class="form-control" name="hardwareinstallation" disabled>
 								<option>Not Started</option>
+								<option>Not Needed</option>
 								<option>In Progress</option>
 								<option>Completed</option>
 							</select>
@@ -688,7 +698,10 @@
 						<div class="col-sm-6" style="text-align:center;">
 							<label for="crstatus" class="col-sm-2 control-label">CR Number</label>
 							<div class="col-sm-10 input-group">
-								<input type="text" class="form-control" name="crnumber" id="crnumber" disabled>
+								<p id="printCrNumbers" style="text-align:left;">
+									{{splitcrnumbers | safe}}
+								</p>
+								<textarea class="form-control hidden" name="crnumber" id="crnumber" rows="3" disabled>{{project.crnumber}}</textarea>
 							</div>
 						</div>
 
@@ -702,16 +715,6 @@
 			            	</div>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<label for="hardwareneeded" class="col-sm-2 control-label">Hardware Needed</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="hardwareneeded" id="hardwareneeded" type="checkbox" disabled data-value="{{project.hardwareneeded}}">
-      						</span>
-      						<input name="hardwareorderno" id="hardwareorderno" type="text" class="form-control" readonly disabled>
-    					</div>
-    				</div>
 
     				<div class="form-group">
 						<label for="litcase" class="col-sm-2 control-label">LIT Case</label>

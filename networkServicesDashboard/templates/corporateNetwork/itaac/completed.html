@@ -40,15 +40,21 @@
 					<th>Project Name</th>
 					<th>A Location</th>
 					<th>Z Location</th>
+					<th>Current Status</th>
+					<th>Cost</th>
+					<th>Last Updated</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for project in projects %}
 					<tr class="clickable">
-						<td><a href="/corporateNetwork/itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
+						<td><a href="itaac/project?id={{project.projectid}}">{{project.projectid}}</a></td>
 						<td>{{project.projectname}}</td>
 						<td>{{project.alocation}}</td>
 						<td>{{project.zlocation}}</td>
+						<td>{{project.currentstatus}}</td>
+						<td>{{project.cost}}</td>
+						<td>UPDATED</td>
 					</tr>
 				{% endfor %}
 			</tbody>

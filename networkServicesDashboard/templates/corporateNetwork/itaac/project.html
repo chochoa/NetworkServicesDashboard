@@ -18,6 +18,11 @@
     		//Populate Drop downs
     		//This is a horrible way to do it, but it's quick
 
+    		//Assigned
+
+    		//get current assignee
+    		$('#assigneeSelect').val("{{project.assignee}}");
+
     		//Discovery
     		if ("{{project.discoverystatus}}" == "Completed") {
     			$('#discoveryCompleted').prop("selected", true);
@@ -140,6 +145,7 @@
     			$("form :input").prop("disabled", false);
     			$("#saveEdit").removeClass("hidden");
     			$("#delete").removeClass("hidden");
+    			$('#assigneeSelect').val("{{project.assignee}}");
     		});
 
     		//Automatic Populations
@@ -238,7 +244,7 @@
       				<p class="form-control-static">{{project.assignee}}</p>
       			</div>
 				<div class="col-sm-10 input-group hidden" id="assignToSelect">
-					<select class="form-control input-xlarge" name="assignee" disabled>
+					<select class="form-control input-xlarge" id="assigneeSelect" name="assignee" disabled>
 						<option>None</option>
 						{% for type in resourcetypes %}
 							<optgroup label="{{type}}">

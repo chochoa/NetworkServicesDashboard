@@ -178,17 +178,32 @@ def itaacEditingProject():
 	finalStatus = ""
 	if request.form['discoverystatus'] == "In Progress":
 		finalStatus = "Discovery: In Progress"
+	if request.form['discoverystatus'] == "Completed":
+		finalStatus = "Discovery: Completed"
 	if request.form['securitystatus'] == "In Progress":
 		finalStatus = "Security Review: In Progress"
+	if request.form['securitystatus'] == "Completed" or request.form['securitystatus'] == "Not Needed":
+		finalStatus = "Security Review: Completed"
 	if request.form['designstatus'] == "In Progress":
 		finalStatus = "Design: In Progress"
+	if request.form['designstatus'] == "Completed":
+		finalStatus = "Design: Completed"
 	if request.form['implementationstatus'] == "In Progress":
 		finalStatus = "Implementation: In Progress"
+	if request.form['implementationstatus'] == "Completed":
+		finalStatus = "Implementation: Completed"
 	if request.form['opsstatus'] == "In Progress":
 		finalStatus = "Operations: In Progress"
+	if request.form['opsstatus'] == "Completed":
+		finalStatus = "Operations: Completed"
+
 	statuses = ['discoverystatus', 'securitystatus', 'designstatus', 'implementationstatus', 'opsstatus']
+	ticker = 0
 	for status in statuses:
-		if request.form[status] == "Completed":
+		if request.form[status] == "Completed" or request.form[status] == "Not Needed":
+			ticker += 1
+	if ticker == 5:
+			finalStatus = "In Service"
 			newservicestatus = 1
 	if request.form['discoverystatus'] == "Project Declined":
 		finalStatus = "Project Declined"

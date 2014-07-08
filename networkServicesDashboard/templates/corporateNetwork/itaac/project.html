@@ -155,6 +155,14 @@
     				$('#i2ocasecreatedtimestamp').val('');
     			}
 			});
+			$('#i2ocasereleased').change(function(){
+    			if(this.checked) {
+        			$('#i2ocasereleasedtimestamp').val(moment().format('MM/DD/YYYY h:mm A'));
+    			}
+    			else {
+    				$('#i2ocasereleasedtimestamp').val('');
+    			}
+			});
     		$('#i2ocaseaccepted').change(function(){
     			if(this.checked) {
         			$('#i2ocaseacceptedtimestamp').val(moment().format('MM/DD/YYYY h:mm A'));
@@ -743,12 +751,29 @@
 					</div>
 
 					<div class="form-group">
+						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
+						<div class="col-sm-10 input-group">
+							<input type="text" id="i2ocasenumber" name="i2ocasenumber" class="form-control" value="{{project.i2ocasenumber}}" disabled>
+						</div>
+					</div>
+
+					<div class="form-group">
 						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Created?</label>
 						<div class="col-sm-10 input-group">
       						<span class="input-group-addon">
         						<input name="i2ocasecreated" id="i2ocasecreated" type="checkbox" disabled data-value="{{project.i2ocasecreated}}">
       						</span>
       						<input name="i2ocasecreatedtimestamp" id="i2ocasecreatedtimestamp" type="text" class="form-control" value="{{project.i2ocasecompletedtimestamp}}" readonly disabled>
+    					</div>
+    				</div>
+
+    				<div class="form-group">
+						<label for="i2ocasereleased" class="col-sm-2 control-label">I2O Case Released?</label>
+						<div class="col-sm-10 input-group">
+      						<span class="input-group-addon">
+        						<input name="i2ocasereleased" id="i2ocasereleased" type="checkbox" disabled data-value="{{project.i2ocasereleased}}">
+      						</span>
+      						<input name="i2ocasereleasedtimestamp" id="i2ocasereleasedtimestamp" type="text" class="form-control" value="{{project.i2ocasereleasedtimestamp}}" readonly disabled>
     					</div>
     				</div>
 					<!-- End Inputs -->
@@ -785,6 +810,13 @@
 					</div>
 
 					<hr />
+
+					<div class="form-group">
+						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
+						<div class="col-sm-10 input-group">
+							<input type="text" class="form-control" value="{{project.i2ocasenumber}}" readonly disabled>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label for="i2ocaseaccepted" class="col-sm-2 control-label">I2O Case Accepted?</label>

@@ -13,6 +13,37 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			
+			<h3>Prerequisites</h3>
+			<ul>
+				<li>Knowledge of Python and <a href="http://flask.pocoo.org/">Flask</a></li>
+				<li>Flask is a super easy framework to pick up in a very short time. It's similar to a lightweight Django.</li>
+			</ul>
+
+			<h1>What needs to be done?</h1>
+
+			<p>
+				I wrote a lot of this in what I would probably consider sub-optimal conditions.
+
+				<ul>
+					<li>The DMZ portion was written when I was brand new to the language and framework, so things might not have been done in the best way</li>
+					<li>The ITaaC portion was written in about 2 weeks as I was leaving Cisco and had another project that was higher priority.</li>
+					<li>As a result, I cut my fair share of corners. It would be greate if someone could fix up some of the things I couldn't do properly.</li>
+				</ul>
+
+				<h3>How can you help?</h3>
+
+				<p>This project is hosted on GitHub and the link is in the footer. You should go and contribute!
+
+				The name of the person maintaining the application can be found at the bottom. If you want to actually take this over just contact them and grab or fork the repo. You can grab ownership of the host as well, no-one is really in charge of this. Make your updates and ssh in and pull them, just clear it with the Network Services SMO team first. Contacts for that might be: (<a href="http://dir/josilver">Joe Silver</a>, <a href="http://dir/japplega">Jerry Applegate</a>, Samidha Parab).
+
+				<h4>To Do:</h4>
+
+				<ul>
+					<li>Ideally, the existing ITaaC and DMZaaS parts of the application would be seperated. I believe Flask blueprints are the way to do this (much like Django's apps)</li>
+					<li>Most of the database fields are just VARCHAR(255) to save time. These should reflect the actual data they're going to hold.</li>
+					<li>Connecting to the CISCO domain so we can do login via CEC usernames and password would be great.</li>
+					<li>Notifications to assignees and clients to notify them of progress would be great</li>
+				</ul>
+			</p>
 		</div>
 {% endblock %}

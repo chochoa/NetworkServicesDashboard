@@ -156,6 +156,12 @@ def itaacEditingProject():
 	except KeyError, e:
 		i2ocasecreated = 'off'
 
+	i2ocasereleasedCheck = ''
+	try:
+		i2ocasereleasedCheck = request.form['i2ocasereleased']
+	except KeyError, e:
+		i2ocasereleased = 'off'
+
 	i2ocaseacceptedCheck = ''
 	try:
 		i2ocaseacceptedCheck = request.form['i2ocaseaccepted']
@@ -229,8 +235,11 @@ def itaacEditingProject():
 		litcase = request.form['litcase'],
 		circuitdiagram = request.form['circuitdiagram'],
 		impother = request.form['impother'],
+		i2ocasenumber = request.form['i2ocasenumber'],
 		i2ocasecreated = i2ocasecreatedCheck,
 		i2ocasecreatedtimestamp = request.form['i2ocasecreatedtimestamp'],
+		i2ocasereleased = i2ocasereleasedCheck,
+		i2ocasereleasedtimestamp = request.form['i2ocasereleasedtimestamp'],
 		opsstatus = request.form['opsstatus'],
 		i2ocaseaccepted = i2ocaseacceptedCheck,
 		i2ocaseacceptedtimestamp = request.form['i2ocaseacceptedtimestamp'],
@@ -255,6 +264,39 @@ def itaacAddingProjectType():
 	newProjectType.execute()
 	return redirect('/admin')
 
+@app.route('/corporateNetwork/itaac/deletingProjectType', methods=['POST'])
+def itaacDeletingProjectType():
+	deleteProjectType = ProjectTypes.delete().where(ProjectTypes.typeid == request.form['typeid'])
+	deleteProjectType.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/addingLineCard', methods=['POST'])
+def itaacAddingLineCard():
+	newLineCard = LineCards.insert(
+		cardname = request.form['cardname'])
+	newLineCard.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/deletingLineCard', methods=['POST'])
+def itaacDeletingLineCard():
+	deleteLineCard = LineCards.delete().where(LineCards.cardid == request.form['cardid'])
+	deleteLineCard.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/addingLocation', methods=['POST'])
+def itaacAddingLocation():
+	newLocation = Location.insert(
+		locationname = request.form['locationname'],
+		locationtype = request.form['locationtype'])
+	newLocation.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/deletingLocation', methods=['POST'])
+def itaacDeletingLocation():
+	deleteLocation = Location.delete().where(Location.locationid == request.form['locationid'])
+	deleteLocation.execute()
+	return redirect('/admin')
+
 @app.route('/corporateNetwork/itaac/addingResource', methods=['POST'])
 def itaacAddingResource():
 	newItaacResource = ITaaCResources.insert(
@@ -262,6 +304,12 @@ def itaacAddingResource():
 		resourcename = request.form['resourcename'],
 		resourcetype = request.form['resourcetype'])
 	newItaacResource.execute()
+	return redirect('/admin')
+
+@app.route('/corporateNetwork/itaac/deletingResource', methods=['POST'])
+def itaacDeletingResource():
+	deleteResource = ITaaCResources.delete().where(ITaaCResources.resourceid == request.form['resourceid'])
+	deleteResource.execute()
 	return redirect('/admin')
 
 @app.route('/corporateNetwork/itaac/circuitList')
@@ -297,7 +345,7 @@ def adminInterface():
 	for gateway in gateways.select():
 		locations.append(gateway.location)
 	locations = list(set(locations))
-	return render_template('/admin.html', assignees = assignees.select(), gateways = gateways.select(), locations = locations, projectTypes = ProjectTypes.select(), itaacResources = ITaaCResources.select())
+	return render_template('/admin.html', assignees = assignees.select(), gateways = gateways.select(), locations = locations, projectTypes = ProjectTypes.select(), itaacResources = ITaaCResources.select(), lineCards = LineCards.select(), itaacLocations = Location.select())
 
 @app.route('/corporateNetwork/dmz/addingAssignee', methods=['POST'])
 def addingAssignee():
@@ -330,6 +378,10 @@ def help():
 @app.route('/help/technical')
 def helpTechnical():
 	return render_template('/help/technical.html')
+
+@app.route('/help/develop')
+def helpDevelop():
+	return render_template('/help/developing.html')
 
 @app.route('/tutorial')
 def tutorial():

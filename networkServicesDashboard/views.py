@@ -11,6 +11,11 @@ import re
 from dmzaasClients import *
 from itaacProjects import *
 
+###Note: Project Status is as follows:
+	#1: In Service
+	#2: In Progress
+	#3: Widthdrawn/Declined
+
 #############################
 #	   General functions	#
 #############################

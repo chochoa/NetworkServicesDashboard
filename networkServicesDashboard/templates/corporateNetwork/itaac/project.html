@@ -17,11 +17,11 @@
 
     		//Populate Drop downs
     		//This is a horrible way to do it, but it's quick
-
-    		//Assigned
-
-    		//get current assignee
     		$('#assigneeSelect').val("{{project.assignee}}");
+    		$("#alocation").val("{{project.alocation}}");
+    		$("#zlocation").val("{{project.zlocation}}");
+    		$("#circuittypeselect").val("{{project.circuittype}}{{project.size}}");
+    		$("#discoveryauthyes").val("{{project.discoveryauthyes}}")
 
     		//Discovery
     		if ("{{project.discoverystatus}}" == "Completed") {
@@ -146,6 +146,10 @@
     			$("#saveEdit").removeClass("hidden");
     			$("#delete").removeClass("hidden");
     			$('#assigneeSelect').val("{{project.assignee}}");
+    			$("#alocation").val("{{project.alocation}}");
+    			$("#zlocation").val("{{project.zlocation}}");
+    			$("#circuittypeselect").val("{{project.circuittype}}{{project.size}}");
+    			$("#discoveryauthyes").val("{{project.discoveryauthyes}}");
     		});
 
     		//Automatic Populations
@@ -212,11 +216,37 @@
 					$('#zlocationcisco').addClass('hidden');
 				}
 			});
+
+			$("form").submit(function(event) {
+  				if ($('#discoverystatusselect').val() == "Completed" && ($('#securitystatusselect').val() == "Completed" || $('#securitystatusselect').val() == "Not Needed") && $('#designstatusselect').val() == "Completed" && $('#implementationstatusselect').val() == "Completed" && $("#opsstatusselect").val() == "Completed") {
+  					if (($('#billingdept').val() != null) && ($('#billingdept').val() != "None") && ($('#billingdept').val() != "")) {
+  						return;
+  					}
+  					else {
+  						$('#myModal').modal('show')
+  						event.preventDefault();
+  					}
+  				}
+  				return;
+			});
 		});
 	</script>
 {% endblock %}
 {% block level2 %}ITaaC Project- {{project.projectname}}{% endblock %}
 {% block content %}
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <h4 style="color:red;text-align:center;">Please Add Billing Department</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<br />
 
 	<ul class="nav nav-pills">
@@ -312,7 +342,7 @@
 			                <span class="input-group-addon">
 			        	       	<i class="fa fa-calendar"></i>
 			                </span>
-			            	<input name="targetdate" type='text' class="form-control" placeholder="<---" readonly>
+			            	<input name="targetdate" type='text' class="form-control" placeholder="<---" readonly value="{{project.targetdate}}">
 				        </div>
 					</div>
 
@@ -379,7 +409,7 @@
       							<p class="form-control-static">{{project.circuittype}}</p>
       						</div>
 							<div class="col-sm-10 input-group hidden" id="circuittype">
-								<select name="circuittype" class="form-control" disabled required>
+								<select id="circuittypeselect" name="circuittype" class="form-control" disabled required>
 									<option>None</option>
 									{% for type in circuitTypes %}
 										<optgroup label="{{type}}">
@@ -416,7 +446,7 @@
 	  					<div class="form-group">
 							<label for="discoveryauthyes" class="col-sm-2 control-label">Client Authorised?</label>
 							<div class="col-sm-10 input-group">
-								<select class="form-control" name="discoveryauthyes" disabled>
+								<select class="form-control" name="discoveryauthyes" id="discoveryauthyes" disabled>
 									<option>No</option>
 									<option>Yes</option>
 								</select>
@@ -450,7 +480,7 @@
 					<div class="form-group">
 						<label for="discoverystatus" class="col-sm-2 control-label">Discovery Status</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="discoverystatus" disabled>
+							<select class="form-control" name="discoverystatus" id="discoverystatusselect" disabled>
 								<option id="discoveryNotStarted">Not Started</option>
 								<option id="discoveryInProgress">In Progress</option>
 								<option id="discoveryCompleted">Completed</option>
@@ -499,7 +529,7 @@
 					<div class="form-group">
 						<label for="securitystatus" class="col-sm-2 control-label">Security Review Status</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="securitystatus" disabled>
+							<select class="form-control" name="securitystatus" id="securitystatusselect" disabled>
 								<option id="securityNotStarted">Not Started</option>
 								<option id="securityNotNeeded">Not Needed</option>
 								<option id="securityInProgress">In Progress</option>
@@ -576,7 +606,7 @@
 					<div class="form-group">
 						<label for="designstatus" class="col-sm-2 control-label">Design Status</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="designstatus" disabled>
+							<select class="form-control" name="designstatus" id="designstatusselect" disabled>
 								<option id="designNotStarted">Not Started</option>
 								<option id="designInProgress">In Progress</option>
 								<option id="designCompleted">Completed</option>
@@ -642,7 +672,7 @@
 					<div class="form-group">
 						<label for="designclientapproval" class="col-sm-2 control-label">Client Approval</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="designclientapproval" disabled>
+							<select class="form-control" name="designclientapproval" id="designclientapproval"disabled>
 								<option>No</option>
 								<option>Yes</option>
 							</select>
@@ -673,7 +703,7 @@
 					<div class="form-group">
 						<label for="implementationstatus" class="col-sm-2 control-label">Implementation Status</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="implementationstatus" disabled>
+							<select class="form-control" name="implementationstatus" id="implementationstatusselect" disabled>
 								<option id="implementationNotStarted">Not Started</option>
 								<option id="implementationInProgress">In Progress</option>
 								<option id="implementationCompleted">Completed</option>
@@ -806,7 +836,7 @@
 					<div class="form-group">
 						<label for="opsstatus" class="col-sm-2 control-label">Operations Status</label>
 						<div class="col-sm-10 input-group">
-							<select class="form-control" name="opsstatus" disabled>
+							<select class="form-control" name="opsstatus" id="opsstatusselect" disabled>
 								<option id="opsNotStarted">Not Started</option>
 								<option id="opsInProgress">In Progress</option>
 								<option id="opsCompleted">Completed</option>

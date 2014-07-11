@@ -10,6 +10,7 @@ class itaacModel(Model):
         database = itaacProjects
 
 class NewProject(itaacModel):
+    timeupdated = CharField(max_length=255, null=True)
     alocation = CharField(max_length=255, null=True)
     alocationcisco = CharField(max_length=255, null=True)
     archdocumentation = CharField(max_length=255, null=True)

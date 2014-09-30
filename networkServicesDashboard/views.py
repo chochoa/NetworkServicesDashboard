@@ -11,6 +11,11 @@ import re
 from dmzaasClients import *
 from itaacProjects import *
 
+###Note: Project Status is as follows:
+	#1: In Service
+	#2: In Progress
+	#3: Widthdrawn/Declined
+
 #############################
 #	   General functions	#
 #############################
@@ -122,8 +127,9 @@ def itaacAddNewProject():
 @app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
 def itaacAddingNewProject():
 	newProject = NewProject.insert(
+		timeupdated = datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M"),
 		servicestatus = 2,
-		currentstatus = "Discovery: In Progress",
+		currentstatus = "New Request",
 		projectname =  request.form['projectname'],
 		requestor =  request.form['requestor'],
 		mailer =  request.form['mailer'],
@@ -176,26 +182,28 @@ def itaacEditingProject():
 
 	newservicestatus = 2
 	finalStatus = ""
-	if request.form['discoverystatus'] == "In Progress":
-		finalStatus = "Discovery: In Progress"
-	if request.form['discoverystatus'] == "Completed":
-		finalStatus = "Discovery: Completed"
-	if request.form['securitystatus'] == "In Progress":
-		finalStatus = "Security Review: In Progress"
-	if request.form['securitystatus'] == "Completed" or request.form['securitystatus'] == "Not Needed":
-		finalStatus = "Security Review: Completed"
-	if request.form['designstatus'] == "In Progress":
-		finalStatus = "Design: In Progress"
-	if request.form['designstatus'] == "Completed":
-		finalStatus = "Design: Completed"
-	if request.form['implementationstatus'] == "In Progress":
-		finalStatus = "Implementation: In Progress"
-	if request.form['implementationstatus'] == "Completed":
-		finalStatus = "Implementation: Completed"
-	if request.form['opsstatus'] == "In Progress":
-		finalStatus = "Operations: In Progress"
 	if request.form['opsstatus'] == "Completed":
 		finalStatus = "Operations: Completed"
+	elif request.form['opsstatus'] == "In Progress":
+		finalStatus = "Operations: In Progress"
+	elif request.form['implementationstatus'] == "Completed":
+		finalStatus = "Implementation: Completed"
+	elif request.form['implementationstatus'] == "In Progress":
+		finalStatus = "Implementation: In Progress"
+	elif request.form['designstatus'] == "Completed":
+		finalStatus = "Design: Completed"
+	elif request.form['designstatus'] == "In Progress":
+		finalStatus = "Design: In Progress"
+	elif request.form['securitystatus'] == "Completed" or request.form['securitystatus'] == "Not Needed":
+		finalStatus = "Security Review: Completed"
+	elif request.form['securitystatus'] == "In Progress":
+		finalStatus = "Security Review: In Progress"
+	elif request.form['discoverystatus'] == "Completed":
+		finalStatus = "Discovery: Completed"
+	elif request.form['discoverystatus'] == "In Progress":
+		finalStatus = "Discovery: In Progress"
+	else:
+		finalStatus = "New Request"
 
 	statuses = ['discoverystatus', 'securitystatus', 'designstatus', 'implementationstatus', 'opsstatus']
 	ticker = 0
@@ -210,6 +218,7 @@ def itaacEditingProject():
 		newservicestatus = 3
 
 	updatedProject = NewProject.update(
+		timeupdated = datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M"),
 		servicestatus = newservicestatus,
 		assignee = request.form['assignee'],
 		projectname = request.form['projectname'],

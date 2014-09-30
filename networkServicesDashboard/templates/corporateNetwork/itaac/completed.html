@@ -11,7 +11,7 @@
 			});
 
 			var sortedTable = $('#dataTable').dataTable({"bPaginate":false});
-			sortedTable.fnSort([[1,'asc']]);
+			sortedTable.fnSort([[6,'desc']]);
 			var x = $('#dataTable_filter');
 			x.addClass('input-group');
 			var z = x.children(":first").children("input")
@@ -54,7 +54,7 @@
 						<td>{{project.zlocation}}</td>
 						<td>{{project.currentstatus}}</td>
 						<td>{{project.cost}}</td>
-						<td>UPDATED</td>
+						<td>{{project.timeupdated}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

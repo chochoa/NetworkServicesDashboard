@@ -39,6 +39,23 @@ def requires_auth(f):
 # General Application Views #
 #############################
 
+@app.route('/corporateNetwork/itaac/pocs')
+def itaacPocs():
+	return render_template('corporateNetwork/itaac/pocs.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
+
+@app.route('/corporateNetwork/itaac/billing')
+def itaacBilling():
+	return render_template('corporateNetwork/itaac/billing.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
+
+@app.route('/corporateNetwork/itaac/billing/download')
+def downloaditaacBillingReport():
+	csv = 'ProjectID, Project Name, Requestor, A Location, Z Location, Target Date, Current Status, Authoriser, Department, Cost\r\n'
+	for project in NewProject.select().where(NewProject.servicestatus == 1):
+		csv += '"' + str(project.projectid) + '","' + str(project.projectname) + '","' + str(project.alocation) + '","' + str(project.zlocation) + '","' + str(project.targetdate) + '","' + str(project.currentstatus) + '","' + str(project.billingauth) + '","' + str(project.billingdept) + '","' + str(project.cost) + '"\r\n'
+	response = make_response(csv)
+	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_itaacBilling.csv"
+	return response
+
 @app.route('/corporateNetwork/itaac/project')
 def itaacProject():
 	projectid = request.args.get('id', '')

@@ -51,7 +51,7 @@ def itaacBilling():
 def downloaditaacBillingReport():
 	csv = 'ProjectID, Project Name, Requestor, A Location, Z Location, Target Date, Current Status, Authoriser, Department, Cost\r\n'
 	for project in NewProject.select().where(NewProject.servicestatus == 1):
-		csv += '"' + str(project.projectid) + '","' + str(project.projectname) + '","' + str(project.alocation) + '","' + str(project.zlocation) + '","' + str(project.targetdate) + '","' + str(project.currentstatus) + '","' + str(project.billingauth) + '","' + str(project.billingdept) + '","' + str(project.cost) + '"\r\n'
+		csv += '"' + str(project.projectid.strip()) + '","' + str(project.projectname.strip()) + '","' + str(project.alocation.strip()) + '","' + str(project.zlocation.strip()) + '","' + str(project.targetdate.strip()) + '","' + str(project.currentstatus.strip()) + '","' + str(project.billingauth.strip()) + '","' + str(project.billingdept.strip()) + '","' + str(project.cost.strip()) + '"\r\n'
 	response = make_response(csv)
 	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_itaacBilling.csv"
 	return response
@@ -720,7 +720,7 @@ def dmzBillingReport():
 def downloadDMZBillingReport():
 	csv = 'SubscriberID, Lab ID, Subscriber, Location, Department ID, Department Name, Status, Go Live Date, Monthly Recovery\r\n'
 	for client in clients.select().where(clients.status == 1):
-		csv += '"' + str(client.engagementid) + '","' + str(client.labid) + '","' + str(client.subscriber) + '","' + str(client.location) + '","' + str(client.billtoid) + '","' + str(client.billtoname) + '","' + str(client.status) + '","' + str(client.golivedate) + '","' + str(client.crosscharge) + '"\r\n'
+		csv += '"' + str(client.engagementid.strip()) + '","' + str(client.labid.strip()) + '","' + str(client.subscriber.strip()) + '","' + str(client.location.strip()) + '","' + str(client.billtoid.strip()) + '","' + str(client.billtoname.strip()) + '","' + str(client.status.strip()) + '","' + str(client.golivedate.strip()) + '","' + str(client.crosscharge.strip()) + '"\r\n'
 	response = make_response(csv)
 	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_dmzaasBilling.csv"
 	return response

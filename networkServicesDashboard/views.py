@@ -51,7 +51,7 @@ def itaacBilling():
 def downloaditaacBillingReport():
 	csv = 'ProjectID, Project Name, Requestor, A Location, Z Location, Target Date, Current Status, Authoriser, Department, Cost\r\n'
 	for project in NewProject.select().where(NewProject.servicestatus == 1):
-		csv += '"' + str(project.projectid) + '","' + str(project.projectname.strip()) + '","' + str(project.alocation.strip()) + '","' + str(project.zlocation.strip()) + '","' + str(project.targetdate.strip()) + '","' + str(project.currentstatus.strip()) + '","' + str(project.billingauth.strip()) + '","' + str(project.billingdept.strip()) + '","' + str(project.cost.strip()) + '"\r\n'
+		csv += '"' + str(project.projectid) + '","' + str(project.projectname.strip()) + '","' + str(project.requestor) + '","' + str(project.alocation.strip()) + '","' + str(project.zlocation.strip()) + '","' + str(project.targetdate.strip()) + '","' + str(project.currentstatus.strip()) + '","' + str(project.billingauth.strip()) + '","' + str(project.billingdept.strip()) + '","' + str(project.cost.strip()) + '"\r\n'
 	response = make_response(csv)
 	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_itaacBilling.csv"
 	return response

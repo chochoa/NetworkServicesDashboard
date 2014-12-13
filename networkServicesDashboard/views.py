@@ -83,8 +83,12 @@ def itaacProject():
 	projectid = request.args.get('id', '')
 	project = NewProject.get(NewProject.projectid == projectid)
 
-	latestNote = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc()).limit(1).get()
-	latestNote.updated = (latestNote.updated).strftime("%Y-%m-%d %H:%M:%S")
+	try:
+		latestNote = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc()).limit(1).get()
+		latestNote.updated = (latestNote.updated).strftime("%Y-%m-%d %H:%M:%S")
+	except itaacNotes.DoesNotExist:
+		latestNote = {}
+		latestNote['content'] = "No notes found"
 
 	allNotes = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc())
 	for note in allNotes:

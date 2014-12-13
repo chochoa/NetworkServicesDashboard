@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datetimepicker.min.css">
 	<script type="text/javascript" src="/static/js/moment.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="/static/vendor/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//Select ITaaC on NavBar
@@ -229,6 +230,7 @@
   				}
   				return;
 			});
+			CKEDITOR.replace('newNoteText');
 		});
 	</script>
 {% endblock %}

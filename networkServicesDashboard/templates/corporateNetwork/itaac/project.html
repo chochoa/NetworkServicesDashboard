@@ -279,7 +279,7 @@
 
 	<div class="well">
 		<h4>{{lastNote.updated}}</h4>
-		<p>{{lastNote.content}}</p>
+		<p>{{lastNote.content | safe}}</p>
 	</div>
 
 	<form role="form" class="form-horizontal" action="/corporateNetwork/itaac/editingProject" method="POST" onsubmit='return confirm(&quot;Do you really want to save these changes?&quot;);'>
@@ -936,7 +936,7 @@
 						<input type="submit" class="close" aria-hidden="true" value="&times;">
 					</form>
 					<h4>{{note.updated}}</h4>
-					<p>{{note.content}}</p>
+					<p>{{note.content | safe}}</p>
 				</div>
 			{% endfor %}
 		</div>

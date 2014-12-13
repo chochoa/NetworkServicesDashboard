@@ -66,6 +66,15 @@ class NewProject(itaacModel):
     class Meta:
         db_table = 'newproject'
 
+class itaacNotes(itaacModel):
+    content = TextField(null=True)
+    projectid = ForeignKeyField(null=True, db_column='projectid', rel_model=NewProject)
+    noteid = PrimaryKeyField()
+    updated = DateTimeField(null=True)
+
+    class Meta:
+        db_table = 'itaacnotes'
+
 class Assignees(itaacModel):
     assigneeid = PrimaryKeyField()
     function = TextField(null=True)

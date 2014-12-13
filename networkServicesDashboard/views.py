@@ -39,6 +39,28 @@ def requires_auth(f):
 # General Application Views #
 #############################
 
+
+# Logic to create a note
+@app.route('/corporateNetwork/itaac/newNote', methods=['POST'])
+def newItaacNote():
+	project = request.form['projectid']
+	noteContent = request.form['noteContent']
+	newNote = itaacNotes.insert(projectid = project, content = noteContent)
+	updateProject = NewProject.update(timeupdated = datetime.now()).where(NewProject.projectid == project)
+	newNote.execute()
+	updateProject.execute()
+	return redirect('/corporateNetwork/itaac/project?id=' + project)
+
+@app.route('/corporateNetwork/itaac/deleteNote', methods = ['POST'])
+@requires_auth
+def deleteItaacNote():
+	noteid = request.form['noteid']
+	delete = itaacNotes.delete().where(itaacNotes.noteid == int(request.form['noteid']))
+	updateProject = NewProject.update(timeupdated = datetime.now()).where(NewProject.projectid == request.form['project'])
+	delete.execute()
+	updateProject.execute()
+	return redirect('/corporateNetwork/itaac/project?id=' + str(request.form['project']))
+
 @app.route('/corporateNetwork/itaac/pocs')
 def itaacPocs():
 	return render_template('corporateNetwork/itaac/pocs.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
@@ -60,6 +82,13 @@ def downloaditaacBillingReport():
 def itaacProject():
 	projectid = request.args.get('id', '')
 	project = NewProject.get(NewProject.projectid == projectid)
+
+	latestNote = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc()).limit(1).get()
+	latestNote.updated = (latestNote.updated).strftime("%Y-%m-%d %H:%M:%S")
+
+	allNotes = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc())
+	for note in allNotes:
+		note.updated = (note.updated).strftime("%Y-%m-%d %H:%M:%S")
 
 	resourceList = {}
 	resourcetypes = []
@@ -119,7 +148,7 @@ def itaacProject():
 	else:
 		labids = ''
 
-	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes, splitcrnumbers = crnumbers, splitsecuritycases = securitycases, splitlabids = labids)
+	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes, splitcrnumbers = crnumbers, splitsecuritycases = securitycases, splitlabids = labids, lastNote = latestNote, notes = allNotes)
 
 @app.route('/corporateNetwork/itaac/addProject')
 def itaacAddNewProject():

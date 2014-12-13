@@ -76,3 +76,10 @@ CREATE TABLE location (
 	locationname VARCHAR(255),
 	locationtype VARCHAR(255)
 );
+
+CREATE TABLE itaacnotes (
+	noteid SERIAL PRIMARY KEY,
+	projectid int REFERENCES newproject(projectid),
+	content TEXT,
+	updated TIMESTAMP DEFAULT now()
+)

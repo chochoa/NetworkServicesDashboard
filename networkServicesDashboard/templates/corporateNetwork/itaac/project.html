@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datetimepicker.min.css">
 	<script type="text/javascript" src="/static/js/moment.js"></script>
 	<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="/static/vendor/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//Select ITaaC on NavBar
@@ -17,11 +18,11 @@
 
     		//Populate Drop downs
     		//This is a horrible way to do it, but it's quick
-
-    		//Assigned
-
-    		//get current assignee
     		$('#assigneeSelect').val("{{project.assignee}}");
+    		$("#alocation").val("{{project.alocation}}");
+    		$("#zlocation").val("{{project.zlocation}}");
+    		$("#circuittypeselect").val("{{project.circuittype}}{{project.size}}");
+    		$("#discoveryauthyes").val("{{project.discoveryauthyes}}")
 
     		//Discovery
     		if ("{{project.discoverystatus}}" == "Completed") {
@@ -146,6 +147,10 @@
     			$("#saveEdit").removeClass("hidden");
     			$("#delete").removeClass("hidden");
     			$('#assigneeSelect').val("{{project.assignee}}");
+    			$("#alocation").val("{{project.alocation}}");
+    			$("#zlocation").val("{{project.zlocation}}");
+    			$("#circuittypeselect").val("{{project.circuittype}}{{project.size}}");
+    			$("#discoveryauthyes").val("{{project.discoveryauthyes}}");
     		});
 
     		//Automatic Populations
@@ -212,22 +217,70 @@
 					$('#zlocationcisco').addClass('hidden');
 				}
 			});
+
+			$("form").submit(function(event) {
+  				if ($('#discoverystatusselect').val() == "Completed" && ($('#securitystatusselect').val() == "Completed" || $('#securitystatusselect').val() == "Not Needed") && $('#designstatusselect').val() == "Completed" && $('#implementationstatusselect').val() == "Completed" && $("#opsstatusselect").val() == "Completed") {
+  					if (($('#billingdept').val() != null) && ($('#billingdept').val() != "None") && ($('#billingdept').val() != "")) {
+  						return;
+  					}
+  					else {
+  						$('#myModal').modal('show')
+  						event.preventDefault();
+  					}
+  				}
+  				return;
+			});
+			CKEDITOR.replace('newNoteText');
 		});
 	</script>
 {% endblock %}
 {% block level2 %}ITaaC Project- {{project.projectname}}{% endblock %}
 {% block content %}
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <h4 style="color:red;text-align:center;">Please Add Billing Department</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<br />
 
 	<ul class="nav nav-pills">
 		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
 		<li><a href="/corporateNetwork/itaac/completed">Completed</a></li>
 		<li class="active"><a href="/corporateNetwork/itaac/project?id={{project.projectid}}">{{project.projectname}}</a></li>
+		<li><a href="/corporateNetwork/itaac/billing">Billing</a></li>
 		<li class="pull-right"><a href="/corporateNetwork/itaac/addProject">Add New Project</a></li>
 		<li class="pull-right"><button type="button" id="editProject" class="btn btn-warning">Edit Project</button></li>
 	</ul>
 
 	<br />
+
+	<!-- New & Latest Note -->
+	<h4>Latest Note:<a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#newNote">New Note</a></h4>
+
+	<br />
+
+	<div class="collapse well" id="newNote">
+		<h4>New Note</h4>
+		<form name="newNote" action="/corporateNetwork/itaac/newNote" method="POST">
+			<input type="hidden" name="projectid" value="{{project.projectid}}"/>
+			<textarea id="newNoteText" name="noteContent" class="form-control" rows="4"></textarea><br />
+			<input type="submit" class="btn btn-default pull-right" value="Post"></input>
+		</form>
+		<br /><br />
+	</div>
+
+	<div class="well">
+		<h4>{{lastNote.updated}}</h4>
+		<p>{{lastNote.content | safe}}</p>
+	</div>
 
 	<form role="form" class="form-horizontal" action="/corporateNetwork/itaac/editingProject" method="POST" onsubmit='return confirm(&quot;Do you really want to save these changes?&quot;);'>
 		<h3>
@@ -258,609 +311,636 @@
 			</div>
 		</h3>
 
-		<!-- Begin REQUEST -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-default" id="generalpanel">
-	    		<div class="panel-heading" id="collapseHeadingOne">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-							Request
-						</a>
-					</h4>
-				</div>
-				<div id="collapseOne" class="panel-collapse collapse in">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group hidden">
-						<label for="projectid" class="col-sm-2 control-label">Project ID</label>
-						<div class="col-sm-10">
-							<input type="number" class="form-control" id="projectid" name="projectid" value="{{project.projectid}}" readonly>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="projectname" class="col-sm-2 control-label">Project Name</label>
-						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="projectname" id="projectname" placeholder="Project Name" value="{{project.projectname}}" disabled>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="requestor" class="col-sm-2 control-label required">Requestor *</label>
-						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="requestor" id="requestor" placeholder="John Chambers (chambers)" value="{{project.requestor}}" disabled required>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="mailer" class="col-sm-2 control-label required">Email Contact or Client Mailing List *</label>
-						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="mailer" id="mailer" placeholder="example@cisco.com" value="{{project.mailer}}" disabled required>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="businessunit" class="col-sm-2 control-label">Business Unit</label>
-						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="businessunit" id="businessunit" placeholder="John Chambers (chambers)" value="{{project.businessunit}}" disabled>
-						</div>
-					</div>
-
-					<div class="form-group">
-			           	<label for="targetdate" class="col-sm-2 control-label">Target Date</label>
-			            <div class='col-sm-10 input-group date' id='targetdate'>
-			                <span class="input-group-addon">
-			        	       	<i class="fa fa-calendar"></i>
-			                </span>
-			            	<input name="targetdate" type='text' class="form-control" placeholder="<---" readonly>
-				        </div>
-					</div>
-
-					<div id="locationInformation">
-						<h4>Location Information</h4>
-						<div class="form-group">
-							<label for="alocation" class="col-sm-2 control-label">A Location</label>
-							<div class="col-sm-10" id="staticALocation">
-	      						<p class="form-control-static">{{project.alocation}} {{project.alocationcisco}}</p>
-	      					</div>
-							<div class="col-sm-10 input-group hidden" id="alocationselect">
-								<select id="alocation" class="form-control input-xlarge" name="alocation" disabled>
-									<option>None</option>
-									{% for type in locationtypes %}
-										<optgroup label="{{type}}">
-											{% for location in locations[type] %}
-												<option data-locationtype="{{location.locationtype}}">{{location.locationname}}</option>
-											{% endfor %}
-										</optgroup>
-									{% endfor %}
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group hidden" id="alocationcisco">
-				           	<label for="alocationcisco" class="col-sm-2 control-label">Cisco Building Code</label>
-				            <div class='col-sm-10 input-group date'>
-				            	<input name="alocationcisco" type='text' class="form-control" value="{{project.alocationcisco}}" disabled>
-					        </div>
-						</div>
-
-						<div class="form-group">
-							<label for="zlocation" class="col-sm-2 control-label">Z Location</label>
-							<div class="col-sm-10" id="staticZLocation">
-	      						<p class="form-control-static">{{project.zlocation}} {{project.zlocationcisco}}</p>
-	      					</div>
-							<div class="col-sm-10 input-group hidden" id="zlocationselect">
-								<select id="zlocation" class="form-control input-xlarge" name="zlocation" disabled>
-									<option>None</option>
-									{% for type in locationtypes %}
-										<optgroup label="{{type}}">
-											{% for location in locations[type] %}
-												<option data-locationtype="{{location.locationtype}}">{{location.locationname}}</option>
-											{% endfor %}
-										</optgroup>
-									{% endfor %}
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group hidden" id="zlocationcisco">
-				           	<label for="zlocationcisco" class="col-sm-2 control-label">Cisco Building Code</label>
-				            <div class='col-sm-10 input-group date'>
-				            	<input name="zlocationcisco" type='text' class="form-control" value="{{project.zlocationcisco}}" disabled>
-					        </div>
-						</div>
-					</div>
-
-					<div id="discoveryBilling">
-						<h4>Billing Information</h4>
-						<div class="form-group">
-							<label for="businessunit" class="col-sm-2 control-label">Circuit Type</label>
-							<div class="col-sm-10" id="staticCircuitType">
-      							<p class="form-control-static">{{project.circuittype}}</p>
-      						</div>
-							<div class="col-sm-10 input-group hidden" id="circuittype">
-								<select name="circuittype" class="form-control" disabled required>
-									<option>None</option>
-									{% for type in circuitTypes %}
-										<optgroup label="{{type}}">
-											{% for projectType in projectTypes[type] %}
-												<option value="{{projectType.circuittype}}:{{projectType.size}}" data-cost="{{projectType.monthlycost}}">{{projectType.size}}</option>
-											{% endfor %}
-										</optgroup>
-									{% endfor %}
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="cost" class="col-sm-2 control-label">Montly Cost ($)</label>
-							<div class="col-sm-10 input-group">
-								<input name="cost" id="cost" type="text" class="form-control" value="{{project.cost}}" disabled readonly>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="billingdept" class="col-sm-2 control-label">Billing Department ID</label>
-							<div class="col-sm-10 input-group">
-								<input data-toggle="tooltip" type="text" class="form-control" name="billingdept" id="billingdept" placeholder="" value="{{project.billingdept}}" disabled>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="billingauth" class="col-sm-2 control-label">Authorizer</label>
-							<div class="col-sm-10 input-group">
-								<input data-toggle="tooltip" type="text" class="form-control" name="billingauth" id="billingauth" placeholder="John Chambers (chambers)" value="{{project.billingauth}}" disabled>
-							</div>
-						</div>
-
-	  					<div class="form-group">
-							<label for="discoveryauthyes" class="col-sm-2 control-label">Client Authorised?</label>
-							<div class="col-sm-10 input-group">
-								<select class="form-control" name="discoveryauthyes" disabled>
-									<option>No</option>
-									<option>Yes</option>
-								</select>
-							</div>
-						</div>
-	  				</div>
-					<!-- End Inputs -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End REQUEST -->
+		<!-- Tabs! -->
+		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+			<li id="detailsTab" class="active"><a href="#details" data-toggle="tab">Details</a></li>
+			<li id="notesTab"><a href="#notes" data-toggle="tab">Notes</a></li>
+		</ul>
 
 		<br />
 
-		<h2>Project Status: {{projectstatus}}</h2>
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="details">
 
-		<!-- Begin DISCOVERY -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-danger" id="discoverypanel">
-	    		<div class="panel-heading" id="collapseHeadingTwo">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-							Discovery <small class="small-panel-title">{{project.discoverystatus}}</small>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseTwo" class="panel-collapse collapse">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group">
-						<label for="discoverystatus" class="col-sm-2 control-label">Discovery Status</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="discoverystatus" disabled>
-								<option id="discoveryNotStarted">Not Started</option>
-								<option id="discoveryInProgress">In Progress</option>
-								<option id="discoveryCompleted">Completed</option>
-								<option id="discoveryProjectDeclined">Project Declined</option>
-							</select>
+				<!-- Begin REQUEST -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default" id="generalpanel">
+			    		<div class="panel-heading" id="collapseHeadingOne">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									Request
+								</a>
+							</h4>
 						</div>
-					</div>
+						<div id="collapseOne" class="panel-collapse collapse in">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group hidden">
+								<label for="projectid" class="col-sm-2 control-label">Project ID</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" id="projectid" name="projectid" value="{{project.projectid}}" readonly>
+								</div>
+							</div>
 
-					<hr />
+							<div class="form-group">
+								<label for="projectname" class="col-sm-2 control-label">Project Name</label>
+								<div class="col-sm-10 input-group">
+									<input data-toggle="tooltip" type="text" class="form-control" name="projectname" id="projectname" placeholder="Project Name" value="{{project.projectname}}" disabled>
+								</div>
+							</div>
 
-					<div class="form-group">
-						<label for="serviceteamcomments" class="col-sm-2 control-label">Service Team Comments</label>
-						<div class="col-sm-10 input-group">
-							<textarea data-toggle="tooltip" id="serviceteamcomments" class="form-control" name="serviceteamcomments" rows="3" disabled>{{project.serviceteamcomments}}</textarea>
-						</div>
-					</div>
+							<div class="form-group">
+								<label for="requestor" class="col-sm-2 control-label required">Requestor *</label>
+								<div class="col-sm-10 input-group">
+									<input data-toggle="tooltip" type="text" class="form-control" name="requestor" id="requestor" placeholder="John Chambers (chambers)" value="{{project.requestor}}" disabled required>
+								</div>
+							</div>
 
-  					<div class="form-group">
-						<label for="hardwareassessment" class="col-sm-2 control-label">Hardware Assessment</label>
-						<div class="col-sm-10 input-group">
-							<textarea data-toggle="tooltip" id="hardwareassessment" class="form-control" name="hardwareassessment" rows="3" disabled>{{project.hardwareassessment}}</textarea>
-						</div>
-					</div>
-					<!-- End Inputs -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End DISCOVERY -->
+							<div class="form-group">
+								<label for="mailer" class="col-sm-2 control-label required">Email Contact or Client Mailing List *</label>
+								<div class="col-sm-10 input-group">
+									<input data-toggle="tooltip" type="text" class="form-control" name="mailer" id="mailer" placeholder="example@cisco.com" value="{{project.mailer}}" disabled required>
+								</div>
+							</div>
 
-		<br />
+							<div class="form-group">
+								<label for="businessunit" class="col-sm-2 control-label">Business Unit</label>
+								<div class="col-sm-10 input-group">
+									<input data-toggle="tooltip" type="text" class="form-control" name="businessunit" id="businessunit" placeholder="John Chambers (chambers)" value="{{project.businessunit}}" disabled>
+								</div>
+							</div>
 
-		<!-- Begin SECURITY REVIEW -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-danger" id="securitypanel">
-	    		<div class="panel-heading" id="collapseHeadingThree">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-							Security Review <small class="small-panel-title">{{project.securitystatus}}</small>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseThree" class="panel-collapse collapse">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group">
-						<label for="securitystatus" class="col-sm-2 control-label">Security Review Status</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="securitystatus" disabled>
-								<option id="securityNotStarted">Not Started</option>
-								<option id="securityNotNeeded">Not Needed</option>
-								<option id="securityInProgress">In Progress</option>
-								<option id="securityCompleted">Completed</option>
-							</select>
-						</div>
-					</div>
+							<div class="form-group">
+					           	<label for="targetdate" class="col-sm-2 control-label">Target Date</label>
+					            <div class='col-sm-10 input-group date' id='targetdate'>
+					                <span class="input-group-addon">
+					        	       	<i class="fa fa-calendar"></i>
+					                </span>
+					            	<input name="targetdate" type='text' class="form-control" placeholder="<---" readonly value="{{project.targetdate}}">
+						        </div>
+							</div>
 
-					<hr />
+							<div id="locationInformation">
+								<h4>Location Information</h4>
+								<div class="form-group">
+									<label for="alocation" class="col-sm-2 control-label">A Location</label>
+									<div class="col-sm-10" id="staticALocation">
+			      						<p class="form-control-static">{{project.alocation}} {{project.alocationcisco}}</p>
+			      					</div>
+									<div class="col-sm-10 input-group hidden" id="alocationselect">
+										<select id="alocation" class="form-control input-xlarge" name="alocation" disabled>
+											<option>None</option>
+											{% for type in locationtypes %}
+												<optgroup label="{{type}}">
+													{% for location in locations[type] %}
+														<option data-locationtype="{{location.locationtype}}">{{location.locationname}}</option>
+													{% endfor %}
+												</optgroup>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
 
-					<div class="form-group">
-						<label for="securitycase" class="col-sm-2 control-label">Security Case Number</label>
-						<div class="col-sm-10 input-group">
-							<p id="printSecurityCases" style="text-align:left;">
-								{{splitsecuritycases | safe}}
-							</p>
-							<textarea class="form-control hidden" name="securitycase" id="securitycase" placeholder="INC" rows="3" disabled>{{project.securitycase}}</textarea>
-						</div>
-					</div>
+								<div class="form-group hidden" id="alocationcisco">
+						           	<label for="alocationcisco" class="col-sm-2 control-label">Cisco Building Code</label>
+						            <div class='col-sm-10 input-group date'>
+						            	<input name="alocationcisco" type='text' class="form-control" value="{{project.alocationcisco}}" disabled>
+							        </div>
+								</div>
 
-					<div class="form-group">
-						<label for="labid" class="col-sm-2 control-label">Lab ID</label>
-						<div class="col-sm-10 input-group">
-							<p id="printLabIds">
-								{{splitlabids | safe}}
-							</p>
-							<textarea class="form-control hidden" name="labid" id="labid" rows="3" disabled>{{project.labid}}</textarea>
-						</div>
-					</div>
+								<div class="form-group">
+									<label for="zlocation" class="col-sm-2 control-label">Z Location</label>
+									<div class="col-sm-10" id="staticZLocation">
+			      						<p class="form-control-static">{{project.zlocation}} {{project.zlocationcisco}}</p>
+			      					</div>
+									<div class="col-sm-10 input-group hidden" id="zlocationselect">
+										<select id="zlocation" class="form-control input-xlarge" name="zlocation" disabled>
+											<option>None</option>
+											{% for type in locationtypes %}
+												<optgroup label="{{type}}">
+													{% for location in locations[type] %}
+														<option data-locationtype="{{location.locationtype}}">{{location.locationname}}</option>
+													{% endfor %}
+												</optgroup>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
 
-					<div class="form-group">
-						<label for="archdocumentation" class="col-sm-2 control-label">Architecture Documentation</label>
-						<div class="col-sm-10 input-group">
-							<span class="input-group-btn">
-								<span class="btn btn-primary">
-									<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
-								</span>
-							</span>
-							<input name="archdocumentation" id="archdocumentation" type="text" class="form-control" value="{{project.archdocumentation}}" placeholder="Cisco Docs URL" disabled>
-						</div>
-					</div>
+								<div class="form-group hidden" id="zlocationcisco">
+						           	<label for="zlocationcisco" class="col-sm-2 control-label">Cisco Building Code</label>
+						            <div class='col-sm-10 input-group date'>
+						            	<input name="zlocationcisco" type='text' class="form-control" value="{{project.zlocationcisco}}" disabled>
+							        </div>
+								</div>
+							</div>
 
-					<div class="form-group">
-						<label for="securityfinalreview" class="col-sm-2 control-label">Final Security Review Conducted?</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="securityfinalreview" disabled>
-								<option>No</option>
-								<option value="Yes">Yes or N/A</option>
-							</select>
-						</div>
-					</div>
-					<!-- End Inputs -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End SECURITY REVIEW -->
+							<div id="discoveryBilling">
+								<h4>Billing Information</h4>
+								<div class="form-group">
+									<label for="businessunit" class="col-sm-2 control-label">Circuit Type</label>
+									<div class="col-sm-10" id="staticCircuitType">
+		      							<p class="form-control-static">{{project.circuittype}}</p>
+		      						</div>
+									<div class="col-sm-10 input-group hidden" id="circuittype">
+										<select id="circuittypeselect" name="circuittype" class="form-control" disabled required>
+											<option>None</option>
+											{% for type in circuitTypes %}
+												<optgroup label="{{type}}">
+													{% for projectType in projectTypes[type] %}
+														<option value="{{projectType.circuittype}}:{{projectType.size}}" data-cost="{{projectType.monthlycost}}">{{projectType.size}}</option>
+													{% endfor %}
+												</optgroup>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
 
-		<br />
+								<div class="form-group">
+									<label for="cost" class="col-sm-2 control-label">Montly Cost ($)</label>
+									<div class="col-sm-10 input-group">
+										<input name="cost" id="cost" type="text" class="form-control" value="{{project.cost}}" disabled readonly>
+									</div>
+								</div>
 
-		<!-- Begin DESIGN -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-danger" id="designpanel">
-	    		<div class="panel-heading" id="collapseHeadingFour">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-							Design <small class="small-panel-title">{{project.designstatus}}</small>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseFour" class="panel-collapse collapse">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group">
-						<label for="designstatus" class="col-sm-2 control-label">Design Status</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="designstatus" disabled>
-								<option id="designNotStarted">Not Started</option>
-								<option id="designInProgress">In Progress</option>
-								<option id="designCompleted">Completed</option>
-							</select>
-						</div>
-					</div>
+								<div class="form-group">
+									<label for="billingdept" class="col-sm-2 control-label">Billing Department ID</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="billingdept" id="billingdept" placeholder="" value="{{project.billingdept}}" disabled>
+									</div>
+								</div>
 
-					<hr />
+								<div class="form-group">
+									<label for="billingauth" class="col-sm-2 control-label">Authorizer</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="billingauth" id="billingauth" placeholder="John Chambers (chambers)" value="{{project.billingauth}}" disabled>
+									</div>
+								</div>
 
-					<div id="designsolution">
-						<h4>Proposed Solution</h4>
-
-						<div class="form-group">
-							<label for="circuitid" class="col-sm-2 control-label">Circuit ID</label>
-							<div class="col-sm-10 input-group">
-								<input data-toggle="tooltip" type="text" class="form-control" name="circuitid" id="circuitid" placeholder="" value="{{project.circuitid}}" disabled>
+			  					<div class="form-group">
+									<label for="discoveryauthyes" class="col-sm-2 control-label">Client Authorised?</label>
+									<div class="col-sm-10 input-group">
+										<select class="form-control" name="discoveryauthyes" id="discoveryauthyes" disabled>
+											<option>No</option>
+											<option>Yes</option>
+										</select>
+									</div>
+								</div>
+			  				</div>
+							<!-- End Inputs -->
 							</div>
 						</div>
+					</div>
+				</div>
+				<!-- End REQUEST -->
 
-						<div class="form-group">
-							<label for="designdocumentation" class="col-sm-2 control-label">Design Documentation</label>
-							<div class="col-sm-10 input-group">
-								<span class="input-group-btn">
-									<span class="btn btn-primary">
-										<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
+				<br />
+
+				<h2>Project Status: {{projectstatus}}</h2>
+
+				<!-- Begin DISCOVERY -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-danger" id="discoverypanel">
+			    		<div class="panel-heading" id="collapseHeadingTwo">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									Discovery <small class="small-panel-title">{{project.discoverystatus}}</small>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group">
+								<label for="discoverystatus" class="col-sm-2 control-label">Discovery Status</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="discoverystatus" id="discoverystatusselect" disabled>
+										<option id="discoveryNotStarted">Not Started</option>
+										<option id="discoveryInProgress">In Progress</option>
+										<option id="discoveryCompleted">Completed</option>
+										<option id="discoveryProjectDeclined">Project Declined</option>
+									</select>
+								</div>
+							</div>
+
+							<hr />
+
+							<div class="form-group">
+								<label for="serviceteamcomments" class="col-sm-2 control-label">Service Team Comments</label>
+								<div class="col-sm-10 input-group">
+									<textarea data-toggle="tooltip" id="serviceteamcomments" class="form-control" name="serviceteamcomments" rows="3" disabled>{{project.serviceteamcomments}}</textarea>
+								</div>
+							</div>
+
+		  					<div class="form-group">
+								<label for="hardwareassessment" class="col-sm-2 control-label">Hardware Assessment</label>
+								<div class="col-sm-10 input-group">
+									<textarea data-toggle="tooltip" id="hardwareassessment" class="form-control" name="hardwareassessment" rows="3" disabled>{{project.hardwareassessment}}</textarea>
+								</div>
+							</div>
+							<!-- End Inputs -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End DISCOVERY -->
+
+				<br />
+
+				<!-- Begin SECURITY REVIEW -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-danger" id="securitypanel">
+			    		<div class="panel-heading" id="collapseHeadingThree">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+									Security Review <small class="small-panel-title">{{project.securitystatus}}</small>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group">
+								<label for="securitystatus" class="col-sm-2 control-label">Security Review Status</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="securitystatus" id="securitystatusselect" disabled>
+										<option id="securityNotStarted">Not Started</option>
+										<option id="securityNotNeeded">Not Needed</option>
+										<option id="securityInProgress">In Progress</option>
+										<option id="securityCompleted">Completed</option>
+									</select>
+								</div>
+							</div>
+
+							<hr />
+
+							<div class="form-group">
+								<label for="securitycase" class="col-sm-2 control-label">Security Case Number</label>
+								<div class="col-sm-10 input-group">
+									<p id="printSecurityCases" style="text-align:left;">
+										{{splitsecuritycases | safe}}
+									</p>
+									<textarea class="form-control hidden" name="securitycase" id="securitycase" placeholder="INC" rows="3" disabled>{{project.securitycase}}</textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="labid" class="col-sm-2 control-label">Lab ID</label>
+								<div class="col-sm-10 input-group">
+									<p id="printLabIds">
+										{{splitlabids | safe}}
+									</p>
+									<textarea class="form-control hidden" name="labid" id="labid" rows="3" disabled>{{project.labid}}</textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="archdocumentation" class="col-sm-2 control-label">Architecture Documentation</label>
+								<div class="col-sm-10 input-group">
+									<span class="input-group-btn">
+										<span class="btn btn-primary">
+											<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
+										</span>
 									</span>
-								</span>
-								<input name="designdocumentation" id="designdocumentation" type="text" class="form-control" value="{{project.designdocumentation}}" placeholder="Cisco Docs URL" disabled>
+									<input name="archdocumentation" id="archdocumentation" type="text" class="form-control" value="{{project.archdocumentation}}" placeholder="Cisco Docs URL" disabled>
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label for="linecard" class="col-sm-2 control-label">Line Card</label>
-							<div class="col-sm-10" id="staticLineCard">
-      							<p class="form-control-static">{{project.linecard}}</p>
-      						</div>
-							<div class="col-sm-10 input-group hidden" id="linecard">
-								<select name="linecard" class="form-control" disabled>
-									<option>None</option>
-									{% for card in lineCards %}
-										<option>{{card.cardname}}</option>
-									{% endfor %}
-								</select>
+							<div class="form-group">
+								<label for="securityfinalreview" class="col-sm-2 control-label">Final Security Review Conducted?</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="securityfinalreview" disabled>
+										<option>No</option>
+										<option value="Yes">Yes or N/A</option>
+									</select>
+								</div>
+							</div>
+							<!-- End Inputs -->
 							</div>
 						</div>
 					</div>
-					<hr />
-
-					<div class="form-group">
-						<label for="teamreview" class="col-sm-2 control-label">Team Review</label>
-						<div class="col-sm-10 input-group">
-							<textarea data-toggle="tooltip" id="teamreview" class="form-control" name="teamreview" rows="3" disabled>{{project.teamreview}}</textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="thirdparty" class="col-sm-2 control-label">Third Party Information</label>
-						<div class="col-sm-10 input-group">
-							<textarea placeholder="Level 3 order numbers, TMS etc." data-toggle="tooltip" id="thirdparty" class="form-control" name="thirdparty" rows="3"disabled>{{project.thirdparty}}</textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="designclientapproval" class="col-sm-2 control-label">Client Approval</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="designclientapproval" disabled>
-								<option>No</option>
-								<option>Yes</option>
-							</select>
-						</div>
-					</div>
-					<!-- End Inputs -->
-					</div>
 				</div>
-			</div>
-		</div>
-		<!-- End DESIGN -->
+				<!-- End SECURITY REVIEW -->
 
-		<br />
+				<br />
 
-		<!-- Begin IMPLEMENTATION -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-danger" id="implementationpanel">
-	    		<div class="panel-heading" id="collapseHeadingFive">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-							Implementation <small class="small-panel-title">{{project.implementationstatus}}</small>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseFive" class="panel-collapse collapse">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group">
-						<label for="implementationstatus" class="col-sm-2 control-label">Implementation Status</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="implementationstatus" disabled>
-								<option id="implementationNotStarted">Not Started</option>
-								<option id="implementationInProgress">In Progress</option>
-								<option id="implementationCompleted">Completed</option>
-							</select>
+				<!-- Begin DESIGN -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-danger" id="designpanel">
+			    		<div class="panel-heading" id="collapseHeadingFour">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+									Design <small class="small-panel-title">{{project.designstatus}}</small>
+								</a>
+							</h4>
 						</div>
-					</div>
+						<div id="collapseFour" class="panel-collapse collapse">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group">
+								<label for="designstatus" class="col-sm-2 control-label">Design Status</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="designstatus" id="designstatusselect" disabled>
+										<option id="designNotStarted">Not Started</option>
+										<option id="designInProgress">In Progress</option>
+										<option id="designCompleted">Completed</option>
+									</select>
+								</div>
+							</div>
 
-					<hr />
+							<hr />
 
-					<div class="form-group">
-						<label for="hardwareneeded" class="col-sm-2 control-label">Hardware Needed</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="hardwareneeded" id="hardwareneeded" type="checkbox" disabled data-value="{{project.hardwareneeded}}">
-      						</span>
-      						<input name="hardwareorderno" id="hardwareorderno" type="text" class="form-control" readonly disabled>
-    					</div>
-    				</div>
+							<div id="designsolution">
+								<h4>Proposed Solution</h4>
 
-					<div class="form-group">
-						<label for="hardwareinstallation" class="col-sm-2 control-label">Hardware Installation</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="hardwareinstallation" disabled>
-								<option>Not Started</option>
-								<option>Not Needed</option>
-								<option>In Progress</option>
-								<option>Completed</option>
-							</select>
-						</div>
-					</div>
+								<div class="form-group">
+									<label for="circuitid" class="col-sm-2 control-label">Circuit ID</label>
+									<div class="col-sm-10 input-group">
+										<input data-toggle="tooltip" type="text" class="form-control" name="circuitid" id="circuitid" placeholder="" value="{{project.circuitid}}" disabled>
+									</div>
+								</div>
 
-					<br />
+								<div class="form-group">
+									<label for="designdocumentation" class="col-sm-2 control-label">Design Documentation</label>
+									<div class="col-sm-10 input-group">
+										<span class="input-group-btn">
+											<span class="btn btn-primary">
+												<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
+											</span>
+										</span>
+										<input name="designdocumentation" id="designdocumentation" type="text" class="form-control" value="{{project.designdocumentation}}" placeholder="Cisco Docs URL" disabled>
+									</div>
+								</div>
 
-					<div class="form-group">
-						<div class="col-sm-6" style="text-align:center;">
-							<label for="crstatus" class="col-sm-2 control-label">CR Number</label>
-							<div class="col-sm-10 input-group">
-								<p id="printCrNumbers" style="text-align:left;">
-									{{splitcrnumbers | safe}}
-								</p>
-								<textarea class="form-control hidden" name="crnumber" id="crnumber" rows="3" disabled>{{project.crnumber}}</textarea>
+								<div class="form-group">
+									<label for="linecard" class="col-sm-2 control-label">Line Card</label>
+									<div class="col-sm-10" id="staticLineCard">
+		      							<p class="form-control-static">{{project.linecard}}</p>
+		      						</div>
+									<div class="col-sm-10 input-group hidden" id="linecard">
+										<select name="linecard" class="form-control" disabled>
+											<option>None</option>
+											{% for card in lineCards %}
+												<option>{{card.cardname}}</option>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
+							</div>
+							<hr />
+
+							<div class="form-group">
+								<label for="teamreview" class="col-sm-2 control-label">Team Review</label>
+								<div class="col-sm-10 input-group">
+									<textarea data-toggle="tooltip" id="teamreview" class="form-control" name="teamreview" rows="3" disabled>{{project.teamreview}}</textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="thirdparty" class="col-sm-2 control-label">Third Party Information</label>
+								<div class="col-sm-10 input-group">
+									<textarea placeholder="Level 3 order numbers, TMS etc." data-toggle="tooltip" id="thirdparty" class="form-control" name="thirdparty" rows="3"disabled>{{project.thirdparty}}</textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="designclientapproval" class="col-sm-2 control-label">Client Approval</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="designclientapproval" id="designclientapproval"disabled>
+										<option>No</option>
+										<option>Yes</option>
+									</select>
+								</div>
+							</div>
+							<!-- End Inputs -->
 							</div>
 						</div>
-
-						<div class="col-sm-6" style="text-align:center;">
-		            		<label for="crdate" class="col-sm-2 control-label">Scheduled Date</label>
-		                	<div class='col-sm-10 input-group date' id='crdate'>
-		                    	<span class="input-group-addon">
-		                    		<i class="fa fa-calendar"></i>
-		                    	</span>
-		                    	<input name="crdate" type='text' class="form-control" placeholder="<--" disabled/>
-			            	</div>
-						</div>
-					</div>
-
-    				<div class="form-group">
-						<label for="litcase" class="col-sm-2 control-label">LIT Case</label>
-						<div class="col-sm-10 input-group">
-							<input data-toggle="tooltip" type="text" class="form-control" name="litcase" id="litcase" value="{{project.litcase}}" disabled>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="circuitdiagram" class="col-sm-2 control-label">Circuit Diagram</label>
-						<div class="col-sm-10 input-group">
-							<span class="input-group-btn">
-								<span class="btn btn-primary btn-file">
-									<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
-								</span>
-							</span>
-							<input name="circuitdiagram" id="circuitdiagram" type="text" class="form-control" placeholder="{{project.circuitdiagram}}" disabled>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="impother" class="col-sm-2 control-label">Other Comments</label>
-						<div class="col-sm-10 input-group">
-							<textarea data-toggle="tooltip" id="impother" class="form-control" name="impother" rows="3" disabled>{{project.impother}}</textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
-						<div class="col-sm-10 input-group">
-							<input type="text" id="i2ocasenumber" name="i2ocasenumber" class="form-control" value="{{project.i2ocasenumber}}" disabled>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Created?</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="i2ocasecreated" id="i2ocasecreated" type="checkbox" disabled data-value="{{project.i2ocasecreated}}">
-      						</span>
-      						<input name="i2ocasecreatedtimestamp" id="i2ocasecreatedtimestamp" type="text" class="form-control" value="{{project.i2ocasecompletedtimestamp}}" readonly disabled>
-    					</div>
-    				</div>
-
-    				<div class="form-group">
-						<label for="i2ocasereleased" class="col-sm-2 control-label">I2O Case Released?</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="i2ocasereleased" id="i2ocasereleased" type="checkbox" disabled data-value="{{project.i2ocasereleased}}">
-      						</span>
-      						<input name="i2ocasereleasedtimestamp" id="i2ocasereleasedtimestamp" type="text" class="form-control" value="{{project.i2ocasereleasedtimestamp}}" readonly disabled>
-    					</div>
-    				</div>
-					<!-- End Inputs -->
 					</div>
 				</div>
-			</div>
-		</div>
-		<!-- End IMPLEMENTATION -->
+				<!-- End DESIGN -->
 
-		<br />
+				<br />
 
-		<!-- Begin SERVICE -->
-		<div class="panel-group" id="accordion">
-			<div class="panel panel-default" id="opspanel">
-	    		<div class="panel-heading" id="collapseHeadingSix">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-							Operations <small class="small-panel-title">{{project.opsstatus}}</small>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseSix" class="panel-collapse collapse">
-					<div class="panel-body">
-					<!-- Start Inputs -->
-					<div class="form-group">
-						<label for="opsstatus" class="col-sm-2 control-label">Operations Status</label>
-						<div class="col-sm-10 input-group">
-							<select class="form-control" name="opsstatus" disabled>
-								<option id="opsNotStarted">Not Started</option>
-								<option id="opsInProgress">In Progress</option>
-								<option id="opsCompleted">Completed</option>
-							</select>
+				<!-- Begin IMPLEMENTATION -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-danger" id="implementationpanel">
+			    		<div class="panel-heading" id="collapseHeadingFive">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+									Implementation <small class="small-panel-title">{{project.implementationstatus}}</small>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseFive" class="panel-collapse collapse">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group">
+								<label for="implementationstatus" class="col-sm-2 control-label">Implementation Status</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="implementationstatus" id="implementationstatusselect" disabled>
+										<option id="implementationNotStarted">Not Started</option>
+										<option id="implementationInProgress">In Progress</option>
+										<option id="implementationCompleted">Completed</option>
+									</select>
+								</div>
+							</div>
+
+							<hr />
+
+							<div class="form-group">
+								<label for="hardwareneeded" class="col-sm-2 control-label">Hardware Needed</label>
+								<div class="col-sm-10 input-group">
+		      						<span class="input-group-addon">
+		        						<input name="hardwareneeded" id="hardwareneeded" type="checkbox" disabled data-value="{{project.hardwareneeded}}">
+		      						</span>
+		      						<input name="hardwareorderno" id="hardwareorderno" type="text" class="form-control" readonly disabled>
+		    					</div>
+		    				</div>
+
+							<div class="form-group">
+								<label for="hardwareinstallation" class="col-sm-2 control-label">Hardware Installation</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="hardwareinstallation" disabled>
+										<option>Not Started</option>
+										<option>Not Needed</option>
+										<option>In Progress</option>
+										<option>Completed</option>
+									</select>
+								</div>
+							</div>
+
+							<br />
+
+							<div class="form-group">
+								<div class="col-sm-6" style="text-align:center;">
+									<label for="crstatus" class="col-sm-2 control-label">CR Number</label>
+									<div class="col-sm-10 input-group">
+										<p id="printCrNumbers" style="text-align:left;">
+											{{splitcrnumbers | safe}}
+										</p>
+										<textarea class="form-control hidden" name="crnumber" id="crnumber" rows="3" disabled>{{project.crnumber}}</textarea>
+									</div>
+								</div>
+
+								<div class="col-sm-6" style="text-align:center;">
+				            		<label for="crdate" class="col-sm-2 control-label">Scheduled Date</label>
+				                	<div class='col-sm-10 input-group date' id='crdate'>
+				                    	<span class="input-group-addon">
+				                    		<i class="fa fa-calendar"></i>
+				                    	</span>
+				                    	<input name="crdate" type='text' class="form-control" placeholder="<--" disabled/>
+					            	</div>
+								</div>
+							</div>
+
+		    				<div class="form-group">
+								<label for="litcase" class="col-sm-2 control-label">LIT Case</label>
+								<div class="col-sm-10 input-group">
+									<input data-toggle="tooltip" type="text" class="form-control" name="litcase" id="litcase" value="{{project.litcase}}" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="circuitdiagram" class="col-sm-2 control-label">Circuit Diagram</label>
+								<div class="col-sm-10 input-group">
+									<span class="input-group-btn">
+										<span class="btn btn-primary btn-file">
+											<a href="http://ciscodocs.cisco.com/ciscodocs/" target="_blank" style="color:#FFFFFF">Go to: Cisco Docs</a>
+										</span>
+									</span>
+									<input name="circuitdiagram" id="circuitdiagram" type="text" class="form-control" placeholder="{{project.circuitdiagram}}" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="impother" class="col-sm-2 control-label">Other Comments</label>
+								<div class="col-sm-10 input-group">
+									<textarea data-toggle="tooltip" id="impother" class="form-control" name="impother" rows="3" disabled>{{project.impother}}</textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
+								<div class="col-sm-10 input-group">
+									<input type="text" id="i2ocasenumber" name="i2ocasenumber" class="form-control" value="{{project.i2ocasenumber}}" disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Created?</label>
+								<div class="col-sm-10 input-group">
+		      						<span class="input-group-addon">
+		        						<input name="i2ocasecreated" id="i2ocasecreated" type="checkbox" disabled data-value="{{project.i2ocasecreated}}">
+		      						</span>
+		      						<input name="i2ocasecreatedtimestamp" id="i2ocasecreatedtimestamp" type="text" class="form-control" value="{{project.i2ocasecompletedtimestamp}}" readonly disabled>
+		    					</div>
+		    				</div>
+
+		    				<div class="form-group">
+								<label for="i2ocasereleased" class="col-sm-2 control-label">I2O Case Released?</label>
+								<div class="col-sm-10 input-group">
+		      						<span class="input-group-addon">
+		        						<input name="i2ocasereleased" id="i2ocasereleased" type="checkbox" disabled data-value="{{project.i2ocasereleased}}">
+		      						</span>
+		      						<input name="i2ocasereleasedtimestamp" id="i2ocasereleasedtimestamp" type="text" class="form-control" value="{{project.i2ocasereleasedtimestamp}}" readonly disabled>
+		    					</div>
+		    				</div>
+							<!-- End Inputs -->
+							</div>
 						</div>
 					</div>
+				</div>
+				<!-- End IMPLEMENTATION -->
 
-					<hr />
+				<br />
 
-					<div class="form-group">
-						<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
-						<div class="col-sm-10 input-group">
-							<input type="text" class="form-control" value="{{project.i2ocasenumber}}" readonly disabled>
+				<!-- Begin SERVICE -->
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default" id="opspanel">
+			    		<div class="panel-heading" id="collapseHeadingSix">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+									Operations <small class="small-panel-title">{{project.opsstatus}}</small>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseSix" class="panel-collapse collapse">
+							<div class="panel-body">
+							<!-- Start Inputs -->
+							<div class="form-group">
+								<label for="opsstatus" class="col-sm-2 control-label">Operations Status</label>
+								<div class="col-sm-10 input-group">
+									<select class="form-control" name="opsstatus" id="opsstatusselect" disabled>
+										<option id="opsNotStarted">Not Started</option>
+										<option id="opsInProgress">In Progress</option>
+										<option id="opsCompleted">Completed</option>
+									</select>
+								</div>
+							</div>
+
+							<hr />
+
+							<div class="form-group">
+								<label for="i2ocasecreated" class="col-sm-2 control-label">I2O Case Number</label>
+								<div class="col-sm-10 input-group">
+									<input type="text" class="form-control" value="{{project.i2ocasenumber}}" readonly disabled>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="i2ocaseaccepted" class="col-sm-2 control-label">I2O Case Accepted?</label>
+								<div class="col-sm-10 input-group">
+		      						<span class="input-group-addon">
+		        						<input name="i2ocaseaccepted" id="i2ocaseaccepted" type="checkbox" disabled data-value="{{project.i2ocaseaccepted}}">
+		      						</span>
+		      						<input name="i2ocaseacceptedtimestamp" id="i2ocaseacceptedtimestamp" type="text" class="form-control" value="{{project.i2ocaseacceptedtimestamp}}" readonly disabled>
+		    					</div>
+		    				</div>
+
+		    				<div class="form-group">
+								<label for="i2ocasecompleted" class="col-sm-2 control-label">I2O Case Completed?</label>
+								<div class="col-sm-10 input-group">
+		      						<span class="input-group-addon">
+		        						<input name="i2ocasecompleted" id="i2ocasecompleted" type="checkbox" disabled data-value="{{project.i2ocasecompleted}}">
+		      						</span>
+		      						<input name="i2ocasecompletedtimestamp" id="i2ocasecompletedtimestamp" type="text" class="form-control" value="{{project.i2ocasecompletedtimestamp}}" readonly disabled>
+		    					</div>
+		    				</div>
+
+							<!-- End Inputs -->
+							</div>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<label for="i2ocaseaccepted" class="col-sm-2 control-label">I2O Case Accepted?</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="i2ocaseaccepted" id="i2ocaseaccepted" type="checkbox" disabled data-value="{{project.i2ocaseaccepted}}">
-      						</span>
-      						<input name="i2ocaseacceptedtimestamp" id="i2ocaseacceptedtimestamp" type="text" class="form-control" value="{{project.i2ocaseacceptedtimestamp}}" readonly disabled>
-    					</div>
-    				</div>
-
-    				<div class="form-group">
-						<label for="i2ocasecompleted" class="col-sm-2 control-label">I2O Case Completed?</label>
-						<div class="col-sm-10 input-group">
-      						<span class="input-group-addon">
-        						<input name="i2ocasecompleted" id="i2ocasecompleted" type="checkbox" disabled data-value="{{project.i2ocasecompleted}}">
-      						</span>
-      						<input name="i2ocasecompletedtimestamp" id="i2ocasecompletedtimestamp" type="text" class="form-control" value="{{project.i2ocasecompletedtimestamp}}" readonly disabled>
-    					</div>
-    				</div>
-
-					<!-- End Inputs -->
-					</div>
 				</div>
-			</div>
+				<!-- End SERVICE -->
+
+				<br />
+
+				<div style="width:65%;text-align:center;margin:0 auto;">
+					<input type="submit" id="saveEdit" value="Update Project" class="btn btn-success hidden" style="width:500px;">
+				</div>
+			</form>
+
+			<form action="/corporateNetwork/itaac/deleteProject" id="delete" method="POST" class="hidden" onsubmit='return confirm(&quot;Do you really want to delete this project?&quot;);'>
+				<input name="projectid" type="hidden" value="{{project.projectid}}">
+				<input type="submit" class="btn btn-danger pull-right" width="250px;" value="Delete Project">
+			</form>
 		</div>
-		<!-- End SERVICE -->
 
-		<br />
-
-		<div style="width:65%;text-align:center;margin:0 auto;">
-			<input type="submit" id="saveEdit" value="Update Project" class="btn btn-success hidden" style="width:500px;">
+		<div class="tab-pane fade in active" id="notes">
+			{% for note in notes %}
+				<div class="well">
+					<form method="POST" action="/corporateNetwork/itaac/deleteNote" onsubmit='return confirm(&quot;Do you really want to delete this note?&quot;);'>
+						<input type="hidden" name="noteid" value="{{note.noteid}}">
+						<input type="hidden" name="project" value="{{project.projectid}}">
+						<input type="submit" class="close" aria-hidden="true" value="&times;">
+					</form>
+					<h4>{{note.updated}}</h4>
+					<p>{{note.content | safe}}</p>
+				</div>
+			{% endfor %}
 		</div>
-	</form>
-
-	<form action="/corporateNetwork/itaac/deleteProject" id="delete" method="POST" class="hidden" onsubmit='return confirm(&quot;Do you really want to delete this project?&quot;);'>
-		<input name="projectid" type="hidden" value="{{project.projectid}}">
-		<input type="submit" class="btn btn-danger pull-right" width="250px;" value="Delete Project">
-	</form>
+	</div>
 
 	<br />
 	<br />

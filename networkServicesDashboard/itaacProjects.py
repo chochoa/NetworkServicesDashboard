@@ -10,6 +10,7 @@ class itaacModel(Model):
         database = itaacProjects
 
 class NewProject(itaacModel):
+    timeupdated = CharField(max_length=255, null=True)
     alocation = CharField(max_length=255, null=True)
     alocationcisco = CharField(max_length=255, null=True)
     archdocumentation = CharField(max_length=255, null=True)
@@ -64,6 +65,15 @@ class NewProject(itaacModel):
 
     class Meta:
         db_table = 'newproject'
+
+class itaacNotes(itaacModel):
+    content = TextField(null=True)
+    projectid = ForeignKeyField(null=True, db_column='projectid', rel_model=NewProject)
+    noteid = PrimaryKeyField()
+    updated = DateTimeField(null=True)
+
+    class Meta:
+        db_table = 'itaacnotes'
 
 class Assignees(itaacModel):
     assigneeid = PrimaryKeyField()

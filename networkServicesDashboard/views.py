@@ -11,6 +11,11 @@ import re
 from dmzaasClients import *
 from itaacProjects import *
 
+###Note: Project Status is as follows:
+	#1: In Service
+	#2: In Progress
+	#3: Widthdrawn/Declined
+
 #############################
 #	   General functions	#
 #############################
@@ -34,10 +39,60 @@ def requires_auth(f):
 # General Application Views #
 #############################
 
+
+# Logic to create a note
+@app.route('/corporateNetwork/itaac/newNote', methods=['POST'])
+def newItaacNote():
+	project = request.form['projectid']
+	noteContent = request.form['noteContent']
+	newNote = itaacNotes.insert(projectid = project, content = noteContent)
+	updateProject = NewProject.update(timeupdated = datetime.now()).where(NewProject.projectid == project)
+	newNote.execute()
+	updateProject.execute()
+	return redirect('/corporateNetwork/itaac/project?id=' + project)
+
+@app.route('/corporateNetwork/itaac/deleteNote', methods = ['POST'])
+@requires_auth
+def deleteItaacNote():
+	noteid = request.form['noteid']
+	delete = itaacNotes.delete().where(itaacNotes.noteid == int(request.form['noteid']))
+	updateProject = NewProject.update(timeupdated = datetime.now()).where(NewProject.projectid == request.form['project'])
+	delete.execute()
+	updateProject.execute()
+	return redirect('/corporateNetwork/itaac/project?id=' + str(request.form['project']))
+
+@app.route('/corporateNetwork/itaac/pocs')
+def itaacPocs():
+	return render_template('corporateNetwork/itaac/pocs.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
+
+@app.route('/corporateNetwork/itaac/billing')
+def itaacBilling():
+	return render_template('corporateNetwork/itaac/billing.html', projects = NewProject.select().where(NewProject.servicestatus == 1))
+
+@app.route('/corporateNetwork/itaac/billing/download')
+def downloaditaacBillingReport():
+	csv = 'ProjectID, Project Name, Requestor, A Location, Z Location, Target Date, Current Status, Authoriser, Department, Cost\r\n'
+	for project in NewProject.select().where(NewProject.servicestatus == 1):
+		csv += '"' + str(project.projectid) + '","' + str(project.projectname.strip()) + '","' + str(project.requestor) + '","' + str(project.alocation.strip()) + '","' + str(project.zlocation.strip()) + '","' + str(project.targetdate.strip()) + '","' + str(project.currentstatus.strip()) + '","' + str(project.billingauth.strip()) + '","' + str(project.billingdept.strip()) + '","' + str(project.cost.strip()) + '"\r\n'
+	response = make_response(csv)
+	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_itaacBilling.csv"
+	return response
+
 @app.route('/corporateNetwork/itaac/project')
 def itaacProject():
 	projectid = request.args.get('id', '')
 	project = NewProject.get(NewProject.projectid == projectid)
+
+	try:
+		latestNote = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc()).limit(1).get()
+		latestNote.updated = (latestNote.updated).strftime("%Y-%m-%d %H:%M:%S")
+	except itaacNotes.DoesNotExist:
+		latestNote = {}
+		latestNote['content'] = "No notes found"
+
+	allNotes = itaacNotes.select().where(itaacNotes.projectid == projectid).order_by(itaacNotes.updated.desc())
+	for note in allNotes:
+		note.updated = (note.updated).strftime("%Y-%m-%d %H:%M:%S")
 
 	resourceList = {}
 	resourcetypes = []
@@ -97,7 +152,7 @@ def itaacProject():
 	else:
 		labids = ''
 
-	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes, splitcrnumbers = crnumbers, splitsecuritycases = securitycases, splitlabids = labids)
+	return render_template('/corporateNetwork/itaac/project.html', project=project, resources = resourceList, resourcetypes = resourcetypes, projectTypes = projectTypesList, circuitTypes = circuitTypesList, lineCards = LineCards.select(), locations = locationList, locationtypes = locationtypes, splitcrnumbers = crnumbers, splitsecuritycases = securitycases, splitlabids = labids, lastNote = latestNote, notes = allNotes)
 
 @app.route('/corporateNetwork/itaac/addProject')
 def itaacAddNewProject():
@@ -122,8 +177,9 @@ def itaacAddNewProject():
 @app.route('/corporateNetwork/itaac/addingProject', methods=['POST'])
 def itaacAddingNewProject():
 	newProject = NewProject.insert(
+		timeupdated = datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M"),
 		servicestatus = 2,
-		currentstatus = "Discovery: In Progress",
+		currentstatus = "New Request",
 		projectname =  request.form['projectname'],
 		requestor =  request.form['requestor'],
 		mailer =  request.form['mailer'],
@@ -176,26 +232,28 @@ def itaacEditingProject():
 
 	newservicestatus = 2
 	finalStatus = ""
-	if request.form['discoverystatus'] == "In Progress":
-		finalStatus = "Discovery: In Progress"
-	if request.form['discoverystatus'] == "Completed":
-		finalStatus = "Discovery: Completed"
-	if request.form['securitystatus'] == "In Progress":
-		finalStatus = "Security Review: In Progress"
-	if request.form['securitystatus'] == "Completed" or request.form['securitystatus'] == "Not Needed":
-		finalStatus = "Security Review: Completed"
-	if request.form['designstatus'] == "In Progress":
-		finalStatus = "Design: In Progress"
-	if request.form['designstatus'] == "Completed":
-		finalStatus = "Design: Completed"
-	if request.form['implementationstatus'] == "In Progress":
-		finalStatus = "Implementation: In Progress"
-	if request.form['implementationstatus'] == "Completed":
-		finalStatus = "Implementation: Completed"
-	if request.form['opsstatus'] == "In Progress":
-		finalStatus = "Operations: In Progress"
 	if request.form['opsstatus'] == "Completed":
 		finalStatus = "Operations: Completed"
+	elif request.form['opsstatus'] == "In Progress":
+		finalStatus = "Operations: In Progress"
+	elif request.form['implementationstatus'] == "Completed":
+		finalStatus = "Implementation: Completed"
+	elif request.form['implementationstatus'] == "In Progress":
+		finalStatus = "Implementation: In Progress"
+	elif request.form['designstatus'] == "Completed":
+		finalStatus = "Design: Completed"
+	elif request.form['designstatus'] == "In Progress":
+		finalStatus = "Design: In Progress"
+	elif request.form['securitystatus'] == "Completed" or request.form['securitystatus'] == "Not Needed":
+		finalStatus = "Security Review: Completed"
+	elif request.form['securitystatus'] == "In Progress":
+		finalStatus = "Security Review: In Progress"
+	elif request.form['discoverystatus'] == "Completed":
+		finalStatus = "Discovery: Completed"
+	elif request.form['discoverystatus'] == "In Progress":
+		finalStatus = "Discovery: In Progress"
+	else:
+		finalStatus = "New Request"
 
 	statuses = ['discoverystatus', 'securitystatus', 'designstatus', 'implementationstatus', 'opsstatus']
 	ticker = 0
@@ -210,6 +268,7 @@ def itaacEditingProject():
 		newservicestatus = 3
 
 	updatedProject = NewProject.update(
+		timeupdated = datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M"),
 		servicestatus = newservicestatus,
 		assignee = request.form['assignee'],
 		projectname = request.form['projectname'],
@@ -694,7 +753,7 @@ def dmzBillingReport():
 def downloadDMZBillingReport():
 	csv = 'SubscriberID, Lab ID, Subscriber, Location, Department ID, Department Name, Status, Go Live Date, Monthly Recovery\r\n'
 	for client in clients.select().where(clients.status == 1):
-		csv += '"' + str(client.engagementid) + '","' + str(client.labid) + '","' + str(client.subscriber) + '","' + str(client.location) + '","' + str(client.billtoid) + '","' + str(client.billtoname) + '","' + str(client.status) + '","' + str(client.golivedate) + '","' + str(client.crosscharge) + '"\r\n'
+		csv += '"' + str(client.engagementid) + '","' + str(client.labid) + '","' + str(client.subscriber.strip()) + '","' + str(client.location.strip()) + '","' + str(client.billtoid.strip()) + '","' + str(client.billtoname.strip()) + '","' + str(client.status.strip()) + '","' + str(client.golivedate.strip()) + '","' + str(client.crosscharge.strip()) + '"\r\n'
 	response = make_response(csv)
 	response.headers["Content-Disposition"] = "attatchment; filename=" + time.strftime("%d/%m/%Y") + "_dmzaasBilling.csv"
 	return response

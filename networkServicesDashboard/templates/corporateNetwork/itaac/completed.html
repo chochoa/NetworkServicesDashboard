@@ -11,7 +11,7 @@
 			});
 
 			var sortedTable = $('#dataTable').dataTable({"bPaginate":false});
-			sortedTable.fnSort([[1,'asc']]);
+			sortedTable.fnSort([[6,'desc']]);
 			var x = $('#dataTable_filter');
 			x.addClass('input-group');
 			var z = x.children(":first").children("input")
@@ -27,6 +27,7 @@
 	<ul class="nav nav-pills">
 		<li><a href="/corporateNetwork/itaac">In Progress</a></li>
 		<li class="active"><a href="/corporateNetwork/itaac/completed">Completed</a></li>
+		<li><a href="/corporateNetwork/itaac/billing">Billing</a></li>
 		<li class="pull-right"><a href="/corporateNetwork/itaac/addProject">Add New Project</a></li>
 	</ul>
 
@@ -54,7 +55,7 @@
 						<td>{{project.zlocation}}</td>
 						<td>{{project.currentstatus}}</td>
 						<td>{{project.cost}}</td>
-						<td>UPDATED</td>
+						<td>{{project.timeupdated}}</td>
 					</tr>
 				{% endfor %}
 			</tbody>

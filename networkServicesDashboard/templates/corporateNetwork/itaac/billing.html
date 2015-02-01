@@ -1,0 +1,59 @@
+{% extends "corpTemplate.html" %}
+{% block title %}Corporate Network - ITaaC{% endblock %}
+{% block head %}
+    {{super()}}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#navITaaC').attr('class', 'active');
+        });
+        </script>
+{% endblock %}
+{% block level2 %}ITaaC{% endblock %}
+{% block content %}
+    <br />
+
+    <ul class="nav nav-pills">
+      <li><a href="/corporateNetwork/itaac">In Progress</a></li>
+      <li><a href="/corporateNetwork/itaac/completed">Completed</a></li>
+      <li class="active"><a href="/corporateNetwork/itaac/billing">Billing</a></li>
+      <li class="pull-right"><a href="/corporateNetwork/itaac/addProject">Add New Project</a></li>
+
+    </ul>
+
+    <h2>Billing</h2>
+
+    <a href="billing/download" class="btn btn-success btn-lg active" role="button">Download as CSV</a>
+
+    <br /><br />
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Project Name</th>
+                <th>A Location</th>
+                <th>Z Location</th>
+                <th>Target Date</th>
+                <th>Current Status</th>
+                <th>Authoriser</th>
+                <th>Bill To Deparment</th>
+                <th>Cost ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>{{project.projectid}}</td>
+                    <td>{{project.projectname}}</td>
+                    <td>{{project.alocation}}</td>
+                    <td>{{project.zlocation}}</td>
+                    <td>{{project.targetdate}}</td>
+                    <td>In Service</td>
+                    <td>{{project.billingauth}}</td>
+                    <td>{{project.billingdept}}</td>
+                    <td>{{project.cost}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
